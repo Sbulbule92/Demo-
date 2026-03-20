@@ -1,0 +1,83 @@
+{
+  "custom": {},
+  "params": {
+    "value": {
+      "program_name": "RT23HC",
+      "serial_number": "67GHTG",
+      "work_status": 2
+    }
+  },
+  "propConfig": {
+    "params.value": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 48,
+      "width": 140
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tif str(system.tag.readBlocking(\u0027[default]Project/Simulation/Sequence\u0027)[0].value).lower() \u003c\u003e \u0027running\u0027:\n\t\tserialnumber\u003dself.view.params.value.serial_number\n\t\tprogramnumber\u003dself.view.params.value.program_name\n\t\tworkstatus\u003dself.view.params.value.work_status\n\t\tparams \u003d {\"secondaryText\":\" Are you sure you want to start this \"+serialnumber +\" job with program number \" + programnumber+ \" ?\",\"program_name\":programnumber,\"serial_number\":serialnumber,\"work_status\":workstatus}\n\t\tsystem.perspective.openPopup(\"PopUp\", view \u003d \"Project/Pop-Up/Job_start_confirm\", \n\t\t\t\t\t\t\t\t\t\t\tparams \u003d params, \n\t\t\t\t\t\t\t\t\t\t\tshowCloseIcon \u003d False,\n\t\t\t\t\t\t\t\t\t\t\tdraggable \u003d False, \n\t\t\t\t\t\t\t\t\t\t\tmodal \u003d True)\n\telse:\n\t\tparams \u003d {\"action\":\"error\", \"primaryText\": \"Error occured! Already job running!\", \"secondaryText\":\"Please cancel work in progress job from \u0027Work In Progress\u0027 screen to start a new one!\"}\n\t\tsystem.perspective.openPopup(\"PopUp\", view \u003d \"Project/Pop-Up/Pop-up\", \n\t\t\t\t\t\t\t\t\t\t\tparams \u003d params, \n\t\t\t\t\t\t\t\t\t\t\tshowCloseIcon \u003d False,\n\t\t\t\t\t\t\t\t\t\t\tdraggable \u003d False, \n\t\t\t\t\t\t\t\t\t\t\tmodal \u003d True)"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "basis": "34px",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "expression": "if({view.params.value.work_status}\u003d0,True,False)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "//if({view.params.value.work_status}\u003d0,\"START\",\"COMPLETED\")\r\ncase({view.params.value.work_status},0,\"START\",1,\"STARTED\",2,\"COMPLETED\",\"START\")"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "borderBottomLeftRadius": "10px",
+            "borderBottomRightRadius": "10px",
+            "borderTopLeftRadius": "10px",
+            "borderTopRightRadius": "10px",
+            "fontFamily": "Verdana",
+            "marginBottom": "10px",
+            "marginTop": "10px"
+          }
+        },
+        "type": "ia.input.button"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

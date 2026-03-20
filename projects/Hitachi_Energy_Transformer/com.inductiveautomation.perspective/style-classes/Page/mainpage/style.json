@@ -1,0 +1,17 @@
+{
+  "base": {
+    "style": {
+      "borderTopLeftRadius": "2px",
+      "borderTopRightRadius": "2px",
+      "borderBottomLeftRadius": "2px",
+      "borderBottomRightRadius": "2px",
+      "marginBottom": "5px",
+      "marginLeft": "10px",
+      "marginRight": "10px",
+      "marginTop": "5px",
+      "outlineColor": "#2B2B2B",
+      "outlineStyle": "solid",
+      "outlineWidth": "0.5"
+    }
+  }
+}

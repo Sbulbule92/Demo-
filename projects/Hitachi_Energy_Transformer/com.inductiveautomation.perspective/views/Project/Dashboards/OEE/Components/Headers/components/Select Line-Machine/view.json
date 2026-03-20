@@ -1,0 +1,155 @@
+{
+  "custom": {},
+  "params": {
+    "SelectedLine": 1,
+    "SelectedMachine": 2
+  },
+  "propConfig": {
+    "params.SelectedLine": {
+      "binding": {
+        "config": {
+          "path": "/root/Line Felx/Dropdown.props.value"
+        },
+        "type": "property"
+      },
+      "paramDirection": "output",
+      "persistent": true
+    },
+    "params.SelectedMachine": {
+      "binding": {
+        "config": {
+          "path": "/root/Line Felx_0/Dropdown.props.value"
+        },
+        "type": "property"
+      },
+      "paramDirection": "output",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 54,
+      "width": 426
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "props": {
+              "style": {
+                "marginRight": "5px"
+              },
+              "text": "Line:"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Dropdown"
+            },
+            "position": {
+              "grow": 1
+            },
+            "props": {
+              "options": [
+                {
+                  "label": "WOCL",
+                  "value": 1
+                }
+              ],
+              "style": {
+                "fontWeight": "bold"
+              },
+              "value": 1
+            },
+            "type": "ia.input.dropdown"
+          }
+        ],
+        "meta": {
+          "name": "Line Felx"
+        },
+        "position": {
+          "grow": 1
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "props": {
+              "style": {
+                "margin-right": "5px"
+              },
+              "text": "Machine:"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Dropdown"
+            },
+            "position": {
+              "grow": 1
+            },
+            "props": {
+              "options": [
+                {
+                  "label": "WOCL-1071",
+                  "value": 1
+                },
+                {
+                  "label": "WOCL-1072",
+                  "value": 2
+                }
+              ],
+              "style": {
+                "fontWeight": "bold"
+              },
+              "value": 2
+            },
+            "type": "ia.input.dropdown"
+          }
+        ],
+        "meta": {
+          "name": "Line Felx_0"
+        },
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "style": {
+            "marginLeft": "20px"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "backgroundColor": "--neutral-10",
+        "borderRightColor": "#808080",
+        "borderRightStyle": "solid",
+        "borderRightWidth": "3px",
+        "fontFamily": "verdana",
+        "fontSize": "18px",
+        "paddingBottom": "10px",
+        "paddingLeft": "5px",
+        "paddingRight": "5px",
+        "paddingTop": "10px",
+        "textTransform": "uppercase"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

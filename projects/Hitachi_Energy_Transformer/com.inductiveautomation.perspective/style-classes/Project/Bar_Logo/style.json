@@ -1,0 +1,20 @@
+{
+  "base": {
+    "style": {
+      "backgroundColor": "var(--neutral-100)",
+      "borderTopLeftRadius": "5px",
+      "borderTopRightRadius": "5px",
+      "borderBottomLeftRadius": "5px",
+      "borderBottomRightRadius": "5px",
+      "color": "var(--neutral-10)",
+      "fontFamily": "Verdana",
+      "fontWeight": "bold",
+      "marginBottom": "5px",
+      "marginLeft": "5px",
+      "marginRight": "5px",
+      "marginTop": "5px",
+      "paddingLeft": "5px",
+      "paddingRight": "5px"
+    }
+  }
+}

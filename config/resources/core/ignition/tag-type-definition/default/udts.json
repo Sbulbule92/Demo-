@@ -1,0 +1,1010 @@
+[
+  {
+    "name": "Project_Config",
+    "typeId": null,
+    "tagType": "UdtType",
+    "tags": [
+      {
+        "valueSource": "memory",
+        "dataType": "String",
+        "name": "PlantName",
+        "value": "Jefferson City",
+        "tagType": "AtomicTag"
+      }
+    ]
+  },
+  {
+    "name": "machineState",
+    "tagType": "UdtType",
+    "tags": [
+      {
+        "valueSource": "memory",
+        "name": "machineFaultCode",
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "memory",
+        "dataType": "Boolean",
+        "name": "machineIdle",
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "memory",
+        "dataType": "Boolean",
+        "name": "machineRunning",
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "memory",
+        "dataType": "Boolean",
+        "name": "machineStopped",
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "memory",
+        "dataType": "Float4",
+        "name": "motorRPM",
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "memory",
+        "dataType": "Boolean",
+        "name": "motorReady",
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "memory",
+        "dataType": "Boolean",
+        "name": "motorRunning",
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "memory",
+        "dataType": "Boolean",
+        "name": "motorTensionOK",
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "memory",
+        "dataType": "Float4",
+        "name": "motorTensionValue",
+        "tagType": "AtomicTag"
+      }
+    ]
+  },
+  {
+    "typeColor": -21433,
+    "name": "Machine",
+    "parameters": {
+      "PLC_Device": {
+        "dataType": "String",
+        "value": null
+      },
+      "Historian": {
+        "dataType": "String",
+        "value": "Historian"
+      },
+      "Machine_Name": {
+        "dataType": "String",
+        "value": null
+      }
+    },
+    "tagType": "UdtType",
+    "tags": [
+      {
+        "name": "Downtime",
+        "tagType": "Folder",
+        "tags": [
+          {
+            "valueSource": "memory",
+            "name": "InsertID",
+            "tagType": "AtomicTag"
+          },
+          {
+            "name": "Ideal_time",
+            "typeId": "logID",
+            "tagType": "UdtInstance"
+          },
+          {
+            "valueSource": "expr",
+            "expression": "if({[.]../MachineData/ErrorActive},if(isNull({[.]StartTime}),now(),{[.]StartTime}),null)",
+            "dataType": "DateTime",
+            "name": "StartTime",
+            "formatString": "yyyy-MM-dd h:mm:ss aa",
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "expr",
+            "eventScripts": [
+              {
+                "eventid": "valueChanged",
+                "script": "\tlogger\u003d system.util.getLogger(\"downtimeevent\")\n\tif currentValue.value \u003d\u003d 10 :\n\t\t\t#breakdown in progress\n\t\t\treasondowntime\u003d16\n\t\t\tuser\u003d\u0027System\u0027\n\t\t\tstarttime\u003dsystem.tag.readBlocking([\"[.]StartTime\"])[0].value\n\t\t\tshift\u003dsystem.tag.readBlocking([\"[~]Current_Shift/shift_ID\"])[0].value\n\t\t\tparameters \u003d { \"ReasonID\":reasondowntime, \"DowntimeStatus\":True,\"username\":user,\"StartTime\":starttime,\"ShiftID\":shift} \n\t\t\t# Run the Named Query\n\t\t\tresult\u003d system.db.runNamedQuery(\"Hitachi_Energy_Transformer\",\"downtime/insert\", parameters)\n\t\t\tlogID\u003dresult[0][\"LogID\"]\n\t\t\tsystem.tag.writeBlocking(tagPaths\u003d[\"[.]Inserted\",\"[.]InsertID\"], values\u003d[1,logID])\n\telif currentValue.value \u003d\u003d 0 and not initialChange:\n\t\t\tLogID\u003dsystem.tag.readBlocking(tagPaths\u003d[\"[.]InsertID\"])[0].value\n\t\t\tparameters \u003d {\"EndTime\":system.date.now(),\"LogID\":LogID}\n\t\t\tsystem.db.runNamedQuery(\"Hitachi_Energy_Transformer\",\"downtime/Update_downtime\", parameters)\n\t\t\tsystem.tag.writeBlocking(tagPaths\u003d[\"[.]Inserted\",\"[.]InsertID\"], values\u003d[0,0])"
+              }
+            ],
+            "expression": "if({[.]../MachineData/ErrorActive},\r\n    dateDiff(\r\n        {[.]StartTime},\r\n        now(),\r\n        \"minute\"\r\n    ),\r\n    0\r\n)\r\n",
+            "name": "ActiveTime",
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "reference",
+            "dataType": "Boolean",
+            "sourceTagPath": "[.]../MachineData/ErrorActive",
+            "name": "Active",
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "memory",
+            "dataType": "Boolean",
+            "name": "Inserted",
+            "value": false,
+            "tagType": "AtomicTag"
+          }
+        ]
+      },
+      {
+        "name": "MachineData",
+        "tagType": "Folder",
+        "tags": [
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.MachineData.ErrorActive"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "dataType": "Boolean",
+            "name": "ErrorActive",
+            "historyEnabled": true,
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.MachineData.ManualMode"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "dataType": "Boolean",
+            "name": "ManualMode",
+            "historyEnabled": true,
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.MachineData.CoilPresentSensor"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "dataType": "Boolean",
+            "name": "CoilPresentSensor",
+            "historyEnabled": true,
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.MachineData.ProductionTime"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "dataType": "Int4",
+            "name": "ProductionTime",
+            "historyEnabled": true,
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.MachineData.SecurityCageOpen"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "dataType": "Boolean",
+            "name": "SecurityCageOpen",
+            "historyEnabled": true,
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.MachineData.AutomaticMode"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "dataType": "Boolean",
+            "name": "AutomaticMode",
+            "historyEnabled": true,
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.MachineData.OperatingHour"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "dataType": "Int4",
+            "name": "OperatingHour",
+            "historyEnabled": true,
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.MachineData.SingleClipImplementatin"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "dataType": "Boolean",
+            "name": "SingleClipImplementatin",
+            "historyEnabled": true,
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.MachineData.UnitOn"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "dataType": "Boolean",
+            "name": "UnitOn",
+            "historyEnabled": true,
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.MachineData.FixCoolingChannel"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "dataType": "Boolean",
+            "name": "FixCoolingChannel",
+            "historyEnabled": true,
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.MachineData.CancelProduction"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "dataType": "Boolean",
+            "name": "CancelProduction",
+            "historyEnabled": true,
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.MachineData.ErrorCode"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "dataType": "Int8",
+            "name": "ErrorCode",
+            "historyEnabled": true,
+            "tagType": "AtomicTag"
+          }
+        ]
+      },
+      {
+        "value": {
+          "bindType": "parameter",
+          "binding": "{Machine_Name}"
+        },
+        "valueSource": "memory",
+        "valuePersistence": "None",
+        "dataType": "String",
+        "name": "Machine_Name",
+        "tagType": "AtomicTag"
+      },
+      {
+        "name": "ProductionData",
+        "tagType": "Folder",
+        "tags": [
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.InsulationWidth"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "dataType": "Int4",
+            "name": "InsulationWidth",
+            "historyEnabled": true,
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.WireFeederPosition"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "dataType": "Int4",
+            "name": "WireFeederPosition",
+            "historyEnabled": true,
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.InsulationThickness"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "dataType": "Int4",
+            "name": "InsulationThickness",
+            "historyEnabled": true,
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.TurnNumberInsulation"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "dataType": "Int4",
+            "name": "TurnNumberInsulation",
+            "historyEnabled": true,
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.WireDiameter"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "dataType": "Int4",
+            "name": "WireDiameter",
+            "historyEnabled": true,
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.InsulationDiameter"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "dataType": "Int4",
+            "name": "InsulationDiameter",
+            "historyEnabled": true,
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.InsulationFeederPosition"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "dataType": "Float4",
+            "name": "InsulationFeederPosition",
+            "historyEnabled": true,
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.TurnNumberWire"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "dataType": "Int4",
+            "name": "TurnNumberWire",
+            "historyEnabled": true,
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.TurnNumberInsulationAndWire"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "dataType": "Int4",
+            "name": "TurnNumberInsulationAndWire",
+            "historyEnabled": true,
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.WireWidth"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "dataType": "Float4",
+            "name": "WireWidth",
+            "historyEnabled": true,
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.TotalWinding"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "dataType": "Int4",
+            "name": "TotalWinding",
+            "historyEnabled": true,
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.InsulationTension"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "dataType": "Int4",
+            "name": "InsulationTension",
+            "historyEnabled": true,
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.ProductionID"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "dataType": "String",
+            "name": "ProductionID",
+            "historyEnabled": true,
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.FoilDiameter"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "dataType": "Int4",
+            "name": "FoilDiameter",
+            "historyEnabled": true,
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.WireThickness"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "dataType": "Float4",
+            "name": "WireThickness",
+            "historyEnabled": true,
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.WindingProgramEnd"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "dataType": "Boolean",
+            "name": "WindingProgramEnd",
+            "historyEnabled": true,
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.ActualTurnNumber"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "dataType": "Float4",
+            "name": "ActualTurnNumber",
+            "historyEnabled": true,
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.WindingProgramStart"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "dataType": "Boolean",
+            "name": "WindingProgramStart",
+            "historyEnabled": true,
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.ActualWinderSpeed"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "dataType": "Int4",
+            "name": "ActualWinderSpeed",
+            "historyEnabled": true,
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.Percemtage_WIP"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "dataType": "Int4",
+            "name": "Percemtage_WIP",
+            "historyEnabled": true,
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.WireTension"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "dataType": "Int4",
+            "name": "WireTension",
+            "historyEnabled": true,
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.ActualCoilDiameter"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "dataType": "Float4",
+            "name": "ActualCoilDiameter",
+            "historyEnabled": true,
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.NextStop"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "dataType": "Int4",
+            "name": "NextStop",
+            "historyEnabled": true,
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.ActualCircumference"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "dataType": "Float4",
+            "name": "ActualCircumference",
+            "historyEnabled": true,
+            "tagType": "AtomicTag"
+          }
+        ]
+      },
+      {
+        "valueSource": "memory",
+        "dataType": "Boolean",
+        "name": "Supervisor_Assistance_requested",
+        "value": false,
+        "tagType": "AtomicTag"
+      },
+      {
+        "value": {
+          "bindType": "parameter",
+          "binding": "{InstanceName}"
+        },
+        "valueSource": "memory",
+        "valuePersistence": "None",
+        "dataType": "String",
+        "name": "UDT_Name",
+        "tagType": "AtomicTag"
+      }
+    ]
+  },
+  {
+    "name": "logID",
+    "tagType": "UdtType",
+    "tags": [
+      {
+        "valueSource": "memory",
+        "dataType": "Boolean",
+        "name": "Active",
+        "value": false,
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "expr",
+        "expression": "if({[.]Active},if(isNull({[.]Start_time}),now(),{[.]Start_time}),null)\r\n",
+        "dataType": "DateTime",
+        "name": "Start_time",
+        "formatString": "yyyy-MM-dd h:mm:ss aa",
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "expr",
+        "expression": "if({[.]Active},\r\n    dateDiff(\r\n        {[.]Start_time},\r\n        now(),\r\n        \"minute\"\r\n    ),\r\n    0\r\n)\r\n",
+        "name": "duration",
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "memory",
+        "name": "logID",
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "memory",
+        "dataType": "Boolean",
+        "name": "log_Active",
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "memory",
+        "name": "setpoint",
+        "tagType": "AtomicTag"
+      }
+    ]
+  },
+  {
+    "typeColor": -16711936,
+    "name": "shift",
+    "parameters": {
+      "Database": {
+        "dataType": "String",
+        "value": null
+      }
+    },
+    "tagType": "UdtType",
+    "tags": [
+      {
+        "valueSource": "db",
+        "expression": "runNamedQuery(\"GetCurrentShift\", {})",
+        "dataType": "DataSet",
+        "datasource": "Historian",
+        "query": "SELECT TOP 1\r\n    ShiftID,\r\n    ShiftCode,\r\n    ShiftName,\r\n\r\n    -- Shift Start DateTime\r\n    CASE\r\n        -- Normal shift (same day)\r\n        WHEN StartTime \u003c EndTime THEN\r\n            CAST(CAST(GETDATE() AS date) AS datetime)\r\n            + CAST(StartTime AS datetime)\r\n\r\n        -- Overnight shift\r\n        WHEN StartTime \u003e EndTime\r\n             AND CAST(GETDATE() AS time) \u003e\u003d StartTime THEN\r\n            CAST(CAST(GETDATE() AS date) AS datetime)\r\n            + CAST(StartTime AS datetime)\r\n\r\n        -- Overnight shift (after midnight)\r\n        ELSE\r\n            CAST(DATEADD(day, -1, CAST(GETDATE() AS date)) AS datetime)\r\n            + CAST(StartTime AS datetime)\r\n    END AS ShiftStartDateTime,\r\n\r\n    -- Shift End DateTime\r\n    CASE\r\n        -- Normal shift (same day)\r\n        WHEN StartTime \u003c EndTime THEN\r\n            CAST(CAST(GETDATE() AS date) AS datetime)\r\n            + CAST(EndTime AS datetime)\r\n\r\n        -- Overnight shift\r\n        WHEN StartTime \u003e EndTime\r\n             AND CAST(GETDATE() AS time) \u003e\u003d StartTime THEN\r\n            CAST(DATEADD(day, 1, CAST(GETDATE() AS date)) AS datetime)\r\n            + CAST(EndTime AS datetime)\r\n\r\n        -- Overnight shift (after midnight)\r\n        ELSE\r\n            CAST(CAST(GETDATE() AS date) AS datetime)\r\n            + CAST(EndTime AS datetime)\r\n    END AS ShiftEndDateTime\r\n\r\nFROM dbo.tbl_Shift\r\nWHERE IsActive \u003d 1\r\nAND (\r\n        (StartTime \u003c EndTime\r\n         AND CAST(GETDATE() AS time) \u003e\u003d StartTime\r\n         AND CAST(GETDATE() AS time) \u003c EndTime)\r\n\r\n        OR\r\n\r\n        (StartTime \u003e EndTime\r\n         AND (\r\n              CAST(GETDATE() AS time) \u003e\u003d StartTime\r\n              OR CAST(GETDATE() AS time) \u003c EndTime\r\n         ))\r\n    )\r\nORDER BY ShiftID;",
+        "name": "All_in_Dataset",
+        "executionMode": "FixedRate",
+        "executionRate": 60000,
+        "queryType": "Select",
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "expr",
+        "expression": "{[.]All_in_Dataset}[\u0027ShiftEndDateTime\u0027]\r\n",
+        "dataType": "String",
+        "name": "End_time",
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "expr",
+        "expression": "{[.]All_in_Dataset}[\u0027ShiftStartDateTime\u0027]\r\n",
+        "dataType": "String",
+        "name": "Start_time",
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "expr",
+        "expression": "{[.]All_in_Dataset}[\u0027ShiftCode\u0027]\r\n",
+        "dataType": "String",
+        "name": "shift_Code",
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "expr",
+        "expression": "{[.]All_in_Dataset}[\u0027ShiftID\u0027]\r\n",
+        "dataType": "Int4",
+        "name": "shift_ID",
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "expr",
+        "expression": "{[.]All_in_Dataset}[\u0027ShiftName\u0027]\r\n",
+        "dataType": "String",
+        "name": "shift_Name",
+        "tagType": "AtomicTag"
+      }
+    ]
+  }
+]

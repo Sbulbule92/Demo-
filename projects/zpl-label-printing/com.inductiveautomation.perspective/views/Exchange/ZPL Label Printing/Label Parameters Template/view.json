@@ -1,0 +1,78 @@
+{
+  "custom": {},
+  "params": {
+    "parameterName": "[brackets]",
+    "parameterValue": "brackets"
+  },
+  "propConfig": {
+    "params.parameterName": {
+      "paramDirection": "inout",
+      "persistent": true
+    },
+    "params.parameterValue": {
+      "paramDirection": "inout",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 45,
+      "width": 280
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "LblParameterName"
+        },
+        "position": {
+          "basis": "20%",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.parameterName"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "fontSize": 12,
+            "marginRight": 10,
+            "textAlign": "right"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "TextParameterValue"
+        },
+        "position": {
+          "basis": "135px"
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.params.parameterValue"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "type": "ia.input.text-field"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.flex"
+  }
+}

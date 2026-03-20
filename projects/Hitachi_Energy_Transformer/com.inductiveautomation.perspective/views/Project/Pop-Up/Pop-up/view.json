@@ -1,0 +1,460 @@
+{
+  "custom": {
+    "primaryMessage": "Data Saved Successfulyly!",
+    "secondaryMessage": "Job data updated in Database named \u0027Historian\u0027!",
+    "styles": [
+      {
+        "SecondaryButtonTextColor": "var(--warning)",
+        "icon": "material/notifications_active",
+        "iconColor": "var(--warning)",
+        "primaryButtonColor": "var(--warning)",
+        "primaryButtonText": "Confirm"
+      }
+    ]
+  },
+  "params": {
+    "action": "Confirm",
+    "label": "Supervisor Assistance",
+    "primaryText": "Data Saved Successfulyly!",
+    "secondaryText": "Job data updated in Database named \u0027Historian\u0027!"
+  },
+  "propConfig": {
+    "custom.primaryMessage": {
+      "binding": {
+        "config": {
+          "path": "view.params.primaryText"
+        },
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.secondaryMessage": {
+      "binding": {
+        "config": {
+          "path": "view.params.secondaryText"
+        },
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.styles": {
+      "binding": {
+        "config": {
+          "path": "view.params.action"
+        },
+        "transforms": [
+          {
+            "code": "\tstyles \u003d []\n\tif str(value).lower()\u003d\u003d\"save\":\n\t\tstyle \u003d {\n\t\t\t\"icon\": \"material/save\",\n\t\t\t\"iconColor\": \"#3272d9\",\n\t\t\t\"primaryButtonText\": \"SAVE\",\n\t\t\t\"primaryButtonColor\": \"#3272d9\",\n\t\t\t\"SecondaryButtonTextColor\": \"#3272d9\"\n\t\t}\n\telif str(value).lower()\u003d\u003d\"update\":\n\t\tstyle \u003d {\n\t\t\t\"icon\": \"material/system_update_alt\",\n\t\t\t\"iconColor\": \"#3272d9\",\n\t\t\t\"primaryButtonText\": \"UPDATE\",\n\t\t\t\"primaryButtonColor\": \"#3272d9\",\n\t\t\t\"SecondaryButtonTextColor\": \"#3272d9\"\n\t\t}\n\telif str(value).lower()\u003d\u003d\"delete\":\n\t\tstyle \u003d {\n\t\t\t\"icon\": \"material/delete\",\n\t\t\t\"iconColor\": \"var(--error)\",\n\t\t\t\"primaryButtonText\": \"DELETE\",\n\t\t\t\"primaryButtonColor\": \"var(--error)\",\n\t\t\t\"SecondaryButtonTextColor\": \"var(--error)\"\n\t\t}\n\telif str(value).lower()\u003d\u003d\"success\":\n\t\tstyle \u003d {\n\t\t\t\"icon\": \"material/check_circle\",\n\t\t\t\"iconColor\": \"var(--success)\",\n\t\t\t\"primaryButtonText\": \"DONE\",\n\t\t\t\"primaryButtonColor\": \"var(--success)\",\n\t\t\t\"SecondaryButtonTextColor\": \"var(--success)\"\n\t\t}\n\telif str(value).lower()\u003d\u003d\"error\":\n\t\tstyle \u003d {\n\t\t\t\"icon\": \"material/error\",\n\t\t\t\"iconColor\": \"var(--error)\",\n\t\t\t\"primaryButtonText\": \"OK\",\n\t\t\t\"primaryButtonColor\": \"var(--error)\",\n\t\t\t\"SecondaryButtonTextColor\": \"var(--error)\"\n\t\t}\n\telif str(value).lower()\u003d\u003d\"info\":\n\t\tstyle \u003d {\n\t\t\t\"icon\": \"material/info\",\n\t\t\t\"iconColor\": \"var(--info)\",\n\t\t\t\"primaryButtonText\": \"OK\",\n\t\t\t\"primaryButtonColor\": \"var(--info)\",\n\t\t\t\"SecondaryButtonTextColor\": \"var(--info)\"\n\t\t}\n\telif str(value).lower()\u003d\u003d\"warning\":\n\t\tstyle \u003d {\n\t\t\t\"icon\": \"material/warning\",\n\t\t\t\"iconColor\": \"var(--warning)\",\n\t\t\t\"primaryButtonText\": \"OK\",\n\t\t\t\"primaryButtonColor\": \"var(--warning)\",\n\t\t\t\"SecondaryButtonTextColor\": \"var(--warning)\"\n\t\t}\n\telif str(value).lower()\u003d\u003d\"confirm\":\n\t\tstyle \u003d {\n\t\t\t\"icon\": \"material/notifications_active\",\n\t\t\t\"iconColor\": \"var(--warning)\",\n\t\t\t\"primaryButtonText\": \"Confirm\",\n\t\t\t\"primaryButtonColor\": \"var(--warning)\",\n\t\t\t\"SecondaryButtonTextColor\": \"var(--warning)\"\n\t\t}\n\telse:\n\t\tstyle \u003d {\n\t\t\t\"icon\": \"material/info\",\n\t\t\t\"iconColor\": \"var(--info)\",\n\t\t\t\"primaryButtonText\": \"OK\",\n\t\t\t\"primaryButtonColor\": \"var(--info)\",\n\t\t\t\"SecondaryButtonTextColor\": \"var(--info)\"\n\t\t}\n\tstyles.append(style)\n\treturn styles",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "params.action": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.label": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.primaryText": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.secondaryText": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 359,
+      "width": 668
+    },
+    "inputBehavior": "merge"
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Icon_0"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.color": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.styles[0].iconColor"
+                          },
+                          "type": "property"
+                        }
+                      },
+                      "props.path": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.styles[0].icon"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "marginBottom": "10px",
+                        "marginTop": "10px"
+                      }
+                    },
+                    "type": "ia.display.icon"
+                  },
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "path": "view.params.action"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "textStyle": {
+                        "alignSelf": "flex-start",
+                        "fontSize": "40px",
+                        "fontWeight": "bold",
+                        "margin-left": "10px",
+                        "textTransform": "capitalize"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer"
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\tsystem.perspective.closePopup(\u0027PopUp\u0027)"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Icon"
+                },
+                "position": {
+                  "basis": "42px"
+                },
+                "props": {
+                  "path": "material/close",
+                  "style": {
+                    "cursor": "pointer",
+                    "marginRight": "5px"
+                  }
+                },
+                "type": "ia.display.icon"
+              }
+            ],
+            "meta": {
+              "name": "Close Icon Flex"
+            },
+            "position": {
+              "basis": "70px"
+            },
+            "props": {
+              "justify": "space-between",
+              "style": {
+                "backgroundColor": "--neutral-20",
+                "borderBottomColor": "#808080",
+                "borderBottomStyle": "solid",
+                "borderBottomWidth": "1px",
+                "padding-left": "15px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.primaryMessage"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "props.textStyle.color": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.styles[0].iconColor"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "paddingTop": "10px"
+                  },
+                  "textStyle": {
+                    "fontFamily": "verdana",
+                    "fontSize": "25px",
+                    "fontWeight": "bold"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "Main Message Flex"
+            },
+            "position": {
+              "basis": "70px"
+            },
+            "props": {
+              "alignItems": "center",
+              "style": {
+                "backgroundColor": "--neutral-10",
+                "marginTop": "0px",
+                "overflow": "hidden",
+                "padding-left": "40px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "38px"
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.secondaryMessage"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "alignVertical": "top",
+                  "textStyle": {
+                    "alignSelf": "flex-start",
+                    "fontSize": "18px",
+                    "margin-left": "40px"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "Secondary Message Flex"
+            },
+            "position": {
+              "grow": 1
+            },
+            "props": {
+              "alignContent": "flex-start",
+              "alignItems": "center",
+              "direction": "column",
+              "style": {
+                "backgroundColor": "--neutral-10",
+                "fontFamily": "verdana"
+              },
+              "wrap": "wrap"
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "100px",
+          "grow": 1
+        },
+        "props": {
+          "direction": "column"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tsystem.perspective.closePopup(\u0027PopUp\u0027)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Cancle Button"
+            },
+            "position": {
+              "basis": "150px"
+            },
+            "propConfig": {
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "expression": "if(lower({view.params.action})\u003d\"success\",False,True)"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.style.borderColor": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.styles[0].primaryButtonColor"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.textStyle.color": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.styles[0].primaryButtonColor"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "primary": false,
+              "style": {
+                "borderStyle": "solid",
+                "classes": "Project/PopUp/Button"
+              },
+              "text": "Cancel"
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tserial_number \u003d system.tag.readBlocking(\u0027[default]Project/jobid\u0027)[0].value\n\tif str(self.view.params.action).lower() \u003d\u003d \"confirm\" and self.view.params.label\u003d\u003d \"Supervisor Assistance\":\n\t\tsystem.perspective.closePopup(\u0027PopUp\u0027)\n\t\tsystem.tag.writeBlocking(\u0027[default]Project/jobid\u0027, \"Not Started yet\")\n\t\tsystem.tag.writeBlocking(\u0027[default]Project/program\u0027, \"Not Started yet\")\n\t\tsystem.tag.writeBlocking(\u0027[default]Project/Cancelled\u0027, True)\n\t\tparams \u003d {\"action\": \"success\", \"primaryText\": \"Supervisor notified successfully!\", \"secondaryText\":\" \"}\n\t\tsystem.perspective.openPopup(\"PopUp\", view \u003d \"Project/Pop-Up/Pop-up\", \n\t\t\t\t\t\t\t\t\t\tparams \u003d params, \n\t\t\t\t\t\t\t\t\t\tshowCloseIcon \u003d False,\n\t\t\t\t\t\t\t\t\t\tdraggable \u003d False, \n\t\t\t\t\t\t\t\t\t\tmodal \u003d True)\n\t\ttagpath\u003d[\u0027[default]WOCL_1/Supervisor_Assistance_requested\u0027]\n\t\tsystem.tag.writeBlocking(tagpath,[1])\n\t\t\n\t\t\n\t\t# \u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\t\t# \tOn work in progress if user confirm for cancel the jo then this script will execute.\n\t\t# \u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\t\tif self.page.props.path \u003d\u003d \u0027/wip\u0027:\n\t\t\t#\tparam \u003d {\"serial_number\": serial_number}\n\t\t\t#\tval \u003d system.db.execQuery(\u0027OEE_Dashboard/Cancelled\u0027, parameters\u003dparam)\n\t\t\tquery \u003d \"\"\"\n\t\t\tUPDATE TankPrograms\n\t\t\tSET work_status \u003d 0\n\t\t\tWHERE serial_number\u003d ?\n\t\t\t\"\"\"\n\t\t\tsystem.perspective.print(serial_number)\n\t\t\tresult \u003d system.db.runPrepUpdate(\n\t\t\t    query,\n\t\t\t    [serial_number],\n\t\t\t    \"Historian\"\n\t\t\t)\n\t\t\tif result:\n\t\t\t\tsystem.tag.writeBlocking(\u0027[default]Project/Simulation/Abort\u0027, True)\n\t\t#\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003dEND\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\telif self.view.params.label \u003d\u003d\"Lunch Break\": \n\t\tshift\u003dsystem.tag.readBlocking(\"[default]Current_Shift/shift_ID\")[0].value\n\t\tparameters \u003d { \"ReasonID\":30, \"DowntimeStatus\":True,\"username\":self.session.props.auth.user.userName,\"StartTime\":system.date.now(),\"ShiftID\":shift} \n\t\tsystem.db.runNamedQuery(\"downtime/insert\", parameters)\n\t\tsystem.perspective.logout()\n\telif self.view.params.label \u003d\u003d\"Break\":\n\t\tshift\u003dsystem.tag.readBlocking(\"[default]Current_Shift/shift_ID\")[0].value\n\t\tparameters \u003d { \"ReasonID\":29, \"DowntimeStatus\":True,\"username\":self.session.props.auth.user.userName,\"StartTime\":system.date.now(),\"ShiftID\":shift} \n\t\t\t# Run the Named Query\n\t\tsystem.db.runNamedQuery(\"downtime/insert\", parameters)\n\t\tsystem.perspective.logout()\n\telif self.view.params.label \u003d\u003d \"manual downtime\" and str(self.view.params.action).lower() \u003d\u003d \"success\" :\n\t\tsystem.perspective.closePopup(\u0027PopUp\u0027)\n\t\tsystem.perspective.navigate(page\u003d\"/home\")\n\telse:\n\t\tsystem.perspective.closePopup(\u0027PopUp\u0027)\n\t\t#pass"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Accept Button"
+            },
+            "position": {
+              "basis": "150px"
+            },
+            "propConfig": {
+              "props.style.backgroundColor": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.styles[0].primaryButtonColor"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.styles[0].primaryButtonText"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "Project/PopUp/Button",
+                "marginLeft": "15px",
+                "marginRight": "10px"
+              }
+            },
+            "type": "ia.input.button"
+          }
+        ],
+        "meta": {
+          "name": "Button Flex"
+        },
+        "position": {
+          "basis": "80px"
+        },
+        "props": {
+          "justify": "flex-end",
+          "style": {
+            "background-color": "var(--neutral-20)",
+            "borderTopColor": "#808080",
+            "borderTopStyle": "solid",
+            "borderTopWidth": "1px"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "props.style.borderTopColor": {
+        "binding": {
+          "config": {
+            "path": "view.custom.styles[0].iconColor"
+          },
+          "type": "property"
+        }
+      }
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "backgroundColor": "--neutral-0",
+        "borderBottomLeftRadius": "10px",
+        "borderBottomRightRadius": "10px",
+        "borderTopLeftRadius": "10px",
+        "borderTopRightRadius": "10px",
+        "borderTopStyle": "solid",
+        "borderTopWidth": "4px",
+        "classes": "box-shadow"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

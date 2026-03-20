@@ -1,0 +1,19 @@
+{
+  "profile": {
+    "type": "internal"
+  },
+  "settings": {
+    "secrets": {
+      "Ignition Dev": {
+        "ciphertext": {
+          "ciphertext": "45d968FFX4u-EksSB-Gp",
+          "encrypted_key": "RoyOGOVMqs_--ntCToRZ7kl4C8UPB3AVj9EeMAn-gjY_v36FHw9FzQ",
+          "iv": "GdoVp6ZWqBDuS-qQ",
+          "protected": "eyJhbGciOiJBMjU2S1ciLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNzcwMDQ1NDI0LCJ6aXAiOiJERUYifQ",
+          "tag": "d3pVZQl9xO7x_pz4QRbjhw"
+        },
+        "description": ""
+      }
+    }
+  }
+}

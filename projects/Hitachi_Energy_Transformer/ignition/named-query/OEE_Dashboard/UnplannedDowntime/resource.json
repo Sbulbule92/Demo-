@@ -1,0 +1,50 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "Query",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "Historian",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "10a0f1667ea591e7718e37b9ce2d56515bee6238b33dfc4be59065890198c199",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "shiva",
+      "timestamp": "2026-01-16T07:52:38Z"
+    },
+    "parameters": [
+      {
+        "type": "Parameter",
+        "identifier": "ShiftID",
+        "sqlType": 3
+      },
+      {
+        "type": "Parameter",
+        "identifier": "Day",
+        "sqlType": 8
+      },
+      {
+        "type": "Parameter",
+        "identifier": "MachineID",
+        "sqlType": 3
+      }
+    ]
+  }
+}

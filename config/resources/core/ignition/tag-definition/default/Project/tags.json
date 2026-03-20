@@ -1,0 +1,35 @@
+[
+  {
+    "valueSource": "memory",
+    "dataType": "String",
+    "name": "StartedTime",
+    "formatString": "#,##0.##",
+    "tagType": "AtomicTag"
+  },
+  {
+    "valueSource": "memory",
+    "eventScripts": [
+      {
+        "eventid": "valueChanged",
+        "script": "\tif currentValue.value !\u003d previousValue.value:\n\t\tif currentValue.value \u003d\u003d \"Not Started yet\":\n\t\t\tsystem.tag.writeBlocking(\u0027[default]Project/StartedTime\u0027, \"\")\n\t\telse:\n\t\t\tsystem.tag.writeBlocking(\u0027[default]Project/StartedTime\u0027, str(system.date.now()))"
+      }
+    ],
+    "dataType": "String",
+    "name": "jobid",
+    "defaultValue": "",
+    "tagType": "AtomicTag"
+  },
+  {
+    "valueSource": "memory",
+    "dataType": "String",
+    "name": "program",
+    "tagType": "AtomicTag"
+  },
+  {
+    "valueSource": "memory",
+    "dataType": "Boolean",
+    "name": "Cancelled",
+    "defaultValue": false,
+    "tagType": "AtomicTag"
+  }
+]

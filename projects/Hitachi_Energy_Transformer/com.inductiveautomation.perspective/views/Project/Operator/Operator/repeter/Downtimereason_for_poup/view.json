@@ -1,0 +1,80 @@
+{
+  "custom": {},
+  "params": {
+    "ReasonID": "value",
+    "ReasonName": "breakdown",
+    "logID": 1
+  },
+  "propConfig": {
+    "params.ReasonID": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.ReasonName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.logID": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 60,
+      "width": 200
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tselectedReasonID\u003dself.view.params.ReasonID\n\tselectedReasonName\u003dself.view.params.ReasonName\n\tlogID\u003dself.view.params.logID\n\tparams\u003d{\"reasonID\":selectedReasonID,\"reasonValue\":selectedReasonName,\"logID\":logID}\n\tsystem.perspective.closePopup(id\u003d \u002710UI\u0027)\n#\tsystem.perspective.navigate(page\u003d\"/op_downtime_confirm\", params\u003dparams)\n\n\t#params\u003d{\"jobid\":serial_number,\"program\":program_name}\n#\tif selectedReasonID !\u003d36 : \n\t\t#system.perspective.navigate(view\u003d\u0027Operator/downtime_confirm\u0027, params\u003dparams)\n\tsystem.perspective.openPopup(\"PopUp\", view \u003d \"Operator/downtime_entry_confirm\", \n\t\t\t\t\t\t\t\t\t\tparams \u003d params, \n\t\t\t\t\t\t\t\t\t\tshowCloseIcon \u003d False,\n\t\t\t\t\t\t\t\t\t\tdraggable \u003d False, \n\t\t\t\t\t\t\t\t\t\tmodal \u003d True)\t\n\t\n#\telse:\n#\t\tsystem.perspective.navigate(view\u003d\u0027Operator/other_downtime_confirm\u0027, params\u003dparams)\n#\t#system.perspective.navigate(page\u003d\"/op_downtime_confirm\")\n"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "basis": "34px",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.ReasonName"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "button",
+            "margin": "5px"
+          },
+          "textStyle": {
+            "fontFamily": "Verdana",
+            "fontSize": "20px"
+          }
+        },
+        "type": "ia.input.button"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

@@ -1,0 +1,708 @@
+{
+  "custom": {
+    "jobid": "value",
+    "program": "value"
+  },
+  "params": {
+    "Machine": "",
+    "jobid": "JC#12345671-1",
+    "program": "AWHD-15795",
+    "workstatus": "value"
+  },
+  "propConfig": {
+    "custom.jobid": {
+      "persistent": true
+    },
+    "custom.program": {
+      "persistent": true
+    },
+    "params.Machine": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.jobid": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.program": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.workstatus": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 790,
+      "width": 1132
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "jobid"
+                        },
+                        "props": {
+                          "text": "Job ID:",
+                          "textStyle": {
+                            "classes": "heading",
+                            "fontFamily": "Verdana",
+                            "fontSize": "22px",
+                            "fontWeight": "bold"
+                          }
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "meta": {
+                          "name": "jobid_0"
+                        },
+                        "position": {
+                          "grow": 1
+                        },
+                        "propConfig": {
+                          "props.text": {
+                            "binding": {
+                              "config": {
+                                "fallbackDelay": 2.5,
+                                "mode": "direct",
+                                "tagPath": "[default]Project/jobid"
+                              },
+                              "type": "tag"
+                            }
+                          }
+                        },
+                        "props": {
+                          "style": {
+                            "classes": "component/basic",
+                            "marginLeft": "10px"
+                          },
+                          "textStyle": {
+                            "fontFamily": "Verdana",
+                            "fontSize": "22px",
+                            "textDecoration": "underline"
+                          }
+                        },
+                        "type": "ia.display.label"
+                      }
+                    ],
+                    "meta": {
+                      "name": "FlexContainer"
+                    },
+                    "position": {
+                      "basis": "200px"
+                    },
+                    "type": "ia.container.flex"
+                  },
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "program"
+                        },
+                        "props": {
+                          "text": "Program:",
+                          "textStyle": {
+                            "alignSelf": "flex-end",
+                            "classes": "heading",
+                            "fontFamily": "Verdana",
+                            "fontSize": "22px",
+                            "fontWeight": "bold"
+                          }
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "meta": {
+                          "name": "program_0"
+                        },
+                        "position": {
+                          "grow": 1
+                        },
+                        "propConfig": {
+                          "props.text": {
+                            "binding": {
+                              "config": {
+                                "fallbackDelay": 2.5,
+                                "mode": "direct",
+                                "tagPath": "[default]Project/program"
+                              },
+                              "type": "tag"
+                            }
+                          }
+                        },
+                        "props": {
+                          "style": {
+                            "classes": "component/basic"
+                          },
+                          "textStyle": {
+                            "alignSelf": "flex-start",
+                            "classes": "heading",
+                            "fontFamily": "Verdana",
+                            "fontSize": "22px",
+                            "textDecoration": "underline"
+                          }
+                        },
+                        "type": "ia.display.label"
+                      }
+                    ],
+                    "meta": {
+                      "name": "FlexContainer_0"
+                    },
+                    "position": {
+                      "basis": "200px"
+                    },
+                    "type": "ia.container.flex"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer"
+                },
+                "position": {
+                  "basis": "200px",
+                  "grow": 1
+                },
+                "props": {
+                  "direction": "column"
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "Label"
+                        },
+                        "props": {
+                          "text": "Started Time:",
+                          "textStyle": {
+                            "fontFamily": "Verdana",
+                            "fontSize": "22px",
+                            "fontWeight": "bold"
+                          }
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "meta": {
+                          "name": "Label_0"
+                        },
+                        "propConfig": {
+                          "props.text": {
+                            "binding": {
+                              "config": {
+                                "expression": "{[default]Project/StartedTime}"
+                              },
+                              "transforms": [
+                                {
+                                  "code": "\ttry:\n\t\tdform \u003d system.date.parse(value, \"EEE MMM dd HH:mm:ss zzz yyyy\") \n\t\treturn system.date.format(dform, \"HH:mm:ss\") if len(value)\u003e4 else \"00:00:00\"\n\texcept:\n\t\treturn \"NA\"\n\t\tpass",
+                                  "type": "script"
+                                }
+                              ],
+                              "type": "expr"
+                            }
+                          }
+                        },
+                        "props": {
+                          "style": {
+                            "marginLeft": "10px"
+                          },
+                          "textStyle": {
+                            "fontFamily": "Verdana",
+                            "fontSize": "22px",
+                            "textDecoration": "underline"
+                          }
+                        },
+                        "type": "ia.display.label"
+                      }
+                    ],
+                    "meta": {
+                      "name": "FlexContainer"
+                    },
+                    "position": {
+                      "basis": "200px"
+                    },
+                    "props": {
+                      "justify": "flex-end",
+                      "style": {
+                        "marginRight": "10px"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  },
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "Label"
+                        },
+                        "props": {
+                          "text": "Elapsed Time:",
+                          "textStyle": {
+                            "fontFamily": "Verdana",
+                            "fontSize": "22px",
+                            "fontWeight": "bold",
+                            "marginLeft": "34px"
+                          }
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "meta": {
+                          "name": "Label_0"
+                        },
+                        "propConfig": {
+                          "props.text": {
+                            "binding": {
+                              "config": {
+                                "fallbackDelay": 2.5,
+                                "mode": "direct",
+                                "tagPath": "[default]Project/Simulation/loopValue"
+                              },
+                              "transforms": [
+                                {
+                                  "expression": "toStr(toInteger({value}/60)) + \u0027:\u0027 + toStr(toInteger({value}%60)) + \u0027 Min\u0027",
+                                  "type": "expression"
+                                }
+                              ],
+                              "type": "tag"
+                            }
+                          }
+                        },
+                        "props": {
+                          "style": {
+                            "marginLeft": "10px"
+                          },
+                          "textStyle": {
+                            "fontFamily": "Verdana",
+                            "fontSize": "22px",
+                            "textDecoration": "underline"
+                          }
+                        },
+                        "type": "ia.display.label"
+                      }
+                    ],
+                    "meta": {
+                      "name": "FlexContainer_0"
+                    },
+                    "position": {
+                      "basis": "200px",
+                      "display": false
+                    },
+                    "props": {
+                      "justify": "flex-end",
+                      "style": {
+                        "marginRight": "10px"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer_0"
+                },
+                "position": {
+                  "basis": "200px",
+                  "grow": 1
+                },
+                "props": {
+                  "direction": "column"
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer"
+            },
+            "position": {
+              "basis": "80px"
+            },
+            "props": {
+              "justify": "flex-end",
+              "style": {
+                "backgroundColor": "--neutral-30"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "fallbackDelay": 2.5,
+                            "mode": "direct",
+                            "tagPath": "[default]Project/Simulation/Job_status"
+                          },
+                          "transforms": [
+                            {
+                              "fallback": "Job Not Started",
+                              "inputType": "scalar",
+                              "mappings": [
+                                {
+                                  "input": "Running",
+                                  "output": "Work In Progress"
+                                }
+                              ],
+                              "outputType": "scalar",
+                              "type": "map"
+                            }
+                          ],
+                          "type": "tag"
+                        }
+                      }
+                    },
+                    "props": {
+                      "textStyle": {
+                        "classes": "heading",
+                        "fontSize": "55px",
+                        "fontWeight": "bold",
+                        "margin-left": "30px",
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer"
+                },
+                "position": {
+                  "basis": "340px",
+                  "grow": 1
+                },
+                "props": {
+                  "alignItems": "center",
+                  "direction": "column",
+                  "justify": "center"
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "SimpleGauge"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.arc.color": {
+                        "binding": {
+                          "config": {
+                            "path": "this.props.value"
+                          },
+                          "transforms": [
+                            {
+                              "fallback": "#de1b1b",
+                              "inputType": "range",
+                              "mappings": [
+                                {
+                                  "input": {
+                                    "max": 40,
+                                    "min": 0
+                                  },
+                                  "output": "#de1b1b"
+                                },
+                                {
+                                  "input": {
+                                    "max": 70,
+                                    "min": 41
+                                  },
+                                  "output": "#cf7911"
+                                },
+                                {
+                                  "input": {
+                                    "max": 100,
+                                    "min": 71
+                                  },
+                                  "output": "#038537"
+                                }
+                              ],
+                              "outputType": "scalar",
+                              "type": "map"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      },
+                      "props.label.color": {
+                        "binding": {
+                          "config": {
+                            "path": "this.props.value"
+                          },
+                          "enabled": false,
+                          "transforms": [
+                            {
+                              "fallback": "#de1b1b",
+                              "inputType": "range",
+                              "mappings": [
+                                {
+                                  "input": {
+                                    "max": 40,
+                                    "min": 0
+                                  },
+                                  "output": "#de1b1b"
+                                },
+                                {
+                                  "input": {
+                                    "max": 70,
+                                    "min": 41
+                                  },
+                                  "output": "#cf7911"
+                                },
+                                {
+                                  "input": {
+                                    "max": 100,
+                                    "min": 71
+                                  },
+                                  "output": "#038537"
+                                }
+                              ],
+                              "outputType": "scalar",
+                              "type": "map"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      },
+                      "props.value": {
+                        "binding": {
+                          "config": {
+                            "fallbackDelay": 2.5,
+                            "mode": "direct",
+                            "tagPath": "[default]Project/Simulation/Percentage.value"
+                          },
+                          "type": "tag"
+                        }
+                      }
+                    },
+                    "props": {
+                      "arc": {
+                        "width": 40
+                      },
+                      "endAngle": 520,
+                      "label": {
+                        "color": "#555555",
+                        "offsetX": 20,
+                        "offsetY": 55,
+                        "size": 80,
+                        "units": "%"
+                      }
+                    },
+                    "type": "ia.chart.simple-gauge"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer_0"
+                },
+                "position": {
+                  "basis": "300px",
+                  "grow": 1
+                },
+                "props": {
+                  "style": {
+                    "overflow": "hidden"
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_0"
+            },
+            "position": {
+              "basis": "500px",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "backgroundColor": "--neutral-20",
+                "overflow": "hidden"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\tparams \u003d {\t\"action\": \"confirm\",\n\t\t\t\t\"primaryText\": \"Do you really want to cancel this running job?\",\n\t\t\t\t\"secondaryText\":\" Supervisor should be notified about the cancellation, Please confirm to proceed.\",\"label\":\"Supervisor Assistance\"}\n\tsystem.perspective.openPopup(\"PopUp\", view \u003d \"Project/Pop-Up/Pop-up\", \n\t\t\t\t\t\t\t\t\t\tparams \u003d params, \n\t\t\t\t\t\t\t\t\t\tshowCloseIcon \u003d False,\n\t\t\t\t\t\t\t\t\t\tdraggable \u003d False, \n\t\t\t\t\t\t\t\t\t\tmodal \u003d True)"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Button_0"
+                },
+                "position": {
+                  "basis": "25%"
+                },
+                "props": {
+                  "image": {
+                    "height": 36,
+                    "width": 36
+                  },
+                  "style": {
+                    "backgroundColor": "transparent",
+                    "borderColor": "--error",
+                    "borderStyle": "solid",
+                    "borderWidth": "2px",
+                    "classes": "button_popup",
+                    "marginLeft": "0px"
+                  },
+                  "text": "Cancel",
+                  "textStyle": {
+                    "color": "--error",
+                    "fontSize": "32px"
+                  }
+                },
+                "type": "ia.input.button"
+              },
+              {
+                "meta": {
+                  "name": "Label",
+                  "visible": false
+                },
+                "position": {
+                  "basis": "50px",
+                  "display": false,
+                  "grow": 1
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\tprogramid\u003dself.view.params.program\n\tserialnumber\u003dself.view.params.jobid\n\tworkstatus\u003dself.view.params.workstatus\n#\tmachine\u003dself.view.params.Machine\n#\tparams\u003d{\"serial_number\":serialnumber,\"program_name\":programid}\n#\tsystem.db.runNamedQuery(path\u003d\"Job_board/update_workcomplted\", parameters\u003dparams)\n#\tsystem.perspective.navigate(url\u003d\"http://localhost:8088/data/perspective/client/Hitachi_Energy_Transformer/opr_job_board\")\n\tparams \u003d {\t\"action\": \"confirm\",\n\t\t\t\t\"secondaryText\":\"Do you really want to Completed the Job!\",\"program_name\":programid,\"serial_number\":serialnumber,\"work_status\":workstatus}\n\tsystem.perspective.openPopup(\"PopUp\", view \u003d \"Project/Pop-Up/Job_start_confirm\", \n\t\t\t\t\t\t\t\t\t\tparams \u003d params, \n\t\t\t\t\t\t\t\t\t\tshowCloseIcon \u003d False,\n\t\t\t\t\t\t\t\t\t\tdraggable \u003d False, \n\t\t\t\t\t\t\t\t\t\tmodal \u003d True)\n#\tserialnumber\u003dself.view.params.value.serial_number\n#\tprogramnumber\u003dself.view.params.value.program_name\n#\tworkstatus\u003dself.view.params.value.work_status\n#\tparams \u003d {\"secondaryText\":\" Are you sure you want to start this \"+serialnumber +\" job with program number \" + programnumber+ \" ?\",\"program_name\":programnumber,\"serial_number\":serialnumber,\"work_status\":workstatus}\n#\tsystem.perspective.openPopup(\"PopUp\", view \u003d \"Project/Pop-Up/Job_start_confirm\", \n#\t\t\t\t\t\t\t\t\t\tparams \u003d params, \n#\t\t\t\t\t\t\t\t\t\tshowCloseIcon \u003d False,\n#\t\t\t\t\t\t\t\t\t\tdraggable \u003d False, \n#\t\t\t\t\t\t\t\t\t\tmodal \u003d True)\t\t\t\t\t\t\t\t\t"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Button"
+                },
+                "position": {
+                  "basis": "25%"
+                },
+                "propConfig": {
+                  "props.enabled": {
+                    "binding": {
+                      "config": {
+                        "expression": "if({[default]Project/Simulation/Percentage}\u003d100,True,False)"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "image": {
+                    "height": 36,
+                    "width": 36
+                  },
+                  "style": {
+                    "backgroundColor": "--success",
+                    "borderColor": "#FFFFFF",
+                    "borderStyle": "solid",
+                    "borderWidth": "2px",
+                    "classes": "button_popup",
+                    "marginRight": "0px"
+                  },
+                  "text": "Job Complete",
+                  "textStyle": {
+                    "fontSize": "32px"
+                  }
+                },
+                "type": "ia.input.button"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_1"
+            },
+            "position": {
+              "basis": "80px"
+            },
+            "props": {
+              "justify": "space-around",
+              "style": {
+                "backgroundColor": "transparent",
+                "marginTop": "30px"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "1289px"
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "borderBottomLeftRadius": "20px",
+            "borderBottomRightRadius": "20p",
+            "borderTopLeftRadius": "20px",
+            "borderTopRightRadius": "20px"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "alignItems": "center",
+      "justify": "center"
+    },
+    "scripts": {
+      "customMethods": [],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "startJob",
+          "pageScope": true,
+          "script": "\t# implement your handler here\n\tsystem.perspective.print(payload)\n\tself.view.custom.jobid \u003d payload[\u0027jobid\u0027]\n\tself.view.custom.program \u003d payload[\u0027program\u0027]",
+          "sessionScope": false,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.flex"
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 900,
+      "width": 260
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Accordion"
+        },
+        "position": {
+          "grow": 1,
+          "shrink": 0
+        },
+        "props": {
+          "items": [
+            {
+              "body": {
+                "height": "auto",
+                "style": {
+                  "classes": "framework/sidebar-items\ndowntime",
+                  "margin": 0
+                },
+                "useDefaultViewHeight": true,
+                "useDefaultViewWidth": false,
+                "viewParams": {},
+                "viewPath": "Project/Navigation/Menu Bar/Nav/Operator"
+              },
+              "expanded": true,
+              "header": {
+                "content": {
+                  "style": {
+                    "classes": "Project/Menu_Accordian/Single_Menu_Content"
+                  },
+                  "text": "Operator",
+                  "type": "text",
+                  "useDefaultViewHeight": false,
+                  "useDefaultViewWidth": false,
+                  "viewParams": {},
+                  "viewPath": ""
+                },
+                "height": "40px",
+                "reverse": false,
+                "style": {
+                  "classes": "Project/Menu_Accordian/Menu_Header"
+                },
+                "toggle": {
+                  "collapsedIcon": {
+                    "color": "",
+                    "path": "material/expand_more",
+                    "style": {
+                      "classes": ""
+                    }
+                  },
+                  "enabled": true,
+                  "expandedIcon": {
+                    "color": "",
+                    "path": "material/expand_less",
+                    "style": {
+                      "classes": ""
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "body": {
+                "height": "auto",
+                "style": {
+                  "classes": "",
+                  "margin": 0
+                },
+                "useDefaultViewHeight": true,
+                "useDefaultViewWidth": false,
+                "viewParams": {},
+                "viewPath": "Project/Navigation/Menu Bar/Nav/Supervisor"
+              },
+              "expanded": true,
+              "header": {
+                "content": {
+                  "style": {
+                    "classes": "Project/Menu_Accordian/Single_Menu_Content"
+                  },
+                  "text": "Supervisor",
+                  "type": "text",
+                  "useDefaultViewHeight": false,
+                  "useDefaultViewWidth": false,
+                  "viewParams": {},
+                  "viewPath": ""
+                },
+                "height": "40px",
+                "reverse": false,
+                "style": {
+                  "classes": "Project/Menu_Accordian/Menu_Header"
+                },
+                "toggle": {
+                  "collapsedIcon": {
+                    "color": "",
+                    "path": "material/expand_more",
+                    "style": {
+                      "classes": ""
+                    }
+                  },
+                  "enabled": true,
+                  "expandedIcon": {
+                    "color": "",
+                    "path": "material/expand_less",
+                    "style": {
+                      "classes": ""
+                    }
+                  }
+                }
+              }
+            }
+          ],
+          "style": {
+            "borderBottom": "none",
+            "borderTop": "none"
+          }
+        },
+        "type": "ia.display.accordion"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "classes": "Project/Bar_background"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

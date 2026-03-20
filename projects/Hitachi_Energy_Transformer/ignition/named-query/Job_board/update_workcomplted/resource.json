@@ -1,0 +1,45 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "UpdateQuery",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "Historian",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "60530ced3188c46dddf79c9ac49cc0ea2ed888a467d7af4b2af509c2cb3cfaaf",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "shiva",
+      "timestamp": "2026-01-15T13:38:46Z"
+    },
+    "parameters": [
+      {
+        "type": "Parameter",
+        "identifier": "serial_number",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "program_name",
+        "sqlType": 7
+      }
+    ]
+  }
+}

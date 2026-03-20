@@ -1,0 +1,418 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 1041,
+      "width": 1265
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "FlexRepeater"
+        },
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "alignItems": "flex-start",
+          "instances": [
+            {
+              "instancePosition": {},
+              "instanceStyle": {
+                "classes": ""
+              },
+              "kips": [
+                {
+                  "title": "Performance",
+                  "value": 96
+                },
+                {
+                  "title": "Availability",
+                  "value": 90
+                },
+                {
+                  "title": "Availability",
+                  "value": 90
+                },
+                {
+                  "title": "Availability",
+                  "value": 90
+                }
+              ],
+              "opr_name": "value"
+            },
+            {
+              "instancePosition": {},
+              "instanceStyle": {
+                "classes": ""
+              },
+              "kips": [
+                {
+                  "title": "Performance",
+                  "value": 96
+                },
+                {
+                  "title": "Availability",
+                  "value": 90
+                },
+                {
+                  "title": "Availability",
+                  "value": 90
+                },
+                {
+                  "title": "Availability",
+                  "value": 90
+                }
+              ],
+              "opr_name": "value"
+            },
+            {
+              "instancePosition": {},
+              "instanceStyle": {
+                "classes": ""
+              },
+              "kips": [
+                {
+                  "title": "Performance",
+                  "value": 96
+                },
+                {
+                  "title": "Availability",
+                  "value": 90
+                },
+                {
+                  "title": "Availability",
+                  "value": 90
+                },
+                {
+                  "title": "Availability",
+                  "value": 90
+                }
+              ],
+              "opr_name": "value"
+            },
+            {
+              "instancePosition": {},
+              "instanceStyle": {
+                "classes": ""
+              },
+              "kips": [
+                {
+                  "title": "Performance",
+                  "value": 96
+                },
+                {
+                  "title": "Availability",
+                  "value": 90
+                },
+                {
+                  "title": "Availability",
+                  "value": 90
+                },
+                {
+                  "title": "Availability",
+                  "value": 90
+                }
+              ],
+              "opr_name": "value"
+            },
+            {
+              "instancePosition": {},
+              "instanceStyle": {
+                "classes": ""
+              },
+              "kips": [
+                {
+                  "title": "Performance",
+                  "value": 96
+                },
+                {
+                  "title": "Availability",
+                  "value": 90
+                },
+                {
+                  "title": "Availability",
+                  "value": 90
+                },
+                {
+                  "title": "Availability",
+                  "value": 90
+                }
+              ],
+              "opr_name": "value"
+            },
+            {
+              "instancePosition": {},
+              "instanceStyle": {
+                "classes": ""
+              },
+              "kips": [
+                {
+                  "title": "Performance",
+                  "value": 96
+                },
+                {
+                  "title": "Availability",
+                  "value": 90
+                },
+                {
+                  "title": "Availability",
+                  "value": 90
+                },
+                {
+                  "title": "Availability",
+                  "value": 90
+                }
+              ],
+              "opr_name": "value"
+            },
+            {
+              "instancePosition": {},
+              "instanceStyle": {
+                "classes": ""
+              },
+              "kips": [
+                {
+                  "title": "Performance",
+                  "value": 96
+                },
+                {
+                  "title": "Availability",
+                  "value": 90
+                },
+                {
+                  "title": "Availability",
+                  "value": 90
+                },
+                {
+                  "title": "Availability",
+                  "value": 90
+                }
+              ],
+              "opr_name": "value"
+            },
+            {
+              "instancePosition": {},
+              "instanceStyle": {
+                "classes": ""
+              },
+              "kips": [
+                {
+                  "title": "Performance",
+                  "value": 96
+                },
+                {
+                  "title": "Availability",
+                  "value": 90
+                },
+                {
+                  "title": "Availability",
+                  "value": 90
+                },
+                {
+                  "title": "Availability",
+                  "value": 90
+                }
+              ],
+              "opr_name": "value"
+            },
+            {
+              "instancePosition": {},
+              "instanceStyle": {
+                "classes": ""
+              },
+              "kips": [
+                {
+                  "title": "Performance",
+                  "value": 96
+                },
+                {
+                  "title": "Availability",
+                  "value": 90
+                },
+                {
+                  "title": "Availability",
+                  "value": 90
+                },
+                {
+                  "title": "Availability",
+                  "value": 90
+                }
+              ],
+              "opr_name": "value"
+            },
+            {
+              "instancePosition": {},
+              "instanceStyle": {
+                "classes": ""
+              },
+              "kips": [
+                {
+                  "title": "Performance",
+                  "value": 96
+                },
+                {
+                  "title": "Availability",
+                  "value": 90
+                },
+                {
+                  "title": "Availability",
+                  "value": 90
+                },
+                {
+                  "title": "Availability",
+                  "value": 90
+                }
+              ],
+              "opr_name": "value"
+            },
+            {
+              "instancePosition": {},
+              "instanceStyle": {
+                "classes": ""
+              },
+              "kips": [
+                {
+                  "title": "Performance",
+                  "value": 96
+                },
+                {
+                  "title": "Availability",
+                  "value": 90
+                },
+                {
+                  "title": "Availability",
+                  "value": 90
+                },
+                {
+                  "title": "Availability",
+                  "value": 90
+                }
+              ],
+              "opr_name": "value"
+            },
+            {
+              "instancePosition": {},
+              "instanceStyle": {
+                "classes": ""
+              },
+              "kips": [
+                {
+                  "title": "Performance",
+                  "value": 96
+                },
+                {
+                  "title": "Availability",
+                  "value": 90
+                },
+                {
+                  "title": "Availability",
+                  "value": 90
+                },
+                {
+                  "title": "Availability",
+                  "value": 90
+                }
+              ],
+              "opr_name": "value"
+            },
+            {
+              "instancePosition": {},
+              "instanceStyle": {
+                "classes": ""
+              },
+              "kips": [
+                {
+                  "title": "Performance",
+                  "value": 96
+                },
+                {
+                  "title": "Availability",
+                  "value": 90
+                },
+                {
+                  "title": "Availability",
+                  "value": 90
+                },
+                {
+                  "title": "Availability",
+                  "value": 90
+                }
+              ],
+              "opr_name": "value"
+            },
+            {
+              "instancePosition": {},
+              "instanceStyle": {
+                "classes": ""
+              },
+              "kips": [
+                {
+                  "title": "Performance",
+                  "value": 96
+                },
+                {
+                  "title": "Availability",
+                  "value": 90
+                },
+                {
+                  "title": "Availability",
+                  "value": 90
+                },
+                {
+                  "title": "Availability",
+                  "value": 90
+                }
+              ],
+              "opr_name": "value"
+            },
+            {
+              "instancePosition": {},
+              "instanceStyle": {
+                "classes": ""
+              },
+              "kips": [
+                {
+                  "title": "Performance",
+                  "value": 96
+                },
+                {
+                  "title": "Availability",
+                  "value": 90
+                },
+                {
+                  "title": "Availability",
+                  "value": 90
+                },
+                {
+                  "title": "Availability",
+                  "value": 90
+                }
+              ],
+              "opr_name": "value"
+            }
+          ],
+          "justify": "center",
+          "path": "Project/Supervisor/Operator Overview/components/Data Card",
+          "useDefaultViewHeight": false,
+          "wrap": "wrap"
+        },
+        "type": "ia.display.flex-repeater"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "alignContent": "flex-start",
+      "direction": "column",
+      "style": {
+        "backgroundColor": "--neutral-30"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

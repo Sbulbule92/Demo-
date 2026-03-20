@@ -1,0 +1,18 @@
+{
+  "scope": "G",
+  "documentation": "Params: 1. primaryTex\n                2. secondaryText\n                3. action ---\u003e action can be passed as either of \u0027save\u0027, \u0027update\u0027, \u0027delete\u0027, \u0027error\u0027 and \u0027success\u0027",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "view.json",
+    "thumbnail.png"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "shiva",
+      "timestamp": "2026-01-21T15:47:01Z"
+    },
+    "lastModificationSignature": "a32fc668db37b89df77a9eb43a14d577cde577aeb8573c13bcde9a3aa7916275"
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "50px"
+            },
+            "props": {
+              "text": "SELECT DOWNTIME REASONS",
+              "textStyle": {
+                "classes": "typography/page-title",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "FlexRepeater"
+            },
+            "position": {
+              "basis": "320px",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.instances": {
+                "binding": {
+                  "config": {
+                    "queryPath": "downtime/reason",
+                    "returnFormat": "json"
+                  },
+                  "type": "query"
+                }
+              }
+            },
+            "props": {
+              "elementStyle": {
+                "margin": "5px"
+              },
+              "justify": "space-around",
+              "path": "Operator/repeter/Downtimereason",
+              "style": {
+                "classes": "component/basic"
+              },
+              "useDefaultViewHeight": false,
+              "wrap": "wrap"
+            },
+            "type": "ia.display.flex-repeater"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "200px",
+          "grow": 1
+        },
+        "props": {
+          "direction": "column"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "classes": "Page/mainpage"
+      },
+      "wrap": "wrap"
+    },
+    "type": "ia.container.flex"
+  }
+}

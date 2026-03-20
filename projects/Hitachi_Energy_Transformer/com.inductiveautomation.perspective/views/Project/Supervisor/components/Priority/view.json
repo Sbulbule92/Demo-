@@ -1,0 +1,102 @@
+{
+  "custom": {},
+  "params": {
+    "checked": true,
+    "column": "value",
+    "rowData": {},
+    "rowIndex": "value",
+    "value": "value"
+  },
+  "propConfig": {
+    "params.checked": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.column": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.rowData": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.rowIndex": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.value": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 46,
+      "width": 147
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tnewValue \u003d self.props.selected\n\tpayload \u003d {\n\t\t\"column\":self.view.params.column,\n\t\t\"rowIndex\": self.view.params.rowIndex,\n\t\t\"newValue\": newValue,\n\t\t\"rowData\" : self.view.params.rowData\n\t}\n\t\n\tsystem.perspective.sendMessage(\u0027ColumnUpdate\u0027, payload, scope\u003d\"page\")"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "ToggleSwitch"
+        },
+        "position": {
+          "basis": "65px"
+        },
+        "propConfig": {
+          "props.selected": {
+            "binding": {
+              "config": {
+                "path": "view.params.value"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "color": {
+            "selected": "--success",
+            "unselected": "--info"
+          },
+          "style": {
+            "marginLeft": "15px"
+          }
+        },
+        "scripts": {
+          "customMethods": [],
+          "extensionFunctions": null,
+          "messageHandlers": [
+            {
+              "messageType": "refresh1",
+              "pageScope": true,
+              "script": "\t# implement your handler here\n\tself.refreshBinding(\"props.selected\")",
+              "sessionScope": false,
+              "viewScope": false
+            }
+          ]
+        },
+        "type": "ia.input.toggle-switch"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "alignItems": "center",
+      "justify": "center"
+    },
+    "type": "ia.container.flex"
+  }
+}

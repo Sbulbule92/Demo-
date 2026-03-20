@@ -1,0 +1,18 @@
+/* Direct stylesheet authoring is an advanced feature. Knowledge of CSS required.*/
+
+.psc-box-shadow{
+	filter:drop-shadow(.05em .05em 0.05em);
+/*	box-shadow: .75em .75em 1em;*/
+}
+
+.psc-downtime:hover{
+	transform: scale(1.05); /* Scales the element to 105% of its original size */
+  /* Optional: Enhance the shadow on hover */
+  	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2)
+}
+
+.psc-downtime:{
+	transform: scale(1.03); /* Scales the element to 105% of its original size */
+  /* Optional: Enhance the shadow on hover */
+  	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5)
+}

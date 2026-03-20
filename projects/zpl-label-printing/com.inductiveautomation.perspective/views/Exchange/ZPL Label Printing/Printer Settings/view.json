@@ -1,0 +1,728 @@
+{
+  "custom": {},
+  "params": {},
+  "permissions": {
+    "securityLevels": [],
+    "type": "AllOf"
+  },
+  "propConfig": {
+    "params.feature": {
+      "paramDirection": "input"
+    },
+    "params.key": {
+      "paramDirection": "input"
+    },
+    "params.tier1": {
+      "paramDirection": "input"
+    },
+    "params.tier2": {
+      "paramDirection": "input"
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 776,
+      "width": 1368
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "TablePrinterSettings"
+            },
+            "position": {
+              "height": 640,
+              "width": 600,
+              "x": 10,
+              "y": 10
+            },
+            "propConfig": {
+              "props.data": {
+                "binding": {
+                  "config": {
+                    "queryPath": "Exchange/ZPL Label Printing/Get Label Printers",
+                    "returnFormat": "dataset"
+                  },
+                  "type": "query"
+                }
+              }
+            },
+            "props": {
+              "columns": [
+                {
+                  "align": "center",
+                  "boolean": "checkbox",
+                  "dateFormat": "MM/DD/YYYY",
+                  "editable": false,
+                  "field": "printer_name",
+                  "filter": {
+                    "boolean": {
+                      "condition": ""
+                    },
+                    "date": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "enabled": false,
+                    "number": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "string": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "visible": "on-hover"
+                  },
+                  "footer": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "header": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "justify": "center",
+                  "number": "value",
+                  "numberFormat": "0,0.##",
+                  "progressBar": {
+                    "bar": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "max": 100,
+                    "min": 0,
+                    "track": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "value": {
+                      "enabled": true,
+                      "format": "0,0.##",
+                      "justify": "center",
+                      "style": {
+                        "classes": ""
+                      }
+                    }
+                  },
+                  "render": "auto",
+                  "resizable": true,
+                  "sort": "none",
+                  "sortable": true,
+                  "strictWidth": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "toggleSwitch": {
+                    "color": {
+                      "selected": "",
+                      "unselected": ""
+                    }
+                  },
+                  "viewParams": {},
+                  "viewPath": "",
+                  "visible": true,
+                  "width": ""
+                },
+                {
+                  "align": "center",
+                  "boolean": "checkbox",
+                  "dateFormat": "MM/DD/YYYY",
+                  "editable": false,
+                  "field": "ip_address",
+                  "filter": {
+                    "boolean": {
+                      "condition": ""
+                    },
+                    "date": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "enabled": false,
+                    "number": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "string": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "visible": "on-hover"
+                  },
+                  "footer": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "header": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "justify": "center",
+                  "number": "value",
+                  "numberFormat": "0,0.##",
+                  "progressBar": {
+                    "bar": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "max": 100,
+                    "min": 0,
+                    "track": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "value": {
+                      "enabled": true,
+                      "format": "0,0.##",
+                      "justify": "center",
+                      "style": {
+                        "classes": ""
+                      }
+                    }
+                  },
+                  "render": "auto",
+                  "resizable": true,
+                  "sort": "none",
+                  "sortable": true,
+                  "strictWidth": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "toggleSwitch": {
+                    "color": {
+                      "selected": "",
+                      "unselected": ""
+                    }
+                  },
+                  "viewParams": {},
+                  "viewPath": "",
+                  "visible": true,
+                  "width": ""
+                },
+                {
+                  "align": "center",
+                  "boolean": "checkbox",
+                  "dateFormat": "MM/DD/YYYY",
+                  "editable": false,
+                  "field": "offset_x_mm",
+                  "filter": {
+                    "boolean": {
+                      "condition": ""
+                    },
+                    "date": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "enabled": false,
+                    "number": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "string": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "visible": "on-hover"
+                  },
+                  "footer": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "header": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "justify": "center",
+                  "number": "value",
+                  "numberFormat": "0,0.##",
+                  "progressBar": {
+                    "bar": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "max": 100,
+                    "min": 0,
+                    "track": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "value": {
+                      "enabled": true,
+                      "format": "0,0.##",
+                      "justify": "center",
+                      "style": {
+                        "classes": ""
+                      }
+                    }
+                  },
+                  "render": "auto",
+                  "resizable": true,
+                  "sort": "none",
+                  "sortable": true,
+                  "strictWidth": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "toggleSwitch": {
+                    "color": {
+                      "selected": "",
+                      "unselected": ""
+                    }
+                  },
+                  "viewParams": {},
+                  "viewPath": "",
+                  "visible": true,
+                  "width": ""
+                },
+                {
+                  "align": "center",
+                  "boolean": "checkbox",
+                  "dateFormat": "MM/DD/YYYY",
+                  "editable": false,
+                  "field": "offset_y_mm",
+                  "filter": {
+                    "boolean": {
+                      "condition": ""
+                    },
+                    "date": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "enabled": false,
+                    "number": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "string": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "visible": "on-hover"
+                  },
+                  "footer": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "header": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "justify": "center",
+                  "number": "value",
+                  "numberFormat": "0,0.##",
+                  "progressBar": {
+                    "bar": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "max": 100,
+                    "min": 0,
+                    "track": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "value": {
+                      "enabled": true,
+                      "format": "0,0.##",
+                      "justify": "center",
+                      "style": {
+                        "classes": ""
+                      }
+                    }
+                  },
+                  "render": "auto",
+                  "resizable": true,
+                  "sort": "none",
+                  "sortable": true,
+                  "strictWidth": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "toggleSwitch": {
+                    "color": {
+                      "selected": "",
+                      "unselected": ""
+                    }
+                  },
+                  "viewParams": {},
+                  "viewPath": "",
+                  "visible": true,
+                  "width": ""
+                }
+              ],
+              "pager": {
+                "bottom": false
+              }
+            },
+            "scripts": {
+              "customMethods": [],
+              "extensionFunctions": null,
+              "messageHandlers": [
+                {
+                  "messageType": "exchange.zplLabelPrinting.refreshPrinterSettings",
+                  "pageScope": true,
+                  "script": "\t# implement your handler here\n\tself.refreshBinding(\"props.data\")",
+                  "sessionScope": false,
+                  "viewScope": false
+                }
+              ]
+            },
+            "type": "ia.display.table"
+          },
+          {
+            "meta": {
+              "name": "LblPrinterName"
+            },
+            "position": {
+              "height": 45,
+              "width": 135,
+              "x": 620,
+              "y": 10
+            },
+            "props": {
+              "style": {
+                "textAlign": "center",
+                "textDecoration": "underline"
+              },
+              "text": "Printer Name"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "LblAddress"
+            },
+            "position": {
+              "height": 45,
+              "width": 135,
+              "x": 765,
+              "y": 10
+            },
+            "props": {
+              "style": {
+                "textAlign": "center",
+                "textDecoration": "underline"
+              },
+              "text": "IP Address"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "LblOffsetX"
+            },
+            "position": {
+              "height": 45,
+              "width": 135,
+              "x": 910,
+              "y": 10
+            },
+            "props": {
+              "style": {
+                "textAlign": "center",
+                "textDecoration": "underline"
+              },
+              "text": "Offset X (mm)"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "LblOffsetY"
+            },
+            "position": {
+              "height": 45,
+              "width": 135,
+              "x": 1055,
+              "y": 10
+            },
+            "props": {
+              "style": {
+                "textAlign": "center",
+                "textDecoration": "underline"
+              },
+              "text": "Offset Y (mm)"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "TextPrinterName"
+            },
+            "position": {
+              "height": 45,
+              "width": 135,
+              "x": 620,
+              "y": 65
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "if(\n\tlen({../TablePrinterSettings.props.selection.data}) \u003d 0\n\t, \u0027\u0027\n\t, {../TablePrinterSettings.props.selection.data[0].printer_name}\n)"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "type": "ia.input.text-field"
+          },
+          {
+            "meta": {
+              "name": "TextAddress"
+            },
+            "position": {
+              "height": 45,
+              "width": 135,
+              "x": 765,
+              "y": 65
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "if(\n\tlen({../TablePrinterSettings.props.selection.data}) \u003d 0\n\t, \u0027\u0027\n\t, {../TablePrinterSettings.props.selection.data[0].ip_address}\n)"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "type": "ia.input.text-field"
+          },
+          {
+            "meta": {
+              "name": "NumOffsetX"
+            },
+            "position": {
+              "height": 45,
+              "width": 135,
+              "x": 910,
+              "y": 65
+            },
+            "propConfig": {
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "expression": "if(\n\tlen({../TablePrinterSettings.props.selection.data}) \u003d 0\n\t, 0\n\t, {../TablePrinterSettings.props.selection.data[0].offset_x_mm}\n)"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "type": "ia.input.numeric-entry-field"
+          },
+          {
+            "meta": {
+              "name": "NumOffsetY"
+            },
+            "position": {
+              "height": 45,
+              "width": 135,
+              "x": 1055,
+              "y": 65
+            },
+            "propConfig": {
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "expression": "if(\n\tlen({../TablePrinterSettings.props.selection.data}) \u003d 0\n\t, 0\n\t, {../TablePrinterSettings.props.selection.data[0].offset_y_mm}\n)"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "type": "ia.input.numeric-entry-field"
+          },
+          {
+            "meta": {
+              "name": "MdInstructions"
+            },
+            "position": {
+              "height": 45,
+              "width": 280,
+              "x": 620,
+              "y": 130
+            },
+            "props": {
+              "source": "Please use this page to adjust printer settings for each label printer."
+            },
+            "type": "ia.display.markdown"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\t# get printer data from data entry fields\n\tprinterName \u003d self.getSibling(\"TextPrinterName\").props.text\n\tipAddress \u003d self.getSibling(\"TextAddress\").props.text\n\toffsetX \u003d self.getSibling(\"NumOffsetX\").props.value\n\toffsetY \u003d self.getSibling(\"NumOffsetY\").props.value\n\t\n\t# also get list of existing printer names from table\n\tprinterNames \u003d []\n\tprinterDS \u003d self.getSibling(\"TablePrinterSettings\").props.data\n\tfor row in range(printerDS.getRowCount()):\n\t\tprinterNames.append(printerDS.getValueAt(row, \u0027printer_name\u0027))\n\t\n\t# update printer settings if printer name already exists. Otherwise add new one.\n\t# postgresql database connection in Ignition gateway is named \u0027ex_zpl_label_printing\u0027\n\tif printerName in printerNames:\n\t\tupdatePrinter \u003d \"\"\"\n\t\t\tupdate ex_zpl_label_printing.ex_zlp_label_printer_settings\n\t\t\tset printer_name \u003d ?, ip_address \u003d ?, offset_x_mm \u003d ?, offset_y_mm \u003d ?\n\t\t\twhere printer_name \u003d ?\n\t\t\"\"\"\n\t\tprinterData \u003d [ printerName, ipAddress, offsetX, offsetY, printerName ]\n\t\tr \u003d system.db.runPrepUpdate(updatePrinter, printerData, \u0027ex_zpl_label_printing\u0027)\n\t\t\n\t\tsystem.perspective.sendMessage(\u0027exchange.zplLabelPrinting.refreshPrinterSettings\u0027, scope\u003d\u0027page\u0027)\n\t\texchange.zplLabelPrinting.popup.displayMessage(\u0027Printer Updated\u0027, \u0027Successfully updated existing printer!\u0027)\n\t\t\n\telse:\n\t\taddPrinter \u003d \"\"\"\n\t\t\tinsert into ex_zpl_label_printing.ex_zlp_label_printer_settings\n\t\t\t(printer_name, ip_address, offset_x_mm, offset_y_mm)\n\t\t\tvalues (?, ?, ?, ?)\n\t\t\"\"\"\n\t\tprinterData \u003d [ printerName, ipAddress, offsetX, offsetY ]\n\t\tr \u003d system.db.runPrepUpdate(addPrinter, printerData, \u0027ex_zpl_label_printing\u0027)\n\t\n\t\tsystem.perspective.sendMessage(\u0027exchange.zplLabelPrinting.refreshPrinterSettings\u0027, scope\u003d\u0027page\u0027)\n\t\texchange.zplLabelPrinting.popup.displayMessage(\u0027Printer Added\u0027, \u0027Successfully added new printer!\u0027)\n\t\n\t\n\t"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "BtnPrinterAddUpdate"
+            },
+            "position": {
+              "height": 45,
+              "width": 135,
+              "x": 910,
+              "y": 130
+            },
+            "props": {
+              "style": {
+                "classes": "Components/brownButtons"
+              },
+              "text": "Add / Update Printer"
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\t# display confirmation popup before proceeding to run attached message handler\n\tconfirmMessage \u003d \u0027Please confirm you wish to remove this printer.\u0027\n\texchange.zplLabelPrinting.popup.displayConfirmation(confirmMessage)\n\t"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "BtnPrinterDelete"
+            },
+            "position": {
+              "height": 45,
+              "width": 135,
+              "x": 1055,
+              "y": 130
+            },
+            "propConfig": {
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "expression": "if(\r\n\t{../TablePrinterSettings.props.selection.selectedRow} !\u003d null \r\n\t, true \r\n\t, false \r\n)"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "Components/brownButtons"
+              },
+              "text": "Delete Printer"
+            },
+            "scripts": {
+              "customMethods": [],
+              "extensionFunctions": null,
+              "messageHandlers": [
+                {
+                  "messageType": "exchange.zplLabelPrinting.confirmPopup",
+                  "pageScope": true,
+                  "script": "\t# delete selected record from sql\n\t# postgresql database connection in Ignition gateway is named \u0027ex_zpl_label_printing\u0027\n\tprinterName \u003d self.getSibling(\"TablePrinterSettings\").props.selection.data[0].printer_name\n\t\n\tdeletePrinter \u003d \"\"\"\n\t\tdelete from ex_zpl_label_printing.ex_zlp_label_printer_settings \n\t\twhere printer_name \u003d ? \n\t\"\"\"\n\tr \u003d system.db.runPrepUpdate(deletePrinter, [printerName], \u0027ex_zpl_label_printing\u0027)\n\t\n\tsystem.perspective.sendMessage(\u0027exchange.zplLabelPrinting.refreshPrinterSettings\u0027, scope\u003d\u0027page\u0027)\n\texchange.zplLabelPrinting.popup.displayMessage(\u0027Removed Printer\u0027, \u0027Successfully removed printer from list!\u0027)\n\t\n\t\n\t",
+                  "sessionScope": false,
+                  "viewScope": true
+                }
+              ]
+            },
+            "type": "ia.input.button"
+          }
+        ],
+        "meta": {
+          "name": "CoordinateContainer"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "meta.domId": {
+            "binding": {
+              "config": {
+                "path": "session.custom.zoom"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "type": "ia.container.coord"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "position": {
+      "x": 319,
+      "y": 110
+    },
+    "propConfig": {
+      "meta.domId": {
+        "binding": {
+          "config": {
+            "path": "session.custom.zoom"
+          },
+          "type": "property"
+        }
+      }
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "classes": "Page/Page"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

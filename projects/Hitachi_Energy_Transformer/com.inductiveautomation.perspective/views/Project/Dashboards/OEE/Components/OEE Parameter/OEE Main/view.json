@@ -1,0 +1,610 @@
+{
+  "custom": {},
+  "params": {
+    "Availability": "value",
+    "OEE": "value",
+    "Performance": "value",
+    "Quality": "value"
+  },
+  "propConfig": {
+    "params.Availability": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.OEE": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.Performance": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.Quality": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 167,
+      "width": 796
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "32px",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "borderBottomColor": "#AAAAAA",
+                "borderBottomStyle": "solid",
+                "borderBottomWidth": "1px",
+                "marginLeft": "10px",
+                "marginRight": "10px"
+              },
+              "text": "OEE(%)",
+              "textStyle": {
+                "color": "--neutral-70",
+                "fontFamily": "verdana",
+                "fontSize": "17px",
+                "fontWeight": "bold",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "SimpleGauge"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "props.label.color": {
+                "binding": {
+                  "config": {
+                    "path": "session.props.theme"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\treturn \u0027#D5D5D5\u0027 if \u0027dark\u0027 in self.session.props.theme else \u0027#2B2B2B\u0027",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.OEE"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "animate": true,
+              "arc": {
+                "width": 8
+              },
+              "endAngle": 580,
+              "label": {
+                "offsetY": 22,
+                "size": 30
+              },
+              "startAngle": 220,
+              "style": {
+                "fontWeight": "bold"
+              }
+            },
+            "type": "ia.chart.simple-gauge"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_2"
+        },
+        "position": {
+          "basis": "300px",
+          "grow": 1
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "backgroundColor": "--neutral-10",
+            "borderBottomLeftRadius": "5px",
+            "borderBottomRightRadius": "5px",
+            "borderColor": "#808080",
+            "borderStyle": "solid",
+            "borderTopLeftRadius": "5px",
+            "borderTopRightRadius": "5px",
+            "borderWidth": "1px",
+            "marginBottom": "5px",
+            "marginLeft": "5px",
+            "marginTop": "3px",
+            "overflow": "hidden"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "27px"
+            },
+            "props": {
+              "style": {
+                "borderBottomColor": "--neutral-30",
+                "borderBottomStyle": "solid",
+                "borderBottomWidth": "1px",
+                "fontFamily": "verdana",
+                "marginLeft": "10px",
+                "marginRight": "10px"
+              },
+              "text": "Availability",
+              "textStyle": {
+                "alignSelf": "center",
+                "color": "--neutral-70",
+                "fontSize": "17px",
+                "fontWeight": "600"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "basis": "84px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "{view.params.Availability} + \u0027%\u0027"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "borderBottomColor": "--neutral-30",
+                "borderBottomStyle": "solid",
+                "borderBottomWidth": "1px",
+                "marginLeft": "10px",
+                "marginRight": "10px"
+              },
+              "textStyle": {
+                "alignSelf": "center",
+                "fontSize": "35px",
+                "fontWeight": "600"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Progress"
+            },
+            "position": {
+              "basis": "25px"
+            },
+            "propConfig": {
+              "props.bar.color": {
+                "binding": {
+                  "config": {
+                    "path": "this.props.value"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": "--neutral-60",
+                      "inputType": "range",
+                      "mappings": [
+                        {
+                          "input": {
+                            "max": 40,
+                            "min": 0
+                          },
+                          "output": "--error"
+                        },
+                        {
+                          "input": {
+                            "max": 70,
+                            "min": 41
+                          },
+                          "output": "--warning"
+                        },
+                        {
+                          "input": {
+                            "max": 100,
+                            "min": 71
+                          },
+                          "output": "--success"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.Availability"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "bar": {},
+              "style": {
+                "marginBottom": "5px",
+                "marginLeft": "10px",
+                "marginRight": "10px",
+                "marginTop": "8px"
+              }
+            },
+            "type": "ia.display.progress"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "250px",
+          "grow": 1
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "backgroundColor": "--neutral-10",
+            "borderBottomLeftRadius": "5px",
+            "borderBottomRightRadius": "5px",
+            "borderColor": "#808080",
+            "borderStyle": "solid",
+            "borderTopLeftRadius": "5px",
+            "borderTopRightRadius": "5px",
+            "borderWidth": "1px",
+            "marginBottom": "5px",
+            "marginLeft": "5px",
+            "marginRight": "0px",
+            "marginTop": "3px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "26px"
+            },
+            "props": {
+              "style": {
+                "borderBottomColor": "--neutral-30",
+                "borderBottomStyle": "solid",
+                "borderBottomWidth": "1px",
+                "fontFamily": "verdana",
+                "marginLeft": "10px",
+                "marginRight": "10px"
+              },
+              "text": "Performance",
+              "textStyle": {
+                "alignSelf": "center",
+                "color": "--neutral-70",
+                "fontSize": "17px",
+                "fontWeight": "600"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "basis": "84px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "{view.params.Performance} + \u0027%\u0027"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "borderBottomColor": "--neutral-30",
+                "borderBottomStyle": "solid",
+                "borderBottomWidth": "1px",
+                "marginLeft": "10px",
+                "marginRight": "10px"
+              },
+              "textStyle": {
+                "alignSelf": "center",
+                "fontSize": "35px",
+                "fontWeight": "600"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Progress"
+            },
+            "position": {
+              "basis": "25px"
+            },
+            "propConfig": {
+              "props.bar.color": {
+                "binding": {
+                  "config": {
+                    "path": "this.props.value"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": "--neutral-60",
+                      "inputType": "range",
+                      "mappings": [
+                        {
+                          "input": {
+                            "max": 40,
+                            "min": 0
+                          },
+                          "output": "--error"
+                        },
+                        {
+                          "input": {
+                            "max": 70,
+                            "min": 41
+                          },
+                          "output": "--warning"
+                        },
+                        {
+                          "input": {
+                            "max": 100,
+                            "min": 71
+                          },
+                          "output": "--success"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.Performance"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "bar": {},
+              "style": {
+                "marginBottom": "5px",
+                "marginLeft": "10px",
+                "marginRight": "10px",
+                "marginTop": "8px"
+              }
+            },
+            "type": "ia.display.progress"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_0"
+        },
+        "position": {
+          "basis": "250px",
+          "grow": 1
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "backgroundColor": "--neutral-10",
+            "borderBottomLeftRadius": "5px",
+            "borderBottomRightRadius": "5px",
+            "borderColor": "#808080",
+            "borderStyle": "solid",
+            "borderTopLeftRadius": "5px",
+            "borderTopRightRadius": "5px",
+            "borderWidth": "1px",
+            "marginBottom": "5px",
+            "marginLeft": "5px",
+            "marginRight": "0px",
+            "marginTop": "3px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "24px"
+            },
+            "props": {
+              "style": {
+                "borderBottomColor": "--neutral-30",
+                "borderBottomStyle": "solid",
+                "borderBottomWidth": "1px",
+                "fontFamily": "verdana",
+                "marginLeft": "10px",
+                "marginRight": "10px"
+              },
+              "text": "Quality",
+              "textStyle": {
+                "alignSelf": "center",
+                "color": "--neutral-70",
+                "fontSize": "17px",
+                "fontWeight": "600"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "basis": "84px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "{view.params.Quality} + \u0027%\u0027"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "borderBottomColor": "--neutral-30",
+                "borderBottomStyle": "solid",
+                "borderBottomWidth": "1px",
+                "marginLeft": "10px",
+                "marginRight": "10px"
+              },
+              "textStyle": {
+                "alignSelf": "center",
+                "fontSize": "35px",
+                "fontWeight": "600"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Progress"
+            },
+            "position": {
+              "basis": "25px"
+            },
+            "propConfig": {
+              "props.bar.color": {
+                "binding": {
+                  "config": {
+                    "path": "this.props.value"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": "--neutral-60",
+                      "inputType": "range",
+                      "mappings": [
+                        {
+                          "input": {
+                            "max": 40,
+                            "min": 0
+                          },
+                          "output": "--error"
+                        },
+                        {
+                          "input": {
+                            "max": 70,
+                            "min": 41
+                          },
+                          "output": "--warning"
+                        },
+                        {
+                          "input": {
+                            "max": 100,
+                            "min": 71
+                          },
+                          "output": "--success"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.Quality"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "bar": {},
+              "style": {
+                "marginBottom": "5px",
+                "marginLeft": "10px",
+                "marginRight": "10px",
+                "marginTop": "8px"
+              }
+            },
+            "type": "ia.display.progress"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_1"
+        },
+        "position": {
+          "basis": "250px",
+          "grow": 1
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "backgroundColor": "--neutral-10",
+            "borderBottomLeftRadius": "5px",
+            "borderBottomRightRadius": "5px",
+            "borderColor": "#808080",
+            "borderStyle": "solid",
+            "borderTopLeftRadius": "5px",
+            "borderTopRightRadius": "5px",
+            "borderWidth": "1px",
+            "marginBottom": "5px",
+            "marginLeft": "5px",
+            "marginRight": "3px",
+            "marginTop": "3px"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.flex"
+  }
+}

@@ -1,0 +1,46 @@
+[
+  {
+    "name": "New Instance",
+    "typeId": "Timer UDT/TIMER",
+    "tagType": "UdtInstance"
+  },
+  {
+    "name": "Project_Config",
+    "typeId": "Project_Config",
+    "tagType": "UdtInstance"
+  },
+  {
+    "name": "Current_Shift",
+    "typeId": "shift",
+    "tagType": "UdtInstance"
+  },
+  {
+    "name": "WOCL_1",
+    "typeId": "Machine",
+    "tagType": "UdtInstance",
+    "tags": [
+      {
+        "name": "Downtime",
+        "tagType": "Folder",
+        "tags": [
+          {
+            "expression": "if({[.]../MachineData/ErrorActive},\r\n    dateDiff(\r\n        {[.]StartTime},\r\n        now(),\r\n        \"second\"\r\n    ),\r\n    0\r\n)\r\n",
+            "name": "ActiveTime",
+            "tagType": "AtomicTag"
+          }
+        ]
+      },
+      {
+        "name": "MachineData",
+        "tagType": "Folder",
+        "tags": [
+          {
+            "valueSource": "memory",
+            "name": "ErrorActive",
+            "tagType": "AtomicTag"
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "valueSource": "memory",
+    "dataType": "DateTime",
+    "name": "Test",
+    "formatString": "yyyy-MM-dd h:mm:ss aa",
+    "tagType": "AtomicTag"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003dKepware Server;s\u003dHitachi_Energy.WOCL_1.Coil_percentage",
+    "dataType": "Float4",
+    "name": "Coil_percentage",
+    "tagType": "AtomicTag",
+    "opcServer": "WOCL_1"
+  },
+  {
+    "valueSource": "memory",
+    "historyProvider": "Historian",
+    "name": "test_tag",
+    "historyEnabled": true,
+    "tagType": "AtomicTag"
+  },
+  {
+    "valueSource": "db",
+    "datasource": "Historian",
+    "query": "SELECT COUNT(*) AS MatchingCount\r\nFROM [historian].[dbo].[tbl_DowntimeLog]\r\nWHERE \r\nReasonID \u003d 16\r\nAND UserName \u003d \u0027System\u0027;",
+    "name": "pending_downtime",
+    "executionMode": "FixedRate",
+    "executionRate": 10000,
+    "tagType": "AtomicTag",
+    "queryType": "Select"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003dKepware Server;s\u003dHitachi_Energy.WOCL_1.Comm_ok",
+    "dataType": "Boolean",
+    "name": "Comm_ok",
+    "tagType": "AtomicTag",
+    "opcServer": "WOCL_1"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003dKepware Server;s\u003dHitachi_Energy.WOCL_1.Fault_Active",
+    "dataType": "Boolean",
+    "name": "Fault_Active",
+    "tagType": "AtomicTag",
+    "opcServer": "WOCL_1"
+  }
+]

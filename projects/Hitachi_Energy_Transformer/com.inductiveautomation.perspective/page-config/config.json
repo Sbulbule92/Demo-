@@ -1,0 +1,159 @@
+{
+  "pages": {
+    "/": {
+      "title": "",
+      "viewPath": "Project/Operator/Operator/Job_board"
+    },
+    "/home": {
+      "title": "",
+      "viewPath": "Project/Operator/Operator/Job_board"
+    },
+    "/navigation": {
+      "title": "",
+      "viewPath": "Project/Supervisor/Navigation"
+    },
+    "/oee_dashboard": {
+      "title": "",
+      "viewPath": "Project/Dashboards/OEE/OEE Pallete"
+    },
+    "/opr_assist": {
+      "title": "ASSIST",
+      "viewPath": "Project/Operator/Assist"
+    },
+    "/opr_downtime_entry": {
+      "title": "Downtime Entry",
+      "viewPath": "Project/Operator/Downtime Entry/opr_Downtime_Entry"
+    },
+    "/opr_job_board": {
+      "docks": {
+        "bottom": [
+          {
+            "anchor": "fixed",
+            "autoBreakpoint": 480,
+            "content": "push",
+            "handle": "hide",
+            "iconUrl": "",
+            "id": "",
+            "modal": false,
+            "resizable": false,
+            "show": "visible",
+            "size": 50,
+            "viewParams": {},
+            "viewPath": "Navigation_bottom"
+          }
+        ]
+      },
+      "title": "JOB BOARD",
+      "viewPath": "Project/Supervisor/Job Board"
+    },
+    "/opr_overview": {
+      "title": "",
+      "viewPath": "Project/Supervisor/Operator Overview/Operator overview Page"
+    },
+    "/opr_overview_detailed": {
+      "title": "",
+      "viewPath": "Project/operator_overview"
+    },
+    "/sup_downtime_monitor": {
+      "title": "DOWNTIME MONITOR",
+      "viewPath": "Project/Supervisor/downtime_logs"
+    },
+    "/sup_job_board": {
+      "docks": {
+        "bottom": [
+          {
+            "anchor": "fixed",
+            "autoBreakpoint": 480,
+            "content": "push",
+            "handle": "hide",
+            "iconUrl": "",
+            "id": "",
+            "modal": false,
+            "resizable": false,
+            "show": "visible",
+            "size": 50,
+            "viewParams": {},
+            "viewPath": "Navigation_bottom"
+          }
+        ],
+        "top": [
+          {
+            "anchor": "fixed",
+            "autoBreakpoint": 480,
+            "content": "push",
+            "handle": "hide",
+            "iconUrl": "",
+            "id": "",
+            "modal": false,
+            "resizable": false,
+            "show": "visible",
+            "size": 100,
+            "viewParams": {},
+            "viewPath": "Navigation_top"
+          }
+        ]
+      },
+      "title": "PRIORITY ASSIGNMENT",
+      "viewPath": "Project/Supervisor/Job Board"
+    },
+    "/sup_navigation": {
+      "title": "DASHBOARD",
+      "viewPath": "Project/Supervisor/Navigation"
+    },
+    "/wip/:jobid/:program/:workstatus": {
+      "title": "JOB STATUS",
+      "viewPath": "Project/Operator/Operator/WIP_job"
+    }
+  },
+  "sharedDocks": {
+    "bottom": [
+      {
+        "anchor": "fixed",
+        "autoBreakpoint": 480,
+        "content": "push",
+        "handle": "hide",
+        "iconUrl": "",
+        "id": "",
+        "modal": false,
+        "resizable": false,
+        "show": "visible",
+        "size": 30,
+        "viewParams": {},
+        "viewPath": "Project/Navigation/footer/Info-footer"
+      }
+    ],
+    "cornerPriority": "top-bottom",
+    "left": [
+      {
+        "anchor": "fixed",
+        "autoBreakpoint": 480,
+        "content": "push",
+        "handle": "hide",
+        "iconUrl": "",
+        "id": "Menu",
+        "modal": false,
+        "resizable": false,
+        "show": "visible",
+        "size": 250,
+        "viewParams": {},
+        "viewPath": "Project/Navigation/Menu Bar/Nav/Sidebar Dock Nav"
+      }
+    ],
+    "top": [
+      {
+        "anchor": "fixed",
+        "autoBreakpoint": 480,
+        "content": "push",
+        "handle": "hide",
+        "iconUrl": "",
+        "id": "",
+        "modal": false,
+        "resizable": false,
+        "show": "visible",
+        "size": 70,
+        "viewParams": {},
+        "viewPath": "Project/Navigation/TitleBar"
+      }
+    ]
+  }
+}

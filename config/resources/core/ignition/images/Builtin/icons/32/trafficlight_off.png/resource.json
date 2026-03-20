@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "trafficlight_off.png"
+  ],
+  "attributes": {
+    "width": 32,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "import",
+      "timestamp": "2025-12-19T13:07:31Z"
+    },
+    "size": 1298,
+    "lastModificationSignature": "acad92e74e9504bb83c10b8c317c7cd14ad6d408c41930bfd67d34381c14cfc5",
+    "height": 32
+  }
+}

@@ -1,0 +1,943 @@
+{
+  "custom": {
+    "reasons": [
+      {
+        "ReasonName": "Full Change Over"
+      },
+      {
+        "ReasonName": "Partial Change over"
+      },
+      {
+        "ReasonName": "Computer"
+      },
+      {
+        "ReasonName": "Design Questions"
+      },
+      {
+        "ReasonName": "Program Function"
+      },
+      {
+        "ReasonName": "Material Quality"
+      },
+      {
+        "ReasonName": "Waiting on Material"
+      },
+      {
+        "ReasonName": "Break"
+      },
+      {
+        "ReasonName": "Lunch"
+      },
+      {
+        "ReasonName": "Welder - Maintenance"
+      },
+      {
+        "ReasonName": "Sensor - Maintenance"
+      },
+      {
+        "ReasonName": "Electrical - Maintenance"
+      },
+      {
+        "ReasonName": "Mechanical - Maintenance"
+      },
+      {
+        "ReasonName": "Wire/Paper Tension"
+      },
+      {
+        "ReasonName": "Other"
+      }
+    ],
+    "users": [
+      {
+        "User": "Virat Kohli"
+      },
+      {
+        "User": "Rohit Sharma"
+      },
+      {
+        "User": "MS Dhoni"
+      },
+      {
+        "User": "Sachin Tendulkar"
+      },
+      {
+        "User": "KL Rahul"
+      },
+      {
+        "User": "Jasprit Bumrah"
+      },
+      {
+        "User": "Ravindra Jadeja"
+      },
+      {
+        "User": "Hardik Pandya"
+      },
+      {
+        "User": "Shubman Gill"
+      },
+      {
+        "User": "Babar Azam"
+      },
+      {
+        "User": "Joe Root"
+      },
+      {
+        "User": "Kane Williamson"
+      },
+      {
+        "User": "Steve Smith"
+      },
+      {
+        "User": "Ben Stokes"
+      },
+      {
+        "User": "AB de Villiers"
+      }
+    ]
+  },
+  "params": {
+    "cols": "value",
+    "data": "value",
+    "date": "2026-1-15 14:24:03",
+    "machine": 1,
+    "shift": 1
+  },
+  "propConfig": {
+    "custom.reasons": {
+      "binding": {
+        "config": {
+          "queryPath": "OEE_Dashboard/getAllReason",
+          "returnFormat": "json"
+        },
+        "type": "query"
+      },
+      "persistent": true
+    },
+    "custom.users": {
+      "persistent": true
+    },
+    "params.cols": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.data": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.date": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.machine": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.shift": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 336,
+      "width": 937
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "custom": {
+              "cols": [
+                {
+                  "align": "center",
+                  "field": "UserName",
+                  "header": {
+                    "align": "center",
+                    "justify": "center",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": "UserName"
+                  },
+                  "justify": "center",
+                  "render": "auto"
+                },
+                {
+                  "align": "center",
+                  "field": "EndTime",
+                  "header": {
+                    "align": "center",
+                    "justify": "center",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": "EndTime"
+                  },
+                  "justify": "center",
+                  "render": "auto"
+                },
+                {
+                  "align": "center",
+                  "field": "DurationMinutes",
+                  "header": {
+                    "align": "center",
+                    "justify": "center",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": "DurationMinutes"
+                  },
+                  "justify": "center",
+                  "render": "auto"
+                },
+                {
+                  "align": "center",
+                  "field": "StartTime",
+                  "header": {
+                    "align": "center",
+                    "justify": "center",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": "StartTime"
+                  },
+                  "justify": "center",
+                  "render": "auto"
+                },
+                {
+                  "align": "center",
+                  "field": "Remarks",
+                  "header": {
+                    "align": "center",
+                    "justify": "center",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": "Remarks"
+                  },
+                  "justify": "center",
+                  "render": "auto"
+                },
+                {
+                  "align": "center",
+                  "field": "ReasonID",
+                  "header": {
+                    "align": "center",
+                    "justify": "center",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": "ReasonID"
+                  },
+                  "justify": "center",
+                  "render": "auto"
+                },
+                {
+                  "align": "center",
+                  "field": "LogID",
+                  "header": {
+                    "align": "center",
+                    "justify": "center",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": "LogID"
+                  },
+                  "justify": "center",
+                  "render": "auto"
+                }
+              ]
+            },
+            "meta": {
+              "name": "Table"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "custom.columns": {
+                "binding": {
+                  "config": {
+                    "path": "this.props.data"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tcolumns \u003d []\n\tfor item in value[0].keys():\n\t\tcolumn \u003d {\n\t\t\t  \"field\": item,\n\t\t\t  \"visible\": True,\n\t\t\t  \"editable\": False,\n\t\t\t  \"render\": \"auto\",\n\t\t\t  \"justify\": \"center\",\n\t\t\t  \"align\": \"center\",\n\t\t\t  \"resizable\": True,\n\t\t\t  \"sortable\": True,\n\t\t\t  \"sort\": \"none\",\n\t\t\t  \"filter\": {\n\t\t\t    \"enabled\": False,\n\t\t\t    \"visible\": \"on-hover\",\n\t\t\t    \"string\": {\n\t\t\t      \"condition\": \"\",\n\t\t\t      \"value\": \"\"\n\t\t\t    },\n\t\t\t    \"number\": {\n\t\t\t      \"condition\": \"\",\n\t\t\t      \"value\": \"\"\n\t\t\t    },\n\t\t\t    \"boolean\": {\n\t\t\t      \"condition\": \"\"\n\t\t\t    },\n\t\t\t    \"date\": {\n\t\t\t      \"condition\": \"\",\n\t\t\t      \"value\": \"\"\n\t\t\t    }\n\t\t\t  },\n\t\t\t  \"viewPath\": \"\",\n\t\t\t  \"viewParams\": {},\n\t\t\t  \"boolean\": \"checkbox\",\n\t\t\t  \"number\": \"value\",\n\t\t\t  \"progressBar\": {\n\t\t\t    \"max\": 100,\n\t\t\t    \"min\": 0,\n\t\t\t    \"bar\": {\n\t\t\t      \"color\": \"\",\n\t\t\t      \"style\": {\n\t\t\t        \"classes\": \"\"\n\t\t\t      }\n\t\t\t    },\n\t\t\t    \"track\": {\n\t\t\t      \"color\": \"\",\n\t\t\t      \"style\": {\n\t\t\t        \"classes\": \"\"\n\t\t\t      }\n\t\t\t    },\n\t\t\t    \"value\": {\n\t\t\t      \"enabled\": True,\n\t\t\t      \"format\": \"0,0.##\",\n\t\t\t      \"justify\": \"center\",\n\t\t\t      \"style\": {\n\t\t\t        \"classes\": \"\"\n\t\t\t      }\n\t\t\t    }\n\t\t\t  },\n\t\t\t  \"toggleSwitch\": {\n\t\t\t    \"color\": {\n\t\t\t      \"selected\": \"\",\n\t\t\t      \"unselected\": \"\"\n\t\t\t    }\n\t\t\t  },\n\t\t\t  \"nullFormat\": {\n\t\t\t    \"includeNullStrings\": False,\n\t\t\t    \"strict\": False,\n\t\t\t    \"nullFormatValue\": \"\"\n\t\t\t  },\n\t\t\t  \"numberFormat\": \"0,0.##\",\n\t\t\t  \"dateFormat\": \"MM/DD/YYYY\",\n\t\t\t  \"width\": \"500px\",\n\t\t\t  \"strictWidth\": True,\n\t\t\t  \"header\": {\n\t\t\t    \"title\": item.upper(),\n\t\t\t    \"justify\": \"center\",\n\t\t\t    \"align\": \"center\",\n\t\t\t    \"style\": {\n\t\t\t      \"classes\": \"\"\n\t\t\t    }\n\t\t\t  },\n\t\t\t  \"footer\": {\n\t\t\t    \"title\": \"\",\n\t\t\t    \"justify\": \"left\",\n\t\t\t    \"align\": \"center\",\n\t\t\t    \"style\": {\n\t\t\t      \"classes\": \"\"\n\t\t\t    }\n\t\t\t  },\n\t\t\t  \"style\": {\n\t\t\t    \"classes\": \"\"\n\t\t\t  }\n\t\t\t}\n\t\tcolumns.append(column)\n\tself.props.columns\u003d columns\n\treturn columns\n\t",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.data": {
+                "binding": {
+                  "config": {
+                    "parameters": {
+                      "Day": "{view.params.date}",
+                      "MachineID": "{view.params.machine}",
+                      "ShiftID": "{view.params.shift}"
+                    },
+                    "queryPath": "OEE_Dashboard/Top_20_Downtime",
+                    "returnFormat": "dataset"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\timport random\n\tdata \u003d []\n\tfor row in value:\n\t    row_dict \u003d {}\n\t    for col in value.getColumnNames():\n\t        row_dict[col] \u003d row[col]\n\t    data.append(row_dict)\n\t\n\t# Now this works\n\tkeys \u003d data[0].keys() if len(data)\u003e0 else \u0027\u0027\n\tlst \u003d []\n\t\n\tfor i in keys:\n\t\tcol \u003d {\n\t\t  \"field\": i,\n\t\t  \"render\": \"auto\" if i !\u003d \"StartTime\" or i!\u003d\u0027EndTime\u0027 else date,\n\t\t  \"justify\": \"center\",\n\t\t  \"align\": \"center\",\n\t\t  \"header\": {\n\t\t    \"title\": i,\n\t\t    \"justify\": \"center\",\n\t\t    \"align\": \"center\",\n\t\t    \"style\": {\n\t\t      \"classes\": \"\"\n\t\t    }\n\t\t  }\n\t\t}\n\t\tlst.append(col)\n\tself.custom.cols \u003d lst if len(lst)\u003e0 else []\n\tfor row in range(value.rowCount):\n\t\tr \u003d random.randint(0,14)\n\t\tvalue \u003d system.dataset.setValue(value, row, \u0027Remarks\u0027, self.view.custom.reasons[r].ReasonName)\n\t\tvalue \u003d system.dataset.setValue(value, row, \u0027UserName\u0027, self.view.custom.users[r].User)\n\treturn value\n\t",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "query"
+                }
+              }
+            },
+            "props": {
+              "cells": {
+                "allowEditOn": "single-click"
+              },
+              "columns": [
+                {
+                  "align": "center",
+                  "boolean": "checkbox",
+                  "dateFormat": "MM/DD/YYYY",
+                  "editable": false,
+                  "field": "LogID",
+                  "filter": {
+                    "boolean": {
+                      "condition": ""
+                    },
+                    "date": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "enabled": false,
+                    "number": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "string": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "visible": "on-hover"
+                  },
+                  "footer": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "header": {
+                    "align": "center",
+                    "justify": "center",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": "ID"
+                  },
+                  "justify": "center",
+                  "nullFormat": {
+                    "includeNullStrings": false,
+                    "nullFormatValue": "",
+                    "strict": false
+                  },
+                  "number": "value",
+                  "numberFormat": "0,0.##",
+                  "progressBar": {
+                    "bar": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "max": 100,
+                    "min": 0,
+                    "track": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "value": {
+                      "enabled": true,
+                      "format": "0,0.##",
+                      "justify": "center",
+                      "style": {
+                        "classes": ""
+                      }
+                    }
+                  },
+                  "render": "auto",
+                  "resizable": true,
+                  "sort": "none",
+                  "sortable": true,
+                  "strictWidth": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "toggleSwitch": {
+                    "color": {
+                      "selected": "",
+                      "unselected": ""
+                    }
+                  },
+                  "viewParams": {},
+                  "viewPath": "",
+                  "visible": true,
+                  "width": ""
+                },
+                {
+                  "align": "center",
+                  "boolean": "checkbox",
+                  "dateFormat": "h:mm:ss a",
+                  "editable": false,
+                  "field": "StartTime",
+                  "filter": {
+                    "boolean": {
+                      "condition": ""
+                    },
+                    "date": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "enabled": false,
+                    "number": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "string": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "visible": "on-hover"
+                  },
+                  "footer": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "header": {
+                    "align": "center",
+                    "justify": "center",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": "Start Time"
+                  },
+                  "justify": "center",
+                  "nullFormat": {
+                    "includeNullStrings": false,
+                    "nullFormatValue": "",
+                    "strict": false
+                  },
+                  "number": "value",
+                  "numberFormat": "0,0.##",
+                  "progressBar": {
+                    "bar": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "max": 100,
+                    "min": 0,
+                    "track": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "value": {
+                      "enabled": true,
+                      "format": "0,0.##",
+                      "justify": "center",
+                      "style": {
+                        "classes": ""
+                      }
+                    }
+                  },
+                  "render": "date",
+                  "resizable": true,
+                  "sort": "none",
+                  "sortable": true,
+                  "strictWidth": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "toggleSwitch": {
+                    "color": {
+                      "selected": "",
+                      "unselected": ""
+                    }
+                  },
+                  "viewParams": {},
+                  "viewPath": "",
+                  "visible": true,
+                  "width": ""
+                },
+                {
+                  "align": "center",
+                  "boolean": "checkbox",
+                  "dateFormat": "h:mm:ss a",
+                  "editable": false,
+                  "field": "EndTime",
+                  "filter": {
+                    "boolean": {
+                      "condition": ""
+                    },
+                    "date": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "enabled": false,
+                    "number": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "string": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "visible": "on-hover"
+                  },
+                  "footer": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "header": {
+                    "align": "center",
+                    "justify": "center",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": "End Time"
+                  },
+                  "justify": "center",
+                  "nullFormat": {
+                    "includeNullStrings": false,
+                    "nullFormatValue": "",
+                    "strict": false
+                  },
+                  "number": "value",
+                  "numberFormat": "0,0.##",
+                  "progressBar": {
+                    "bar": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "max": 100,
+                    "min": 0,
+                    "track": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "value": {
+                      "enabled": true,
+                      "format": "0,0.##",
+                      "justify": "center",
+                      "style": {
+                        "classes": ""
+                      }
+                    }
+                  },
+                  "render": "date",
+                  "resizable": true,
+                  "sort": "none",
+                  "sortable": true,
+                  "strictWidth": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "toggleSwitch": {
+                    "color": {
+                      "selected": "",
+                      "unselected": ""
+                    }
+                  },
+                  "viewParams": {},
+                  "viewPath": "",
+                  "visible": true,
+                  "width": ""
+                },
+                {
+                  "align": "center",
+                  "boolean": "checkbox",
+                  "dateFormat": "MM/DD/YYYY",
+                  "editable": false,
+                  "field": "DurationMinutes",
+                  "filter": {
+                    "boolean": {
+                      "condition": ""
+                    },
+                    "date": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "enabled": false,
+                    "number": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "string": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "visible": "on-hover"
+                  },
+                  "footer": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "header": {
+                    "align": "center",
+                    "justify": "center",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": "Duration[Min]"
+                  },
+                  "justify": "center",
+                  "nullFormat": {
+                    "includeNullStrings": false,
+                    "nullFormatValue": "",
+                    "strict": false
+                  },
+                  "number": "value",
+                  "numberFormat": "0,0.##",
+                  "progressBar": {
+                    "bar": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "max": 100,
+                    "min": 0,
+                    "track": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "value": {
+                      "enabled": true,
+                      "format": "0,0.##",
+                      "justify": "center",
+                      "style": {
+                        "classes": ""
+                      }
+                    }
+                  },
+                  "render": "auto",
+                  "resizable": true,
+                  "sort": "none",
+                  "sortable": true,
+                  "strictWidth": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "toggleSwitch": {
+                    "color": {
+                      "selected": "",
+                      "unselected": ""
+                    }
+                  },
+                  "viewParams": {},
+                  "viewPath": "",
+                  "visible": false,
+                  "width": ""
+                },
+                {
+                  "align": "center",
+                  "boolean": "checkbox",
+                  "dateFormat": "MM/DD/YYYY",
+                  "editable": false,
+                  "field": "Remarks",
+                  "filter": {
+                    "boolean": {
+                      "condition": ""
+                    },
+                    "date": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "enabled": false,
+                    "number": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "string": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "visible": "on-hover"
+                  },
+                  "footer": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "header": {
+                    "align": "center",
+                    "justify": "center",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": "Reason"
+                  },
+                  "justify": "center",
+                  "nullFormat": {
+                    "includeNullStrings": false,
+                    "nullFormatValue": "",
+                    "strict": false
+                  },
+                  "number": "value",
+                  "numberFormat": "0,0.##",
+                  "progressBar": {
+                    "bar": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "max": 100,
+                    "min": 0,
+                    "track": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "value": {
+                      "enabled": true,
+                      "format": "0,0.##",
+                      "justify": "center",
+                      "style": {
+                        "classes": ""
+                      }
+                    }
+                  },
+                  "render": "auto",
+                  "resizable": true,
+                  "sort": "none",
+                  "sortable": true,
+                  "strictWidth": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "toggleSwitch": {
+                    "color": {
+                      "selected": "",
+                      "unselected": ""
+                    }
+                  },
+                  "viewParams": {},
+                  "viewPath": "",
+                  "visible": true,
+                  "width": ""
+                },
+                {
+                  "align": "center",
+                  "boolean": "checkbox",
+                  "dateFormat": "MM/DD/YYYY",
+                  "editable": false,
+                  "field": "UserName",
+                  "filter": {
+                    "boolean": {
+                      "condition": ""
+                    },
+                    "date": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "enabled": false,
+                    "number": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "string": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "visible": "on-hover"
+                  },
+                  "footer": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "header": {
+                    "align": "center",
+                    "justify": "center",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": "User"
+                  },
+                  "justify": "center",
+                  "nullFormat": {
+                    "includeNullStrings": false,
+                    "nullFormatValue": "",
+                    "strict": false
+                  },
+                  "number": "value",
+                  "numberFormat": "0,0.##",
+                  "progressBar": {
+                    "bar": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "max": 100,
+                    "min": 0,
+                    "track": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "value": {
+                      "enabled": true,
+                      "format": "0,0.##",
+                      "justify": "center",
+                      "style": {
+                        "classes": ""
+                      }
+                    }
+                  },
+                  "render": "auto",
+                  "resizable": true,
+                  "sort": "none",
+                  "sortable": true,
+                  "strictWidth": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "toggleSwitch": {
+                    "color": {
+                      "selected": "",
+                      "unselected": ""
+                    }
+                  },
+                  "viewParams": {},
+                  "viewPath": "",
+                  "visible": true,
+                  "width": ""
+                }
+              ],
+              "headerStyle": {
+                "backgroundColor": "--neutral-20",
+                "color": "--neutral-80",
+                "fontFamily": "verdana",
+                "fontSize": "15px"
+              },
+              "pager": {
+                "bottom": false
+              },
+              "resizeMode": "fixed",
+              "rows": {
+                "highlight": {
+                  "color": "var(--neutral-40)"
+                },
+                "style": {
+                  "borderBottomStyle": "solid",
+                  "borderBottomWidth": "1px",
+                  "color": "--neutral-70",
+                  "fontSize": "14px"
+                },
+                "subviewExpansionMode": "single"
+              },
+              "selection": {
+                "enableRowSelection": false
+              },
+              "style": {
+                "borderBottomLeftRadius": "10px",
+                "borderBottomRightRadius": "10px",
+                "borderTopLeftRadius": "10px",
+                "borderTopRightRadius": "10px",
+                "fontFamily": "verdana"
+              }
+            },
+            "scripts": {
+              "customMethods": [],
+              "extensionFunctions": null,
+              "messageHandlers": [
+                {
+                  "messageType": "ColumnUpdate",
+                  "pageScope": true,
+                  "script": "\t# implement your handler here\n\trowIndex \u003d payload[\u0027rowIndex\u0027]\n\tcolumn \u003d payload[\u0027column\u0027]\n\tnewValue \u003d payload[\u0027newValue\u0027]\n\t\n\trows \u003d list(self.view.custom.RowIndexes)\n\tif self.props.data[rowIndex][column] !\u003d newValue:\n\t\tval \u003d {\"row\": rowIndex, \"value\": newValue}\n\t\trows.append(val)\n\t\n\tfor item in rows:\n\t\tif self.props.data[item[\"row\"]][column] \u003d\u003d newValue and item[\"row\"]\u003d\u003drowIndex:\n\t\t\trows.remove(item)\n\tself.view.custom.RowIndexes \u003d rows",
+                  "sessionScope": false,
+                  "viewScope": false
+                },
+                {
+                  "messageType": "refresh",
+                  "pageScope": true,
+                  "script": "\t# implement your handler here\n\tself.refreshBinding(\"props.data\")",
+                  "sessionScope": false,
+                  "viewScope": false
+                }
+              ]
+            },
+            "type": "ia.display.table"
+          }
+        ],
+        "meta": {
+          "name": "TableFlex"
+        },
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "borderBottomLeftRadius": "10px",
+            "borderBottomRightRadius": "10px",
+            "borderTopLeftRadius": "10px",
+            "borderTopRightRadius": "10px",
+            "classes": "Project/Table/KPI",
+            "marginTop": "0px"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "borderBottomLeftRadius": "10px",
+        "borderBottomRightRadius": "10px",
+        "borderTopLeftRadius": "10px",
+        "borderTopRightRadius": "10px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

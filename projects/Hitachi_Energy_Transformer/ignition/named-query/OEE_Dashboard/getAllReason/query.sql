@@ -1,0 +1,1 @@
+SELECT ReasonName FROM tbl_DowntimeReason where ReasonName <> 'system';

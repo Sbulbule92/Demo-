@@ -1,0 +1,604 @@
+{
+  "custom": {},
+  "events": {
+    "system": {
+      "onStartup": {
+        "config": {
+          "script": "\tself.getChild(\"root\").getChild(\"FlexContainer\").getChild(\"reasonflex\").getChild(\"Dropdown\").props.value\u003dself.params.ReasonID\n\tparameters\u003d{\"logID\":self.params.logID}\n\tNQ\u003d\"downtime/supervisor/Loggeddowntime\"\n\tresultdowntime\u003dsystem.db.execQuery(NQ,parameters)\n\tself.getChild(\"root\").getChild(\"FlexContainer\").getChild(\"downtime_desc_flex\").getChild(\"TextArea\").props.text\u003dresultdowntime.getValueAt(0, \"Remarks\")\n\tself.getChild(\"root\").getChild(\"FlexContainer\").getChild(\"Start_time_flex\").getChild(\"DateTimeInput\").props.value\u003dresultdowntime.getValueAt(0, \"StartTime\")\n\tself.getChild(\"root\").getChild(\"FlexContainer\").getChild(\"end_time_flex\").getChild(\"DateTimeInput\").props.value\u003dresultdowntime.getValueAt(0, \"EndTime\")"
+        },
+        "scope": "G",
+        "type": "script"
+      }
+    }
+  },
+  "params": {
+    "ReasonID": 36,
+    "logID": 1
+  },
+  "propConfig": {
+    "params.ReasonID": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.logID": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 600
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "20%"
+            },
+            "props": {
+              "style": {
+                "borderBottomLeftRadius": "5px",
+                "borderBottomRightRadius": "5px",
+                "borderTopLeftRadius": "5px",
+                "borderTopRightRadius": "5px",
+                "padding": "5px"
+              },
+              "text": "Please Press on Confirm to Submit or Back to reselect Downtime Reason",
+              "textStyle": {
+                "classes": "typography/page-title",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "400px"
+                },
+                "props": {
+                  "style": {
+                    "classes": "heading",
+                    "marginRight": "10px"
+                  },
+                  "text": "Select Downtime Reason :"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Label_0"
+                },
+                "position": {
+                  "basis": "50px"
+                },
+                "props": {
+                  "alignVertical": "top",
+                  "style": {
+                    "margin": "10px"
+                  },
+                  "text": "*",
+                  "textStyle": {
+                    "color": "#FF0000",
+                    "fontSize": 26,
+                    "fontWeight": "bold",
+                    "textAlign": "center"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Dropdown"
+                },
+                "position": {
+                  "basis": "256px"
+                },
+                "propConfig": {
+                  "props.options": {
+                    "binding": {
+                      "config": {
+                        "queryPath": "downtime/reason_dropdown",
+                        "returnFormat": "json"
+                      },
+                      "type": "query"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "borderBottomLeftRadius": "10px",
+                    "borderBottomRightRadius": "10px",
+                    "borderTopLeftRadius": "10px",
+                    "borderTopRightRadius": "10px"
+                  },
+                  "value": 36
+                },
+                "type": "ia.input.dropdown"
+              }
+            ],
+            "meta": {
+              "name": "reasonflex"
+            },
+            "position": {
+              "basis": "80px"
+            },
+            "props": {
+              "style": {
+                "margin": "10px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "400px"
+                },
+                "props": {
+                  "style": {
+                    "classes": "heading",
+                    "marginRight": "10px"
+                  },
+                  "text": "Select Downtime Start time:"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Label_0"
+                },
+                "position": {
+                  "basis": "50px"
+                },
+                "props": {
+                  "alignVertical": "top",
+                  "style": {
+                    "margin": "10px"
+                  },
+                  "text": "*",
+                  "textStyle": {
+                    "color": "#FF0000",
+                    "fontSize": 26,
+                    "fontWeight": "bold",
+                    "textAlign": "center"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "DateTimeInput"
+                },
+                "position": {
+                  "basis": "200px"
+                },
+                "props": {
+                  "formattedValue": "Jan 28, 2026 11:26 AM",
+                  "minDate": {
+                    "$": [
+                      "ts",
+                      0,
+                      1767087685142
+                    ],
+                    "$ts": 1767033000000
+                  },
+                  "style": {
+                    "borderBottomLeftRadius": "20px",
+                    "borderBottomRightRadius": "20px",
+                    "borderTopLeftRadius": "20px",
+                    "borderTopRightRadius": "20px",
+                    "margin": "10px"
+                  },
+                  "value": {
+                    "$": [
+                      "ts",
+                      192,
+                      1769580408908
+                    ],
+                    "$ts": 1769579808908
+                  }
+                },
+                "type": "ia.input.date-time-input"
+              }
+            ],
+            "meta": {
+              "name": "Start_time_flex"
+            },
+            "position": {
+              "basis": "70px"
+            },
+            "props": {
+              "style": {
+                "margin": "10px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "400px"
+                },
+                "props": {
+                  "style": {
+                    "classes": "heading",
+                    "marginRight": "10px"
+                  },
+                  "text": "Downtime in progress:"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Label_0",
+                  "visible": false
+                },
+                "position": {
+                  "basis": "50px"
+                },
+                "props": {
+                  "alignVertical": "top",
+                  "style": {
+                    "margin": "10px"
+                  },
+                  "text": "*",
+                  "textStyle": {
+                    "color": "#FF0000",
+                    "fontSize": 26,
+                    "fontWeight": "bold",
+                    "textAlign": "center"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Checkbox"
+                },
+                "position": {
+                  "basis": "36px"
+                },
+                "props": {
+                  "style": {
+                    "marginLeft": "5px"
+                  },
+                  "text": ""
+                },
+                "type": "ia.input.checkbox"
+              }
+            ],
+            "meta": {
+              "name": "downtime_inprogress_flex"
+            },
+            "position": {
+              "basis": "70px",
+              "display": false
+            },
+            "props": {
+              "style": {
+                "margin": "10px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "400px"
+                },
+                "props": {
+                  "style": {
+                    "classes": "heading",
+                    "marginRight": "10px"
+                  },
+                  "text": "Select Downtime End time:"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Label_0"
+                },
+                "position": {
+                  "basis": "50px"
+                },
+                "props": {
+                  "alignVertical": "top",
+                  "style": {
+                    "margin": "10px"
+                  },
+                  "text": "*",
+                  "textStyle": {
+                    "color": "#FF0000",
+                    "fontSize": 26,
+                    "fontWeight": "bold",
+                    "textAlign": "center"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "DateTimeInput"
+                },
+                "position": {
+                  "basis": "200px"
+                },
+                "propConfig": {
+                  "props.enabled": {
+                    "binding": {
+                      "config": {
+                        "expression": "if({.../downtime_inprogress_flex/Checkbox.props.selected},false,True)"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "formattedValue": "Jan 28, 2026 11:36 AM",
+                  "minDate": {
+                    "$": [
+                      "ts",
+                      0,
+                      1767087675485
+                    ],
+                    "$ts": 1767033000000
+                  },
+                  "style": {
+                    "borderBottomLeftRadius": "10px",
+                    "borderBottomRightRadius": "10px",
+                    "borderTopLeftRadius": "10px",
+                    "borderTopRightRadius": "10px",
+                    "margin": "10px"
+                  },
+                  "value": {
+                    "$": [
+                      "ts",
+                      192,
+                      1769580408908
+                    ],
+                    "$ts": 1769580408908
+                  }
+                },
+                "type": "ia.input.date-time-input"
+              }
+            ],
+            "meta": {
+              "name": "end_time_flex"
+            },
+            "position": {
+              "basis": "70px"
+            },
+            "props": {
+              "style": {
+                "margin": "10px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "200px"
+                },
+                "props": {
+                  "style": {
+                    "classes": "heading",
+                    "marginRight": "10px"
+                  },
+                  "text": "Provide description"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Label_0"
+                },
+                "position": {
+                  "basis": "50px"
+                },
+                "props": {
+                  "alignVertical": "top",
+                  "style": {
+                    "margin": "10px"
+                  },
+                  "text": "*",
+                  "textStyle": {
+                    "color": "#FF0000",
+                    "fontSize": 26,
+                    "fontWeight": "bold",
+                    "textAlign": "center"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "TextArea"
+                },
+                "position": {
+                  "basis": "240px",
+                  "grow": 1
+                },
+                "props": {
+                  "style": {
+                    "borderBottomLeftRadius": "10px",
+                    "borderBottomRightRadius": "10px",
+                    "borderTopLeftRadius": "10px",
+                    "borderTopRightRadius": "10px",
+                    "fontFamily": "Verdana"
+                  }
+                },
+                "type": "ia.input.text-area"
+              }
+            ],
+            "meta": {
+              "name": "downtime_desc_flex"
+            },
+            "position": {
+              "basis": "100px"
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "if({view.params.ReasonID}\u003d36,True,False)"
+                  },
+                  "enabled": false,
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "margin": "10px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\tsystem.perspective.closePopup(\u0027PopUp1\u0027)\n\t"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Button_0"
+                },
+                "position": {
+                  "basis": "25%"
+                },
+                "props": {
+                  "image": {
+                    "height": 36,
+                    "width": 36
+                  },
+                  "style": {
+                    "backgroundColor": "#FF0000",
+                    "classes": "button",
+                    "margin": "5px",
+                    "marginLeft": "50px"
+                  },
+                  "text": "Back"
+                },
+                "type": "ia.input.button"
+              },
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "50px",
+                  "grow": 1
+                },
+                "props": {
+                  "textStyle": {
+                    "color": "#FF4747"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\t#categorydowntime \u003dself.parent.parent.getChild(\"down_cat_flex\").getChild(\"Dropdown\").props.value\n\tlogID\u003dself.view.params.logID\n\treasondowntime \u003d self.parent.parent.getChild(\"reasonflex\").getChild(\"Dropdown\").props.value\n\tinprogressdowntime\u003dFalse\n\tstarttime\u003dself.parent.parent.getChild(\"Start_time_flex\").getChild(\"DateTimeInput\").props.value\n\tEndTime\u003dself.parent.parent.getChild(\"end_time_flex\").getChild(\"DateTimeInput\").props.value\n\tshift\u003dsystem.tag.readBlocking(\"[default]Current_Shift/shift_ID\")[0].value\n\tdescdowntime\u003dself.parent.parent.getChild(\"downtime_desc_flex\").getChild(\"TextArea\").props.text\n\tuser\u003dself.session.props.auth.user.userName\n\terrorcode\u003d\u0027\u0027\n#\tif categorydowntime \u003c 1 :\n#\t\terrorcode\u003d \"Please select a Downtime category\"\n\tif reasondowntime \u003c 1 :\n\t\terrorcode\u003d \"Please select a Downtime reason\"\n\telif starttime is None :\n\t\terrorcode\u003d \"Please select start time\"\n#\telif inprogressdowntime \u003d\u003d False and EndTime is None:\n#\t\terrorcode\u003d \"Please select end time\"\n\telif len(descdowntime) \u003c\u003d 4 and  reasondowntime\u003d\u003d36:\n\t\terrorcode\u003d \"Please provide downtime description \"\n\telse:\n\t\tparameters \u003d { \"reasonID\":reasondowntime,\"username\":user,\"startTime\":starttime,\"remark\":descdowntime,\"endTime\":EndTime,\"logID\":logID} \n\t\tsystem.db.runNamedQuery(\"downtime/supervisor/update_logid\", parameters)\n\t\tsystem.perspective.closePopup(\u0027PopUp1\u0027)\n#\t\tif inprogressdowntime :\n#\t\t\t#breakdown in progress\n#\t\t\t#parameters \u003d {\"CategoryID\":categorydowntime, \"ReasonID\":reasondowntime, \"Remarks\":descdowntime, \"DowntimeStatus\":not inprogressdowntime,\"username\":user,\"StartTime\":starttime} \n#\t\t\tparameters \u003d { \"ReasonID\":reasondowntime, \"DowntimeStatus\":False,\"username\":user,\"StartTime\":starttime,\"ShiftID\":shift,\"DowntimeSource\":0,\"Remarks\":descdowntime} \n#\t\t\t# Run the Named Query\n#\t\t\tsystem.db.runNamedQuery(\"downtime/insert\", parameters)\n#\t\telse:\n#\t\t\t#breakdowncompleted\n#\t\t\t\n#\t\t\t#parameters \u003d {\"CategoryID\":categorydowntime, \"ReasonID\":reasondowntime, \"Remarks\":descdowntime, \"DowntimeStatus\":not inprogressdowntime,\"username\":user,\"StartTime\":starttime,\"EndTime\":EndTime} \n#\t\t\tparameters \u003d {\"ReasonID\":reasondowntime,  \"DowntimeStatus\":False,\"username\":user,\"StartTime\":starttime,\"EndTime\":EndTime,\"ShiftID\":shift,\"DowntimeSource\":0,\"Remarks\":descdowntime} \n## Run the Named Query\n#\t\t\tsystem.db.runNamedQuery(\"downtime/insert_completed\", parameters)\n\t\t\n\t\tparams \u003d {\"action\": \"success\", \"primaryText\": \"Downtime logged successfully!\", \"secondaryText\":\" \",\"label\":\"manual downtime\"}\n\t\tsystem.perspective.openPopup(\"PopUp\", view \u003d \"Project/Pop-Up/Pop-up\", \n\t\t\t\t\t\t\t\t\t\tparams \u003d params, \n\t\t\t\t\t\t\t\t\t\tshowCloseIcon \u003d False,\n\t\t\t\t\t\t\t\t\t\tdraggable \u003d False, \n\t\t\t\t\t\t\t\t\t\tmodal \u003d True)\n\t\n\tself.getSibling(\"Label\").props.text\u003d errorcode\n\t#system.perspective.navigate(url\u003d\"http://localhost:8088/data/perspective/client/Shiva_Hitachi/opr_job_board\")"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Button"
+                },
+                "position": {
+                  "basis": "25%"
+                },
+                "props": {
+                  "image": {
+                    "height": 36,
+                    "width": 36
+                  },
+                  "style": {
+                    "backgroundColor": "#00D900",
+                    "classes": "button",
+                    "margin": "5px",
+                    "marginRight": "50px"
+                  },
+                  "text": "Confirm"
+                },
+                "type": "ia.input.button"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer"
+            },
+            "position": {
+              "basis": "100px"
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "200px",
+          "grow": 1
+        },
+        "props": {
+          "direction": "column"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "classes": "Page/mainpage",
+        "fontFamily": "Verdana"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

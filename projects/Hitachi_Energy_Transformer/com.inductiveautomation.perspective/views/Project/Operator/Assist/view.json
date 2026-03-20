@@ -1,0 +1,141 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tparams \u003d {\t\"action\": \"confirm\",\n\t\t\t\t\"primaryText\": \"Do you really want to notify supervisor!\",\n\t\t\t\t\"secondaryText\":\" Supervisor imidiately get noftified that you are seeking help \"}\n\tsystem.perspective.openPopup(\"PopUp\", view \u003d \"Project/Pop-Up/Pop-up\", \n\t\t\t\t\t\t\t\t\t\tparams \u003d params, \n\t\t\t\t\t\t\t\t\t\tshowCloseIcon \u003d False,\n\t\t\t\t\t\t\t\t\t\tdraggable \u003d False, \n\t\t\t\t\t\t\t\t\t\tmodal \u003d True)"
+                  },
+                  "enabled": false,
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Template"
+            },
+            "position": {
+              "basis": "380px",
+              "grow": 1
+            },
+            "props": {
+              "params": {
+                "label": "Supervisor Assistance"
+              },
+              "path": "Template",
+              "style": {
+                "classes": "Project/Embded_View"
+              }
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Template_0"
+            },
+            "position": {
+              "basis": "350px",
+              "grow": 1
+            },
+            "props": {
+              "params": {
+                "label": "Break"
+              },
+              "path": "Template",
+              "style": {
+                "classes": "Project/Embded_View"
+              }
+            },
+            "type": "ia.display.view"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "220px",
+          "grow": 1
+        },
+        "props": {
+          "style": {
+            "margin": "50px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Template"
+            },
+            "position": {
+              "basis": "320px",
+              "grow": 1
+            },
+            "props": {
+              "params": {
+                "label": "Log Downtime"
+              },
+              "path": "Template",
+              "style": {
+                "classes": "Project/Embded_View"
+              }
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Template_0"
+            },
+            "position": {
+              "basis": "320px",
+              "grow": 1
+            },
+            "props": {
+              "params": {
+                "label": "Lunch Break"
+              },
+              "path": "Template",
+              "style": {
+                "classes": "Project/Embded_View"
+              }
+            },
+            "type": "ia.display.view"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_0"
+        },
+        "position": {
+          "basis": "220px",
+          "grow": 1
+        },
+        "props": {
+          "style": {
+            "margin": "50px"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "classes": "Page/mainpage"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

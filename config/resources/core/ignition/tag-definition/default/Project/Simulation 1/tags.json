@@ -1,0 +1,130 @@
+[
+  {
+    "valueSource": "memory",
+    "dataType": "String",
+    "name": "Job_status",
+    "defaultValue": "Running",
+    "tagType": "AtomicTag"
+  },
+  {
+    "valueSource": "expr",
+    "eventScripts": [
+      {
+        "eventid": "valueChanged",
+        "script": "\timport random as r\n\tsystem.tag.writeBlocking(\u0027[default]Project/Simulation 1/shiftChangedTrigger\u0027, True)\n\tuser \u003d [\u0027John\u0027, \u0027Mack\u0027, \u0027Kevin\u0027, \u0027shaun\u0027, \u0027Steve\u0027]\n\tcurrent_user \u003d system.tag.readBlocking(\u0027[default]Project/Simulation 1/user\u0027)[0].value\n\tdecide \u003d r.randint(0,4)\n\tif current_user !\u003d user[decide]:\n\t\tsystem.tag.writeBlocking(\u0027[default]Project/Simulation 1/user\u0027, user[decide])\n\telse:\n\t\tif decide\u003e\u003d0 and decide\u003c4:\n\t\t\tsystem.tag.writeBlocking(\u0027[default]Project/Simulation 1/user\u0027, user[decide+1])\n\t\telif decide \u003d\u003d 4:\n\t\t\tsystem.tag.writeBlocking(\u0027[default]Project/Simulation 1/user\u0027, user[decide-1])"
+      }
+    ],
+    "expression": "runScript(\"Project.HE.ProjectScript.getShift()\", 2000)",
+    "dataType": "String",
+    "name": "Shift",
+    "defaultValue": "B",
+    "value": false,
+    "tagType": "AtomicTag"
+  },
+  {
+    "valueSource": "memory",
+    "name": "Machine",
+    "defaultValue": 0,
+    "tagType": "AtomicTag"
+  },
+  {
+    "valueSource": "memory",
+    "dataType": "String",
+    "name": "Sequence",
+    "defaultValue": "",
+    "tagType": "AtomicTag"
+  },
+  {
+    "valueSource": "expr",
+    "expression": "if({[.]DTinSec.value}\u003d9 || ({[.]startDt.value}\u003d1 \u0026\u0026 {[.]DtRandom.value}\u003e5 \u0026\u0026 {[.]DTinSec.value}\u003c 15000) ,1,0)",
+    "dataType": "Boolean",
+    "name": "startDt",
+    "defaultValue": false,
+    "value": false,
+    "tagType": "AtomicTag"
+  },
+  {
+    "valueSource": "expr",
+    "expression": "runScript(\"Project.HE.ProjectScript.startDownTime()\", 2000)",
+    "dataType": "Int4",
+    "name": "DtRandom",
+    "tagType": "AtomicTag"
+  },
+  {
+    "valueSource": "memory",
+    "name": "ShiftChangedDT",
+    "defaultValue": 0,
+    "tagType": "AtomicTag"
+  },
+  {
+    "valueSource": "memory",
+    "dataType": "String",
+    "name": "user",
+    "defaultValue": "",
+    "tagType": "AtomicTag"
+  },
+  {
+    "valueSource": "memory",
+    "dataType": "String",
+    "name": "Job_serial_no",
+    "defaultValue": "JC#123457-38",
+    "tagType": "AtomicTag"
+  },
+  {
+    "valueSource": "memory",
+    "name": "loopValue",
+    "defaultValue": 0,
+    "tagType": "AtomicTag"
+  },
+  {
+    "valueSource": "memory",
+    "dataType": "Boolean",
+    "name": "shiftChangedTrigger",
+    "defaultValue": false,
+    "tagType": "AtomicTag"
+  },
+  {
+    "valueSource": "memory",
+    "name": "jobId",
+    "defaultValue": 247,
+    "tagType": "AtomicTag"
+  },
+  {
+    "valueSource": "memory",
+    "dataType": "Boolean",
+    "name": "Abort",
+    "defaultValue": false,
+    "tagType": "AtomicTag"
+  },
+  {
+    "valueSource": "memory",
+    "name": "DtID",
+    "defaultValue": 0,
+    "tagType": "AtomicTag"
+  },
+  {
+    "valueSource": "memory",
+    "name": "TargetCt",
+    "defaultValue": 4080,
+    "tagType": "AtomicTag"
+  },
+  {
+    "valueSource": "memory",
+    "dataType": "Boolean",
+    "name": "restarted",
+    "defaultValue": false,
+    "tagType": "AtomicTag"
+  },
+  {
+    "valueSource": "memory",
+    "name": "DTinSec",
+    "defaultValue": 0,
+    "tagType": "AtomicTag"
+  },
+  {
+    "valueSource": "memory",
+    "name": "Percentage",
+    "defaultValue": 97,
+    "tagType": "AtomicTag"
+  }
+]

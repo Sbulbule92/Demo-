@@ -1,0 +1,166 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Template"
+            },
+            "position": {
+              "basis": "300px",
+              "grow": 1
+            },
+            "props": {
+              "params": {
+                "label": "Shift overview"
+              },
+              "path": "Template",
+              "style": {
+                "classes": "Project/Embded_View"
+              }
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Template_0"
+            },
+            "position": {
+              "basis": "300px",
+              "grow": 1
+            },
+            "props": {
+              "params": {
+                "label": "OEE Dashboard"
+              },
+              "path": "Template",
+              "style": {
+                "classes": "Project/Embded_View"
+              }
+            },
+            "type": "ia.display.view"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "200px",
+          "grow": 1
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Template"
+            },
+            "position": {
+              "basis": "320px",
+              "grow": 1
+            },
+            "props": {
+              "params": {
+                "label": "Priority Assignment"
+              },
+              "path": "Template",
+              "style": {
+                "classes": "Project/Embded_View"
+              }
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Template_0"
+            },
+            "position": {
+              "basis": "320px",
+              "grow": 1
+            },
+            "props": {
+              "params": {
+                "label": "Operator Overview"
+              },
+              "path": "Template",
+              "style": {
+                "classes": "Project/Embded_View"
+              }
+            },
+            "type": "ia.display.view"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_0"
+        },
+        "position": {
+          "basis": "200px",
+          "grow": 1
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Template"
+            },
+            "position": {
+              "basis": "320px",
+              "grow": 1
+            },
+            "props": {
+              "params": {
+                "label": "Downtime Monitor"
+              },
+              "path": "Template",
+              "style": {
+                "classes": "Project/Embded_View"
+              }
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Template_0"
+            },
+            "position": {
+              "basis": "320px",
+              "grow": 1
+            },
+            "props": {
+              "params": {
+                "label": "Ideal VS Actual cycle Time"
+              },
+              "path": "Template"
+            },
+            "type": "ia.display.view"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_1"
+        },
+        "position": {
+          "basis": "200px",
+          "grow": 1
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "classes": "Page/mainpage"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

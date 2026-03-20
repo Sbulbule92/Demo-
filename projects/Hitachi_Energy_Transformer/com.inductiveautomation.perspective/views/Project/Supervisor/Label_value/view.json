@@ -1,0 +1,170 @@
+{
+  "custom": {},
+  "params": {
+    "label": "SHIFT WORKED",
+    "value1": "A",
+    "value2": 3,
+    "visible_value_2": "False"
+  },
+  "propConfig": {
+    "params.label": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.value1": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.value2": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.visible_value_2": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 74,
+      "width": 271
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "300px",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.label"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "--neutral-20",
+            "borderBottomLeftRadius": "5px",
+            "borderBottomRightRadius": "5px",
+            "borderColor": "--neutral-40",
+            "borderStyle": "none",
+            "borderTopLeftRadius": "5px",
+            "borderTopRightRadius": "5px",
+            "borderWidth": "1px",
+            "margin": "10px"
+          },
+          "textStyle": {
+            "color": "--neutral-80",
+            "fontFamily": "Verdana",
+            "fontSize": "18px",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_value_1"
+        },
+        "position": {
+          "basis": "32px",
+          "grow": 1
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.params.visible_value_2"
+              },
+              "type": "property"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.value2"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "--neutral-10",
+            "borderBottomLeftRadius": "5px",
+            "borderBottomRightRadius": "5px",
+            "borderStyle": "none",
+            "borderTopLeftRadius": "5px",
+            "borderTopRightRadius": "5px",
+            "borderWidth": "1px",
+            "margin": "10px"
+          },
+          "textStyle": {
+            "fontFamily": "Verdana",
+            "fontSize": "18px",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_value_2"
+        },
+        "position": {
+          "basis": "250px",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.value1"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "--neutral-10",
+            "borderBottomLeftRadius": "5px",
+            "borderBottomRightRadius": "5px",
+            "borderColor": "--neutral-40",
+            "borderStyle": "solid",
+            "borderTopLeftRadius": "5px",
+            "borderTopRightRadius": "5px",
+            "borderWidth": "1px",
+            "margin": "10px"
+          },
+          "textStyle": {
+            "fontFamily": "Verdana",
+            "fontSize": "28px",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "justify": "space-between",
+      "style": {
+        "backgroundColor": "transparent",
+        "borderStyle": "none"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

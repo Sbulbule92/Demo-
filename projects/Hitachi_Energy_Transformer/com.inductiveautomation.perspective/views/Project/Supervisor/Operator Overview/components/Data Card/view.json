@@ -1,0 +1,300 @@
+{
+  "custom": {
+    "opr_name": "value"
+  },
+  "params": {
+    "A": 96,
+    "OEE": 90,
+    "P": 85,
+    "Q": 84,
+    "active": true,
+    "day": "value",
+    "opr_name": "value"
+  },
+  "propConfig": {
+    "custom.opr_name": {
+      "binding": {
+        "config": {
+          "path": "view.params.opr_name"
+        },
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "params.A": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.OEE": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.P": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.Q": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.active": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.day": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.opr_name": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 266,
+      "width": 255
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "50px",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.opr_name"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "fontFamily": "Verdana",
+                "fontSize": "20px",
+                "fontWeight": "600",
+                "textAlign": "center",
+                "textTransform": "uppercase"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "Name Flex"
+        },
+        "position": {
+          "basis": "60px"
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "--neutral-20"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "FlexRepeater"
+            },
+            "position": {
+              "basis": "575px",
+              "grow": 1
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.active"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.instances[0].value": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.OEE"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.instances[1].value": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.A"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.instances[2].value": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.P"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.instances[3].value": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.Q"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "alignItems": "center",
+              "elementPosition": {
+                "grow": 0
+              },
+              "instances": [
+                {
+                  "instancePosition": {},
+                  "instanceStyle": {
+                    "classes": ""
+                  },
+                  "label": "OEE"
+                },
+                {
+                  "instancePosition": {},
+                  "instanceStyle": {
+                    "classes": ""
+                  },
+                  "label": "A"
+                },
+                {
+                  "instancePosition": {},
+                  "instanceStyle": {
+                    "classes": ""
+                  },
+                  "label": "P"
+                },
+                {
+                  "instancePosition": {},
+                  "instanceStyle": {
+                    "classes": ""
+                  },
+                  "label": "Q"
+                }
+              ],
+              "justify": "space-around",
+              "path": "Project/Supervisor/Operator Overview/components/KPI Card",
+              "wrap": "wrap"
+            },
+            "type": "ia.display.flex-repeater"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "grow": 1
+                },
+                "props": {
+                  "style": {
+                    "margin": "5px"
+                  },
+                  "text": "This Operator did not work on selected day",
+                  "textStyle": {
+                    "color": "--neutral-70",
+                    "fontSize": "22px"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer"
+            },
+            "position": {
+              "basis": "200px",
+              "grow": 1
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "!{view.params.active}"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "alignItems": "flex-end",
+              "wrap": "wrap"
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "KPI Card Flex"
+        },
+        "position": {
+          "basis": "200px",
+          "grow": 1
+        },
+        "props": {
+          "alignContent": "flex-start",
+          "alignItems": "flex-start",
+          "justify": "space-between"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "events": {
+      "dom": {
+        "onClick": {
+          "config": {
+            "script": "\tsystem.perspective.navigate(view \u003d \"Project/operator_overview\", params \u003d {\"username\": self.view.params.opr_name, \"day\": self.view.params.day})"
+          },
+          "scope": "G",
+          "type": "script"
+        }
+      }
+    },
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "props.style.cursor": {
+        "binding": {
+          "config": {
+            "expression": "if({view.params.active}, \u0027pointer\u0027, \u0027not-allowed\u0027)"
+          },
+          "type": "expr"
+        }
+      }
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "backgroundColor": "--neutral-10",
+        "borderBottomLeftRadius": "10px",
+        "borderBottomRightRadius": "10px",
+        "borderColor": "--neutral-40",
+        "borderStyle": "solid",
+        "borderTopLeftRadius": "10px",
+        "borderTopRightRadius": "10px",
+        "borderWidth": "1px",
+        "margin": "0px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

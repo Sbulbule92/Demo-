@@ -1,0 +1,197 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "width": 250
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "MenuTree"
+        },
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "itemStyle": {
+            "color": ""
+          },
+          "items": [
+            {
+              "backActionText": "",
+              "enabled": true,
+              "items": [
+                {
+                  "backActionText": "",
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": ""
+                    },
+                    "text": "Submenu item 1"
+                  },
+                  "navIcon": {
+                    "path": ""
+                  },
+                  "resetOnClick": false,
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "",
+                  "visible": true
+                },
+                {
+                  "backActionText": "",
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": ""
+                    },
+                    "text": "Submenu item 2"
+                  },
+                  "navIcon": {
+                    "path": ""
+                  },
+                  "resetOnClick": false,
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "",
+                  "visible": true
+                }
+              ],
+              "label": {
+                "icon": {
+                  "path": "material/list"
+                },
+                "text": "Operator"
+              },
+              "navIcon": {
+                "color": "",
+                "path": "material/chevron_right"
+              },
+              "resetOnClick": false,
+              "showHeader": true,
+              "style": {
+                "classes": ""
+              },
+              "target": "",
+              "visible": true
+            },
+            {
+              "backActionText": "",
+              "enabled": true,
+              "items": [
+                {
+                  "backActionText": "",
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": ""
+                    },
+                    "text": "Downtime Logs"
+                  },
+                  "navIcon": {
+                    "path": ""
+                  },
+                  "resetOnClick": false,
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/sup_downtime_monitor",
+                  "visible": true
+                },
+                {
+                  "backActionText": "",
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": ""
+                    },
+                    "text": "Job Board"
+                  },
+                  "navIcon": {
+                    "path": ""
+                  },
+                  "resetOnClick": false,
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/opr_job_board",
+                  "visible": true
+                }
+              ],
+              "label": {
+                "icon": {
+                  "path": "material/list"
+                },
+                "text": "Supervisor"
+              },
+              "navIcon": {
+                "color": "",
+                "path": "material/chevron_right"
+              },
+              "resetOnClick": false,
+              "showHeader": true,
+              "style": {
+                "classes": ""
+              },
+              "target": "",
+              "visible": true
+            },
+            {
+              "backActionText": "",
+              "enabled": true,
+              "items": [],
+              "label": {
+                "icon": {
+                  "path": "material/list"
+                },
+                "text": "Navigation"
+              },
+              "navIcon": {
+                "color": "",
+                "path": ""
+              },
+              "resetOnClick": false,
+              "showHeader": true,
+              "style": {
+                "classes": ""
+              },
+              "target": "/navigation",
+              "visible": true
+            }
+          ],
+          "style": {
+            "borderRightColor": "#808080",
+            "borderRightStyle": "solid",
+            "borderRightWidth": "2px",
+            "classes": "Project/Bar_background"
+          }
+        },
+        "type": "ia.navigation.menutree"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "classes": "Project/Bar_background"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

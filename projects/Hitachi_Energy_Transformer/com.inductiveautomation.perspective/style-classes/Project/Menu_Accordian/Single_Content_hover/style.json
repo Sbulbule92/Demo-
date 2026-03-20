@@ -1,0 +1,14 @@
+{
+  "base": {
+    "style": {}
+  },
+  "variants": [
+    {
+      "pseudo": "hover",
+      "style": {
+        "backgroundColor": "var(--error)",
+        "color": "var(--neurtral-10)"
+      }
+    }
+  ]
+}

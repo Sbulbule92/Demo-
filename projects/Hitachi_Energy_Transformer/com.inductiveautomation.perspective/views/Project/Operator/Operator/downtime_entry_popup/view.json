@@ -1,0 +1,221 @@
+{
+  "custom": {
+    "pending_downtime": []
+  },
+  "params": {},
+  "propConfig": {
+    "custom.pending_downtime": {
+      "binding": {
+        "config": {
+          "parameters": {
+            "refresh": "{[default]WOCL_1/Downtime/Active}"
+          },
+          "queryPath": "downtime/pending_entry",
+          "returnFormat": "json"
+        },
+        "type": "query"
+      },
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 550
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "50px"
+            },
+            "props": {
+              "text": "SELECT DOWNTIME REASONS",
+              "textStyle": {
+                "classes": "typography/page-title",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label_0"
+                },
+                "position": {
+                  "basis": "20%"
+                },
+                "props": {
+                  "text": "Start Time:",
+                  "textStyle": {
+                    "classes": "typography/page-title",
+                    "textAlign": "center"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Label_1"
+                },
+                "position": {
+                  "basis": "30%"
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.pending_downtime[0].StartTime"
+                      },
+                      "transforms": [
+                        {
+                          "formatType": "datetime",
+                          "formatValue": {
+                            "date": "medium",
+                            "time": "medium"
+                          },
+                          "type": "format"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "textStyle": {
+                    "classes": "typography/page-title",
+                    "fontSize": "16px",
+                    "textAlign": "left"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Label_2"
+                },
+                "position": {
+                  "basis": "20%"
+                },
+                "props": {
+                  "text": "End Time:",
+                  "textStyle": {
+                    "classes": "typography/page-title",
+                    "textAlign": "center"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Label_3"
+                },
+                "position": {
+                  "basis": "30%"
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.pending_downtime[0].EndTime"
+                      },
+                      "transforms": [
+                        {
+                          "expression": "if({value}\u003dnull,\"In Progress\",dateFormat({value},\"MMM DD, YYYY, hh:mm:ss a\"))",
+                          "type": "expression"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "textStyle": {
+                    "classes": "typography/page-title",
+                    "fontSize": "16px",
+                    "textAlign": "left"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer"
+            },
+            "position": {
+              "basis": "70px"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "meta": {
+              "name": "FlexRepeater"
+            },
+            "position": {
+              "basis": "320px",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.instances": {
+                "binding": {
+                  "config": {
+                    "queryPath": "downtime/reason",
+                    "returnFormat": "json"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tfor row in value:\n\t\trow[\"logID\"] \u003d self.view.custom.pending_downtime[0].LogID\n\treturn value\t",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "query"
+                }
+              }
+            },
+            "props": {
+              "elementStyle": {
+                "margin": "5px"
+              },
+              "justify": "space-around",
+              "path": "Operator/repeter/Downtimereason_for_poup",
+              "style": {
+                "classes": "component/basic"
+              },
+              "useDefaultViewHeight": false,
+              "wrap": "wrap"
+            },
+            "type": "ia.display.flex-repeater"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "200px",
+          "grow": 1
+        },
+        "props": {
+          "direction": "column"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "classes": "Page/mainpage"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

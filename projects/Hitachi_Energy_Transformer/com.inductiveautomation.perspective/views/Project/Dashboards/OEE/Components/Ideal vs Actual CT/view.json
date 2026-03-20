@@ -1,0 +1,1008 @@
+{
+  "custom": {},
+  "params": {
+    "data": "value",
+    "date": "2026-1-16 8:50:27",
+    "shift": "A"
+  },
+  "propConfig": {
+    "params.data": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.date": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.shift": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 392,
+      "width": 901
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "backgroundColor": "--neutral-20",
+                "marginBottom": "1px"
+              },
+              "text": "Ideal vs Actual Cycle Time",
+              "textStyle": {
+                "alignSelf": "flex-start",
+                "color": "--neutral-80"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.closePopup(\u0027pareto\u0027)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "30px",
+              "display": false
+            },
+            "props": {
+              "color": "#C72727",
+              "path": "material/close",
+              "style": {
+                "cursor": "pointer"
+              }
+            },
+            "type": "ia.display.icon"
+          }
+        ],
+        "meta": {
+          "name": "Header"
+        },
+        "position": {
+          "basis": "30px",
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "--neutral-20",
+            "paddingLeft": "10px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "XYChart"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "props.dataSources.example1": {
+                "binding": {
+                  "config": {
+                    "parameters": {
+                      "Day": "{view.params.date}",
+                      "Shift": "{view.params.shift}"
+                    },
+                    "queryPath": "OEE_Dashboard/IdealVsActualCT"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\treturn value if value else []",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "query"
+                }
+              },
+              "props.dataSources.example2": {
+                "binding": {
+                  "config": {
+                    "expression": "True"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\treturn  [\n    {\n      \"Hour\": \"06:00\",\n      \"IdealCycleTime\": 2.0,\n      \"ActualCycleTime\": 2.3\n    },\n    {\n      \"Hour\": \"07:00\",\n      \"IdealCycleTime\": 2.0,\n      \"ActualCycleTime\": 2.1\n    },\n    {\n      \"Hour\": \"08:00\",\n      \"IdealCycleTime\": 2.0,\n      \"ActualCycleTime\": 2.6\n    },\n    {\n      \"Hour\": \"09:00\",\n      \"IdealCycleTime\": 2.0,\n      \"ActualCycleTime\": 2.4\n    },\n    {\n      \"Hour\": \"10:00\",\n      \"IdealCycleTime\": 2.0,\n      \"ActualCycleTime\": 2.0\n    },\n    {\n      \"Hour\": \"11:00\",\n      \"IdealCycleTime\": 2.0,\n      \"ActualCycleTime\": 2.2\n    },\n    {\n      \"Hour\": \"12:00\",\n      \"IdealCycleTime\": 2.0,\n      \"ActualCycleTime\": 2.8\n    },\n    {\n      \"Hour\": \"13:00\",\n      \"IdealCycleTime\": 2.0,\n      \"ActualCycleTime\": 2.5\n    }\n  ]",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "expr"
+                }
+              },
+              "props.series[0].column.appearance.fill.color": {
+                "binding": {
+                  "config": {
+                    "path": "session.props.theme"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\treturn \u0027#0c7bb3\u0027 if \u0027dark\u0027 in value else \u0027#0c7bb3\u0027 #\u0027#229ad6\u0027",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.series[1].column.appearance.fill.color": {
+                "binding": {
+                  "config": {
+                    "path": "session.props.theme"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\treturn \u0027#cf7911\u0027 if \u0027dark\u0027 in value else \u0027#cf7911\u0027 #\u0027#e89c3f\u0027",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "background": {
+                "color": "--neutral-10",
+                "render": "gradient"
+              },
+              "dataSources": {},
+              "series": [
+                {
+                  "candlestick": {
+                    "appearance": {
+                      "deriveFieldsFromData": {
+                        "fill": {
+                          "color": "",
+                          "opacity": ""
+                        },
+                        "stroke": {
+                          "color": "",
+                          "opacity": "",
+                          "width": ""
+                        }
+                      },
+                      "fill": {
+                        "color": "",
+                        "opacity": 1
+                      },
+                      "heatRules": {
+                        "dataField": "",
+                        "enabled": false,
+                        "max": "",
+                        "min": ""
+                      },
+                      "stacked": false,
+                      "stroke": {
+                        "color": "",
+                        "opacity": 1,
+                        "width": 1
+                      }
+                    },
+                    "high": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "low": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "open": {
+                      "x": "",
+                      "y": ""
+                    }
+                  },
+                  "column": {
+                    "appearance": {
+                      "deriveFieldsFromData": {
+                        "fill": {
+                          "color": "",
+                          "opacity": ""
+                        },
+                        "stroke": {
+                          "color": "",
+                          "opacity": "",
+                          "width": ""
+                        }
+                      },
+                      "fill": {
+                        "opacity": 1
+                      },
+                      "heatRules": {
+                        "dataField": "",
+                        "enabled": false,
+                        "max": "",
+                        "min": ""
+                      },
+                      "height": null,
+                      "stacked": false,
+                      "stroke": {
+                        "color": "",
+                        "opacity": 1,
+                        "width": 1
+                      },
+                      "width": null
+                    },
+                    "open": {
+                      "x": "",
+                      "y": ""
+                    }
+                  },
+                  "data": {
+                    "source": "example1",
+                    "x": "Hour",
+                    "y": "ActualCycleTime"
+                  },
+                  "defaultState": {
+                    "visible": true
+                  },
+                  "hiddenInLegend": false,
+                  "label": {
+                    "text": ""
+                  },
+                  "line": {
+                    "appearance": {
+                      "bullets": [
+                        {
+                          "deriveFieldsFromData": {
+                            "fill": {
+                              "color": "",
+                              "opacity": ""
+                            },
+                            "rotation": "",
+                            "stroke": {
+                              "color": "",
+                              "opacity": "",
+                              "width": ""
+                            }
+                          },
+                          "enabled": false,
+                          "fill": {
+                            "color": "",
+                            "opacity": 1
+                          },
+                          "heatRules": {
+                            "dataField": "",
+                            "enabled": false,
+                            "max": 100,
+                            "min": 2
+                          },
+                          "height": 10,
+                          "label": {
+                            "position": {
+                              "dx": 0,
+                              "dy": 0
+                            },
+                            "text": "{value}"
+                          },
+                          "render": "circle",
+                          "rotation": 0,
+                          "stroke": {
+                            "color": "",
+                            "opacity": 1,
+                            "width": 1
+                          },
+                          "tooltip": {
+                            "background": {
+                              "color": "",
+                              "opacity": 1
+                            },
+                            "cornerRadius": 3,
+                            "enabled": true,
+                            "pointerLength": 4,
+                            "text": "{name}: [bold]{valueY}[/]"
+                          },
+                          "width": 10
+                        }
+                      ],
+                      "connect": true,
+                      "fill": {
+                        "color": "",
+                        "opacity": 0
+                      },
+                      "minDistance": 0.5,
+                      "stroke": {
+                        "color": "",
+                        "dashArray": "",
+                        "opacity": 1,
+                        "width": 3
+                      },
+                      "tensionX": 1,
+                      "tensionY": 1
+                    },
+                    "open": {
+                      "x": "",
+                      "y": ""
+                    }
+                  },
+                  "name": "ActualCycleTime",
+                  "render": "column",
+                  "stepLine": {
+                    "appearance": {
+                      "bullets": [
+                        {
+                          "deriveFieldsFromData": {
+                            "fill": {
+                              "color": "",
+                              "opacity": ""
+                            },
+                            "rotation": "",
+                            "stroke": {
+                              "color": "",
+                              "opacity": "",
+                              "width": ""
+                            }
+                          },
+                          "enabled": true,
+                          "fill": {
+                            "color": "",
+                            "opacity": 1
+                          },
+                          "heatRules": {
+                            "dataField": "",
+                            "enabled": false,
+                            "max": 100,
+                            "min": 2
+                          },
+                          "height": 10,
+                          "label": {
+                            "position": {
+                              "dx": 0,
+                              "dy": 0
+                            },
+                            "text": "{value}"
+                          },
+                          "render": "circle",
+                          "rotation": 0,
+                          "stroke": {
+                            "color": "",
+                            "opacity": 1,
+                            "width": 1
+                          },
+                          "tooltip": {
+                            "background": {
+                              "color": "",
+                              "opacity": 1
+                            },
+                            "cornerRadius": 3,
+                            "enabled": true,
+                            "pointerLength": 4,
+                            "text": "{name}: [bold]{valueY}[/]"
+                          },
+                          "width": 10
+                        }
+                      ],
+                      "connect": true,
+                      "fill": {
+                        "color": "",
+                        "opacity": 0
+                      },
+                      "minDistance": 0.5,
+                      "stroke": {
+                        "color": "",
+                        "dashArray": "",
+                        "opacity": 1,
+                        "width": 3
+                      },
+                      "tensionX": 1,
+                      "tensionY": 1
+                    },
+                    "open": {
+                      "x": "",
+                      "y": ""
+                    }
+                  },
+                  "tooltip": {
+                    "background": {
+                      "color": "",
+                      "opacity": 1
+                    },
+                    "cornerRadius": 3,
+                    "enabled": true,
+                    "pointerLength": 4,
+                    "text": "{name}: [bold]{valueY}[/]"
+                  },
+                  "visible": true,
+                  "xAxis": "Hour",
+                  "yAxis": "ActualCycleTime",
+                  "zIndex": 0
+                },
+                {
+                  "candlestick": {
+                    "appearance": {
+                      "deriveFieldsFromData": {
+                        "fill": {
+                          "color": "",
+                          "opacity": ""
+                        },
+                        "stroke": {
+                          "color": "",
+                          "opacity": "",
+                          "width": ""
+                        }
+                      },
+                      "fill": {
+                        "color": "",
+                        "opacity": 1
+                      },
+                      "heatRules": {
+                        "dataField": "",
+                        "enabled": false,
+                        "max": "",
+                        "min": ""
+                      },
+                      "stacked": false,
+                      "stroke": {
+                        "color": "",
+                        "opacity": 1,
+                        "width": 1
+                      }
+                    },
+                    "high": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "low": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "open": {
+                      "x": "",
+                      "y": ""
+                    }
+                  },
+                  "column": {
+                    "appearance": {
+                      "deriveFieldsFromData": {
+                        "fill": {
+                          "color": "",
+                          "opacity": ""
+                        },
+                        "stroke": {
+                          "color": "",
+                          "opacity": "",
+                          "width": ""
+                        }
+                      },
+                      "fill": {
+                        "opacity": 1
+                      },
+                      "heatRules": {
+                        "dataField": "",
+                        "enabled": false,
+                        "max": "",
+                        "min": ""
+                      },
+                      "height": null,
+                      "stacked": false,
+                      "stroke": {
+                        "color": "#ECC316",
+                        "opacity": 1,
+                        "width": 1
+                      },
+                      "width": null
+                    },
+                    "open": {
+                      "x": "",
+                      "y": ""
+                    }
+                  },
+                  "data": {
+                    "source": "example1",
+                    "x": "Hour",
+                    "y": "IdealCycleTime"
+                  },
+                  "defaultState": {
+                    "visible": true
+                  },
+                  "hiddenInLegend": false,
+                  "label": {
+                    "text": ""
+                  },
+                  "line": {
+                    "appearance": {
+                      "bullets": [
+                        {
+                          "deriveFieldsFromData": {
+                            "fill": {
+                              "color": "",
+                              "opacity": ""
+                            },
+                            "rotation": "",
+                            "stroke": {
+                              "color": "",
+                              "opacity": "",
+                              "width": ""
+                            }
+                          },
+                          "enabled": false,
+                          "fill": {
+                            "color": "",
+                            "opacity": 1
+                          },
+                          "heatRules": {
+                            "dataField": "",
+                            "enabled": false,
+                            "max": 100,
+                            "min": 2
+                          },
+                          "height": 10,
+                          "label": {
+                            "position": {
+                              "dx": 0,
+                              "dy": 0
+                            },
+                            "text": "{value}"
+                          },
+                          "render": "circle",
+                          "rotation": 0,
+                          "stroke": {
+                            "color": "",
+                            "opacity": 1,
+                            "width": 1
+                          },
+                          "tooltip": {
+                            "background": {
+                              "color": "",
+                              "opacity": 1
+                            },
+                            "cornerRadius": 3,
+                            "enabled": true,
+                            "pointerLength": 4,
+                            "text": "{name}: [bold]{valueY}[/]"
+                          },
+                          "width": 10
+                        }
+                      ],
+                      "connect": true,
+                      "fill": {
+                        "color": "",
+                        "opacity": 0
+                      },
+                      "minDistance": 0.5,
+                      "stroke": {
+                        "color": "",
+                        "dashArray": "",
+                        "opacity": 1,
+                        "width": 3
+                      },
+                      "tensionX": 1,
+                      "tensionY": 1
+                    },
+                    "open": {
+                      "x": "",
+                      "y": ""
+                    }
+                  },
+                  "name": "IdealCycleTime",
+                  "render": "column",
+                  "stepLine": {
+                    "appearance": {
+                      "bullets": [
+                        {
+                          "deriveFieldsFromData": {
+                            "fill": {
+                              "color": "",
+                              "opacity": ""
+                            },
+                            "rotation": "",
+                            "stroke": {
+                              "color": "",
+                              "opacity": "",
+                              "width": ""
+                            }
+                          },
+                          "enabled": true,
+                          "fill": {
+                            "color": "",
+                            "opacity": 1
+                          },
+                          "heatRules": {
+                            "dataField": "",
+                            "enabled": false,
+                            "max": 100,
+                            "min": 2
+                          },
+                          "height": 10,
+                          "label": {
+                            "position": {
+                              "dx": 0,
+                              "dy": 0
+                            },
+                            "text": "{value}"
+                          },
+                          "render": "circle",
+                          "rotation": 0,
+                          "stroke": {
+                            "color": "",
+                            "opacity": 1,
+                            "width": 1
+                          },
+                          "tooltip": {
+                            "background": {
+                              "color": "",
+                              "opacity": 1
+                            },
+                            "cornerRadius": 3,
+                            "enabled": true,
+                            "pointerLength": 4,
+                            "text": "{name}: [bold]{valueY}[/]"
+                          },
+                          "width": 10
+                        }
+                      ],
+                      "connect": true,
+                      "fill": {
+                        "color": "",
+                        "opacity": 0
+                      },
+                      "minDistance": 0.5,
+                      "stroke": {
+                        "color": "",
+                        "dashArray": "",
+                        "opacity": 1,
+                        "width": 3
+                      },
+                      "tensionX": 1,
+                      "tensionY": 1
+                    },
+                    "open": {
+                      "x": "",
+                      "y": ""
+                    }
+                  },
+                  "tooltip": {
+                    "background": {
+                      "color": "",
+                      "opacity": 1
+                    },
+                    "cornerRadius": 3,
+                    "enabled": true,
+                    "pointerLength": 4,
+                    "text": "{name}: [bold]{valueY}[/]"
+                  },
+                  "visible": true,
+                  "xAxis": "Hour",
+                  "yAxis": "IdealCycleTime",
+                  "zIndex": 0
+                }
+              ],
+              "style": {
+                "backgroundColor": "--neutral-10",
+                "overflow": "hidden"
+              },
+              "xAxes": [
+                {
+                  "appearance": {
+                    "font": {
+                      "size": "",
+                      "weight": 500
+                    },
+                    "grid": {
+                      "color": "",
+                      "dashArray": "",
+                      "minDistance": 0,
+                      "opacity": 0.5,
+                      "position": 0
+                    },
+                    "inside": false,
+                    "labels": {
+                      "color": "",
+                      "horizontalCenter": "left",
+                      "opacity": 1,
+                      "rotation": 0,
+                      "verticalCenter": "top"
+                    },
+                    "opposite": false
+                  },
+                  "category": {
+                    "break": {
+                      "enabled": false,
+                      "endCategory": "",
+                      "size": 0.01,
+                      "startCategory": ""
+                    }
+                  },
+                  "date": {
+                    "baseInterval": {
+                      "count": 1,
+                      "enabled": false,
+                      "skipEmptyPeriods": false,
+                      "timeUnit": "hour"
+                    },
+                    "break": {
+                      "enabled": false,
+                      "endDate": "",
+                      "size": 0.05,
+                      "startDate": ""
+                    },
+                    "format": "M/d",
+                    "inputFormat": "yyyy-MM-dd kk:mm:ss",
+                    "range": {
+                      "max": "",
+                      "min": "",
+                      "useStrict": false
+                    }
+                  },
+                  "inversed": false,
+                  "label": {
+                    "color": "",
+                    "enabled": false,
+                    "text": "Hour"
+                  },
+                  "name": "Hour",
+                  "render": "category",
+                  "tooltip": {
+                    "background": {
+                      "color": "",
+                      "opacity": 1
+                    },
+                    "cornerRadius": 3,
+                    "enabled": true,
+                    "pointerLength": 4,
+                    "text": ""
+                  },
+                  "value": {
+                    "break": {
+                      "enabled": false,
+                      "endValue": 100,
+                      "size": 0.05,
+                      "startValue": 0
+                    },
+                    "format": "#,###.##",
+                    "logarithmic": false,
+                    "range": {
+                      "max": "",
+                      "min": "",
+                      "useStrict": false
+                    }
+                  },
+                  "visible": true
+                }
+              ],
+              "yAxes": [
+                {
+                  "appearance": {
+                    "font": {
+                      "size": "",
+                      "weight": 500
+                    },
+                    "grid": {
+                      "color": "",
+                      "dashArray": "",
+                      "minDistance": null,
+                      "opacity": 1,
+                      "position": 0.5
+                    },
+                    "inside": false,
+                    "labels": {
+                      "color": "",
+                      "horizontalCenter": "middle",
+                      "opacity": 1,
+                      "rotation": 0,
+                      "verticalCenter": "middle"
+                    },
+                    "opposite": false
+                  },
+                  "category": {
+                    "break": {
+                      "enabled": false,
+                      "endCategory": "",
+                      "size": 0.05,
+                      "startCategory": ""
+                    }
+                  },
+                  "date": {
+                    "baseInterval": {
+                      "count": 1,
+                      "enabled": false,
+                      "skipEmptyPeriods": false,
+                      "timeUnit": "hour"
+                    },
+                    "break": {
+                      "enabled": false,
+                      "endDate": "",
+                      "size": 0.05,
+                      "startDate": ""
+                    },
+                    "format": "M/d/yyyy HH:mm:ss",
+                    "inputFormat": "yyyy-MM-dd kk:mm:ss",
+                    "range": {
+                      "max": "",
+                      "min": "",
+                      "useStrict": false
+                    }
+                  },
+                  "inversed": false,
+                  "label": {
+                    "color": "",
+                    "enabled": true,
+                    "text": ""
+                  },
+                  "name": "ActualCycleTime",
+                  "render": "value",
+                  "tooltip": {
+                    "background": {
+                      "color": "",
+                      "opacity": 1
+                    },
+                    "cornerRadius": 3,
+                    "enabled": true,
+                    "pointerLength": 4,
+                    "text": ""
+                  },
+                  "value": {
+                    "break": {
+                      "enabled": false,
+                      "endValue": 100,
+                      "size": 0.05,
+                      "startValue": 0
+                    },
+                    "format": "#,###.##",
+                    "logarithmic": false,
+                    "range": {
+                      "max": "",
+                      "min": "",
+                      "useStrict": false
+                    }
+                  },
+                  "visible": false
+                },
+                {
+                  "appearance": {
+                    "font": {
+                      "size": "",
+                      "weight": 500
+                    },
+                    "grid": {
+                      "color": "",
+                      "dashArray": "",
+                      "minDistance": null,
+                      "opacity": 1,
+                      "position": 0.5
+                    },
+                    "inside": false,
+                    "labels": {
+                      "color": "",
+                      "horizontalCenter": "middle",
+                      "opacity": 1,
+                      "rotation": 0,
+                      "verticalCenter": "middle"
+                    },
+                    "opposite": false
+                  },
+                  "category": {
+                    "break": {
+                      "enabled": false,
+                      "endCategory": "",
+                      "size": 0.05,
+                      "startCategory": ""
+                    }
+                  },
+                  "date": {
+                    "baseInterval": {
+                      "count": 1,
+                      "enabled": false,
+                      "skipEmptyPeriods": false,
+                      "timeUnit": "hour"
+                    },
+                    "break": {
+                      "enabled": false,
+                      "endDate": "",
+                      "size": 0.05,
+                      "startDate": ""
+                    },
+                    "format": "M/d/yyyy HH:mm:ss",
+                    "inputFormat": "yyyy-MM-dd kk:mm:ss",
+                    "range": {
+                      "max": "",
+                      "min": "",
+                      "useStrict": false
+                    }
+                  },
+                  "inversed": false,
+                  "label": {
+                    "color": "",
+                    "enabled": true,
+                    "text": ""
+                  },
+                  "name": "IdealCycleTime",
+                  "render": "value",
+                  "tooltip": {
+                    "background": {
+                      "color": "",
+                      "opacity": 1
+                    },
+                    "cornerRadius": 3,
+                    "enabled": true,
+                    "pointerLength": 4,
+                    "text": ""
+                  },
+                  "value": {
+                    "break": {
+                      "enabled": false,
+                      "endValue": 100,
+                      "size": 0.05,
+                      "startValue": 0
+                    },
+                    "format": "#,###.##",
+                    "logarithmic": false,
+                    "range": {
+                      "max": "",
+                      "min": "",
+                      "useStrict": false
+                    }
+                  },
+                  "visible": true
+                }
+              ]
+            },
+            "type": "ia.chart.xy"
+          }
+        ],
+        "meta": {
+          "name": "Body"
+        },
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "--neutral-10"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "backgroundColor": "--neutral-10",
+        "borderBottomLeftRadius": "10px",
+        "borderBottomRightRadius": "10px",
+        "borderTopLeftRadius": "10px",
+        "borderTopRightRadius": "10px"
+      }
+    },
+    "scripts": {
+      "customMethods": [],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "refreshxy",
+          "pageScope": true,
+          "script": "\t# implement your handler here\n\tself.getChild(\"Header\").getChild(\"Icon\").position.display \u003d True",
+          "sessionScope": false,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.flex"
+  }
+}

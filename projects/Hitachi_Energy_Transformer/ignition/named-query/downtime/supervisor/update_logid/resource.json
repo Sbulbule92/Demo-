@@ -1,0 +1,60 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "UpdateQuery",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "Historian",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "0ae48d02f74a28722ac8f163937e6fc49729f8c13abf7a5f183f1be621b190e2",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "shiva",
+      "timestamp": "2026-01-29T11:55:13Z"
+    },
+    "parameters": [
+      {
+        "type": "Parameter",
+        "identifier": "startTime",
+        "sqlType": 8
+      },
+      {
+        "type": "Parameter",
+        "identifier": "endTime",
+        "sqlType": 8
+      },
+      {
+        "type": "Parameter",
+        "identifier": "reasonID",
+        "sqlType": 2
+      },
+      {
+        "type": "Parameter",
+        "identifier": "remark",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "logID",
+        "sqlType": 2
+      }
+    ]
+  }
+}

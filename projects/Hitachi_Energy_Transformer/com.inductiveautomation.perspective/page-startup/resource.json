@@ -1,0 +1,17 @@
+{
+  "scope": "G",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "onPageStartup.py"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "shiva",
+      "timestamp": "2026-01-03T10:29:26Z"
+    },
+    "lastModificationSignature": "d22ddd34b9a9aaa9bd0b3968418423fcbbf68a20d89f80f5b2bb23e9c111b53b",
+    "enabled": true
+  }
+}

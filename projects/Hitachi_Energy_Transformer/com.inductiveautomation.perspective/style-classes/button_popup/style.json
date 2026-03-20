@@ -1,0 +1,17 @@
+{
+  "base": {
+    "style": {
+      "backgroundColor": "#000000",
+      "borderStyle": "solid",
+      "borderTopLeftRadius": "5px",
+      "borderTopRightRadius": "5px",
+      "borderBottomLeftRadius": "5px",
+      "borderBottomRightRadius": "5px",
+      "color": "#FFFFFF",
+      "fontFamily": "Roboto",
+      "fontSize": "50px",
+      "margin": "5px",
+      "textAlign": "center"
+    }
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 50
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "shift"
+        },
+        "position": {
+          "basis": "50px"
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "\"Shift \"+{[default]Current_Shift/shift_Code}"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Area"
+        },
+        "position": {
+          "basis": "50px"
+        },
+        "props": {
+          "style": {
+            "marginLeft": "50px"
+          },
+          "text": "Area B"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Plant"
+        },
+        "position": {
+          "basis": "200px"
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "\"Plant: \"+{[default]Project_Config/PlantName}"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "marginLeft": "50px"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Ignition_version"
+        },
+        "position": {
+          "basis": "300px",
+          "grow": 1
+        },
+        "props": {
+          "text": "Ignition Version: 8.3.x OEE Portal v1.0",
+          "textStyle": {
+            "textAlign": "right"
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "classes": "Page/mainpage",
+        "paddingLeft": "5px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

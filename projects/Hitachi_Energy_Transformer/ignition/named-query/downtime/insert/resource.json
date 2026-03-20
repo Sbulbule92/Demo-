@@ -1,0 +1,60 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "Query",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "Historian",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "eed60dcd5f99b7f19671de3463de54c1a7f2c25096e7b8e5a8a53b3c2be2c4d6",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "shiva",
+      "timestamp": "2026-01-15T09:10:45Z"
+    },
+    "parameters": [
+      {
+        "type": "Parameter",
+        "identifier": "ReasonID",
+        "sqlType": 2
+      },
+      {
+        "type": "Parameter",
+        "identifier": "DowntimeStatus",
+        "sqlType": 2
+      },
+      {
+        "type": "Parameter",
+        "identifier": "username",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "StartTime",
+        "sqlType": 8
+      },
+      {
+        "type": "Parameter",
+        "identifier": "ShiftID",
+        "sqlType": 2
+      }
+    ]
+  }
+}

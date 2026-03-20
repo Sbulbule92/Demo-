@@ -1,0 +1,502 @@
+{
+  "custom": {},
+  "params": {
+    "Machine": "",
+    "jobid": "JC#12345671-1",
+    "program": "AWHD-15795",
+    "workstatus": "value"
+  },
+  "propConfig": {
+    "params.Machine": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.jobid": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.program": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.workstatus": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 790,
+      "width": 1132
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "jobid"
+                },
+                "position": {
+                  "basis": "20%",
+                  "grow": 1
+                },
+                "props": {
+                  "text": "JOB ID :",
+                  "textStyle": {
+                    "classes": "heading",
+                    "fontFamily": "Verdana",
+                    "fontSize": "38px",
+                    "fontWeight": "bold",
+                    "textAlign": "right"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "jobid_0"
+                },
+                "position": {
+                  "basis": "30%",
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "{view.params.jobid}"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "classes": "component/basic"
+                  },
+                  "textStyle": {
+                    "fontFamily": "Verdana",
+                    "fontSize": "38px"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "program"
+                },
+                "position": {
+                  "basis": "25%"
+                },
+                "props": {
+                  "text": "Program# :",
+                  "textStyle": {
+                    "alignSelf": "flex-end",
+                    "classes": "heading",
+                    "fontFamily": "Verdana",
+                    "fontSize": "38px",
+                    "fontWeight": "bold"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "program_0"
+                },
+                "position": {
+                  "basis": "25%",
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "{view.params.program}"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "classes": "component/basic"
+                  },
+                  "textStyle": {
+                    "alignSelf": "flex-start",
+                    "classes": "heading",
+                    "fontFamily": "Verdana",
+                    "fontSize": "38px"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer"
+            },
+            "position": {
+              "basis": "15%"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "340px",
+                  "grow": 1
+                },
+                "props": {
+                  "text": "Work In Progress",
+                  "textStyle": {
+                    "classes": "heading",
+                    "fontSize": "55px",
+                    "fontWeight": "bold",
+                    "margin-left": "80px",
+                    "textAlign": "right"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "SimpleGauge"
+                },
+                "position": {
+                  "basis": "300px",
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.arc.color": {
+                    "binding": {
+                      "config": {
+                        "path": "this.props.value"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "#de1b1b",
+                          "inputType": "range",
+                          "mappings": [
+                            {
+                              "input": {
+                                "max": 40,
+                                "min": 0
+                              },
+                              "output": "#de1b1b"
+                            },
+                            {
+                              "input": {
+                                "max": 70,
+                                "min": 41
+                              },
+                              "output": "#cf7911"
+                            },
+                            {
+                              "input": {
+                                "max": 100,
+                                "min": 71
+                              },
+                              "output": "#038537"
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.label.color": {
+                    "binding": {
+                      "config": {
+                        "path": "this.props.value"
+                      },
+                      "enabled": false,
+                      "transforms": [
+                        {
+                          "fallback": "#de1b1b",
+                          "inputType": "range",
+                          "mappings": [
+                            {
+                              "input": {
+                                "max": 40,
+                                "min": 0
+                              },
+                              "output": "#de1b1b"
+                            },
+                            {
+                              "input": {
+                                "max": 70,
+                                "min": 41
+                              },
+                              "output": "#cf7911"
+                            },
+                            {
+                              "input": {
+                                "max": 100,
+                                "min": 71
+                              },
+                              "output": "#038537"
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.value": {
+                    "binding": {
+                      "config": {
+                        "fallbackDelay": 2.5,
+                        "mode": "direct",
+                        "tagPath": "[default]Project/Simulation/Percentage.value"
+                      },
+                      "type": "tag"
+                    }
+                  }
+                },
+                "props": {
+                  "arc": {
+                    "width": 50
+                  },
+                  "endAngle": 520,
+                  "label": {
+                    "color": "#555555",
+                    "offsetX": 10,
+                    "offsetY": 55,
+                    "size": 90,
+                    "units": "%"
+                  },
+                  "style": {
+                    "margin-right": "80px"
+                  }
+                },
+                "type": "ia.chart.simple-gauge"
+              },
+              {
+                "meta": {
+                  "name": "Label_0"
+                },
+                "position": {
+                  "basis": "140px",
+                  "display": false,
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "fallbackDelay": 2.5,
+                        "mode": "direct",
+                        "tagPath": "[default]Project/Simulation/Percentage"
+                      },
+                      "transforms": [
+                        {
+                          "expression": "{value}+ \" % completed \"",
+                          "type": "expression"
+                        }
+                      ],
+                      "type": "tag"
+                    }
+                  }
+                },
+                "props": {
+                  "textStyle": {
+                    "classes": "heading",
+                    "fontSize": "35px",
+                    "fontWeight": "bold",
+                    "textAlign": "left"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_0"
+            },
+            "position": {
+              "basis": "60%"
+            },
+            "props": {
+              "style": {
+                "overflow": "hidden"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\tparams \u003d {\t\"action\": \"confirm\",\n\t\t\t\t\"primaryText\": \"Do you really want to notify supervisor!\",\n\t\t\t\t\"secondaryText\":\" Supervisor imidiately get noftified that you are seeking help\",\"label\":\"Supervisor Assistance\"}\n\tsystem.perspective.openPopup(\"PopUp\", view \u003d \"Project/Pop-Up/Pop-up\", \n\t\t\t\t\t\t\t\t\t\tparams \u003d params, \n\t\t\t\t\t\t\t\t\t\tshowCloseIcon \u003d False,\n\t\t\t\t\t\t\t\t\t\tdraggable \u003d False, \n\t\t\t\t\t\t\t\t\t\tmodal \u003d True)"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Button_0"
+                },
+                "position": {
+                  "basis": "25%"
+                },
+                "props": {
+                  "image": {
+                    "height": 36,
+                    "width": 36
+                  },
+                  "style": {
+                    "backgroundColor": "--error",
+                    "classes": "button_popup",
+                    "marginLeft": "0px"
+                  },
+                  "text": "Cancel"
+                },
+                "type": "ia.input.button"
+              },
+              {
+                "meta": {
+                  "name": "Label",
+                  "visible": false
+                },
+                "position": {
+                  "basis": "50px",
+                  "display": false,
+                  "grow": 1
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\tprogramid\u003dself.view.params.program\n\tserialnumber\u003dself.view.params.jobid\n\tworkstatus\u003dself.view.params.workstatus\n#\tmachine\u003dself.view.params.Machine\n#\tparams\u003d{\"serial_number\":serialnumber,\"program_name\":programid}\n#\tsystem.db.runNamedQuery(path\u003d\"Job_board/update_workcomplted\", parameters\u003dparams)\n#\tsystem.perspective.navigate(url\u003d\"http://localhost:8088/data/perspective/client/Hitachi_Energy_Transformer/opr_job_board\")\n\tparams \u003d {\t\"action\": \"confirm\",\n\t\t\t\t\"secondaryText\":\"Do you really want to Completed the Job!\",\"program_name\":programid,\"serial_number\":serialnumber,\"work_status\":workstatus}\n\tsystem.perspective.openPopup(\"PopUp\", view \u003d \"Project/Pop-Up/Job_start_confirm\", \n\t\t\t\t\t\t\t\t\t\tparams \u003d params, \n\t\t\t\t\t\t\t\t\t\tshowCloseIcon \u003d False,\n\t\t\t\t\t\t\t\t\t\tdraggable \u003d False, \n\t\t\t\t\t\t\t\t\t\tmodal \u003d True)\n#\tserialnumber\u003dself.view.params.value.serial_number\n#\tprogramnumber\u003dself.view.params.value.program_name\n#\tworkstatus\u003dself.view.params.value.work_status\n#\tparams \u003d {\"secondaryText\":\" Are you sure you want to start this \"+serialnumber +\" job with program number \" + programnumber+ \" ?\",\"program_name\":programnumber,\"serial_number\":serialnumber,\"work_status\":workstatus}\n#\tsystem.perspective.openPopup(\"PopUp\", view \u003d \"Project/Pop-Up/Job_start_confirm\", \n#\t\t\t\t\t\t\t\t\t\tparams \u003d params, \n#\t\t\t\t\t\t\t\t\t\tshowCloseIcon \u003d False,\n#\t\t\t\t\t\t\t\t\t\tdraggable \u003d False, \n#\t\t\t\t\t\t\t\t\t\tmodal \u003d True)\t\t\t\t\t\t\t\t\t"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Button"
+                },
+                "position": {
+                  "basis": "25%"
+                },
+                "propConfig": {
+                  "props.enabled": {
+                    "binding": {
+                      "config": {
+                        "expression": "if({[default]Project/Simulation/Percentage}\u003d100,True,False)"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "image": {
+                    "height": 36,
+                    "width": 36
+                  },
+                  "style": {
+                    "backgroundColor": "--success",
+                    "classes": "button_popup",
+                    "marginRight": "0px"
+                  },
+                  "text": "Job Complete"
+                },
+                "type": "ia.input.button"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_1"
+            },
+            "position": {
+              "basis": "15%"
+            },
+            "props": {
+              "justify": "space-around"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label_0"
+                },
+                "position": {
+                  "basis": "50px",
+                  "grow": 1
+                },
+                "propConfig": {
+                  "meta.visible": {
+                    "binding": {
+                      "config": {
+                        "expression": "if({[default]WOCL_1/Supervisor_Assistance_requested}\u003d1,True,False)"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "text": "The Supervisor is notified",
+                  "textStyle": {
+                    "classes": "heading",
+                    "fontWeight": "bold",
+                    "margin": "10px",
+                    "textAlign": "center"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_2"
+            },
+            "position": {
+              "basis": "15%"
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "200px",
+          "grow": 1
+        },
+        "props": {
+          "direction": "column"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "classes": "Page/mainpage"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

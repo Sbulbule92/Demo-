@@ -1,0 +1,197 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 100
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "50px",
+              "grow": 1
+            },
+            "props": {
+              "text": "HITACHI LOGO",
+              "textStyle": {
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "Hitachi_logo"
+        },
+        "position": {
+          "basis": "200px"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tsystem.perspective.navigate(url\u003d\"http://localhost:8088/data/perspective/client/Hitachi_Energy_Transformer/opr_assist\")"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "basis": "100px"
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "if({page.props.path}!\u003d \"/sup_job_board\",True,False)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "margin": "10px"
+          },
+          "text": "Assist"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "{page.props.title}"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "screen_name"
+        },
+        "position": {
+          "basis": "400px",
+          "grow": 1
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "50px",
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "dateFormat(now(1000),\"MMM d, yyyy h:mm a\")"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "alignVertical": "bottom",
+                  "style": {
+                    "paddingBottom": "5px"
+                  },
+                  "textStyle": {
+                    "color": "#2B2B2B"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Label_0"
+                },
+                "position": {
+                  "basis": "50px",
+                  "grow": 1
+                },
+                "props": {
+                  "alignVertical": "top",
+                  "style": {
+                    "paddingTop": "5px"
+                  },
+                  "text": "Hitachi Energy"
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer"
+            },
+            "position": {
+              "basis": "200px",
+              "grow": 1
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "paddingLeft": "5px"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "datetime"
+        },
+        "position": {
+          "basis": "200px",
+          "grow": 1
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "classes": "Page/mainpage"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

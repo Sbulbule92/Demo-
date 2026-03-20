@@ -1,0 +1,17 @@
+{
+  "profile": {
+    "cacheValidationTimeout": 15,
+    "failoverMode": "HARD",
+    "lockoutAttempts": 5,
+    "lockoutEnabled": true,
+    "lockoutWindow": 60,
+    "scheduleRestricted": false,
+    "type": "DATASOURCE"
+  },
+  "settings": {
+    "datasource": "Historian",
+    "enableUuids": true,
+    "mode": "Automatic",
+    "tableNamePrefix": "User"
+  }
+}

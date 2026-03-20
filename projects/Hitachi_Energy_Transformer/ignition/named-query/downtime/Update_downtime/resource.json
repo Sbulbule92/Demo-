@@ -1,0 +1,45 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "UpdateQuery",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "Historian",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "e296e8c805cd7b5f3622efe071696e2446c3345094bab388578795053985aa99",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "shiva",
+      "timestamp": "2026-01-21T15:43:19Z"
+    },
+    "parameters": [
+      {
+        "type": "Parameter",
+        "identifier": "EndTime",
+        "sqlType": 8
+      },
+      {
+        "type": "Parameter",
+        "identifier": "LogID",
+        "sqlType": 2
+      }
+    ]
+  }
+}

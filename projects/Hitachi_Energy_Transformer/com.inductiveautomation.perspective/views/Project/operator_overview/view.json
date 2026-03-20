@@ -1,0 +1,496 @@
+{
+  "custom": {},
+  "params": {
+    "day": "value",
+    "id": 1,
+    "username": "JOHN WICK"
+  },
+  "propConfig": {
+    "params.day": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.id": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.username": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "width": 964
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label_username"
+        },
+        "position": {
+          "basis": "50px"
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.username"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "fontFamily": "Verdana",
+            "fontSize": 26,
+            "fontWeight": "bold",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "EmbeddedView"
+            },
+            "position": {
+              "basis": "200px",
+              "grow": 1
+            },
+            "props": {
+              "params": {
+                "label": "OPERATOR ID",
+                "value1": 8947
+              },
+              "path": "Project/Supervisor/Label_value"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "EmbeddedView_0"
+            },
+            "position": {
+              "basis": "200px",
+              "grow": 1
+            },
+            "props": {
+              "params": {
+                "label": "LAST MACHINE",
+                "value1": 1071
+              },
+              "path": "Project/Supervisor/Label_value"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "100px"
+                },
+                "props": {
+                  "text": "DATE",
+                  "textStyle": {
+                    "fontFamily": "Verdana",
+                    "fontSize": "20px",
+                    "fontWeight": "bolder",
+                    "paddingRight": "10px",
+                    "textAlign": "right"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Label_value_2"
+                },
+                "position": {
+                  "basis": "150px",
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.day"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "backgroundColor": "--neutral-10",
+                    "borderBottomLeftRadius": "5px",
+                    "borderBottomRightRadius": "5px",
+                    "borderColor": "--neutral-40",
+                    "borderStyle": "solid",
+                    "borderTopLeftRadius": "5px",
+                    "borderTopRightRadius": "5px",
+                    "borderWidth": "1px",
+                    "margin": "10px"
+                  },
+                  "textStyle": {
+                    "fontFamily": "Verdana",
+                    "fontSize": "20px",
+                    "textAlign": "center"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_0"
+            },
+            "position": {
+              "basis": "200px",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "backgroundColor": "--neutral-30",
+                "borderBottomLeftRadius": "15px",
+                "borderBottomRightRadius": "15px",
+                "borderTopLeftRadius": "15px",
+                "borderTopRightRadius": "15px",
+                "marginBottom": "5px",
+                "marginLeft": "10px",
+                "marginRight": "10px",
+                "marginTop": "5px"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "Flex_oper_name"
+        },
+        "position": {
+          "basis": "60px"
+        },
+        "props": {
+          "justify": "space-between",
+          "style": {
+            "backgroundColor": "--neutral-30",
+            "borderBottomLeftRadius": "15px",
+            "borderBottomRightRadius": "15px",
+            "borderTopLeftRadius": "15px",
+            "borderTopRightRadius": "15px",
+            "margin-bottom": "5px",
+            "marginLeft": "10px",
+            "marginRight": "10px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "100px"
+            },
+            "props": {
+              "text": "DATE",
+              "textStyle": {
+                "fontFamily": "Verdana",
+                "fontSize": "20px",
+                "fontWeight": "bolder",
+                "paddingRight": "10px",
+                "textAlign": "right"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "DateTimeInput"
+            },
+            "position": {
+              "basis": "170px"
+            },
+            "props": {
+              "inputProps": {
+                "style": {
+                  "fontSize": "18px"
+                }
+              },
+              "style": {
+                "borderBottomLeftRadius": "5px",
+                "borderBottomRightRadius": "5px",
+                "borderStyle": "solid",
+                "borderTopLeftRadius": "5px",
+                "borderTopRightRadius": "5px",
+                "borderWidth": "1px",
+                "fontFamily": "Verdana",
+                "margin": "10px",
+                "marginRight": "40px"
+              }
+            },
+            "type": "ia.input.date-time-input"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tif str(self.view.params.action).lower() \u003d\u003d \"confirm\" and self.view.params.label\u003d\u003d \"Supervisor Assistance\":\n\t\tsystem.perspective.closePopup(\u0027PopUp\u0027)\n\t\tparams \u003d {\"action\": \"success\", \"primaryText\": \"Supervisor notified successfully!\", \"secondaryText\":\" \"}\n\t\tsystem.perspective.openPopup(\"PopUp\", view \u003d \"Project/Pop-Up/Pop-up\", \n\t\t\t\t\t\t\t\t\t\tparams \u003d params, \n\t\t\t\t\t\t\t\t\t\tshowCloseIcon \u003d False,\n\t\t\t\t\t\t\t\t\t\tdraggable \u003d False, \n\t\t\t\t\t\t\t\t\t\tmodal \u003d True)\n\t\ttagpath\u003d[\u0027[default]WOCL_1/Supervisor_Assistance_requested\u0027]\n\t\tsystem.tag.writeBlocking(tagpath,[1])\t\t\t\t\t\t\t\t\t\n\telif self.view.params.label \u003d\u003d\"Lunch Break\": \n\t\tshift\u003dsystem.tag.readBlocking(\"[default]Current_Shift/shift_ID\")[0].value\n\t\tparameters \u003d { \"ReasonID\":30, \"DowntimeStatus\":True,\"username\":self.session.props.auth.user.userName,\"StartTime\":system.date.now(),\"ShiftID\":shift,\"DowntimeSource\":0} \n\t\tsystem.db.runNamedQuery(\"downtime/insert\", parameters)\n\t\tsystem.perspective.logout()\n\telif self.view.params.label \u003d\u003d\"Break\":\n\t\tshift\u003dsystem.tag.readBlocking(\"[default]Current_Shift/shift_ID\")[0].value\n\t\tparameters \u003d { \"ReasonID\":29, \"DowntimeStatus\":True,\"username\":self.session.props.auth.user.userName,\"StartTime\":system.date.now(),\"ShiftID\":shift,\"DowntimeSource\":0} \n\t\t\t# Run the Named Query\n\t\tsystem.db.runNamedQuery(\"downtime/insert\", parameters)\n\t\tsystem.perspective.logout()\n\telif self.view.params.label \u003d\u003d \"manual downtime\" and str(self.view.params.action).lower() \u003d\u003d \"success\" :\n\t\tsystem.perspective.closePopup(\u0027PopUp\u0027)\n\t\tsystem.perspective.navigate(url\u003d\"http://localhost:8088/data/perspective/client/Shiva_Hitachi/opr_job_board\")\n\telse:\n\t\t\n\t\tsystem.perspective.closePopup(\u0027PopUp\u0027)\n\t\t#pass"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Accept Button"
+            },
+            "position": {
+              "basis": "150px"
+            },
+            "props": {
+              "style": {
+                "backgroundColor": "#000000",
+                "classes": "Project/PopUp/Button"
+              },
+              "text": "Submit",
+              "textStyle": {
+                "fontSize": "18px"
+              }
+            },
+            "type": "ia.input.button"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_0"
+        },
+        "position": {
+          "basis": "60px",
+          "display": false
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "--neutral-30",
+            "borderBottomLeftRadius": "15px",
+            "borderBottomRightRadius": "15px",
+            "borderTopLeftRadius": "15px",
+            "borderTopRightRadius": "15px",
+            "marginBottom": "5px",
+            "marginLeft": "10px",
+            "marginRight": "10px",
+            "marginTop": "5px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "FlexRepeater"
+            },
+            "position": {
+              "grow": 1
+            },
+            "props": {
+              "direction": "column",
+              "elementStyle": {
+                "borderStyle": "none"
+              },
+              "instances": [
+                {
+                  "label": "SHIFT WORKED",
+                  "value1": "A"
+                },
+                {
+                  "label": "MACHINE",
+                  "value1": 1071
+                },
+                {
+                  "label": "LOGGED DOWNTIME",
+                  "value1": "01:25:01"
+                },
+                {
+                  "label": "BREAKS",
+                  "value1": "00:33:15"
+                },
+                {
+                  "label": "UNPLANNED  DOWNTIME",
+                  "value1": "00:28:13"
+                },
+                {
+                  "label": "Performance",
+                  "value1": "78%"
+                },
+                {
+                  "label": "Availability",
+                  "value1": "81%"
+                }
+              ],
+              "path": "Project/Supervisor/Label_value",
+              "style": {
+                "marginBottom": "10px",
+                "marginLeft": "20px",
+                "marginRight": "60px",
+                "marginTop": "10px"
+              },
+              "useDefaultViewHeight": false,
+              "useDefaultViewWidth": false
+            },
+            "type": "ia.display.flex-repeater"
+          },
+          {
+            "meta": {
+              "name": "FlexRepeater_0"
+            },
+            "position": {
+              "grow": 1
+            },
+            "props": {
+              "direction": "column",
+              "instances": [
+                {
+                  "label": "Coils Started",
+                  "value1": 3
+                },
+                {
+                  "label": "Coils Completed",
+                  "value1": 2.5
+                },
+                {
+                  "label": "Coils Inprogress",
+                  "value1": "51%",
+                  "value2": 1,
+                  "visible_value_2": "True"
+                },
+                {
+                  "label": "No.of Downtime Entries",
+                  "value1": 17
+                },
+                {
+                  "label": "Login Time",
+                  "value1": "07:28:13"
+                },
+                {
+                  "label": "Logout Time",
+                  "value1": "03:41:21"
+                },
+                {
+                  "label": "Operating Time",
+                  "value1": "05:54:65"
+                }
+              ],
+              "path": "Project/Supervisor/Label_value",
+              "style": {
+                "marginBottom": "10px",
+                "marginLeft": "60px",
+                "marginRight": "20px",
+                "marginTop": "10px"
+              },
+              "useDefaultViewHeight": false,
+              "useDefaultViewWidth": false
+            },
+            "type": "ia.display.flex-repeater"
+          }
+        ],
+        "meta": {
+          "name": "Flex_body"
+        },
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "--neutral-30",
+            "borderBottomLeftRadius": "15px",
+            "borderBottomRightRadius": "15px",
+            "borderTopLeftRadius": "15px",
+            "borderTopRightRadius": "15px",
+            "marginLeft": "10px",
+            "marginRight": "10px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": [
+                  {
+                    "config": {
+                      "script": "\tif str(self.view.params.action).lower() \u003d\u003d \"confirm\" and self.view.params.label\u003d\u003d \"Supervisor Assistance\":\n\t\tsystem.perspective.closePopup(\u0027PopUp\u0027)\n\t\tparams \u003d {\"action\": \"success\", \"primaryText\": \"Supervisor notified successfully!\", \"secondaryText\":\" \"}\n\t\tsystem.perspective.openPopup(\"PopUp\", view \u003d \"Project/Pop-Up/Pop-up\", \n\t\t\t\t\t\t\t\t\t\tparams \u003d params, \n\t\t\t\t\t\t\t\t\t\tshowCloseIcon \u003d False,\n\t\t\t\t\t\t\t\t\t\tdraggable \u003d False, \n\t\t\t\t\t\t\t\t\t\tmodal \u003d True)\n\t\ttagpath\u003d[\u0027[default]WOCL_1/Supervisor_Assistance_requested\u0027]\n\t\tsystem.tag.writeBlocking(tagpath,[1])\t\t\t\t\t\t\t\t\t\n\telif self.view.params.label \u003d\u003d\"Lunch Break\": \n\t\tshift\u003dsystem.tag.readBlocking(\"[default]Current_Shift/shift_ID\")[0].value\n\t\tparameters \u003d { \"ReasonID\":30, \"DowntimeStatus\":True,\"username\":self.session.props.auth.user.userName,\"StartTime\":system.date.now(),\"ShiftID\":shift,\"DowntimeSource\":0} \n\t\tsystem.db.runNamedQuery(\"downtime/insert\", parameters)\n\t\tsystem.perspective.logout()\n\telif self.view.params.label \u003d\u003d\"Break\":\n\t\tshift\u003dsystem.tag.readBlocking(\"[default]Current_Shift/shift_ID\")[0].value\n\t\tparameters \u003d { \"ReasonID\":29, \"DowntimeStatus\":True,\"username\":self.session.props.auth.user.userName,\"StartTime\":system.date.now(),\"ShiftID\":shift,\"DowntimeSource\":0} \n\t\t\t# Run the Named Query\n\t\tsystem.db.runNamedQuery(\"downtime/insert\", parameters)\n\t\tsystem.perspective.logout()\n\telif self.view.params.label \u003d\u003d \"manual downtime\" and str(self.view.params.action).lower() \u003d\u003d \"success\" :\n\t\tsystem.perspective.closePopup(\u0027PopUp\u0027)\n\t\tsystem.perspective.navigate(url\u003d\"http://localhost:8088/data/perspective/client/Shiva_Hitachi/opr_job_board\")\n\telse:\n\t\t\n\t\tsystem.perspective.closePopup(\u0027PopUp\u0027)\n\t\t#pass"
+                    },
+                    "enabled": false,
+                    "scope": "G",
+                    "type": "script"
+                  },
+                  {
+                    "config": {
+                      "script": "\tuser \u003d self.view.params.username\n\tday \u003d self.view.params.day\n\tsystem.perspective.navigate(view \u003d \u0027Project/Supervisor/operator_reason_all\u0027, params \u003d {\"user\": user, \"day\": day})"
+                    },
+                    "scope": "G",
+                    "type": "script"
+                  }
+                ]
+              }
+            },
+            "meta": {
+              "name": "Accept Button"
+            },
+            "position": {
+              "basis": "317px"
+            },
+            "props": {
+              "image": {
+                "width": 20
+              },
+              "style": {
+                "classes": "Project/PopUp/Button",
+                "fontSize": "18px",
+                "marginLeft": "150px",
+                "marginRight": "150px"
+              },
+              "text": "View Downtime Reasons"
+            },
+            "type": "ia.input.button"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "80px"
+        },
+        "props": {
+          "alignContent": "center",
+          "justify": "center"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "backgroundColor": "--neutral-20"
+      },
+      "wrap": "wrap"
+    },
+    "type": "ia.container.flex"
+  }
+}

@@ -1,0 +1,145 @@
+[
+  {
+    "name": "TIMER",
+    "parameters": {
+      "Unit": {
+        "dataType": "String",
+        "value": "second"
+      },
+      "Description": {
+        "dataType": "String",
+        "value": "Built-in timer"
+      },
+      "Interval": {
+        "dataType": "Integer",
+        "value": 1000
+      }
+    },
+    "tagType": "UdtType",
+    "tags": [
+      {
+        "engUnit": {
+          "bindType": "parameter",
+          "binding": "{Unit}"
+        },
+        "valueSource": "memory",
+        "opcItemPath": "",
+        "dataType": "Int4",
+        "documentation": "Accumulated Value",
+        "name": "ACC",
+        "tooltip": "Accumulated Value",
+        "value": 0,
+        "tagType": "AtomicTag",
+        "opcServer": "Ignition OPC UA Server"
+      },
+      {
+        "name": "DATA",
+        "tagType": "Folder",
+        "tags": [
+          {
+            "valueSource": "memory",
+            "expression": "now({Interval})",
+            "dataType": "Int8",
+            "name": "BUFFER",
+            "formatString": "#,##0.##",
+            "value": 0,
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "expr",
+            "eventScripts": [
+              {
+                "eventid": "valueChanged",
+                "script": "\tfrom system.tag import readBlocking as read, writeAsync as write\n\t\n\t# Read necessary tag values\n\ttags \u003d [\"[.]../ACC\", \"[.]../DN\", \"[.]../EN\", \"[.]../PRE\", \"[.]../INTERVAL\", \"[.]SCANRATE\", \"[.]BUFFER\"]\n\tacc, dn, en, pre, interval, scanRate, bufferData \u003d [tag.value for tag in read(tags)]\n\t\n\t# Calculate future value and check if timer is active\n\tfutureValue \u003d bufferData + interval\n\tenabled \u003d en and currentValue.value // scanRate \u003e\u003d futureValue // scanRate and previousValue.value \u003e 0\n\t\n\t# Perform actions based on conditions\n\tif enabled:\n\t\tif acc \u003c pre:\n\t\t\t# Increment ACC and update buffer\n\t\t\twrite([\"[.]../ACC\", \"[.]BUFFER\"], [acc + 1, currentValue.value])\n\t\telif not dn:\n\t\t\t# Set ACC to PRE and update DN\n\t\t\twrite([\"[.]../ACC\"], [pre])"
+              }
+            ],
+            "expression": "if(\r\n{[.]../EN}\u0026\u0026!{[.]../DN},\r\nnow({[.]SCANRATE}),\r\n0\r\n)",
+            "dataType": "Int8",
+            "name": "SCANNER",
+            "formatString": "#,##0.##",
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "expr",
+            "expression": "if(\r\n{Interval}\u003c1000,\r\n100,\r\nif(\r\n{Interval}\u003d1000,\r\n500,\r\nif(\r\n300000\u003c{Interval},\r\n60000,\r\n1000\r\n)\r\n)\r\n)",
+            "name": "SCANRATE",
+            "tagType": "AtomicTag"
+          }
+        ]
+      },
+      {
+        "valueSource": "expr",
+        "eventScripts": [
+          {
+            "eventid": "valueChanged",
+            "script": "\tfrom system.tag import writeAsync as write\n\t#Reset buffer when done\n\tif currentValue.value:\n\t\twrite([\"[.]DATA/BUFFER\"], [0])"
+          }
+        ],
+        "expression": "{[.]EN}\u0026\u0026({[.]ACC}\u003d{[.]PRE})",
+        "opcItemPath": "",
+        "dataType": "Boolean",
+        "documentation": "Done Bit",
+        "name": "DN",
+        "tooltip": "Done Bit",
+        "value": false,
+        "tagType": "AtomicTag",
+        "opcServer": "Ignition OPC UA Server"
+      },
+      {
+        "valueSource": "memory",
+        "eventScripts": [
+          {
+            "eventid": "valueChanged",
+            "script": "\tfrom system.tag import readBlocking as read, writeAsync as write\n\n\tif currentValue.value:\n\t\t# Start storing into buffer when enabled\n\t\tscannerValue \u003d read([\"[.]DATA/SCANNER\"])[0].value\n\t\twrite([\"[.]DATA/BUFFER\"], [scannerValue])\n\telse:\n\t\t# Reset timer and buffer when disabled\n\t\twrite([\"[.]ACC\", \"[.]DATA/BUFFER\"], [0, 0])"
+          }
+        ],
+        "opcItemPath": "",
+        "dataType": "Boolean",
+        "documentation": "Enable Bit",
+        "name": "EN",
+        "tooltip": "Enable Bit",
+        "value": false,
+        "tagType": "AtomicTag",
+        "opcServer": "Ignition OPC UA Server"
+      },
+      {
+        "valueSource": "reference",
+        "documentation": "Time interval (millisecond)",
+        "sourceTagPath": "[.]/Parameters.Interval",
+        "name": "INTERVAL",
+        "tooltip": "Time interval (millisecond)",
+        "engLimitMode": "Clamp_Low",
+        "engUnit": "ms",
+        "engLow": 100.0,
+        "tagType": "AtomicTag"
+      },
+      {
+        "engUnit": {
+          "bindType": "parameter",
+          "binding": "{Unit}"
+        },
+        "valueSource": "memory",
+        "opcItemPath": "",
+        "dataType": "Int4",
+        "documentation": "Preset Value",
+        "name": "PRE",
+        "tooltip": "Preset Value",
+        "value": 0,
+        "tagType": "AtomicTag",
+        "opcServer": "Ignition OPC UA Server"
+      },
+      {
+        "valueSource": "expr",
+        "expression": "\r\n{[.]EN}\r\n\u0026\u0026({[.]ACC} \u003e\u003d 0)\r\n\u0026\u0026(!{[.]DN})\u0026\u0026\r\n({[.]PRE}\u003e{[.]ACC})",
+        "opcItemPath": "",
+        "dataType": "Boolean",
+        "documentation": "Timer Timing Bit",
+        "name": "TT",
+        "tooltip": "Timer Timing Bit",
+        "value": false,
+        "tagType": "AtomicTag",
+        "opcServer": "Ignition OPC UA Server"
+      }
+    ]
+  }
+]

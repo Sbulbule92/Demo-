@@ -1,0 +1,105 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 41
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "User Icon"
+            },
+            "position": {
+              "basis": "45px"
+            },
+            "props": {
+              "path": "material/dehaze",
+              "style": {
+                "marginLeft": "3px"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "meta": {
+              "name": "lblInfo"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "True"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tuser \u003d self.session.props.auth.user.userName\n\tgatewayStatus \u003d  \u0027Connected\u0027 if self.session.props.gateway.connected else \u0027Disconnected\u0027\n\tgatewayVersion \u003d system.util.getVersion()\n\tbaseStr \u003d( \u0027 | \u0027 + str(system.date.now()) + \u0027 | \u0027 \n#\t\t\t\t\t + str(self.page.props.title) \n\t\t\t\t\t + \u0027 | \u0027 + \u0027Project - \u0027 + str(system.project.getProjectName()) \n\t\t\t\t\t + \u0027 | \u0027 + \u0027Gateway Address: \u0027 + str(self.session.props.gateway.address)\n\t\t\t\t\t + \u0027 | \u0027 + \u0027Gateway Status: \u0027 + gatewayStatus\n\t\t\t\t\t + \u0027 | \u0027 + \u0027Host:\u0027 + self.session.props.host\n\t\t\t\t\t + \u0027 | \u0027 + \u0027Timezone:\u0027 + self.session.props.timeZoneId\n\t\t\t\t\t + \u0027 | \u0027 + str(gatewayVersion) \n\t\t\t\t\t + \u0027 | \u0027 + \u0027Hitachi Digital Services\u0027)\n\t\t\t\t\t \n\tif user is None or user \u003d\u003d\u0027\u0027:\n\t\tuser \u003d\u0027User - \u0027 +\u0027Guest\u0027.upper() + baseStr\n\t\treturn user\n\telse:\n\t\treturn \u0027User - \u0027 + str(user).upper() + baseStr",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "marginLeft": "2px"
+              },
+              "textStyle": {
+                "alignSelf": "flex-start",
+                "fontSize": "12px",
+                "fontWeight": "600"
+              }
+            },
+            "scripts": {
+              "customMethods": [],
+              "extensionFunctions": null,
+              "messageHandlers": [
+                {
+                  "messageType": "footerLebelRefresh",
+                  "pageScope": true,
+                  "script": "\t# implement your handler here\n\tself.refreshBinding(\"props.text\")",
+                  "sessionScope": false,
+                  "viewScope": true
+                }
+              ]
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "BottomFlex"
+        },
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "style": {
+            "marginLeft": "1px"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "borderBottomStyle": "none",
+        "borderLeftStyle": "none",
+        "borderRightStyle": "none",
+        "borderTopColor": "#808080",
+        "borderTopStyle": "solid",
+        "borderTopWidth": "2px",
+        "classes": "Project/Bar_background"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

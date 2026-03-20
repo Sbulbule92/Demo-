@@ -1,0 +1,1 @@
+select CategoryID as value  , CategoryName as label   from tbl_DowntimeCategory

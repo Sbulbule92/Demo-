@@ -1,0 +1,246 @@
+{
+  "custom": {
+    "user": "shiva"
+  },
+  "params": {
+    "day": "2025-10-05",
+    "user": "Virat Kohli"
+  },
+  "propConfig": {
+    "custom.user": {
+      "persistent": true
+    },
+    "params.day": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.user": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 854,
+      "width": 1196
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label_username"
+        },
+        "position": {
+          "basis": "70px"
+        },
+        "props": {
+          "text": "Downtime Reasons",
+          "textStyle": {
+            "fontFamily": "Verdana",
+            "fontSize": 26,
+            "fontWeight": "bold",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "EmbeddedView"
+            },
+            "position": {
+              "basis": "320px",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.params.value1": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.user"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "params": {
+                "label": "Operator"
+              },
+              "path": "Project/Supervisor/Label_value"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "EmbeddedView_0"
+            },
+            "position": {
+              "basis": "320px",
+              "grow": 1
+            },
+            "props": {
+              "params": {
+                "label": "MACHINE",
+                "value1": 1071
+              },
+              "path": "Project/Supervisor/Label_value"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "150px",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.day"
+                  },
+                  "transforms": [
+                    {
+                      "expression": "\"Date: \" + {value}",
+                      "type": "expression"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "fontSize": "22px"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "150px"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "150px"
+            },
+            "props": {
+              "text": "Reason",
+              "textStyle": {
+                "color": "--neutral-10",
+                "fontFamily": "Verdana",
+                "fontSize": "26px",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "basis": "150px",
+              "grow": 1
+            },
+            "props": {
+              "text": "Comments",
+              "textStyle": {
+                "color": "--neutral-10",
+                "fontFamily": "Verdana",
+                "fontSize": "26px",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_1"
+            },
+            "position": {
+              "basis": "150px"
+            },
+            "props": {
+              "text": "Time Taken",
+              "textStyle": {
+                "color": "--neutral-10",
+                "fontFamily": "Verdana",
+                "fontSize": "26px",
+                "textAlign": "left"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_0"
+        },
+        "position": {
+          "basis": "80px"
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "--neutral-90"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "FlexRepeater"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "props.instances": {
+            "binding": {
+              "config": {
+                "parameters": {
+                  "day": "{view.params.day}",
+                  "user": "{view.params.user}"
+                },
+                "queryPath": "downtime/downtimebyopr",
+                "returnFormat": "json"
+              },
+              "type": "query"
+            }
+          }
+        },
+        "props": {
+          "direction": "column",
+          "elementStyle": {
+            "marginBottom": "10px",
+            "marginTop": "10px"
+          },
+          "path": "Project/Supervisor/reasontemplate",
+          "useDefaultViewWidth": false
+        },
+        "type": "ia.display.flex-repeater"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

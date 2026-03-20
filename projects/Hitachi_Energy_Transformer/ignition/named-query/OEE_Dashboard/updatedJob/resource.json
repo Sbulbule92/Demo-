@@ -1,0 +1,80 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "Query",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "Historian",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "f855ffb8449d4d4148a028fb1f35e89d3d5a8b56ada8d25200df80061c920fc8",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "shiva",
+      "timestamp": "2026-01-16T07:32:04Z"
+    },
+    "parameters": [
+      {
+        "type": "Parameter",
+        "identifier": "status",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "remarks",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "percentage",
+        "sqlType": 3
+      },
+      {
+        "type": "Parameter",
+        "identifier": "shift",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "operator",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "time",
+        "sqlType": 8
+      },
+      {
+        "type": "Parameter",
+        "identifier": "jobId",
+        "sqlType": 3
+      },
+      {
+        "type": "Parameter",
+        "identifier": "job_sr",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "MachineID",
+        "sqlType": 3
+      }
+    ]
+  }
+}

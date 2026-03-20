@@ -1,0 +1,248 @@
+{
+  "custom": {
+    "icon": [
+      "published_with_changes",
+      "star_half",
+      "computer",
+      "question_answer",
+      "functions",
+      "high_quality",
+      "pause_circle_outline",
+      "free_breakfast",
+      "set_meal",
+      "home_repair_service",
+      "home_repair_service",
+      "home_repair_service",
+      "home_repair_service",
+      "wallpaper",
+      "devices_other",
+      "settings_system_daydream"
+    ],
+    "reasons": [
+      {
+        "icon": "published_with_changes",
+        "label": "Full Change Over"
+      },
+      {
+        "icon": "star_half",
+        "label": "Partial Change over"
+      },
+      {
+        "icon": "computer",
+        "label": "Computer"
+      },
+      {
+        "icon": "question_answer",
+        "label": "Design Questions"
+      },
+      {
+        "icon": "functions",
+        "label": "Program Function"
+      },
+      {
+        "icon": "high_quality",
+        "label": "Material Quality"
+      },
+      {
+        "icon": "pause_circle_outline",
+        "label": "Waiting on Material"
+      },
+      {
+        "icon": "free_breakfast",
+        "label": "Break"
+      },
+      {
+        "icon": "set_meal",
+        "label": "Lunch"
+      },
+      {
+        "icon": "home_repair_service",
+        "label": "Welder - Maintenance"
+      },
+      {
+        "icon": "home_repair_service",
+        "label": "Sensor - Maintenance"
+      },
+      {
+        "icon": "home_repair_service",
+        "label": "Electrical - Maintenance"
+      },
+      {
+        "icon": "home_repair_service",
+        "label": "Mechanical - Maintenance"
+      },
+      {
+        "icon": "wallpaper",
+        "label": "Wire/Paper Tension"
+      },
+      {
+        "icon": "devices_other",
+        "label": "Other"
+      }
+    ]
+  },
+  "params": {},
+  "propConfig": {
+    "custom.icon": {
+      "persistent": true
+    },
+    "custom.reasons": {
+      "binding": {
+        "config": {
+          "queryPath": "OEE_Dashboard/getAllReason",
+          "returnFormat": "json"
+        },
+        "transforms": [
+          {
+            "code": "\ticons \u003d self.custom.icon\n\tdata \u003d []\n\tfor i in range(0, len(value)):\n\t\tval \u003d {\"label\": value[i][\u0027ReasonName\u0027], \"icon\":icons[i]}\n\t\tdata.append(val)\n\treturn data",
+            "type": "script"
+          }
+        ],
+        "type": "query"
+      },
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 804,
+      "width": 1270
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "700px",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "backgroundColor": "--neutral-30"
+              },
+              "text": "SELECT DOWNTIME REASON",
+              "textStyle": {
+                "alignSelf": "center",
+                "fontFamily": "Verdana",
+                "fontSize": "26px",
+                "fontWeight": "bold",
+                "margin-top": "0px",
+                "padding": "30px"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "FlexRepeater"
+            },
+            "position": {
+              "basis": "1300px"
+            },
+            "propConfig": {
+              "props.instances": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.reasons"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "alignItems": "center",
+              "elementPosition": {
+                "basis": "auto"
+              },
+              "elementStyle": {
+                "margin": "15px"
+              },
+              "justify": "center",
+              "path": "Project/Operator/Downtime Entry/Downtime Select",
+              "wrap": "wrap"
+            },
+            "type": "ia.display.flex-repeater"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "page": "/opr_assist"
+                  },
+                  "scope": "C",
+                  "type": "nav"
+                }
+              }
+            },
+            "meta": {
+              "name": "Button"
+            },
+            "position": {
+              "basis": "380px"
+            },
+            "props": {
+              "primary": false,
+              "style": {
+                "backgroundColor": "transparent",
+                "borderBottomLeftRadius": "10px",
+                "borderBottomRightRadius": "10px",
+                "borderColor": "--error",
+                "borderStyle": "solid",
+                "borderTopLeftRadius": "10px",
+                "borderTopRightRadius": "10px",
+                "borderWidth": "2px",
+                "margin-top": "10px",
+                "marginBottom": "15px",
+                "padding": "5px"
+              },
+              "text": "Cancel",
+              "textStyle": {
+                "color": "--error",
+                "fontSize": "22px",
+                "fontWeight": "bold"
+              }
+            },
+            "type": "ia.input.button"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "1285px"
+        },
+        "props": {
+          "alignItems": "center",
+          "justify": "center",
+          "style": {
+            "backgroundColor": "--neutral-20",
+            "borderBottomLeftRadius": "15px",
+            "borderBottomRightRadius": "15px",
+            "borderTopLeftRadius": "15px",
+            "borderTopRightRadius": "15px"
+          },
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "alignItems": "center",
+      "justify": "center",
+      "style": {
+        "backgroundColor": ""
+      },
+      "wrap": "wrap"
+    },
+    "type": "ia.container.flex"
+  }
+}

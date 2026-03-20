@@ -1,0 +1,67 @@
+{
+  "custom": {},
+  "params": {
+    "label": "value"
+  },
+  "propConfig": {
+    "params.label": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 100,
+      "width": 200
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tif self.view.params.label \u003d\u003d \"Priority Assignment\":\n\t\tsystem.perspective.navigate(url\u003d\"http://localhost:8088/data/perspective/client/Hitachi_Energy_Transformer/sup_job_board\")\n\t\t\n\telif self.view.params.label \u003d\u003d \"Supervisor Assistance\":\n\t\t#system.perspective.navigate(url\u003d\"http://localhost:8088/data/perspective/client/Hitachi_Energy_Transformer/sup_assist_req\")\n\t\tparams \u003d {\t\"action\": \"confirm\",\n\t\t\t\t\"primaryText\": \"Please confirm you want supervisor assistance!\",\n\t\t\t\t\"secondaryText\":\" Supervisor will be notified about the assistance requirment\",\"label\":self.view.params.label}\n\t\tsystem.perspective.openPopup(\"PopUp\", view \u003d \"Project/Pop-Up/Pop-up\", \n\t\t\t\t\t\t\t\t\t\tparams \u003d params, \n\t\t\t\t\t\t\t\t\t\tshowCloseIcon \u003d False,\n\t\t\t\t\t\t\t\t\t\tdraggable \u003d False, \n\t\t\t\t\t\t\t\t\t\tmodal \u003d True)\n\telif self.view.params.label \u003d\u003d \"Log Downtime\":\n\t\tsystem.perspective.navigate(url\u003d\"http://localhost:8088/data/perspective/client/Hitachi_Energy_Transformer/opr_downtime_entry\")\n\telif self.view.params.label \u003d\u003d  \"Downtime Monitor\":\n\t\tsystem.perspective.navigate(url\u003d\"http://localhost:8088/data/perspective/client/Hitachi_Energy_Transformer/sup_downtime_monitor\")\n\telif self.view.params.label \u003d\u003d  \"Break\":\n\t\tparams \u003d {\t\"action\": \"confirm\",\n\t\t\t\t\"primaryText\": \"Please confirm you want to go for a Break !\",\n\t\t\t\t\"secondaryText\":\" You will be logged out from the current session once you press confirm.\",\n\t\t\t\t\"label\":self.view.params.label}\n\t\tsystem.perspective.openPopup(\"PopUp\", view \u003d \"Project/Pop-Up/Pop-up\", \n\t\t\t\t\t\t\t\t\t\tparams \u003d params, \n\t\t\t\t\t\t\t\t\t\tshowCloseIcon \u003d False,\n\t\t\t\t\t\t\t\t\t\tdraggable \u003d False, \n\t\t\t\t\t\t\t\t\t\tmodal \u003d True)\n\telif self.view.params.label \u003d\u003d  \"Lunch Break\":\n\t\tparams \u003d {\t\"action\": \"confirm\",\n\t\t\t\t\"primaryText\": \"Please confirm you want to go for Lunch Break !\",\n\t\t\t\t\"secondaryText\":\" You will be logged out from the current session once you press confirm.\",\n\t\t\t\t\"label\":self.view.params.label}\n\t\tsystem.perspective.openPopup(\"PopUp\", view \u003d \"Project/Pop-Up/Pop-up\", \n\t\t\t\t\t\t\t\t\t\tparams \u003d params, \n\t\t\t\t\t\t\t\t\t\tshowCloseIcon \u003d False,\n\t\t\t\t\t\t\t\t\t\tdraggable \u003d False, \n\t\t\t\t\t\t\t\t\t\tmodal \u003d True)\t\t"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.label"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "button"
+          }
+        },
+        "type": "ia.input.button"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "background-color": "var(--neutral-10)"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

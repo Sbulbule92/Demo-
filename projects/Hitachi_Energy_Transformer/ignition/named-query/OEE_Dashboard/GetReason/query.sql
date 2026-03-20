@@ -1,0 +1,1 @@
+Select ReasonName from tbl_DowntimeReason where ReasonID =  :ReasonID 

@@ -1,0 +1,17 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "config.json"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "shiva",
+      "timestamp": "2026-01-13T10:07:07Z"
+    },
+    "lastModificationSignature": "80e46d2aa6726f030b2a199f08a21b1478399ad837aaa14a10f3114ef05f6598",
+    "enabled": true
+  }
+}

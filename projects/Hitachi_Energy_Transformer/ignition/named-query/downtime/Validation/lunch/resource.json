@@ -1,0 +1,45 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "Query",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "Historian",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "c0b1bbece1be3be850bc51e94b5e56e3bac655344762272fffbb9f8e3f87c16b",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "shiva",
+      "timestamp": "2026-01-29T11:55:13Z"
+    },
+    "parameters": [
+      {
+        "type": "Parameter",
+        "identifier": "startTime",
+        "sqlType": 8
+      },
+      {
+        "type": "Parameter",
+        "identifier": "endTime",
+        "sqlType": 8
+      }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "profile": {
+    "cacheValidationTimeout": 15,
+    "failoverMode": "HARD",
+    "lockoutAttempts": 5,
+    "lockoutEnabled": true,
+    "lockoutWindow": 15,
+    "scheduleRestricted": false,
+    "type": "DATASOURCE"
+  },
+  "settings": {
+    "datasource": "sqllite",
+    "enableUuids": true,
+    "mode": "Automatic",
+    "tableNamePrefix": "scada_"
+  }
+}

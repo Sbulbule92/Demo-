@@ -1,0 +1,9 @@
+{
+  "base": {
+    "style": {
+      "backgroundColor": "var(--neutral-30)",
+      "paddingLeft": "16px",
+      "textTransform": "uppercase"
+    }
+  }
+}

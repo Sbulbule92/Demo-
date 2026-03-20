@@ -1,0 +1,45 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "Query",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "Historian",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "e3874ab8a849f9b3599cf67dc8cb6b84c9ee61c9d53b87037db5b68e27d7f83b",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "shiva",
+      "timestamp": "2026-01-30T09:45:53Z"
+    },
+    "parameters": [
+      {
+        "type": "Parameter",
+        "identifier": "user",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "day",
+        "sqlType": 8
+      }
+    ]
+  }
+}

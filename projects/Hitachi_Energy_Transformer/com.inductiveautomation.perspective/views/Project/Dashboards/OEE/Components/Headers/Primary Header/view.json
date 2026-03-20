@@ -1,0 +1,95 @@
+{
+  "custom": {},
+  "params": {
+    "date": {
+      "$": [
+        "ts",
+        192,
+        1769521576666
+      ],
+      "$ts": 1764251176655
+    },
+    "shift": "C"
+  },
+  "propConfig": {
+    "params.date": {
+      "binding": {
+        "config": {
+          "path": "/root/EmbeddedView.props.params.SelectedDate"
+        },
+        "type": "property"
+      },
+      "paramDirection": "output",
+      "persistent": true
+    },
+    "params.shift": {
+      "binding": {
+        "config": {
+          "path": "/root/EmbeddedView_0.props.params.shift"
+        },
+        "type": "property"
+      },
+      "paramDirection": "output",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 56,
+      "width": 997
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "EmbeddedView"
+        },
+        "position": {
+          "basis": "424px"
+        },
+        "props": {
+          "params": {
+            "SelectedDate": {
+              "$": [
+                "ts",
+                192,
+                1769521576666
+              ],
+              "$ts": 1764251176655
+            }
+          },
+          "path": "Project/Dashboards/OEE/Components/Headers/components/Select Date"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "EmbeddedView_0"
+        },
+        "position": {
+          "basis": "483px"
+        },
+        "props": {
+          "params": {
+            "SelectedDate": {
+              "$": [
+                "ts",
+                192,
+                1768479638180
+              ],
+              "$ts": 1768479638169
+            },
+            "shift": "C"
+          },
+          "path": "Project/Dashboards/OEE/Components/Headers/components/Select Shift"
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.flex"
+  }
+}

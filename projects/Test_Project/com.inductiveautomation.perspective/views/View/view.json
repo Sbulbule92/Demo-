@@ -1,0 +1,3277 @@
+{
+  "custom": {
+    "shift": "ID-1"
+  },
+  "params": {},
+  "propConfig": {
+    "custom.shift": {
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 870,
+      "width": 1366
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "HamburgerIcon"
+                },
+                "props": {
+                  "style": {
+                    "color": "#B0BFCC",
+                    "cursor": "pointer",
+                    "fontSize": "24px",
+                    "lineHeight": "1",
+                    "marginTop": "2px"
+                  },
+                  "text": "≡"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "BrandHitachi"
+                },
+                "props": {
+                  "style": {
+                    "color": "#FFFFFF",
+                    "fontFamily": "Roboto Condensed, Arial Narrow, sans-serif",
+                    "fontSize": "26px",
+                    "fontWeight": "900",
+                    "letterSpacing": "2px"
+                  },
+                  "text": "HITACHI"
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "NavLeft"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "props": {
+              "alignItems": "center",
+              "gap": "16px"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "meta": {
+              "name": "NavCenter"
+            },
+            "position": {
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "color": "#E8F0FF",
+                "fontFamily": "Roboto Condensed, Arial Narrow, sans-serif",
+                "fontSize": "22px",
+                "fontWeight": "700",
+                "letterSpacing": "3px",
+                "textAlign": "center"
+              },
+              "text": "OPERATOR OVERVIEW"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "UserIcon"
+                },
+                "props": {
+                  "style": {
+                    "color": "#8AAABB",
+                    "cursor": "pointer",
+                    "fontSize": "20px"
+                  },
+                  "text": "👤+"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "SettingsIcon"
+                },
+                "props": {
+                  "style": {
+                    "color": "#8AAABB",
+                    "cursor": "pointer",
+                    "fontSize": "20px"
+                  },
+                  "text": "⚙"
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "NavRight"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "props": {
+              "alignItems": "center",
+              "gap": "18px"
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "TopNavBar"
+        },
+        "position": {
+          "basis": "58px",
+          "shrink": 0
+        },
+        "props": {
+          "alignItems": "center",
+          "justify": "space-between",
+          "style": {
+            "backgroundColor": "#0D111E",
+            "borderBottom": "1px solid #252D3F",
+            "boxShadow": "0 2px 8px rgba(0,0,0,0.5)",
+            "padding": "0 18px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "DateLabel"
+                },
+                "props": {
+                  "style": {
+                    "color": "#8AA0B8",
+                    "fontSize": "12px",
+                    "fontWeight": "700",
+                    "letterSpacing": "0.5px"
+                  },
+                  "text": "DATE:"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "DateValue"
+                },
+                "props": {
+                  "style": {
+                    "color": "#D8E8F8",
+                    "fontSize": "13px",
+                    "fontWeight": "600"
+                  },
+                  "text": "Nov 21, 2025  3:00 PM"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "DateArrow"
+                },
+                "props": {
+                  "style": {
+                    "color": "#6A8FA8",
+                    "fontSize": "13px"
+                  },
+                  "text": "▾"
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "DateDropdown"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "props": {
+              "alignItems": "center",
+              "gap": "8px",
+              "style": {
+                "backgroundColor": "#1A2235",
+                "border": "1px solid #2E3D52",
+                "borderRadius": "6px",
+                "cursor": "pointer",
+                "padding": "6px 14px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "ShiftLbl"
+                },
+                "props": {
+                  "style": {
+                    "color": "#8AA0B8",
+                    "fontSize": "12px",
+                    "fontWeight": "700",
+                    "marginRight": "4px"
+                  },
+                  "text": "SHIFT:"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "ShiftA"
+                },
+                "props": {
+                  "style": {
+                    "backgroundColor": "#1ABAAA",
+                    "borderRadius": "5px",
+                    "color": "#000000",
+                    "cursor": "pointer",
+                    "fontSize": "13px",
+                    "fontWeight": "700",
+                    "padding": "5px 14px"
+                  },
+                  "text": "A"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "ShiftB"
+                },
+                "props": {
+                  "style": {
+                    "backgroundColor": "#1A2235",
+                    "border": "1px solid #2E3D52",
+                    "borderRadius": "5px",
+                    "color": "#9AAFC4",
+                    "cursor": "pointer",
+                    "fontSize": "13px",
+                    "fontWeight": "600",
+                    "padding": "5px 12px"
+                  },
+                  "text": "BShift ▾"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "ShiftC"
+                },
+                "props": {
+                  "style": {
+                    "backgroundColor": "#1A2235",
+                    "border": "1px solid #2E3D52",
+                    "borderRadius": "5px",
+                    "color": "#9AAFC4",
+                    "cursor": "pointer",
+                    "fontSize": "13px",
+                    "fontWeight": "600",
+                    "padding": "5px 12px"
+                  },
+                  "text": "C Shift"
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "ShiftSelector"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "props": {
+              "alignItems": "center",
+              "gap": "6px"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "SiteName"
+                },
+                "props": {
+                  "style": {
+                    "color": "#C0D0E0",
+                    "fontSize": "13px",
+                    "fontWeight": "600"
+                  },
+                  "text": "Hitachi Energy"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "SiteDivider"
+                },
+                "props": {
+                  "style": {
+                    "color": "#3A4F62",
+                    "fontSize": "11px"
+                  },
+                  "text": "◄"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "SiteId"
+                },
+                "props": {
+                  "style": {
+                    "color": "#D8E8F8",
+                    "fontSize": "14px",
+                    "fontWeight": "700"
+                  },
+                  "text": "1071"
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "SiteInfo"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "props": {
+              "alignItems": "center",
+              "gap": "10px"
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FilterRow1"
+        },
+        "position": {
+          "basis": "50px",
+          "shrink": 0
+        },
+        "props": {
+          "alignItems": "center",
+          "justify": "space-between",
+          "style": {
+            "backgroundColor": "#111827",
+            "borderBottom": "1px solid #1E2A3A",
+            "gap": "12px",
+            "padding": "0 20px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "DateTag"
+            },
+            "props": {
+              "style": {
+                "color": "#8AA0B8",
+                "fontSize": "11px",
+                "fontWeight": "700",
+                "letterSpacing": "1px",
+                "marginRight": "4px"
+              },
+              "text": "DATE"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "DatePill"
+            },
+            "props": {
+              "style": {
+                "backgroundColor": "rgba(26,186,170,0.08)",
+                "border": "2px solid #1ABAAA",
+                "borderRadius": "6px",
+                "color": "#1ABAAA",
+                "cursor": "pointer",
+                "fontSize": "13px",
+                "fontWeight": "700",
+                "padding": "5px 14px"
+              },
+              "text": "JAN 22, 2025"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Shift1Btn"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.shift"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "backgroundColor": "#1A2235",
+                "border": "1px solid #2E3D52",
+                "borderRadius": "6px",
+                "color": "#9AAFC4",
+                "cursor": "pointer",
+                "fontSize": "13px",
+                "fontWeight": "600",
+                "padding": "5px 14px"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Shift2Btn"
+            },
+            "props": {
+              "style": {
+                "backgroundColor": "#1A2235",
+                "border": "1px solid #2E3D52",
+                "borderRadius": "6px",
+                "color": "#9AAFC4",
+                "cursor": "pointer",
+                "fontSize": "13px",
+                "fontWeight": "600",
+                "padding": "5px 14px"
+              },
+              "text": "SHIFT 2"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "WoclDot"
+                },
+                "props": {
+                  "style": {
+                    "color": "#1ABAAA",
+                    "fontSize": "8px"
+                  },
+                  "text": "●"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "WoclText"
+                },
+                "props": {
+                  "style": {
+                    "color": "#9AAFC4",
+                    "fontSize": "13px",
+                    "fontWeight": "600"
+                  },
+                  "text": "WOCL"
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "WoclBtn"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "props": {
+              "alignItems": "center",
+              "gap": "6px",
+              "style": {
+                "backgroundColor": "#1A2235",
+                "border": "1px solid #2E3D52",
+                "borderRadius": "6px",
+                "cursor": "pointer",
+                "fontSize": "13px",
+                "fontWeight": "600",
+                "padding": "5px 14px"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FilterRow2"
+        },
+        "position": {
+          "basis": "48px",
+          "shrink": 0
+        },
+        "props": {
+          "alignItems": "center",
+          "gap": "8px",
+          "style": {
+            "backgroundColor": "#111827",
+            "borderBottom": "1px solid #1E2A3A",
+            "padding": "0 20px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "Name_JW1"
+                        },
+                        "props": {
+                          "style": {
+                            "color": "#FFFFFF",
+                            "fontFamily": "Roboto Condensed, sans-serif",
+                            "fontSize": "15px",
+                            "fontWeight": "800",
+                            "letterSpacing": "0.5px",
+                            "textAlign": "center"
+                          },
+                          "text": "JOHN WICK"
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "meta": {
+                                  "name": "PerfLbl"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#7A95B0",
+                                    "fontSize": "11px",
+                                    "fontWeight": "500"
+                                  },
+                                  "text": "Performance"
+                                },
+                                "type": "ia.display.label"
+                              },
+                              {
+                                "meta": {
+                                  "name": "PerfVal"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#D8E8F8",
+                                    "fontSize": "15px",
+                                    "fontWeight": "700"
+                                  },
+                                  "text": "98%"
+                                },
+                                "type": "ia.display.label"
+                              }
+                            ],
+                            "meta": {
+                              "name": "PerfBadge_JW1"
+                            },
+                            "props": {
+                              "alignItems": "center",
+                              "direction": "column",
+                              "style": {
+                                "backgroundColor": "#141C2E",
+                                "borderRadius": "6px",
+                                "flex": "1",
+                                "padding": "6px 12px"
+                              }
+                            },
+                            "type": "ia.container.flex"
+                          },
+                          {
+                            "children": [
+                              {
+                                "meta": {
+                                  "name": "AvailLbl"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#7A95B0",
+                                    "fontSize": "11px",
+                                    "fontWeight": "500"
+                                  },
+                                  "text": "Availability"
+                                },
+                                "type": "ia.display.label"
+                              },
+                              {
+                                "meta": {
+                                  "name": "AvailVal"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#D8E8F8",
+                                    "fontSize": "15px",
+                                    "fontWeight": "700"
+                                  },
+                                  "text": "99%"
+                                },
+                                "type": "ia.display.label"
+                              }
+                            ],
+                            "meta": {
+                              "name": "AvailBadge_JW1"
+                            },
+                            "props": {
+                              "alignItems": "center",
+                              "direction": "column",
+                              "style": {
+                                "backgroundColor": "#141C2E",
+                                "borderRadius": "6px",
+                                "flex": "1",
+                                "padding": "6px 12px"
+                              }
+                            },
+                            "type": "ia.container.flex"
+                          }
+                        ],
+                        "meta": {
+                          "name": "Metrics_JW1"
+                        },
+                        "props": {
+                          "gap": "8px",
+                          "justify": "center",
+                          "style": {
+                            "width": "100%"
+                          }
+                        },
+                        "type": "ia.container.flex"
+                      }
+                    ],
+                    "meta": {
+                      "name": "OpCard_JohnWick_1"
+                    },
+                    "position": {
+                      "basis": "calc(25% - 8px)",
+                      "grow": 1
+                    },
+                    "props": {
+                      "alignItems": "center",
+                      "direction": "column",
+                      "gap": "8px",
+                      "style": {
+                        "backgroundColor": "#1E2840",
+                        "border": "1px solid #2E3D52",
+                        "borderRadius": "8px",
+                        "padding": "12px 10px"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  },
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "Name_MM"
+                        },
+                        "props": {
+                          "style": {
+                            "color": "#FFFFFF",
+                            "fontFamily": "Roboto Condensed, sans-serif",
+                            "fontSize": "15px",
+                            "fontWeight": "800",
+                            "letterSpacing": "0.5px",
+                            "textAlign": "center"
+                          },
+                          "text": "MARY MORTIS"
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "meta": {
+                                  "name": "PerfLbl_MM"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#7A95B0",
+                                    "fontSize": "11px"
+                                  },
+                                  "text": "Performance"
+                                },
+                                "type": "ia.display.label"
+                              },
+                              {
+                                "meta": {
+                                  "name": "PerfVal_MM"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#D8E8F8",
+                                    "fontSize": "15px",
+                                    "fontWeight": "700"
+                                  },
+                                  "text": "92%"
+                                },
+                                "type": "ia.display.label"
+                              }
+                            ],
+                            "meta": {
+                              "name": "PerfBadge_MM"
+                            },
+                            "props": {
+                              "alignItems": "center",
+                              "direction": "column",
+                              "style": {
+                                "backgroundColor": "#141C2E",
+                                "borderRadius": "6px",
+                                "flex": "1",
+                                "padding": "6px 12px"
+                              }
+                            },
+                            "type": "ia.container.flex"
+                          },
+                          {
+                            "children": [
+                              {
+                                "meta": {
+                                  "name": "AvailLbl_MM"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#7A95B0",
+                                    "fontSize": "11px"
+                                  },
+                                  "text": "Availability"
+                                },
+                                "type": "ia.display.label"
+                              },
+                              {
+                                "meta": {
+                                  "name": "AvailVal_MM"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#D8E8F8",
+                                    "fontSize": "15px",
+                                    "fontWeight": "700"
+                                  },
+                                  "text": "91%"
+                                },
+                                "type": "ia.display.label"
+                              }
+                            ],
+                            "meta": {
+                              "name": "AvailBadge_MM"
+                            },
+                            "props": {
+                              "alignItems": "center",
+                              "direction": "column",
+                              "style": {
+                                "backgroundColor": "#141C2E",
+                                "borderRadius": "6px",
+                                "flex": "1",
+                                "padding": "6px 12px"
+                              }
+                            },
+                            "type": "ia.container.flex"
+                          }
+                        ],
+                        "meta": {
+                          "name": "Metrics_MM"
+                        },
+                        "props": {
+                          "gap": "8px",
+                          "justify": "center",
+                          "style": {
+                            "width": "100%"
+                          }
+                        },
+                        "type": "ia.container.flex"
+                      }
+                    ],
+                    "meta": {
+                      "name": "OpCard_MaryMortis"
+                    },
+                    "position": {
+                      "basis": "calc(25% - 8px)",
+                      "grow": 1
+                    },
+                    "props": {
+                      "alignItems": "center",
+                      "direction": "column",
+                      "gap": "8px",
+                      "style": {
+                        "backgroundColor": "#1E2840",
+                        "border": "1px solid #2E3D52",
+                        "borderRadius": "8px",
+                        "padding": "12px 10px"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  },
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "Name_SK"
+                        },
+                        "props": {
+                          "style": {
+                            "color": "#FFFFFF",
+                            "fontFamily": "Roboto Condensed, sans-serif",
+                            "fontSize": "15px",
+                            "fontWeight": "800",
+                            "letterSpacing": "0.5px",
+                            "textAlign": "center"
+                          },
+                          "text": "SAMANTHA KRIS"
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "meta": {
+                                  "name": "PerfLbl_SK"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#7A95B0",
+                                    "fontSize": "11px"
+                                  },
+                                  "text": "Performance"
+                                },
+                                "type": "ia.display.label"
+                              },
+                              {
+                                "meta": {
+                                  "name": "PerfVal_SK"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#D8E8F8",
+                                    "fontSize": "15px",
+                                    "fontWeight": "700"
+                                  },
+                                  "text": "88%"
+                                },
+                                "type": "ia.display.label"
+                              }
+                            ],
+                            "meta": {
+                              "name": "PerfBadge_SK"
+                            },
+                            "props": {
+                              "alignItems": "center",
+                              "direction": "column",
+                              "style": {
+                                "backgroundColor": "#141C2E",
+                                "borderRadius": "6px",
+                                "flex": "1",
+                                "padding": "6px 12px"
+                              }
+                            },
+                            "type": "ia.container.flex"
+                          },
+                          {
+                            "children": [
+                              {
+                                "meta": {
+                                  "name": "AvailLbl_SK"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#7A95B0",
+                                    "fontSize": "11px"
+                                  },
+                                  "text": "Availability"
+                                },
+                                "type": "ia.display.label"
+                              },
+                              {
+                                "meta": {
+                                  "name": "AvailVal_SK"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#D8E8F8",
+                                    "fontSize": "15px",
+                                    "fontWeight": "700"
+                                  },
+                                  "text": "81%"
+                                },
+                                "type": "ia.display.label"
+                              }
+                            ],
+                            "meta": {
+                              "name": "AvailBadge_SK"
+                            },
+                            "props": {
+                              "alignItems": "center",
+                              "direction": "column",
+                              "style": {
+                                "backgroundColor": "#141C2E",
+                                "borderRadius": "6px",
+                                "flex": "1",
+                                "padding": "6px 12px"
+                              }
+                            },
+                            "type": "ia.container.flex"
+                          }
+                        ],
+                        "meta": {
+                          "name": "Metrics_SK"
+                        },
+                        "props": {
+                          "gap": "8px",
+                          "justify": "center",
+                          "style": {
+                            "width": "100%"
+                          }
+                        },
+                        "type": "ia.container.flex"
+                      }
+                    ],
+                    "meta": {
+                      "name": "OpCard_SamKris"
+                    },
+                    "position": {
+                      "basis": "calc(25% - 8px)",
+                      "grow": 1
+                    },
+                    "props": {
+                      "alignItems": "center",
+                      "direction": "column",
+                      "gap": "8px",
+                      "style": {
+                        "backgroundColor": "#1E2840",
+                        "border": "1px solid #2E3D52",
+                        "borderRadius": "8px",
+                        "padding": "12px 10px"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  },
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "Name_DG"
+                        },
+                        "props": {
+                          "style": {
+                            "color": "#FFFFFF",
+                            "fontFamily": "Roboto Condensed, sans-serif",
+                            "fontSize": "15px",
+                            "fontWeight": "800",
+                            "letterSpacing": "0.5px",
+                            "textAlign": "center"
+                          },
+                          "text": "DAVID GUSTAV"
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "meta": {
+                                  "name": "PerfLbl_DG"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#7A95B0",
+                                    "fontSize": "11px"
+                                  },
+                                  "text": "Performance"
+                                },
+                                "type": "ia.display.label"
+                              },
+                              {
+                                "meta": {
+                                  "name": "PerfVal_DG"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#D8E8F8",
+                                    "fontSize": "15px",
+                                    "fontWeight": "700"
+                                  },
+                                  "text": "78%"
+                                },
+                                "type": "ia.display.label"
+                              }
+                            ],
+                            "meta": {
+                              "name": "PerfBadge_DG"
+                            },
+                            "props": {
+                              "alignItems": "center",
+                              "direction": "column",
+                              "style": {
+                                "backgroundColor": "#141C2E",
+                                "borderRadius": "6px",
+                                "flex": "1",
+                                "padding": "6px 12px"
+                              }
+                            },
+                            "type": "ia.container.flex"
+                          },
+                          {
+                            "children": [
+                              {
+                                "meta": {
+                                  "name": "AvailLbl_DG"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#7A95B0",
+                                    "fontSize": "11px"
+                                  },
+                                  "text": "Availability"
+                                },
+                                "type": "ia.display.label"
+                              },
+                              {
+                                "meta": {
+                                  "name": "AvailVal_DG"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#D8E8F8",
+                                    "fontSize": "15px",
+                                    "fontWeight": "700"
+                                  },
+                                  "text": "71%"
+                                },
+                                "type": "ia.display.label"
+                              }
+                            ],
+                            "meta": {
+                              "name": "AvailBadge_DG"
+                            },
+                            "props": {
+                              "alignItems": "center",
+                              "direction": "column",
+                              "style": {
+                                "backgroundColor": "#141C2E",
+                                "borderRadius": "6px",
+                                "flex": "1",
+                                "padding": "6px 12px"
+                              }
+                            },
+                            "type": "ia.container.flex"
+                          }
+                        ],
+                        "meta": {
+                          "name": "Metrics_DG"
+                        },
+                        "props": {
+                          "gap": "8px",
+                          "justify": "center",
+                          "style": {
+                            "width": "100%"
+                          }
+                        },
+                        "type": "ia.container.flex"
+                      }
+                    ],
+                    "meta": {
+                      "name": "OpCard_DavidGustav"
+                    },
+                    "position": {
+                      "basis": "calc(25% - 8px)",
+                      "grow": 1
+                    },
+                    "props": {
+                      "alignItems": "center",
+                      "direction": "column",
+                      "gap": "8px",
+                      "style": {
+                        "backgroundColor": "#1E2840",
+                        "border": "1px solid #2E3D52",
+                        "borderRadius": "8px",
+                        "padding": "12px 10px"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  }
+                ],
+                "meta": {
+                  "name": "GridRow1"
+                },
+                "position": {
+                  "grow": 1
+                },
+                "props": {
+                  "gap": "10px",
+                  "justify": "space-between"
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "Name_SG"
+                        },
+                        "props": {
+                          "style": {
+                            "color": "#FFFFFF",
+                            "fontFamily": "Roboto Condensed, sans-serif",
+                            "fontSize": "15px",
+                            "fontWeight": "800",
+                            "letterSpacing": "0.5px",
+                            "textAlign": "center"
+                          },
+                          "text": "SALENA GOMEZ"
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "meta": {
+                                  "name": "PL_SG"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#7A95B0",
+                                    "fontSize": "11px"
+                                  },
+                                  "text": "Performance"
+                                },
+                                "type": "ia.display.label"
+                              },
+                              {
+                                "meta": {
+                                  "name": "PV_SG"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#D8E8F8",
+                                    "fontSize": "15px",
+                                    "fontWeight": "700"
+                                  },
+                                  "text": "51%"
+                                },
+                                "type": "ia.display.label"
+                              }
+                            ],
+                            "meta": {
+                              "name": "PerfBadge_SG"
+                            },
+                            "props": {
+                              "alignItems": "center",
+                              "direction": "column",
+                              "style": {
+                                "backgroundColor": "#141C2E",
+                                "borderRadius": "6px",
+                                "flex": "1",
+                                "padding": "6px 12px"
+                              }
+                            },
+                            "type": "ia.container.flex"
+                          },
+                          {
+                            "children": [
+                              {
+                                "meta": {
+                                  "name": "AL_SG"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#7A95B0",
+                                    "fontSize": "11px"
+                                  },
+                                  "text": "Availability"
+                                },
+                                "type": "ia.display.label"
+                              },
+                              {
+                                "meta": {
+                                  "name": "AV_SG"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#D8E8F8",
+                                    "fontSize": "15px",
+                                    "fontWeight": "700"
+                                  },
+                                  "text": "85%"
+                                },
+                                "type": "ia.display.label"
+                              }
+                            ],
+                            "meta": {
+                              "name": "AvailBadge_SG"
+                            },
+                            "props": {
+                              "alignItems": "center",
+                              "direction": "column",
+                              "style": {
+                                "backgroundColor": "#141C2E",
+                                "borderRadius": "6px",
+                                "flex": "1",
+                                "padding": "6px 12px"
+                              }
+                            },
+                            "type": "ia.container.flex"
+                          }
+                        ],
+                        "meta": {
+                          "name": "Metrics_SG"
+                        },
+                        "props": {
+                          "gap": "8px",
+                          "justify": "center",
+                          "style": {
+                            "width": "100%"
+                          }
+                        },
+                        "type": "ia.container.flex"
+                      }
+                    ],
+                    "meta": {
+                      "name": "OpCard_SelenaGomez"
+                    },
+                    "position": {
+                      "basis": "calc(25% - 8px)",
+                      "grow": 1
+                    },
+                    "props": {
+                      "alignItems": "center",
+                      "direction": "column",
+                      "gap": "8px",
+                      "style": {
+                        "backgroundColor": "#1E2840",
+                        "border": "1px solid #2E3D52",
+                        "borderRadius": "8px",
+                        "padding": "12px 10px"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  },
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "Name_CH"
+                        },
+                        "props": {
+                          "style": {
+                            "color": "#FFFFFF",
+                            "fontFamily": "Roboto Condensed, sans-serif",
+                            "fontSize": "15px",
+                            "fontWeight": "800",
+                            "letterSpacing": "0.5px",
+                            "textAlign": "center"
+                          },
+                          "text": "CURTIS HERNANDE"
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "meta": {
+                                  "name": "PL_CH"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#7A95B0",
+                                    "fontSize": "11px"
+                                  },
+                                  "text": "Performance"
+                                },
+                                "type": "ia.display.label"
+                              },
+                              {
+                                "meta": {
+                                  "name": "PV_CH"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#D8E8F8",
+                                    "fontSize": "15px",
+                                    "fontWeight": "700"
+                                  },
+                                  "text": "90%"
+                                },
+                                "type": "ia.display.label"
+                              }
+                            ],
+                            "meta": {
+                              "name": "PerfBadge_CH"
+                            },
+                            "props": {
+                              "alignItems": "center",
+                              "direction": "column",
+                              "style": {
+                                "backgroundColor": "#141C2E",
+                                "borderRadius": "6px",
+                                "flex": "1",
+                                "padding": "6px 12px"
+                              }
+                            },
+                            "type": "ia.container.flex"
+                          },
+                          {
+                            "children": [
+                              {
+                                "meta": {
+                                  "name": "AL_CH"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#7A95B0",
+                                    "fontSize": "11px"
+                                  },
+                                  "text": "Availability"
+                                },
+                                "type": "ia.display.label"
+                              },
+                              {
+                                "meta": {
+                                  "name": "AV_CH"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#D8E8F8",
+                                    "fontSize": "15px",
+                                    "fontWeight": "700"
+                                  },
+                                  "text": "85%"
+                                },
+                                "type": "ia.display.label"
+                              }
+                            ],
+                            "meta": {
+                              "name": "AvailBadge_CH"
+                            },
+                            "props": {
+                              "alignItems": "center",
+                              "direction": "column",
+                              "style": {
+                                "backgroundColor": "#141C2E",
+                                "borderRadius": "6px",
+                                "flex": "1",
+                                "padding": "6px 12px"
+                              }
+                            },
+                            "type": "ia.container.flex"
+                          }
+                        ],
+                        "meta": {
+                          "name": "Metrics_CH"
+                        },
+                        "props": {
+                          "gap": "8px",
+                          "justify": "center",
+                          "style": {
+                            "width": "100%"
+                          }
+                        },
+                        "type": "ia.container.flex"
+                      }
+                    ],
+                    "meta": {
+                      "name": "OpCard_CurtisH"
+                    },
+                    "position": {
+                      "basis": "calc(25% - 8px)",
+                      "grow": 1
+                    },
+                    "props": {
+                      "alignItems": "center",
+                      "direction": "column",
+                      "gap": "8px",
+                      "style": {
+                        "backgroundColor": "#1E2840",
+                        "border": "1px solid #2E3D52",
+                        "borderRadius": "8px",
+                        "padding": "12px 10px"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  },
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "Name_R2C3"
+                        },
+                        "props": {
+                          "style": {
+                            "color": "#FFFFFF",
+                            "fontFamily": "Roboto Condensed, sans-serif",
+                            "fontSize": "15px",
+                            "fontWeight": "800",
+                            "letterSpacing": "0.5px",
+                            "textAlign": "center"
+                          },
+                          "text": "JOHN WICK"
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "meta": {
+                                  "name": "PL_R2C3"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#7A95B0",
+                                    "fontSize": "11px"
+                                  },
+                                  "text": "Performance"
+                                },
+                                "type": "ia.display.label"
+                              },
+                              {
+                                "meta": {
+                                  "name": "PV_R2C3"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#D8E8F8",
+                                    "fontSize": "15px",
+                                    "fontWeight": "700"
+                                  },
+                                  "text": "90%"
+                                },
+                                "type": "ia.display.label"
+                              }
+                            ],
+                            "meta": {
+                              "name": "PB_R2C3"
+                            },
+                            "props": {
+                              "alignItems": "center",
+                              "direction": "column",
+                              "style": {
+                                "backgroundColor": "#141C2E",
+                                "borderRadius": "6px",
+                                "flex": "1",
+                                "padding": "6px 12px"
+                              }
+                            },
+                            "type": "ia.container.flex"
+                          },
+                          {
+                            "children": [
+                              {
+                                "meta": {
+                                  "name": "AL_R2C3"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#7A95B0",
+                                    "fontSize": "11px"
+                                  },
+                                  "text": "Availability"
+                                },
+                                "type": "ia.display.label"
+                              },
+                              {
+                                "meta": {
+                                  "name": "AV_R2C3"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#D8E8F8",
+                                    "fontSize": "15px",
+                                    "fontWeight": "700"
+                                  },
+                                  "text": "85%"
+                                },
+                                "type": "ia.display.label"
+                              }
+                            ],
+                            "meta": {
+                              "name": "AB_R2C3"
+                            },
+                            "props": {
+                              "alignItems": "center",
+                              "direction": "column",
+                              "style": {
+                                "backgroundColor": "#141C2E",
+                                "borderRadius": "6px",
+                                "flex": "1",
+                                "padding": "6px 12px"
+                              }
+                            },
+                            "type": "ia.container.flex"
+                          }
+                        ],
+                        "meta": {
+                          "name": "Metrics_R2C3"
+                        },
+                        "props": {
+                          "gap": "8px",
+                          "justify": "center",
+                          "style": {
+                            "width": "100%"
+                          }
+                        },
+                        "type": "ia.container.flex"
+                      }
+                    ],
+                    "meta": {
+                      "name": "OpCard_JW_R2C3"
+                    },
+                    "position": {
+                      "basis": "calc(25% - 8px)",
+                      "grow": 1
+                    },
+                    "props": {
+                      "alignItems": "center",
+                      "direction": "column",
+                      "gap": "8px",
+                      "style": {
+                        "backgroundColor": "#1E2840",
+                        "border": "1px solid #2E3D52",
+                        "borderRadius": "8px",
+                        "padding": "12px 10px"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  },
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "Name_R2C4"
+                        },
+                        "props": {
+                          "style": {
+                            "color": "#FFFFFF",
+                            "fontFamily": "Roboto Condensed, sans-serif",
+                            "fontSize": "15px",
+                            "fontWeight": "800",
+                            "letterSpacing": "0.5px",
+                            "textAlign": "center"
+                          },
+                          "text": "JOHN WICK"
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "meta": {
+                                  "name": "PL_R2C4"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#7A95B0",
+                                    "fontSize": "11px"
+                                  },
+                                  "text": "Performance"
+                                },
+                                "type": "ia.display.label"
+                              },
+                              {
+                                "meta": {
+                                  "name": "PV_R2C4"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#D8E8F8",
+                                    "fontSize": "15px",
+                                    "fontWeight": "700"
+                                  },
+                                  "text": "99%"
+                                },
+                                "type": "ia.display.label"
+                              }
+                            ],
+                            "meta": {
+                              "name": "PB_R2C4"
+                            },
+                            "props": {
+                              "alignItems": "center",
+                              "direction": "column",
+                              "style": {
+                                "backgroundColor": "#141C2E",
+                                "borderRadius": "6px",
+                                "flex": "1",
+                                "padding": "6px 12px"
+                              }
+                            },
+                            "type": "ia.container.flex"
+                          },
+                          {
+                            "children": [
+                              {
+                                "meta": {
+                                  "name": "AL_R2C4"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#7A95B0",
+                                    "fontSize": "11px"
+                                  },
+                                  "text": "Availability"
+                                },
+                                "type": "ia.display.label"
+                              },
+                              {
+                                "meta": {
+                                  "name": "AV_R2C4"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#D8E8F8",
+                                    "fontSize": "15px",
+                                    "fontWeight": "700"
+                                  },
+                                  "text": "99%"
+                                },
+                                "type": "ia.display.label"
+                              }
+                            ],
+                            "meta": {
+                              "name": "AB_R2C4"
+                            },
+                            "props": {
+                              "alignItems": "center",
+                              "direction": "column",
+                              "style": {
+                                "backgroundColor": "#141C2E",
+                                "borderRadius": "6px",
+                                "flex": "1",
+                                "padding": "6px 12px"
+                              }
+                            },
+                            "type": "ia.container.flex"
+                          },
+                          {
+                            "children": [
+                              {
+                                "meta": {
+                                  "name": "OEEVal_R2C4"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#1ABAAA",
+                                    "fontSize": "18px",
+                                    "fontWeight": "800"
+                                  },
+                                  "text": "55%"
+                                },
+                                "type": "ia.display.label"
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "meta": {
+                                      "name": "OEEBar_Fill_R2C4"
+                                    },
+                                    "props": {
+                                      "style": {
+                                        "backgroundColor": "#1ABAAA",
+                                        "borderRadius": "3px 0 0 3px",
+                                        "height": "5px",
+                                        "width": "55%"
+                                      }
+                                    },
+                                    "type": "ia.container.flex"
+                                  }
+                                ],
+                                "meta": {
+                                  "name": "OEEBar_Track_R2C4"
+                                },
+                                "props": {
+                                  "style": {
+                                    "backgroundColor": "#0D1524",
+                                    "borderRadius": "3px",
+                                    "height": "5px",
+                                    "overflow": "hidden",
+                                    "width": "100%"
+                                  }
+                                },
+                                "type": "ia.container.flex"
+                              }
+                            ],
+                            "meta": {
+                              "name": "OEE_R2C4"
+                            },
+                            "props": {
+                              "alignItems": "center",
+                              "direction": "column",
+                              "gap": "4px",
+                              "style": {
+                                "backgroundColor": "#141C2E",
+                                "borderRadius": "6px",
+                                "flex": "1",
+                                "padding": "6px 12px"
+                              }
+                            },
+                            "type": "ia.container.flex"
+                          }
+                        ],
+                        "meta": {
+                          "name": "Metrics_R2C4"
+                        },
+                        "props": {
+                          "gap": "8px",
+                          "justify": "center",
+                          "style": {
+                            "width": "100%"
+                          }
+                        },
+                        "type": "ia.container.flex"
+                      }
+                    ],
+                    "meta": {
+                      "name": "OpCard_JW_R2C4_OEE"
+                    },
+                    "position": {
+                      "basis": "calc(25% - 8px)",
+                      "grow": 1
+                    },
+                    "props": {
+                      "alignItems": "center",
+                      "direction": "column",
+                      "gap": "8px",
+                      "style": {
+                        "backgroundColor": "#1E2840",
+                        "border": "1px solid #2E3D52",
+                        "borderRadius": "8px",
+                        "padding": "12px 10px"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  }
+                ],
+                "meta": {
+                  "name": "GridRow2"
+                },
+                "position": {
+                  "grow": 1
+                },
+                "props": {
+                  "gap": "10px",
+                  "justify": "space-between"
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "Name_R3C1"
+                        },
+                        "props": {
+                          "style": {
+                            "color": "#FFFFFF",
+                            "fontFamily": "Roboto Condensed, sans-serif",
+                            "fontSize": "15px",
+                            "fontWeight": "800",
+                            "letterSpacing": "0.5px",
+                            "textAlign": "center"
+                          },
+                          "text": "JOHN WICK"
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "meta": {
+                                  "name": "PL_R3C1"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#7A95B0",
+                                    "fontSize": "11px"
+                                  },
+                                  "text": "Performance"
+                                },
+                                "type": "ia.display.label"
+                              },
+                              {
+                                "meta": {
+                                  "name": "PV_R3C1"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#D8E8F8",
+                                    "fontSize": "15px",
+                                    "fontWeight": "700"
+                                  },
+                                  "text": "98%"
+                                },
+                                "type": "ia.display.label"
+                              }
+                            ],
+                            "meta": {
+                              "name": "PB_R3C1"
+                            },
+                            "props": {
+                              "alignItems": "center",
+                              "direction": "column",
+                              "style": {
+                                "backgroundColor": "#141C2E",
+                                "borderRadius": "6px",
+                                "flex": "1",
+                                "padding": "6px 12px"
+                              }
+                            },
+                            "type": "ia.container.flex"
+                          },
+                          {
+                            "children": [
+                              {
+                                "meta": {
+                                  "name": "AL_R3C1"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#7A95B0",
+                                    "fontSize": "11px"
+                                  },
+                                  "text": "Availability"
+                                },
+                                "type": "ia.display.label"
+                              },
+                              {
+                                "meta": {
+                                  "name": "AV_R3C1"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#D8E8F8",
+                                    "fontSize": "15px",
+                                    "fontWeight": "700"
+                                  },
+                                  "text": "99%"
+                                },
+                                "type": "ia.display.label"
+                              }
+                            ],
+                            "meta": {
+                              "name": "AB_R3C1"
+                            },
+                            "props": {
+                              "alignItems": "center",
+                              "direction": "column",
+                              "style": {
+                                "backgroundColor": "#141C2E",
+                                "borderRadius": "6px",
+                                "flex": "1",
+                                "padding": "6px 12px"
+                              }
+                            },
+                            "type": "ia.container.flex"
+                          }
+                        ],
+                        "meta": {
+                          "name": "Metrics_R3C1"
+                        },
+                        "props": {
+                          "gap": "8px",
+                          "justify": "center",
+                          "style": {
+                            "width": "100%"
+                          }
+                        },
+                        "type": "ia.container.flex"
+                      }
+                    ],
+                    "meta": {
+                      "name": "OpCard_JW_R3C1"
+                    },
+                    "position": {
+                      "basis": "calc(25% - 8px)",
+                      "grow": 1
+                    },
+                    "props": {
+                      "alignItems": "center",
+                      "direction": "column",
+                      "gap": "8px",
+                      "style": {
+                        "backgroundColor": "#1E2840",
+                        "border": "1px solid #2E3D52",
+                        "borderRadius": "8px",
+                        "padding": "12px 10px"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  },
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "Name_R3C2"
+                        },
+                        "props": {
+                          "style": {
+                            "color": "#FFFFFF",
+                            "fontFamily": "Roboto Condensed, sans-serif",
+                            "fontSize": "15px",
+                            "fontWeight": "800",
+                            "letterSpacing": "0.5px",
+                            "textAlign": "center"
+                          },
+                          "text": "JOHN WICK"
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "meta": {
+                                  "name": "PL_R3C2"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#7A95B0",
+                                    "fontSize": "11px"
+                                  },
+                                  "text": "Performance"
+                                },
+                                "type": "ia.display.label"
+                              },
+                              {
+                                "meta": {
+                                  "name": "PV_R3C2"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#D8E8F8",
+                                    "fontSize": "15px",
+                                    "fontWeight": "700"
+                                  },
+                                  "text": "90%"
+                                },
+                                "type": "ia.display.label"
+                              }
+                            ],
+                            "meta": {
+                              "name": "PB_R3C2"
+                            },
+                            "props": {
+                              "alignItems": "center",
+                              "direction": "column",
+                              "style": {
+                                "backgroundColor": "#141C2E",
+                                "borderRadius": "6px",
+                                "flex": "1",
+                                "padding": "6px 12px"
+                              }
+                            },
+                            "type": "ia.container.flex"
+                          },
+                          {
+                            "children": [
+                              {
+                                "meta": {
+                                  "name": "AL_R3C2"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#7A95B0",
+                                    "fontSize": "11px"
+                                  },
+                                  "text": "Availability"
+                                },
+                                "type": "ia.display.label"
+                              },
+                              {
+                                "meta": {
+                                  "name": "AV_R3C2"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#D8E8F8",
+                                    "fontSize": "15px",
+                                    "fontWeight": "700"
+                                  },
+                                  "text": "85%"
+                                },
+                                "type": "ia.display.label"
+                              }
+                            ],
+                            "meta": {
+                              "name": "AB_R3C2"
+                            },
+                            "props": {
+                              "alignItems": "center",
+                              "direction": "column",
+                              "style": {
+                                "backgroundColor": "#141C2E",
+                                "borderRadius": "6px",
+                                "flex": "1",
+                                "padding": "6px 12px"
+                              }
+                            },
+                            "type": "ia.container.flex"
+                          }
+                        ],
+                        "meta": {
+                          "name": "Metrics_R3C2"
+                        },
+                        "props": {
+                          "gap": "8px",
+                          "justify": "center",
+                          "style": {
+                            "width": "100%"
+                          }
+                        },
+                        "type": "ia.container.flex"
+                      }
+                    ],
+                    "meta": {
+                      "name": "OpCard_JW_R3C2"
+                    },
+                    "position": {
+                      "basis": "calc(25% - 8px)",
+                      "grow": 1
+                    },
+                    "props": {
+                      "alignItems": "center",
+                      "direction": "column",
+                      "gap": "8px",
+                      "style": {
+                        "backgroundColor": "#1E2840",
+                        "border": "1px solid #2E3D52",
+                        "borderRadius": "8px",
+                        "padding": "12px 10px"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  },
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "Name_R3C3"
+                        },
+                        "props": {
+                          "style": {
+                            "color": "#FFFFFF",
+                            "fontFamily": "Roboto Condensed, sans-serif",
+                            "fontSize": "15px",
+                            "fontWeight": "800",
+                            "letterSpacing": "0.5px",
+                            "textAlign": "center"
+                          },
+                          "text": "JOHN WICK"
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "meta": {
+                                  "name": "PL_R3C3"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#7A95B0",
+                                    "fontSize": "11px"
+                                  },
+                                  "text": "Performance"
+                                },
+                                "type": "ia.display.label"
+                              },
+                              {
+                                "meta": {
+                                  "name": "PV_R3C3"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#D8E8F8",
+                                    "fontSize": "15px",
+                                    "fontWeight": "700"
+                                  },
+                                  "text": "99%"
+                                },
+                                "type": "ia.display.label"
+                              }
+                            ],
+                            "meta": {
+                              "name": "PB_R3C3"
+                            },
+                            "props": {
+                              "alignItems": "center",
+                              "direction": "column",
+                              "style": {
+                                "backgroundColor": "#141C2E",
+                                "borderRadius": "6px",
+                                "flex": "1",
+                                "padding": "6px 12px"
+                              }
+                            },
+                            "type": "ia.container.flex"
+                          },
+                          {
+                            "children": [
+                              {
+                                "meta": {
+                                  "name": "AL_R3C3"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#7A95B0",
+                                    "fontSize": "11px"
+                                  },
+                                  "text": "Availability"
+                                },
+                                "type": "ia.display.label"
+                              },
+                              {
+                                "meta": {
+                                  "name": "AV_R3C3"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#D8E8F8",
+                                    "fontSize": "15px",
+                                    "fontWeight": "700"
+                                  },
+                                  "text": "85%"
+                                },
+                                "type": "ia.display.label"
+                              }
+                            ],
+                            "meta": {
+                              "name": "AB_R3C3"
+                            },
+                            "props": {
+                              "alignItems": "center",
+                              "direction": "column",
+                              "style": {
+                                "backgroundColor": "#141C2E",
+                                "borderRadius": "6px",
+                                "flex": "1",
+                                "padding": "6px 12px"
+                              }
+                            },
+                            "type": "ia.container.flex"
+                          }
+                        ],
+                        "meta": {
+                          "name": "Metrics_R3C3"
+                        },
+                        "props": {
+                          "gap": "8px",
+                          "justify": "center",
+                          "style": {
+                            "width": "100%"
+                          }
+                        },
+                        "type": "ia.container.flex"
+                      }
+                    ],
+                    "meta": {
+                      "name": "OpCard_JW_R3C3"
+                    },
+                    "position": {
+                      "basis": "calc(25% - 8px)",
+                      "grow": 1
+                    },
+                    "props": {
+                      "alignItems": "center",
+                      "direction": "column",
+                      "gap": "8px",
+                      "style": {
+                        "backgroundColor": "#1E2840",
+                        "border": "1px solid #2E3D52",
+                        "borderRadius": "8px",
+                        "padding": "12px 10px"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  },
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "Name_R3C4"
+                        },
+                        "props": {
+                          "style": {
+                            "color": "#FFFFFF",
+                            "fontFamily": "Roboto Condensed, sans-serif",
+                            "fontSize": "15px",
+                            "fontWeight": "800",
+                            "letterSpacing": "0.5px",
+                            "textAlign": "center"
+                          },
+                          "text": "JOHN WICK"
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "meta": {
+                                  "name": "PL_R3C4"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#7A95B0",
+                                    "fontSize": "11px"
+                                  },
+                                  "text": "Performance"
+                                },
+                                "type": "ia.display.label"
+                              },
+                              {
+                                "meta": {
+                                  "name": "PV_R3C4"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#D8E8F8",
+                                    "fontSize": "15px",
+                                    "fontWeight": "700"
+                                  },
+                                  "text": "99%"
+                                },
+                                "type": "ia.display.label"
+                              }
+                            ],
+                            "meta": {
+                              "name": "PB_R3C4"
+                            },
+                            "props": {
+                              "alignItems": "center",
+                              "direction": "column",
+                              "style": {
+                                "backgroundColor": "#141C2E",
+                                "borderRadius": "6px",
+                                "flex": "1",
+                                "padding": "6px 12px"
+                              }
+                            },
+                            "type": "ia.container.flex"
+                          },
+                          {
+                            "children": [
+                              {
+                                "meta": {
+                                  "name": "AL_R3C4"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#7A95B0",
+                                    "fontSize": "11px"
+                                  },
+                                  "text": "Availability"
+                                },
+                                "type": "ia.display.label"
+                              },
+                              {
+                                "meta": {
+                                  "name": "AV_R3C4"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#D8E8F8",
+                                    "fontSize": "15px",
+                                    "fontWeight": "700"
+                                  },
+                                  "text": "99%"
+                                },
+                                "type": "ia.display.label"
+                              }
+                            ],
+                            "meta": {
+                              "name": "AB_R3C4"
+                            },
+                            "props": {
+                              "alignItems": "center",
+                              "direction": "column",
+                              "style": {
+                                "backgroundColor": "#141C2E",
+                                "borderRadius": "6px",
+                                "flex": "1",
+                                "padding": "6px 12px"
+                              }
+                            },
+                            "type": "ia.container.flex"
+                          },
+                          {
+                            "children": [
+                              {
+                                "meta": {
+                                  "name": "OEEVal_R3C4"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#1ABAAA",
+                                    "fontSize": "18px",
+                                    "fontWeight": "800"
+                                  },
+                                  "text": "99%"
+                                },
+                                "type": "ia.display.label"
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "meta": {
+                                      "name": "OEEBar_Fill_R3C4"
+                                    },
+                                    "props": {
+                                      "style": {
+                                        "backgroundColor": "#1ABAAA",
+                                        "borderRadius": "3px 0 0 3px",
+                                        "height": "5px",
+                                        "width": "99%"
+                                      }
+                                    },
+                                    "type": "ia.container.flex"
+                                  }
+                                ],
+                                "meta": {
+                                  "name": "OEEBar_Track_R3C4"
+                                },
+                                "props": {
+                                  "style": {
+                                    "backgroundColor": "#0D1524",
+                                    "borderRadius": "3px",
+                                    "height": "5px",
+                                    "overflow": "hidden",
+                                    "width": "100%"
+                                  }
+                                },
+                                "type": "ia.container.flex"
+                              }
+                            ],
+                            "meta": {
+                              "name": "OEE_R3C4"
+                            },
+                            "props": {
+                              "alignItems": "center",
+                              "direction": "column",
+                              "gap": "4px",
+                              "style": {
+                                "backgroundColor": "#141C2E",
+                                "borderRadius": "6px",
+                                "flex": "1",
+                                "padding": "6px 12px"
+                              }
+                            },
+                            "type": "ia.container.flex"
+                          }
+                        ],
+                        "meta": {
+                          "name": "Metrics_R3C4"
+                        },
+                        "props": {
+                          "gap": "8px",
+                          "justify": "center",
+                          "style": {
+                            "width": "100%"
+                          }
+                        },
+                        "type": "ia.container.flex"
+                      }
+                    ],
+                    "meta": {
+                      "name": "OpCard_JW_R3C4_OEE"
+                    },
+                    "position": {
+                      "basis": "calc(25% - 8px)",
+                      "grow": 1
+                    },
+                    "props": {
+                      "alignItems": "center",
+                      "direction": "column",
+                      "gap": "8px",
+                      "style": {
+                        "backgroundColor": "#1E2840",
+                        "border": "1px solid #2E3D52",
+                        "borderRadius": "8px",
+                        "padding": "12px 10px"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  }
+                ],
+                "meta": {
+                  "name": "GridRow3"
+                },
+                "position": {
+                  "grow": 1
+                },
+                "props": {
+                  "gap": "10px",
+                  "justify": "space-between"
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "Name_R4C1"
+                        },
+                        "props": {
+                          "style": {
+                            "color": "#FFFFFF",
+                            "fontFamily": "Roboto Condensed, sans-serif",
+                            "fontSize": "15px",
+                            "fontWeight": "800",
+                            "letterSpacing": "0.5px",
+                            "textAlign": "center"
+                          },
+                          "text": "JOHN WICK"
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "meta": {
+                                  "name": "PL_R4C1"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#7A95B0",
+                                    "fontSize": "11px"
+                                  },
+                                  "text": "Performance"
+                                },
+                                "type": "ia.display.label"
+                              },
+                              {
+                                "meta": {
+                                  "name": "PV_R4C1"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#D8E8F8",
+                                    "fontSize": "15px",
+                                    "fontWeight": "700"
+                                  },
+                                  "text": "98%"
+                                },
+                                "type": "ia.display.label"
+                              }
+                            ],
+                            "meta": {
+                              "name": "PB_R4C1"
+                            },
+                            "props": {
+                              "alignItems": "center",
+                              "direction": "column",
+                              "style": {
+                                "backgroundColor": "#141C2E",
+                                "borderRadius": "6px",
+                                "flex": "1",
+                                "padding": "6px 12px"
+                              }
+                            },
+                            "type": "ia.container.flex"
+                          },
+                          {
+                            "children": [
+                              {
+                                "meta": {
+                                  "name": "AL_R4C1"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#7A95B0",
+                                    "fontSize": "11px"
+                                  },
+                                  "text": "Availability"
+                                },
+                                "type": "ia.display.label"
+                              },
+                              {
+                                "meta": {
+                                  "name": "AV_R4C1"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#D8E8F8",
+                                    "fontSize": "15px",
+                                    "fontWeight": "700"
+                                  },
+                                  "text": "99%"
+                                },
+                                "type": "ia.display.label"
+                              }
+                            ],
+                            "meta": {
+                              "name": "AB_R4C1"
+                            },
+                            "props": {
+                              "alignItems": "center",
+                              "direction": "column",
+                              "style": {
+                                "backgroundColor": "#141C2E",
+                                "borderRadius": "6px",
+                                "flex": "1",
+                                "padding": "6px 12px"
+                              }
+                            },
+                            "type": "ia.container.flex"
+                          }
+                        ],
+                        "meta": {
+                          "name": "Metrics_R4C1"
+                        },
+                        "props": {
+                          "gap": "8px",
+                          "justify": "center",
+                          "style": {
+                            "width": "100%"
+                          }
+                        },
+                        "type": "ia.container.flex"
+                      }
+                    ],
+                    "meta": {
+                      "name": "OpCard_JW_R4C1"
+                    },
+                    "position": {
+                      "basis": "calc(25% - 8px)",
+                      "grow": 1
+                    },
+                    "props": {
+                      "alignItems": "center",
+                      "direction": "column",
+                      "gap": "8px",
+                      "style": {
+                        "backgroundColor": "#1E2840",
+                        "border": "1px solid #2E3D52",
+                        "borderRadius": "8px",
+                        "padding": "12px 10px"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  },
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "Name_R4C2"
+                        },
+                        "props": {
+                          "style": {
+                            "color": "#FFFFFF",
+                            "fontFamily": "Roboto Condensed, sans-serif",
+                            "fontSize": "15px",
+                            "fontWeight": "800",
+                            "letterSpacing": "0.5px",
+                            "textAlign": "center"
+                          },
+                          "text": "JOHN WICK"
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "meta": {
+                                  "name": "PL_R4C2"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#7A95B0",
+                                    "fontSize": "11px"
+                                  },
+                                  "text": "Performance"
+                                },
+                                "type": "ia.display.label"
+                              },
+                              {
+                                "meta": {
+                                  "name": "PV_R4C2"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#D8E8F8",
+                                    "fontSize": "15px",
+                                    "fontWeight": "700"
+                                  },
+                                  "text": "99%"
+                                },
+                                "type": "ia.display.label"
+                              }
+                            ],
+                            "meta": {
+                              "name": "PB_R4C2"
+                            },
+                            "props": {
+                              "alignItems": "center",
+                              "direction": "column",
+                              "style": {
+                                "backgroundColor": "#141C2E",
+                                "borderRadius": "6px",
+                                "flex": "1",
+                                "padding": "6px 12px"
+                              }
+                            },
+                            "type": "ia.container.flex"
+                          },
+                          {
+                            "children": [
+                              {
+                                "meta": {
+                                  "name": "AL_R4C2"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#7A95B0",
+                                    "fontSize": "11px"
+                                  },
+                                  "text": "Availability"
+                                },
+                                "type": "ia.display.label"
+                              },
+                              {
+                                "meta": {
+                                  "name": "AV_R4C2"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#D8E8F8",
+                                    "fontSize": "15px",
+                                    "fontWeight": "700"
+                                  },
+                                  "text": "95%"
+                                },
+                                "type": "ia.display.label"
+                              }
+                            ],
+                            "meta": {
+                              "name": "AB_R4C2"
+                            },
+                            "props": {
+                              "alignItems": "center",
+                              "direction": "column",
+                              "style": {
+                                "backgroundColor": "#141C2E",
+                                "borderRadius": "6px",
+                                "flex": "1",
+                                "padding": "6px 12px"
+                              }
+                            },
+                            "type": "ia.container.flex"
+                          }
+                        ],
+                        "meta": {
+                          "name": "Metrics_R4C2"
+                        },
+                        "props": {
+                          "gap": "8px",
+                          "justify": "center",
+                          "style": {
+                            "width": "100%"
+                          }
+                        },
+                        "type": "ia.container.flex"
+                      }
+                    ],
+                    "meta": {
+                      "name": "OpCard_JW_R4C2"
+                    },
+                    "position": {
+                      "basis": "calc(25% - 8px)",
+                      "grow": 1
+                    },
+                    "props": {
+                      "alignItems": "center",
+                      "direction": "column",
+                      "gap": "8px",
+                      "style": {
+                        "backgroundColor": "#1E2840",
+                        "border": "1px solid #2E3D52",
+                        "borderRadius": "8px",
+                        "padding": "12px 10px"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  },
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "Name_R4C3"
+                        },
+                        "props": {
+                          "style": {
+                            "color": "#FFFFFF",
+                            "fontFamily": "Roboto Condensed, sans-serif",
+                            "fontSize": "15px",
+                            "fontWeight": "800",
+                            "letterSpacing": "0.5px",
+                            "textAlign": "center"
+                          },
+                          "text": "JOHN WICK"
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "meta": {
+                                  "name": "PL_R4C3"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#7A95B0",
+                                    "fontSize": "11px"
+                                  },
+                                  "text": "Performance"
+                                },
+                                "type": "ia.display.label"
+                              },
+                              {
+                                "meta": {
+                                  "name": "PV_R4C3"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#D8E8F8",
+                                    "fontSize": "15px",
+                                    "fontWeight": "700"
+                                  },
+                                  "text": "98%"
+                                },
+                                "type": "ia.display.label"
+                              }
+                            ],
+                            "meta": {
+                              "name": "PB_R4C3"
+                            },
+                            "props": {
+                              "alignItems": "center",
+                              "direction": "column",
+                              "style": {
+                                "backgroundColor": "#141C2E",
+                                "borderRadius": "6px",
+                                "flex": "1",
+                                "padding": "6px 12px"
+                              }
+                            },
+                            "type": "ia.container.flex"
+                          },
+                          {
+                            "children": [
+                              {
+                                "meta": {
+                                  "name": "AL_R4C3"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#7A95B0",
+                                    "fontSize": "11px"
+                                  },
+                                  "text": "Availability"
+                                },
+                                "type": "ia.display.label"
+                              },
+                              {
+                                "meta": {
+                                  "name": "AV_R4C3"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#D8E8F8",
+                                    "fontSize": "15px",
+                                    "fontWeight": "700"
+                                  },
+                                  "text": "99%"
+                                },
+                                "type": "ia.display.label"
+                              }
+                            ],
+                            "meta": {
+                              "name": "AB_R4C3"
+                            },
+                            "props": {
+                              "alignItems": "center",
+                              "direction": "column",
+                              "style": {
+                                "backgroundColor": "#141C2E",
+                                "borderRadius": "6px",
+                                "flex": "1",
+                                "padding": "6px 12px"
+                              }
+                            },
+                            "type": "ia.container.flex"
+                          }
+                        ],
+                        "meta": {
+                          "name": "Metrics_R4C3"
+                        },
+                        "props": {
+                          "gap": "8px",
+                          "justify": "center",
+                          "style": {
+                            "width": "100%"
+                          }
+                        },
+                        "type": "ia.container.flex"
+                      }
+                    ],
+                    "meta": {
+                      "name": "OpCard_JW_R4C3"
+                    },
+                    "position": {
+                      "basis": "calc(25% - 8px)",
+                      "grow": 1
+                    },
+                    "props": {
+                      "alignItems": "center",
+                      "direction": "column",
+                      "gap": "8px",
+                      "style": {
+                        "backgroundColor": "#1E2840",
+                        "border": "1px solid #2E3D52",
+                        "borderRadius": "8px",
+                        "padding": "12px 10px"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  },
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "Name_R4C4"
+                        },
+                        "props": {
+                          "style": {
+                            "color": "#FFFFFF",
+                            "fontFamily": "Roboto Condensed, sans-serif",
+                            "fontSize": "15px",
+                            "fontWeight": "800",
+                            "letterSpacing": "0.5px",
+                            "textAlign": "center"
+                          },
+                          "text": "JOHN WICK"
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "meta": {
+                                  "name": "PL_R4C4"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#7A95B0",
+                                    "fontSize": "11px"
+                                  },
+                                  "text": "Performance"
+                                },
+                                "type": "ia.display.label"
+                              },
+                              {
+                                "meta": {
+                                  "name": "PV_R4C4"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#D8E8F8",
+                                    "fontSize": "15px",
+                                    "fontWeight": "700"
+                                  },
+                                  "text": "98%"
+                                },
+                                "type": "ia.display.label"
+                              }
+                            ],
+                            "meta": {
+                              "name": "PB_R4C4"
+                            },
+                            "props": {
+                              "alignItems": "center",
+                              "direction": "column",
+                              "style": {
+                                "backgroundColor": "#141C2E",
+                                "borderRadius": "6px",
+                                "flex": "1",
+                                "padding": "6px 12px"
+                              }
+                            },
+                            "type": "ia.container.flex"
+                          },
+                          {
+                            "children": [
+                              {
+                                "meta": {
+                                  "name": "AL_R4C4"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#7A95B0",
+                                    "fontSize": "11px"
+                                  },
+                                  "text": "Availability"
+                                },
+                                "type": "ia.display.label"
+                              },
+                              {
+                                "meta": {
+                                  "name": "AV_R4C4"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#D8E8F8",
+                                    "fontSize": "15px",
+                                    "fontWeight": "700"
+                                  },
+                                  "text": "99%"
+                                },
+                                "type": "ia.display.label"
+                              }
+                            ],
+                            "meta": {
+                              "name": "AB_R4C4"
+                            },
+                            "props": {
+                              "alignItems": "center",
+                              "direction": "column",
+                              "style": {
+                                "backgroundColor": "#141C2E",
+                                "borderRadius": "6px",
+                                "flex": "1",
+                                "padding": "6px 12px"
+                              }
+                            },
+                            "type": "ia.container.flex"
+                          },
+                          {
+                            "children": [
+                              {
+                                "meta": {
+                                  "name": "OEEVal_R4C4"
+                                },
+                                "props": {
+                                  "style": {
+                                    "color": "#1ABAAA",
+                                    "fontSize": "18px",
+                                    "fontWeight": "800"
+                                  },
+                                  "text": "99%"
+                                },
+                                "type": "ia.display.label"
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "meta": {
+                                      "name": "OEEBar_Fill_R4C4"
+                                    },
+                                    "props": {
+                                      "style": {
+                                        "backgroundColor": "#1ABAAA",
+                                        "borderRadius": "3px 0 0 3px",
+                                        "height": "5px",
+                                        "width": "99%"
+                                      }
+                                    },
+                                    "type": "ia.container.flex"
+                                  }
+                                ],
+                                "meta": {
+                                  "name": "OEEBar_Track_R4C4"
+                                },
+                                "props": {
+                                  "style": {
+                                    "backgroundColor": "#0D1524",
+                                    "borderRadius": "3px",
+                                    "height": "5px",
+                                    "overflow": "hidden",
+                                    "width": "100%"
+                                  }
+                                },
+                                "type": "ia.container.flex"
+                              }
+                            ],
+                            "meta": {
+                              "name": "OEE_R4C4"
+                            },
+                            "props": {
+                              "alignItems": "center",
+                              "direction": "column",
+                              "gap": "4px",
+                              "style": {
+                                "backgroundColor": "#141C2E",
+                                "borderRadius": "6px",
+                                "flex": "1",
+                                "padding": "6px 12px"
+                              }
+                            },
+                            "type": "ia.container.flex"
+                          }
+                        ],
+                        "meta": {
+                          "name": "Metrics_R4C4"
+                        },
+                        "props": {
+                          "gap": "8px",
+                          "justify": "center",
+                          "style": {
+                            "width": "100%"
+                          }
+                        },
+                        "type": "ia.container.flex"
+                      }
+                    ],
+                    "meta": {
+                      "name": "OpCard_JW_R4C4_OEE"
+                    },
+                    "position": {
+                      "basis": "calc(25% - 8px)",
+                      "grow": 1
+                    },
+                    "props": {
+                      "alignItems": "center",
+                      "direction": "column",
+                      "gap": "8px",
+                      "style": {
+                        "backgroundColor": "#1E2840",
+                        "border": "1px solid #2E3D52",
+                        "borderRadius": "8px",
+                        "padding": "12px 10px"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  }
+                ],
+                "meta": {
+                  "name": "GridRow4"
+                },
+                "position": {
+                  "grow": 1
+                },
+                "props": {
+                  "gap": "10px",
+                  "justify": "space-between"
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "OperatorGrid"
+            },
+            "position": {
+              "grow": 1
+            },
+            "props": {
+              "direction": "column",
+              "gap": "10px",
+              "style": {
+                "backgroundColor": "#1A2030",
+                "border": "1px solid #252D3F",
+                "borderRadius": "10px",
+                "boxShadow": "0 4px 20px rgba(0,0,0,0.5)",
+                "padding": "14px"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "MainContent"
+        },
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "backgroundColor": "#14192A",
+            "overflowY": "auto",
+            "padding": "14px 18px 8px 18px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "LogoutBtn"
+            },
+            "props": {
+              "style": {
+                "backgroundColor": "transparent",
+                "border": "1px solid #2E3D52",
+                "borderRadius": "7px",
+                "color": "#C8D8E8",
+                "cursor": "pointer",
+                "fontFamily": "Roboto, sans-serif",
+                "fontSize": "14px",
+                "fontWeight": "600",
+                "padding": "10px 32px"
+              },
+              "text": "Log Out"
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "meta": {
+              "name": "DowntimeBtn"
+            },
+            "props": {
+              "style": {
+                "backgroundColor": "transparent",
+                "border": "1px solid #2E3D52",
+                "borderRadius": "7px",
+                "color": "#C8D8E8",
+                "cursor": "pointer",
+                "fontFamily": "Roboto, sans-serif",
+                "fontSize": "14px",
+                "fontWeight": "600",
+                "padding": "10px 28px"
+              },
+              "text": "View Downtime Reasons"
+            },
+            "type": "ia.input.button"
+          }
+        ],
+        "meta": {
+          "name": "ActionBar"
+        },
+        "position": {
+          "basis": "58px",
+          "shrink": 0
+        },
+        "props": {
+          "alignItems": "center",
+          "justify": "space-between",
+          "style": {
+            "backgroundColor": "#0E1420",
+            "borderTop": "1px solid #1E2A3A",
+            "padding": "0 18px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "StatusLeft"
+            },
+            "props": {
+              "style": {
+                "color": "#5A7A8F",
+                "fontFamily": "Roboto Mono, Consolas, monospace",
+                "fontSize": "11px",
+                "fontWeight": "400",
+                "letterSpacing": "0.2px"
+              },
+              "text": "≡  User - SHIVA  |  Local: localhost:8088  |  Gateway Status: Connected  |  Host:localhost"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "StatusRight"
+            },
+            "props": {
+              "style": {
+                "color": "#5A7A8F",
+                "fontFamily": "Roboto Mono, Consolas, monospace",
+                "fontSize": "11px",
+                "fontWeight": "400"
+              },
+              "text": "Ignition Version: 8.3.x OEE Portal v1.0"
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "StatusBar"
+        },
+        "position": {
+          "basis": "32px",
+          "shrink": 0
+        },
+        "props": {
+          "alignItems": "center",
+          "justify": "space-between",
+          "style": {
+            "backgroundColor": "#090D18",
+            "borderTop": "1px solid #161E2E",
+            "padding": "0 18px"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "backgroundColor": "#14192A",
+        "fontFamily": "Roboto, Arial, sans-serif",
+        "height": "100%",
+        "overflow": "hidden",
+        "width": "100%"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

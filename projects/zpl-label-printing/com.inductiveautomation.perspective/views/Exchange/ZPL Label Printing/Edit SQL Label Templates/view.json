@@ -1,0 +1,854 @@
+{
+  "custom": {},
+  "params": {},
+  "permissions": {
+    "securityLevels": [],
+    "type": "AllOf"
+  },
+  "props": {
+    "defaultSize": {
+      "height": 1060,
+      "width": 1910
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "LblStep1"
+        },
+        "position": {
+          "height": 45,
+          "width": 280,
+          "x": 10,
+          "y": 10
+        },
+        "props": {
+          "text": "1. Select New or Existing Template",
+          "textStyle": {
+            "textAlign": "center",
+            "textDecoration": "underline"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "custom": {
+          "resources": [
+            {
+              "label": "All",
+              "value": ""
+            },
+            {
+              "label": "2ndToNone",
+              "value": "2ndToNone"
+            },
+            {
+              "label": "AADist",
+              "value": "AADist"
+            },
+            {
+              "label": "AARON",
+              "value": "AARON"
+            },
+            {
+              "label": "ABCD",
+              "value": "ABCD"
+            },
+            {
+              "label": "ActionCoffee",
+              "value": "ActionCoffee"
+            },
+            {
+              "label": "Ahold-HQ",
+              "value": "Ahold-HQ"
+            },
+            {
+              "label": "AJGlobal",
+              "value": "AJGlobal"
+            },
+            {
+              "label": "Aramark-HQ",
+              "value": "Aramark-HQ"
+            },
+            {
+              "label": "Armenia",
+              "value": "Armenia"
+            },
+            {
+              "label": "AutomaticBrew",
+              "value": "AutomaticBrew"
+            },
+            {
+              "label": "BadaBean",
+              "value": "BadaBean"
+            },
+            {
+              "label": "BaldanzaCafe",
+              "value": "BaldanzaCafe"
+            },
+            {
+              "label": "Barstool-HQ",
+              "value": "Barstool-HQ"
+            },
+            {
+              "label": "Berje",
+              "value": "Berje"
+            },
+            {
+              "label": "BestwayVndng",
+              "value": "BestwayVndng"
+            },
+            {
+              "label": "BPMRoasters",
+              "value": "BPMRoasters"
+            },
+            {
+              "label": "Bratney",
+              "value": "Bratney"
+            },
+            {
+              "label": "Brooklyn",
+              "value": "Brooklyn"
+            },
+            {
+              "label": "CarmiFlavor",
+              "value": "CarmiFlavor"
+            },
+            {
+              "label": "CBCSpecial",
+              "value": "CBCSpecial"
+            },
+            {
+              "label": "Chambers\u0026Owen",
+              "value": "Chambers\u0026Owen"
+            },
+            {
+              "label": "COEN",
+              "value": "COEN"
+            },
+            {
+              "label": "CoffeeHseMore",
+              "value": "CoffeeHseMore"
+            },
+            {
+              "label": "CompanionCoff",
+              "value": "CompanionCoff"
+            },
+            {
+              "label": "CooperBooth",
+              "value": "CooperBooth"
+            },
+            {
+              "label": "CoreMark Eby-HQ",
+              "value": "CoreMark Eby-HQ"
+            },
+            {
+              "label": "Crossroads",
+              "value": "Crossroads"
+            },
+            {
+              "label": "DailyBagel",
+              "value": "DailyBagel"
+            },
+            {
+              "label": "DMHIngredient",
+              "value": "DMHIngredient"
+            },
+            {
+              "label": "DolceFoglia",
+              "value": "DolceFoglia"
+            },
+            {
+              "label": "DosCafeLLC",
+              "value": "DosCafeLLC"
+            },
+            {
+              "label": "DPI-HQ",
+              "value": "DPI-HQ"
+            },
+            {
+              "label": "EasternTea",
+              "value": "EasternTea"
+            },
+            {
+              "label": "EG America",
+              "value": "EG America"
+            },
+            {
+              "label": "EuropeanCoffe",
+              "value": "EuropeanCoffe"
+            },
+            {
+              "label": "Flavorchem",
+              "value": "Flavorchem"
+            },
+            {
+              "label": "FMI-HQ",
+              "value": "FMI-HQ"
+            },
+            {
+              "label": "FoodConcepts",
+              "value": "FoodConcepts"
+            },
+            {
+              "label": "Forecast",
+              "value": "Forecast"
+            },
+            {
+              "label": "GFarmsFoodLLC",
+              "value": "GFarmsFoodLLC"
+            },
+            {
+              "label": "GraceFarms-HQ",
+              "value": "GraceFarms-HQ"
+            },
+            {
+              "label": "GreenValley",
+              "value": "GreenValley"
+            },
+            {
+              "label": "GrindWorthy",
+              "value": "GrindWorthy"
+            },
+            {
+              "label": "GROUND",
+              "value": "GROUND"
+            },
+            {
+              "label": "GSC-HQ",
+              "value": "GSC-HQ"
+            },
+            {
+              "label": "HighsBaltimor",
+              "value": "HighsBaltimor"
+            },
+            {
+              "label": "HTHackney",
+              "value": "HTHackney"
+            },
+            {
+              "label": "IMA N A",
+              "value": "IMA N A"
+            },
+            {
+              "label": "IMS,LTD",
+              "value": "IMS,LTD"
+            },
+            {
+              "label": "ITIInc",
+              "value": "ITIInc"
+            },
+            {
+              "label": "JJM",
+              "value": "JJM"
+            },
+            {
+              "label": "JoesGourmetCo",
+              "value": "JoesGourmetCo"
+            },
+            {
+              "label": "Jogue",
+              "value": "Jogue"
+            },
+            {
+              "label": "KaribaFarms",
+              "value": "KaribaFarms"
+            },
+            {
+              "label": "KEAHS",
+              "value": "KEAHS"
+            },
+            {
+              "label": "KeHe",
+              "value": "KeHe"
+            },
+            {
+              "label": "LIDL-HQ",
+              "value": "LIDL-HQ"
+            },
+            {
+              "label": "MAPCO",
+              "value": "MAPCO"
+            },
+            {
+              "label": "ModernProcess",
+              "value": "ModernProcess"
+            },
+            {
+              "label": "MRP",
+              "value": "MRP"
+            },
+            {
+              "label": "MurphyUSA",
+              "value": "MurphyUSA"
+            },
+            {
+              "label": "NoblCoffee",
+              "value": "NoblCoffee"
+            },
+            {
+              "label": "Pacto",
+              "value": "Pacto"
+            },
+            {
+              "label": "PerformanceFd",
+              "value": "PerformanceFd"
+            },
+            {
+              "label": "Perfumery",
+              "value": "Perfumery"
+            },
+            {
+              "label": "PhoenixAromas",
+              "value": "PhoenixAromas"
+            },
+            {
+              "label": "PlantTherapy",
+              "value": "PlantTherapy"
+            },
+            {
+              "label": "QuickChek",
+              "value": "QuickChek"
+            },
+            {
+              "label": "RiteAid-HQ",
+              "value": "RiteAid-HQ"
+            },
+            {
+              "label": "RoaringPlanet",
+              "value": "RoaringPlanet"
+            },
+            {
+              "label": "SpecialOrders",
+              "value": "SpecialOrders"
+            },
+            {
+              "label": "SUCAFINANA",
+              "value": "SUCAFINANA"
+            },
+            {
+              "label": "SwissWater",
+              "value": "SwissWater"
+            },
+            {
+              "label": "Tata",
+              "value": "Tata"
+            },
+            {
+              "label": "TheLoyalist",
+              "value": "TheLoyalist"
+            },
+            {
+              "label": "TraderJoes-HQ",
+              "value": "TraderJoes-HQ"
+            },
+            {
+              "label": "VIDYA",
+              "value": "VIDYA"
+            },
+            {
+              "label": "Wild",
+              "value": "Wild"
+            },
+            {
+              "label": "Windmill",
+              "value": "Windmill"
+            }
+          ]
+        },
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\t# retrieve labelZPL from database\n\tgetLabelFromSQL \u003d \"\"\"\n\t\tselect label_name, label_zpl\n\t\tfrom ex_zpl_label_printing.ex_zlp_label_templates \n\t\twhere label_name \u003d ?\n\t\"\"\"\n\tlabelName \u003d self.props.value\n\tlabel_DS \u003d system.db.runPrepQuery(getLabelFromSQL, [labelName], \u0027ex_zpl_label_printing\u0027) \n\t\n\tif label_DS.getRowCount() \u003e 0:\n\t\tlabelZPL \u003d label_DS.getValueAt(0, \u0027label_zpl\u0027)\n\telse:\n\t\tlabelZPL \u003d \u0027\u0027\n\t\n\t# then send message to be received by ImageOfLabel component message handler\n\tlabelInfo \u003d {}\n\tlabelInfo[\u0027labelZPL\u0027] \u003d labelZPL\n\tsystem.perspective.sendMessage(\u0027exchange.zplLabelPrinting.getLabelaryImage\u0027, scope\u003d\u0027page\u0027, payload\u003dlabelInfo)\n\t\n\t\n\t"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          },
+          "system": {
+            "onStartup": {
+              "config": {
+                "script": "\t# populate dropdown menu with sql label names on start\n\tsystem.perspective.sendMessage(\u0027exchange.zplLabelPrinting.refreshLabelNames\u0027, scope\u003d\u0027page\u0027)"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "DropTemplates"
+        },
+        "position": {
+          "height": 45,
+          "width": 135,
+          "x": 10,
+          "y": 55
+        },
+        "props": {
+          "options": [
+            {
+              "label": "\u003cNew\u003e",
+              "value": "New"
+            },
+            {
+              "label": "GS1-128 Parameterized",
+              "value": "GS1-128 Parameterized"
+            },
+            {
+              "label": "Hello World",
+              "value": "Hello World"
+            },
+            {
+              "label": "Labelary",
+              "value": "Labelary"
+            },
+            {
+              "label": "hw2",
+              "value": "hw2"
+            }
+          ],
+          "showClearIcon": true,
+          "style": {
+            "marginRight": 5
+          }
+        },
+        "scripts": {
+          "customMethods": [],
+          "extensionFunctions": null,
+          "messageHandlers": [
+            {
+              "messageType": "exchange.zplLabelPrinting.refreshLabelNames",
+              "pageScope": true,
+              "script": "\t# initialize dropdown options with ability to select a new template\n\tself.props.options \u003d [{\u0027label\u0027 : \u0027\u003cNew\u003e\u0027 , \u0027value\u0027 : \u0027New\u0027 }]\n\t\n\t# get list of label names and populate dropdown component with them\n\tgetLabelFromSQL \u003d \"\"\"\n\t\tselect label_name\n\t\tfrom ex_zpl_label_printing.ex_zlp_label_templates \n\t\torder by label_name \n\t\"\"\"\n\tlabel_DS \u003d system.db.runPrepQuery(getLabelFromSQL, [], \u0027ex_zpl_label_printing\u0027) # postgres db\n\t\n\tfor row in range(label_DS.getRowCount()):\n\t\tlabelName \u003d label_DS.getValueAt(row, \u0027label_name\u0027)\n\t\t#labelZPL \u003d label_DS.getValueAt(row, \u0027label_zpl_template\u0027)\n\t\tself.props.options.append({\u0027label\u0027 : labelName , \u0027value\u0027 : labelName })\n\t\n\t\n\t",
+              "sessionScope": false,
+              "viewScope": true
+            }
+          ]
+        },
+        "type": "ia.input.dropdown"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\t# refresh zpl code with whatever is in the text area component\n\tlabelInfo \u003d {}\n\tlabelInfo[\u0027labelZPL\u0027] \u003d self.getSibling(\"TextZpl\").props.text\n\tsystem.perspective.sendMessage(\u0027exchange.zplLabelPrinting.getLabelaryImage\u0027, scope\u003d\u0027page\u0027, payload\u003dlabelInfo)\n\t\n\t\n\t"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "BtnPreview"
+        },
+        "position": {
+          "height": 45,
+          "width": 135,
+          "x": 155,
+          "y": 55
+        },
+        "props": {
+          "source": "",
+          "style": {
+            "classes": "Components/brownButtons"
+          },
+          "text": "Preview Label"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "custom": {
+          "fileContents": ""
+        },
+        "events": {
+          "component": {
+            "onFileReceived": {
+              "config": {
+                "script": "\t# when file is uploaded to component, get the string inside\n\tself.custom[\"fileContents\"] \u003d event.file.getString()\n\tlabelRawZPL \u003d event.file.getString()\n\t\n\t# .prn files printed from Zebra Designer 3 will have a preamble (prefix) and a postamble (suffix)\n\t# need to remove them and add our own preamble and postamble \n\t# (customized to work with printing printer time and offsetting the whole label in the xy directions)\n\t\n\t# get everything after the first ^XZ (end) command and before the ^PQ (number of copies) command in the ZPL text\n\t# this ignition project will later replace the ^LT0 and ^LS0 commands with offset_x_mm and offset_y_mm for the whole label\n\t# the command ^SL0,1 is paired with the ^FC command to always print the printer time\n\t# , even if it takes a long time to print all copies of the same label sent by Ignition\n\tlabelBody \u003d labelRawZPL.split(\u0027^XZ\u0027)[1].split(\u0027^PQ\u0027)[0] \n\tlabelZPL \u003d \u0027^XA^EG^XZ^XA^MCY^CI28^CF0^XZ^XA^SL0,1^LT0^LS0\u0027 + labelBody + \u0027^PQ1^LRN^XZ^XA^MCY^PON^LH0,0^XZ\u0027\n\t\n\tlabelInfo \u003d {}\n\tlabelInfo[\u0027labelZPL\u0027] \u003d labelZPL\n\tsystem.perspective.sendMessage(\u0027exchange.zplLabelPrinting.getLabelaryImage\u0027, scope\u003d\u0027page\u0027, payload\u003dlabelInfo)\n\t\n\t\n\t"
+              },
+              "scope": "G",
+              "type": "script"
+            },
+            "onUploadsCleared": {
+              "config": {
+                "script": "\tself.custom[\"fileContents\"] \u003d \u0027\u0027"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          },
+          "system": {
+            "onStartup": {
+              "config": {
+                "script": "\tself.custom[\"fileContents\"] \u003d \u0027\u0027"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "FileUpload"
+        },
+        "position": {
+          "height": 90,
+          "width": 280,
+          "x": 10,
+          "y": 110
+        },
+        "propConfig": {
+          "props.maxUploads": {
+            "binding": {
+              "config": {
+                "expression": "if(\n\t{../DropTemplates.props.value} \u003d \u0027New\u0027 \n\t, 1 \n\t, 0 \n)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "type": "ia.input.fileupload"
+      },
+      {
+        "meta": {
+          "name": "TextZpl"
+        },
+        "position": {
+          "height": 340,
+          "width": 280,
+          "x": 10,
+          "y": 210
+        },
+        "scripts": {
+          "customMethods": [],
+          "extensionFunctions": null,
+          "messageHandlers": [
+            {
+              "messageType": "exchange.zplLabelPrinting.getLabelaryImage",
+              "pageScope": true,
+              "script": "\t# set text area component text to the labelZPL string\n\tlabelZPL \u003d payload[\u0027labelZPL\u0027]\n\tself.props.text \u003d labelZPL",
+              "sessionScope": false,
+              "viewScope": false
+            }
+          ]
+        },
+        "type": "ia.input.text-area"
+      },
+      {
+        "meta": {
+          "name": "LblStep2"
+        },
+        "position": {
+          "height": 45,
+          "width": 280,
+          "x": 10,
+          "y": 560
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "if(\n\t{../DropTemplates.props.value} \u003d \u0027New\u0027\n\t, \u00272. Name and Add Label\u0027 \n\t, \u00272. Delete or Update Label\u0027 \n)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "textAlign": "center",
+            "textDecoration": "underline"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\t# confirm deletion\n\tmessage \u003d \u0027Please confirm you wish to delete this label and all users associated with this label.\u0027\n\texchange.zplLabelPrinting.popup.displayConfirmation(message)\n\t\n\t\n\t"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "BtnDeleteLabel"
+        },
+        "position": {
+          "height": 45,
+          "width": 135,
+          "x": 10,
+          "y": 605
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "if(\r\n\t{../DropTemplates.props.value} !\u003d \u0027New\u0027 \r\n\t, true \r\n\t, false \r\n)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "expression": "if(\r\n\t{../DropTemplates.props.value} !\u003d \u0027New\u0027 \r\n\t, true \r\n\t, false \r\n)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "Components/brownButtons"
+          },
+          "text": "Delete Label"
+        },
+        "scripts": {
+          "customMethods": [],
+          "extensionFunctions": null,
+          "messageHandlers": [
+            {
+              "messageType": "exchange.zplLabelPrinting.confirmPopup",
+              "pageScope": true,
+              "script": "\t# get selected label name and user name\n\tlabelName \u003d self.getSibling(\"DropTemplates\").props.value\n\t\n\t# first get id from label templates table\n\tgetID \u003d \"\"\"\n\t\tselect id \n\t\tfrom ex_zpl_label_printing.ex_zlp_label_templates \n\t\twhere label_name \u003d ?\n\t\"\"\"\n\tlabelID_DS \u003d system.db.runPrepQuery(getID, [labelName], \u0027ex_zpl_label_printing\u0027)\n\tforeignKeyID \u003d labelID_DS.getValueAt(0, \u0027id\u0027)\n\t\n\t# second delete all records from users table for the selected label name (due to foreigh key constraint)\n\tdeleteUser \u003d \"\"\"\n\t\tdelete from ex_zpl_label_printing.ex_zlp_label_users \n\t\twhere ex_zlp_label_templates_id \u003d ? \n\t\"\"\"\n\tr \u003d system.db.runPrepUpdate(deleteUser, [foreignKeyID], \u0027ex_zpl_label_printing\u0027)\n\t\n\t# third delete the label template from the templates table for the selected label name\n\tdeleteTemplate \u003d \"\"\"\n\t\tdelete from ex_zpl_label_printing.ex_zlp_label_templates \n\t\twhere label_name \u003d ? \n\t\"\"\"\n\tr \u003d system.db.runPrepUpdate(deleteTemplate, [labelName], \u0027ex_zpl_label_printing\u0027)\n\t\n\t# refresh the label templates dropdown menu, zpl text area, and label image\n\tsystem.perspective.sendMessage(\u0027exchange.zplLabelPrinting.refreshLabelNames\u0027, scope\u003d\u0027page\u0027)\n\tlabelInfo \u003d {}\n\tlabelInfo[\u0027labelZPL\u0027] \u003d \u0027\u0027\n\tsystem.perspective.sendMessage(\u0027exchange.zplLabelPrinting.getLabelaryImage\u0027, scope\u003d\u0027page\u0027, payload\u003dlabelInfo)\n\t\n\texchange.zplLabelPrinting.popup.displayMessage(\u0027Removed Label\u0027, \u0027Successfully removed label template!\u0027)\n\t\n\t\n\t",
+              "sessionScope": false,
+              "viewScope": true
+            }
+          ]
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "TextNewLabelName"
+        },
+        "position": {
+          "height": 45,
+          "width": 135,
+          "x": 10,
+          "y": 605
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "// only enable if \u003cNew\u003e template is selected\nif(\n\t{../DropTemplates.props.value} \u003d \u0027New\u0027\n\t, true \n\t, false \n)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "expression": "// only enable if \u003cNew\u003e template is selected\nif(\n\t{../DropTemplates.props.value} \u003d \u0027New\u0027\n\t, true \n\t, false \n)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "type": "ia.input.text-field"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\t# get label data, and if it is a new label insert the new record, else update the existing record\n\tlabelZPL \u003d self.getSibling(\"TextZpl\").props.text\n\ttemplateName \u003d self.getSibling(\"DropTemplates\").props.value\n\t\n\tif templateName \u003d\u003d \u0027New\u0027:\n\t\t# first check if labelName already exists in database\n\t\tlabelName \u003d self.getSibling(\"TextNewLabelName\").props.text\n\t\t\n\t\tlabelNames \u003d []\n\t\tgetLabelNames \u003d \"\"\"\n\t\t\tselect label_name\n\t\t\tfrom ex_zpl_label_printing.ex_zlp_label_templates \n\t\t\"\"\"\n\t\tlabelNames_DS \u003d system.db.runPrepQuery(getLabelNames, [], \u0027ex_zpl_label_printing\u0027)\n\t\tfor row in range(labelNames_DS.getRowCount()):\n\t\t\tlabelNames.append(labelNames_DS.getValueAt(row, \u0027label_name\u0027))\n\t\t\n\t\t# display error if name already exists; otherwise add new record\n\t\tif labelName in labelNames:\n\t\t\texchange.zplLabelPrinting.popup.displayError(\u0027label name already exists in database!\u0027)\n\t\t\t\n\t\telse:\n\t\t\taddLabel \u003d \"\"\"\n\t\t\t\tinsert into ex_zpl_label_printing.ex_zlp_label_templates \n\t\t\t\t(label_name, label_zpl)\n\t\t\t\tvalues (?, ?)\n\t\t\t\"\"\"\n\t\t\tr \u003d system.db.runPrepUpdate(addLabel, [labelName, labelZPL], \u0027ex_zpl_label_printing\u0027)\n\t\t\t\n\t\t\tself.getSibling(\"DropTemplates\").props.value \u003d labelName\n\t\t\texchange.zplLabelPrinting.popup.displayMessage(\u0027Added Label\u0027, \u0027Successfully created new label template!\u0027)\n\t\t\t\n\telse: # if the selected template is not \"New\" this is an update\n\t\tlabelName \u003d templateName\n\t\tupdateLabel \u003d \"\"\"\n\t\t\tupdate ex_zpl_label_printing.ex_zlp_label_templates \n\t\t\tset label_zpl \u003d ?\n\t\t\twhere label_name \u003d ?\n\t\t\"\"\"\n\t\tr \u003d system.db.runPrepUpdate(updateLabel, [labelZPL, labelName], \u0027ex_zpl_label_printing\u0027)\n\t\t\n\t\texchange.zplLabelPrinting.popup.displayMessage(\u0027Updated Label\u0027, \u0027Successfully updated label template!\u0027)\n\t\n\t# finally refresh the dropdown menu and the label image\n\tsystem.perspective.sendMessage(\u0027exchange.zplLabelPrinting.refreshLabelNames\u0027, scope\u003d\u0027page\u0027)\n\t\n\tlabelInfo \u003d {}\n\tlabelInfo[\u0027labelZPL\u0027] \u003d labelZPL\n\tsystem.perspective.sendMessage(\u0027exchange.zplLabelPrinting.getLabelaryImage\u0027, scope\u003d\u0027page\u0027, payload\u003dlabelInfo)\n\t\n\t\n\t"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "BtnAddUpdateLabel"
+        },
+        "position": {
+          "height": 45,
+          "width": 135,
+          "x": 155,
+          "y": 605
+        },
+        "propConfig": {
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "expression": "// label template must be selected, and if it is a new label, the new label name must be filled out\r\nif(\r\n\t{../DropTemplates.props.value} \u003d \u0027\u0027\r\n\t, False \r\n\t, if(\r\n\t\t{../DropTemplates.props.value} !\u003d \u0027New\u0027\r\n\t\t, True \r\n\t\t, if(\r\n\t\t\tLEN({../TextNewLabelName.props.text}) \u003e 0 \r\n\t\t\t, True \r\n\t\t\t, False \r\n\t\t)\r\n\t)\r\n)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "if(\n\t{../DropTemplates.props.value} \u003d \u0027New\u0027\n\t, \u0027Add Label\u0027 \n\t, \u0027Update Label\u0027 \n)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "Components/brownButtons"
+          }
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "custom": {
+          "zpl": ""
+        },
+        "meta": {
+          "name": "ImageOfLabel"
+        },
+        "position": {
+          "height": 640,
+          "width": 960,
+          "x": 300,
+          "y": 10
+        },
+        "propConfig": {
+          "props.altText": {
+            "binding": {
+              "config": {
+                "expression": "\u0027Please select template to edit, or select \u003cNew\u003e to upload .PRN file from Zebra Designer 3.\u0027"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "fit": {
+            "mode": "contain"
+          },
+          "style": {
+            "borderStyle": "solid",
+            "borderWidth": 1
+          }
+        },
+        "scripts": {
+          "customMethods": [],
+          "extensionFunctions": null,
+          "messageHandlers": [
+            {
+              "messageType": "exchange.zplLabelPrinting.getLabelaryImage",
+              "pageScope": true,
+              "script": "\t# first reset image and zpl text\n\tself.props.source \u003d \u0027\u0027\n\tself.custom.zpl \u003d \u0027\u0027\n\tself.props.altText \u003d \u0027Waiting for Labelary or Next Action...\u0027\n\t\n\t# Get the labelZPL string from the payload and get selected rotation from radio button\n\tlabelZPL \u003d payload[\u0027labelZPL\u0027]\n\tlabelRotation \u003d self.getSibling(\"RadioRotation\").props.value\n\t\n\t# use function to call Labelary API and retrieve image. If not available, fall back to local scripts.\n\ttry:\n\t\timageSource \u003d exchange.zplLabelPrinting.label.getLabelaryImage(labelZPL, int(labelRotation))\n\t\tif imageSource \u003d\u003d \u0027\u0027: # error returned from Labelary\n\t\t\timageSource \u003d exchange.zplLabelPrinting.label.getLocalImage(labelZPL, int(labelRotation))\n\texcept:\n\t\timageSource \u003d exchange.zplLabelPrinting.label.getLocalImage(labelZPL, int(labelRotation))\n\t\n\tself.props.source \u003d imageSource\n\tself.custom.zpl \u003d labelZPL\n\t\n\t\n\t",
+              "sessionScope": false,
+              "viewScope": false
+            }
+          ]
+        },
+        "type": "ia.display.image"
+      },
+      {
+        "meta": {
+          "name": "LblRotation"
+        },
+        "position": {
+          "height": 45,
+          "width": 150,
+          "x": 300,
+          "y": 660
+        },
+        "props": {
+          "text": "Preview Rotation:",
+          "textStyle": {
+            "textAlign": "left"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tlabelInfo \u003d {}\n\tlabelInfo[\u0027labelZPL\u0027] \u003d self.getSibling(\"TextZpl\").props.text\n\tsystem.perspective.sendMessage(\u0027exchange.zplLabelPrinting.getLabelaryImage\u0027, scope\u003d\u0027page\u0027, payload\u003dlabelInfo)"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "RadioRotation"
+        },
+        "position": {
+          "height": 45,
+          "width": 310,
+          "x": 440,
+          "y": 660
+        },
+        "props": {
+          "index": 1,
+          "radios": [
+            {
+              "selected": false,
+              "text": 0,
+              "value": 0
+            },
+            {
+              "selected": true,
+              "text": 90,
+              "value": 90
+            },
+            {
+              "selected": false,
+              "text": 180,
+              "value": 180
+            },
+            {
+              "selected": false,
+              "text": 270,
+              "value": 270
+            }
+          ],
+          "value": 90
+        },
+        "type": "ia.input.radio-group"
+      },
+      {
+        "meta": {
+          "name": "MdInstructions"
+        },
+        "position": {
+          "height": 100,
+          "width": 460,
+          "x": 800,
+          "y": 660
+        },
+        "props": {
+          "markdown": {
+            "escapeHtml": false
+          },
+          "source": "For help, refer to [Labelary ZPL Intro](https://labelary.com/zpl.html) and [Labelary Docs](https://labelary.com/docs.html)\n\nUse this tool with [ZebraDesigner3](https://www.zebra.com/us/en/support-downloads/software/printer-software/zebra-designer-3-downloads.html?downloadId\u003d81ad3292-7f21-4dca-bd86-2535cb5c066f) (ZD3) and \n[Zebra Printer Setup Utilities](https://www.zebra.com/us/en/support-downloads/software/printer-software/printer-setup-utilities.html), (pick a 203 dpi printer model like \"ZT621 203 dpi ZPL\" to install the drivers in Windows)",
+          "style": {
+            "textAlign": "right"
+          }
+        },
+        "type": "ia.display.markdown"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "meta.domId": {
+        "binding": {
+          "config": {
+            "path": "session.custom.zoom"
+          },
+          "type": "property"
+        }
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

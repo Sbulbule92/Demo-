@@ -1,0 +1,193 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 192,
+      "width": 238
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "MenuTree"
+        },
+        "position": {
+          "grow": 1,
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.items[0].style.classes": {
+            "binding": {
+              "config": {
+                "path": "page.props.path"
+              },
+              "transforms": [
+                {
+                  "fallback": "framework/sidebar-items",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": "/opr_job_board",
+                      "output": "framework/sidebar-items-selected"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[1].style.classes": {
+            "binding": {
+              "config": {
+                "path": "page.props.path"
+              },
+              "transforms": [
+                {
+                  "fallback": "framework/sidebar-items",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": "/sup_downtime_monitor",
+                      "output": "framework/sidebar-items-selected"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[2].style.classes": {
+            "binding": {
+              "config": {
+                "path": "page.props.path"
+              },
+              "transforms": [
+                {
+                  "fallback": "framework/sidebar-items",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": "/oee_dashboard",
+                      "output": "framework/sidebar-items-selected"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[3].style.classes": {
+            "binding": {
+              "config": {
+                "path": "page.props.path"
+              },
+              "transforms": [
+                {
+                  "fallback": "framework/sidebar-items",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": "/opr_overview",
+                      "output": "framework/sidebar-items-selected"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "itemStyle": {
+            "classes": "framework/sidebar-items"
+          },
+          "items": [
+            {
+              "enabled": true,
+              "items": [],
+              "label": {
+                "icon": {
+                  "path": ""
+                },
+                "text": "Job Board"
+              },
+              "navIcon": {
+                "path": ""
+              },
+              "showHeader": true,
+              "style": {},
+              "target": "/opr_job_board",
+              "visible": true
+            },
+            {
+              "enabled": true,
+              "items": [],
+              "label": {
+                "icon": {
+                  "path": ""
+                },
+                "text": "Downtime Monitoring"
+              },
+              "navIcon": {
+                "path": ""
+              },
+              "showHeader": true,
+              "style": {},
+              "target": "/sup_downtime_monitor",
+              "visible": true
+            },
+            {
+              "enabled": true,
+              "items": [],
+              "label": {
+                "icon": {
+                  "path": ""
+                },
+                "text": "Line Overview"
+              },
+              "navIcon": {
+                "path": ""
+              },
+              "showHeader": true,
+              "style": {},
+              "target": "/oee_dashboard",
+              "visible": true
+            },
+            {
+              "enabled": true,
+              "items": [],
+              "label": {
+                "icon": {
+                  "path": ""
+                },
+                "text": "Operator Overview"
+              },
+              "navIcon": {
+                "path": ""
+              },
+              "showHeader": true,
+              "style": {},
+              "target": "/opr_overview",
+              "visible": true
+            }
+          ]
+        },
+        "type": "ia.navigation.menutree"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.flex"
+  }
+}

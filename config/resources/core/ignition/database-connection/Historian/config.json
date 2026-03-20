@@ -1,0 +1,36 @@
+{
+  "connectURL": "jdbc:sqlserver://localhost\\SQLEXPRESS01",
+  "connectionProps": "databaseName\u003dhistorian",
+  "connectionResetParams": "",
+  "defaultTransactionLevel": "DEFAULT",
+  "driver": "Microsoft SQLServer",
+  "evictionRate": -1,
+  "evictionTests": 3,
+  "evictionTime": 1800000,
+  "failoverMode": "STANDARD",
+  "failoverProfile": "",
+  "includeSchemaInTableName": false,
+  "password": {
+    "data": {
+      "ciphertext": "yOfHAOwwQGO8Kr8q2xLC",
+      "encrypted_key": "QFExjSGmKdokiL1PA8N23FNSuiwxz0M-X0wR1eRq6Fmh3_r2MNBYhg",
+      "iv": "-JQ_xDznvfojZFak",
+      "protected": "eyJhbGciOiJBMjU2S1ciLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNzY3MzQ3MTU5LCJ6aXAiOiJERUYifQ",
+      "tag": "xeDs7nADvj7rfyKFYfoD3A"
+    },
+    "type": "Embedded"
+  },
+  "poolInitSize": 0,
+  "poolMaxActive": 8,
+  "poolMaxIdle": 8,
+  "poolMaxWait": 5000,
+  "poolMinIdle": 0,
+  "slowQueryLogThreshold": 60000,
+  "testOnBorrow": true,
+  "testOnReturn": false,
+  "testWhileIdle": false,
+  "translator": "MSSQL",
+  "username": "shiv",
+  "validationQuery": "SELECT 1",
+  "validationSleepTime": 10000
+}

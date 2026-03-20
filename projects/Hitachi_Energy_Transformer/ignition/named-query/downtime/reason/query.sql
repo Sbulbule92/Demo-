@@ -1,0 +1,1 @@
+select ReasonID  ,ReasonName from tbl_DowntimeReason where ReasonID != 16

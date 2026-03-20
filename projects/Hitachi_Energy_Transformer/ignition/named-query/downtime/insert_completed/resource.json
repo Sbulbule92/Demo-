@@ -1,0 +1,70 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "Query",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "Historian",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "f56987281193c1f841392472f827d392c61d3314a49a1bb726d7d82e463322a8",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "shiva",
+      "timestamp": "2026-01-06T15:01:17Z"
+    },
+    "parameters": [
+      {
+        "type": "Parameter",
+        "identifier": "CategoryID",
+        "sqlType": 2
+      },
+      {
+        "type": "Parameter",
+        "identifier": "ReasonID",
+        "sqlType": 2
+      },
+      {
+        "type": "Parameter",
+        "identifier": "Remarks",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "DowntimeStatus",
+        "sqlType": 2
+      },
+      {
+        "type": "Parameter",
+        "identifier": "username",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "StartTime",
+        "sqlType": 8
+      },
+      {
+        "type": "Parameter",
+        "identifier": "EndTime",
+        "sqlType": 8
+      }
+    ]
+  }
+}

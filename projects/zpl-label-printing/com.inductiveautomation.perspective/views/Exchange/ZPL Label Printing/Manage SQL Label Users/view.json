@@ -1,0 +1,696 @@
+{
+  "custom": {},
+  "params": {},
+  "permissions": {
+    "securityLevels": [],
+    "type": "AllOf"
+  },
+  "props": {
+    "defaultSize": {
+      "height": 1060,
+      "width": 1910
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "TableUsers",
+          "tooltip": {
+            "text": "Click a Line to Select a Blend"
+          }
+        },
+        "position": {
+          "height": 640,
+          "width": 135,
+          "x": 10,
+          "y": 10
+        },
+        "propConfig": {
+          "props.data": {
+            "binding": {
+              "config": {
+                "parameters": {
+                  "labelName": "{../DropTemplatesMirrored.props.value}"
+                },
+                "queryPath": "Exchange/ZPL Label Printing/Get Label Users"
+              },
+              "type": "query"
+            }
+          }
+        },
+        "props": {
+          "cells": {
+            "style": {
+              "fontSize": 12
+            }
+          },
+          "columns": [
+            {
+              "align": "center",
+              "boolean": "checkbox",
+              "dateFormat": "MM/DD/YYYY",
+              "editable": false,
+              "field": "user_name",
+              "filter": {
+                "boolean": {
+                  "condition": ""
+                },
+                "date": {
+                  "condition": "",
+                  "value": ""
+                },
+                "enabled": false,
+                "number": {
+                  "condition": "",
+                  "value": ""
+                },
+                "string": {
+                  "condition": "",
+                  "value": ""
+                },
+                "visible": "on-hover"
+              },
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "justify": "center",
+              "nullFormat": {
+                "includeNullStrings": false,
+                "nullFormatValue": "",
+                "strict": false
+              },
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "max": 100,
+                "min": 0,
+                "track": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "value": {
+                  "enabled": true,
+                  "format": "0,0.##",
+                  "justify": "center",
+                  "style": {
+                    "classes": ""
+                  }
+                }
+              },
+              "render": "date",
+              "resizable": true,
+              "sort": "none",
+              "sortable": true,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "",
+                  "unselected": ""
+                }
+              },
+              "viewParams": {},
+              "viewPath": "",
+              "visible": true,
+              "width": 60
+            }
+          ],
+          "emptyMessage": {
+            "noData": {
+              "text": "No Users"
+            }
+          },
+          "headerStyle": {
+            "fontSize": 12
+          },
+          "pager": {
+            "bottom": false
+          },
+          "rows": {
+            "height": "30px",
+            "striped": {
+              "color": {
+                "even": "#C0C0C0CC"
+              }
+            },
+            "style": {
+              "classes": "tableHighlight"
+            }
+          },
+          "selection": {
+            "style": {
+              "classes": "tableHighlight"
+            }
+          }
+        },
+        "scripts": {
+          "customMethods": [],
+          "extensionFunctions": null,
+          "messageHandlers": [
+            {
+              "messageType": "exchange.zplLabelPrinting.refreshLabelUsers",
+              "pageScope": true,
+              "script": "\tself.refreshBinding(\"props.data\")",
+              "sessionScope": false,
+              "viewScope": false
+            }
+          ]
+        },
+        "type": "ia.display.table"
+      },
+      {
+        "meta": {
+          "name": "LblStep3"
+        },
+        "position": {
+          "height": 45,
+          "width": 135,
+          "x": 155,
+          "y": 10
+        },
+        "props": {
+          "text": "Select Template",
+          "textStyle": {
+            "textAlign": "center",
+            "textDecoration": "underline"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "custom": {
+          "resources": [
+            {
+              "label": "All",
+              "value": ""
+            },
+            {
+              "label": "2ndToNone",
+              "value": "2ndToNone"
+            },
+            {
+              "label": "AADist",
+              "value": "AADist"
+            },
+            {
+              "label": "AARON",
+              "value": "AARON"
+            },
+            {
+              "label": "ABCD",
+              "value": "ABCD"
+            },
+            {
+              "label": "ActionCoffee",
+              "value": "ActionCoffee"
+            },
+            {
+              "label": "Ahold-HQ",
+              "value": "Ahold-HQ"
+            },
+            {
+              "label": "AJGlobal",
+              "value": "AJGlobal"
+            },
+            {
+              "label": "Aramark-HQ",
+              "value": "Aramark-HQ"
+            },
+            {
+              "label": "Armenia",
+              "value": "Armenia"
+            },
+            {
+              "label": "AutomaticBrew",
+              "value": "AutomaticBrew"
+            },
+            {
+              "label": "BadaBean",
+              "value": "BadaBean"
+            },
+            {
+              "label": "BaldanzaCafe",
+              "value": "BaldanzaCafe"
+            },
+            {
+              "label": "Barstool-HQ",
+              "value": "Barstool-HQ"
+            },
+            {
+              "label": "Berje",
+              "value": "Berje"
+            },
+            {
+              "label": "BestwayVndng",
+              "value": "BestwayVndng"
+            },
+            {
+              "label": "BPMRoasters",
+              "value": "BPMRoasters"
+            },
+            {
+              "label": "Bratney",
+              "value": "Bratney"
+            },
+            {
+              "label": "Brooklyn",
+              "value": "Brooklyn"
+            },
+            {
+              "label": "CarmiFlavor",
+              "value": "CarmiFlavor"
+            },
+            {
+              "label": "CBCSpecial",
+              "value": "CBCSpecial"
+            },
+            {
+              "label": "Chambers\u0026Owen",
+              "value": "Chambers\u0026Owen"
+            },
+            {
+              "label": "COEN",
+              "value": "COEN"
+            },
+            {
+              "label": "CoffeeHseMore",
+              "value": "CoffeeHseMore"
+            },
+            {
+              "label": "CompanionCoff",
+              "value": "CompanionCoff"
+            },
+            {
+              "label": "CooperBooth",
+              "value": "CooperBooth"
+            },
+            {
+              "label": "CoreMark Eby-HQ",
+              "value": "CoreMark Eby-HQ"
+            },
+            {
+              "label": "Crossroads",
+              "value": "Crossroads"
+            },
+            {
+              "label": "DailyBagel",
+              "value": "DailyBagel"
+            },
+            {
+              "label": "DMHIngredient",
+              "value": "DMHIngredient"
+            },
+            {
+              "label": "DolceFoglia",
+              "value": "DolceFoglia"
+            },
+            {
+              "label": "DosCafeLLC",
+              "value": "DosCafeLLC"
+            },
+            {
+              "label": "DPI-HQ",
+              "value": "DPI-HQ"
+            },
+            {
+              "label": "EasternTea",
+              "value": "EasternTea"
+            },
+            {
+              "label": "EG America",
+              "value": "EG America"
+            },
+            {
+              "label": "EuropeanCoffe",
+              "value": "EuropeanCoffe"
+            },
+            {
+              "label": "Flavorchem",
+              "value": "Flavorchem"
+            },
+            {
+              "label": "FMI-HQ",
+              "value": "FMI-HQ"
+            },
+            {
+              "label": "FoodConcepts",
+              "value": "FoodConcepts"
+            },
+            {
+              "label": "Forecast",
+              "value": "Forecast"
+            },
+            {
+              "label": "GFarmsFoodLLC",
+              "value": "GFarmsFoodLLC"
+            },
+            {
+              "label": "GraceFarms-HQ",
+              "value": "GraceFarms-HQ"
+            },
+            {
+              "label": "GreenValley",
+              "value": "GreenValley"
+            },
+            {
+              "label": "GrindWorthy",
+              "value": "GrindWorthy"
+            },
+            {
+              "label": "GROUND",
+              "value": "GROUND"
+            },
+            {
+              "label": "GSC-HQ",
+              "value": "GSC-HQ"
+            },
+            {
+              "label": "HighsBaltimor",
+              "value": "HighsBaltimor"
+            },
+            {
+              "label": "HTHackney",
+              "value": "HTHackney"
+            },
+            {
+              "label": "IMA N A",
+              "value": "IMA N A"
+            },
+            {
+              "label": "IMS,LTD",
+              "value": "IMS,LTD"
+            },
+            {
+              "label": "ITIInc",
+              "value": "ITIInc"
+            },
+            {
+              "label": "JJM",
+              "value": "JJM"
+            },
+            {
+              "label": "JoesGourmetCo",
+              "value": "JoesGourmetCo"
+            },
+            {
+              "label": "Jogue",
+              "value": "Jogue"
+            },
+            {
+              "label": "KaribaFarms",
+              "value": "KaribaFarms"
+            },
+            {
+              "label": "KEAHS",
+              "value": "KEAHS"
+            },
+            {
+              "label": "KeHe",
+              "value": "KeHe"
+            },
+            {
+              "label": "LIDL-HQ",
+              "value": "LIDL-HQ"
+            },
+            {
+              "label": "MAPCO",
+              "value": "MAPCO"
+            },
+            {
+              "label": "ModernProcess",
+              "value": "ModernProcess"
+            },
+            {
+              "label": "MRP",
+              "value": "MRP"
+            },
+            {
+              "label": "MurphyUSA",
+              "value": "MurphyUSA"
+            },
+            {
+              "label": "NoblCoffee",
+              "value": "NoblCoffee"
+            },
+            {
+              "label": "Pacto",
+              "value": "Pacto"
+            },
+            {
+              "label": "PerformanceFd",
+              "value": "PerformanceFd"
+            },
+            {
+              "label": "Perfumery",
+              "value": "Perfumery"
+            },
+            {
+              "label": "PhoenixAromas",
+              "value": "PhoenixAromas"
+            },
+            {
+              "label": "PlantTherapy",
+              "value": "PlantTherapy"
+            },
+            {
+              "label": "QuickChek",
+              "value": "QuickChek"
+            },
+            {
+              "label": "RiteAid-HQ",
+              "value": "RiteAid-HQ"
+            },
+            {
+              "label": "RoaringPlanet",
+              "value": "RoaringPlanet"
+            },
+            {
+              "label": "SpecialOrders",
+              "value": "SpecialOrders"
+            },
+            {
+              "label": "SUCAFINANA",
+              "value": "SUCAFINANA"
+            },
+            {
+              "label": "SwissWater",
+              "value": "SwissWater"
+            },
+            {
+              "label": "Tata",
+              "value": "Tata"
+            },
+            {
+              "label": "TheLoyalist",
+              "value": "TheLoyalist"
+            },
+            {
+              "label": "TraderJoes-HQ",
+              "value": "TraderJoes-HQ"
+            },
+            {
+              "label": "VIDYA",
+              "value": "VIDYA"
+            },
+            {
+              "label": "Wild",
+              "value": "Wild"
+            },
+            {
+              "label": "Windmill",
+              "value": "Windmill"
+            }
+          ]
+        },
+        "meta": {
+          "name": "DropTemplatesMirrored"
+        },
+        "position": {
+          "height": 45,
+          "width": 135,
+          "x": 155,
+          "y": 55
+        },
+        "propConfig": {
+          "props.options": {
+            "binding": {
+              "config": {
+                "queryPath": "Exchange/ZPL Label Printing/Get Label Templates",
+                "returnFormat": "dataset"
+              },
+              "type": "query"
+            }
+          }
+        },
+        "props": {
+          "showClearIcon": true,
+          "style": {
+            "marginRight": 5
+          },
+          "value": null
+        },
+        "type": "ia.input.dropdown"
+      },
+      {
+        "meta": {
+          "name": "LblStep4"
+        },
+        "position": {
+          "height": 45,
+          "width": 135,
+          "x": 155,
+          "y": 145
+        },
+        "props": {
+          "text": "Add or Delete Users",
+          "textStyle": {
+            "textAlign": "center",
+            "textDecoration": "underline"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "TextNewUser"
+        },
+        "position": {
+          "height": 45,
+          "width": 135,
+          "x": 155,
+          "y": 195
+        },
+        "type": "ia.input.text-field"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\t# get label data\n\tlabelName \u003d self.getSibling(\"DropTemplatesMirrored\").props.value\n\tuserName \u003d self.getSibling(\"TextNewUser\").props.text\n\t\n\t# get id from label templates table\n\tgetID \u003d \"\"\"\n\t\tselect id \n\t\tfrom ex_zpl_label_printing.ex_zlp_label_templates \n\t\twhere label_name \u003d ?\n\t\"\"\"\n\tlabelID_DS \u003d system.db.runPrepQuery(getID, [labelName], \u0027ex_zpl_label_printing\u0027)\n\tforeignKeyID \u003d labelID_DS.getValueAt(0, \u0027id\u0027)\n\t\n\t# now insert the record into the label users database table\n\taddUser \u003d \"\"\"\n\t\tinsert into ex_zpl_label_printing.ex_zlp_label_users \n\t\t(ex_zlp_label_templates_id, user_name) \n\t\tvalues (?, ?)\n\t\"\"\"\n\tr \u003d system.db.runPrepUpdate(addUser, [foreignKeyID, userName], \u0027ex_zpl_label_printing\u0027)\n\t\n\tsystem.perspective.sendMessage(\u0027exchange.zplLabelPrinting.refreshLabelUsers\u0027, scope\u003d\u0027page\u0027)\n\texchange.zplLabelPrinting.popup.displayMessage(\u0027Assigned User to Label\u0027, \u0027Successfully added user to label template!\u0027)\n\t\n\t\n\t"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "BtnUserAdd"
+        },
+        "position": {
+          "height": 45,
+          "width": 135,
+          "x": 155,
+          "y": 250
+        },
+        "propConfig": {
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "expression": "if(\r\n\tlen({../TextNewUser.props.text}) \u003e 0\r\n\t, true \r\n\t, false \r\n)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "Components/brownButtons"
+          },
+          "text": "Add User"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\t# confirm deletion\n\tmessage \u003d \u0027Please confirm you wish to delete this user.\u0027\n\texchange.zplLabelPrinting.popup.displayConfirmation(message)\n\t\n\t\n\t"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "BtnUserDelete"
+        },
+        "position": {
+          "height": 45,
+          "width": 135,
+          "x": 155,
+          "y": 345
+        },
+        "propConfig": {
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "expression": "if(\r\n\t{../TableUsers.props.selection.selectedRow} !\u003d null \r\n\t, true \r\n\t, false \r\n)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "Components/brownButtons"
+          },
+          "text": "Delete User"
+        },
+        "scripts": {
+          "customMethods": [],
+          "extensionFunctions": null,
+          "messageHandlers": [
+            {
+              "messageType": "exchange.zplLabelPrinting.confirmPopup",
+              "pageScope": true,
+              "script": "\t# get selected label name and user name\n\tlabelName \u003d self.getSibling(\"DropTemplatesMirrored\").props.value\n\tuserName \u003d self.getSibling(\"TableUsers\").props.selection.data[0].user_name\n\t\n\t# get id from label templates table\n\tgetID \u003d \"\"\"\n\t\tselect id \n\t\tfrom ex_zpl_label_printing.ex_zlp_label_templates \n\t\twhere label_name \u003d ?\n\t\"\"\"\n\tlabelID_DS \u003d system.db.runPrepQuery(getID, [labelName], \u0027ex_zpl_label_printing\u0027)\n\tforeignKeyID \u003d labelID_DS.getValueAt(0, \u0027id\u0027)\n\t\n\t# delete selected record from sql for the selected label name and user name\n\tdeleteUser \u003d \"\"\"\n\t\tdelete from ex_zpl_label_printing.ex_zlp_label_users \n\t\twhere ex_zlp_label_templates_id \u003d ? and user_name \u003d ? \n\t\"\"\"\n\tr \u003d system.db.runPrepUpdate(deleteUser, [foreignKeyID, userName], \u0027ex_zpl_label_printing\u0027)\n\t\n\tsystem.perspective.sendMessage(\u0027exchange.zplLabelPrinting.refreshLabelUsers\u0027, scope\u003d\u0027page\u0027)\n\texchange.zplLabelPrinting.popup.displayMessage(\u0027Removed User from Label\u0027, \u0027Successfully removed user from label template!\u0027)\n\t\n\t\n\t",
+              "sessionScope": false,
+              "viewScope": true
+            }
+          ]
+        },
+        "type": "ia.input.button"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "meta.domId": {
+        "binding": {
+          "config": {
+            "path": "session.custom.zoom"
+          },
+          "type": "property"
+        }
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Table"
+        },
+        "position": {
+          "basis": "800px"
+        },
+        "propConfig": {
+          "props.data": {
+            "binding": {
+              "config": {
+                "expression": "now()"
+              },
+              "transforms": [
+                {
+                  "code": "\tconnection_name \u003d \"Historian\"\n\tconnection_info \u003d system.db.getConnectionInfo(connection_name)\n\treturn connection_info",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "type": "ia.display.table"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

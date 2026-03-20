@@ -1,0 +1,226 @@
+{
+  "custom": {
+    "shift": "C"
+  },
+  "params": {
+    "shift": "C"
+  },
+  "propConfig": {
+    "custom.shift": {
+      "persistent": true
+    },
+    "params.shift": {
+      "binding": {
+        "config": {
+          "path": "view.custom.shift"
+        },
+        "type": "property"
+      },
+      "paramDirection": "output",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 54,
+      "width": 426
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "props": {
+          "text": "SHIFT:"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tself.view.custom.shift \u003d \u0027A\u0027"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Button"
+            },
+            "position": {
+              "basis": "115px"
+            },
+            "propConfig": {
+              "props.style.backgroundColor": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.shift"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\treturn \u0027--warning\u0027 if value \u003d\u003d \u0027A\u0027else \u0027\u0027",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "borderBottomLeftRadius": "10px",
+                "borderBottomRightRadius": "10px",
+                "borderTopLeftRadius": "10px",
+                "borderTopRightRadius": "10px"
+              },
+              "text": "A shift",
+              "textStyle": {
+                "fontFamily": "verdana",
+                "fontSize": "17px",
+                "textTransform": "capitalize"
+              }
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tself.view.custom.shift \u003d \u0027B\u0027"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Button_0"
+            },
+            "position": {
+              "basis": "115px"
+            },
+            "propConfig": {
+              "props.style.backgroundColor": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.shift"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\treturn \u0027--warning\u0027 if value \u003d\u003d \u0027B\u0027 else \u0027\u0027",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "borderBottomLeftRadius": "10px",
+                "borderBottomRightRadius": "10px",
+                "borderTopLeftRadius": "10px",
+                "borderTopRightRadius": "10px"
+              },
+              "text": "B Shift",
+              "textStyle": {
+                "fontFamily": "verdana",
+                "fontSize": "17px",
+                "textTransform": "capitalize"
+              }
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tself.view.custom.shift \u003d \u0027C\u0027"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Button_1"
+            },
+            "position": {
+              "basis": "115px"
+            },
+            "propConfig": {
+              "props.style.backgroundColor": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.shift"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\treturn \u0027--warning\u0027 if value \u003d\u003d \u0027C\u0027 else \u0027\u0027",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "borderBottomLeftRadius": "10px",
+                "borderBottomRightRadius": "10px",
+                "borderTopLeftRadius": "10px",
+                "borderTopRightRadius": "10px"
+              },
+              "text": "C Shift",
+              "textStyle": {
+                "fontFamily": "verdana",
+                "fontSize": "17px",
+                "textTransform": "capitalize"
+              }
+            },
+            "type": "ia.input.button"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "200px",
+          "grow": 1
+        },
+        "props": {
+          "justify": "space-around"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "backgroundColor": "--neutral-30",
+        "borderRightColor": "#808080",
+        "borderRightStyle": "solid",
+        "borderRightWidth": "3px",
+        "fontFamily": "verdana",
+        "fontSize": "18px",
+        "paddingBottom": "10px",
+        "paddingLeft": "5px",
+        "paddingRight": "5px",
+        "paddingTop": "10px",
+        "textTransform": "uppercase"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

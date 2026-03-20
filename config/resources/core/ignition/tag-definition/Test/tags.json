@@ -1,7 +1,7 @@
 [
   {
     "valueSource": "memory",
-    "name": "Test",
+    "name": "Memory",
     "defaultValue": 50,
     "tagType": "AtomicTag"
   }

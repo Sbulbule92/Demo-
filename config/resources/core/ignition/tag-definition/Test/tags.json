@@ -1,6 +1,12 @@
 [
   {
     "valueSource": "memory",
+    "name": "SecondTag",
+    "defaultValue": 60,
+    "tagType": "AtomicTag"
+  },
+  {
+    "valueSource": "memory",
     "name": "Memory",
     "defaultValue": 50,
     "tagType": "AtomicTag"

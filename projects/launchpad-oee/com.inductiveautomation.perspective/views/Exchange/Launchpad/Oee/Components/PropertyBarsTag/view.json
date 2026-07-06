@@ -1,0 +1,173 @@
+{
+  "custom": {
+    "instances": [
+      {
+        "path": "[default]Exchange/Launchpad/Oee/Demo/Line 1/ShiftOee/O",
+        "title": "Line 1"
+      },
+      {
+        "path": "[default]Exchange/Launchpad/Oee/Demo/Line 2/ShiftOee/O",
+        "title": "Line 2"
+      },
+      {
+        "path": "[default]Exchange/Launchpad/Oee/Demo/Line 3/ShiftOee/O",
+        "title": "Line 3"
+      },
+      {
+        "path": "[default]Exchange/Launchpad/Oee/Demo/Line 4/ShiftOee/O",
+        "title": "Line 4"
+      },
+      {
+        "path": "[default]Exchange/Launchpad/Oee/Demo/Line 5/ShiftOee/O",
+        "title": "Line 5"
+      },
+      {
+        "path": "[default]Exchange/Launchpad/Oee/Demo/Line 6/ShiftOee/O",
+        "title": "Line 6"
+      },
+      {
+        "path": "[default]Exchange/Launchpad/Oee/Demo/Line 7/ShiftOee/O",
+        "title": "Line 7"
+      }
+    ]
+  },
+  "params": {
+    "folderPath": "[default]Exchange/Launchpad/Oee/Demo",
+    "property": "ShiftOee/O",
+    "title": ""
+  },
+  "propConfig": {
+    "custom.instances": {
+      "binding": {
+        "config": {
+          "struct": {
+            "lines": "{session.custom.exchange.launchpad.oee.lines}",
+            "path": "{view.params.folderPath}",
+            "property": "{view.params.property}"
+          },
+          "waitOnAll": true
+        },
+        "transforms": [
+          {
+            "code": "\tinstances \u003d []\n\tfor item in value.lines:\n\t\tinstances.append({\u0027path\u0027:value.path + \"/\" + item + \"/\" + value.property, \"title\": item})\n\treturn instances",
+            "type": "script"
+          }
+        ],
+        "type": "expr-struct"
+      },
+      "persistent": true
+    },
+    "params.folderPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.property": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.title": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 694,
+      "width": 491
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "32px"
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "this.props.text"
+              },
+              "transforms": [
+                {
+                  "fallback": true,
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": "",
+                      "output": false
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.title"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "exchange/launchpad/oee/text/header",
+            "marginBottom": 10
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "FlexRepeater"
+        },
+        "position": {
+          "basis": "320px",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.instances": {
+            "binding": {
+              "config": {
+                "path": "view.custom.instances"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "direction": "column",
+          "elementPosition": {
+            "basis": "30px",
+            "shrink": 0
+          },
+          "elementStyle": {
+            "margin": 0,
+            "padding": 5
+          },
+          "path": "Exchange/Launchpad/Oee/Components/ProgressBarTag",
+          "useDefaultViewWidth": false
+        },
+        "type": "ia.display.flex-repeater"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "classes": "exchange/launchpad/oee/card"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "custom": {},
+  "events": {
+    "system": {
+      "onStartup": {
+        "config": {
+          "script": "\t#make sure we have a line selected\n\tif not(self.session.custom.exchange.launchpad.oee.selectedLine):\n\t\tself.session.custom.exchange.launchpad.oee.selectedLine \u003d self.session.custom.exchange.launchpad.oee.lines[0]\n\t"
+        },
+        "scope": "G",
+        "type": "script"
+      }
+    }
+  },
+  "params": {
+    "showAllOption": false
+  },
+  "propConfig": {
+    "params.showAllOption": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 55,
+      "width": 400
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "43px"
+        },
+        "props": {
+          "style": {
+            "classes": "exchange/launchpad/oee/text/label"
+          },
+          "text": "Line"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Dropdown"
+        },
+        "position": {
+          "basis": "350px"
+        },
+        "propConfig": {
+          "props.options": {
+            "binding": {
+              "config": {
+                "path": "session.custom.exchange.launchpad.oee.lines"
+              },
+              "transforms": [
+                {
+                  "code": "\tif self.view.params.showAllOption:\n\t\tlines \u003d [{\"value\":\"\",\"label\":\"\u003cAll Lines\u003e\"}]\n\t\tlines.extend( [{\"value\":lineName,\"label\":lineName} for lineName in value])\n\t\treturn lines\n\telse:\n\t\treturn [{\"value\":lineName,\"label\":lineName} for lineName in value]\n\t",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.value": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "session.custom.exchange.launchpad.oee.selectedLine"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "Exchange/Launchpad/Oee/Text/Label",
+            "marginRight": "10px"
+          }
+        },
+        "type": "ia.input.dropdown"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tlineFolderPath \u003d exchange.launchpad.oee.BASE_TAG_FOLDER\n\tlines \u003d exchange.launchpad.oee.getLineNames(lineFolderPath) \n\tself.session.custom.exchange.launchpad.oee.lineTagFolder \u003d lineFolderPath\n\tself.session.custom.exchange.launchpad.oee.lines \u003d lines\n\tself.session.custom.exchange.launchpad.oee.selectedLine \u003d \"\"\n\tif len(lines)\u003e0:\n\t\tself.session.custom.exchange.launchpad.oee.selectedLine \u003d lines[0]"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "RefreshLines",
+          "tooltip": {
+            "enabled": true,
+            "text": "Refresh Lines"
+          }
+        },
+        "position": {
+          "basis": "50px"
+        },
+        "props": {
+          "image": {
+            "icon": {
+              "path": "material/refresh"
+            }
+          },
+          "style": {
+            "classes": "exchange/launchpad/oee/control/button-selected"
+          },
+          "text": ""
+        },
+        "type": "ia.input.button"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "classes": "exchange/launchpad/oee/card-small"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

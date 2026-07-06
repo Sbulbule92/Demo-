@@ -1,0 +1,17 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "backgroundColor": "--functional-red-50"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

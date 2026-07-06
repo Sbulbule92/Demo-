@@ -1,0 +1,18 @@
+{
+  "scope": "G",
+  "description": "Custom branded light theme for Perspective.",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "config.json",
+    "index.css",
+    "variables.css"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "theme-manager",
+      "timestamp": "2026-04-21T00:00:00Z"
+    }
+  }
+}

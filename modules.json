@@ -39,6 +39,11 @@
     "onStartup": "enabled",
     "certFingerprint": "0299d53c38bdbe7ca79bd6c778a5bab884e4c813"
   },
+  "com.inductiveautomation.mcp": {
+    "filename": "C:\\Program Files\\Inductive Automation\\Ignition\\user-lib\\modules\\MCP-module.modl",
+    "onStartup": "enabled",
+    "certFingerprint": "0299d53c38bdbe7ca79bd6c778a5bab884e4c813"
+  },
   "com.inductiveautomation.opccom": {
     "filename": "C:\\Program Files\\Inductive Automation\\Ignition\\user-lib\\modules\\OpcCom-module.modl",
     "onStartup": "enabled",

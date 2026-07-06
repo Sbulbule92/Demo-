@@ -1,0 +1,13 @@
+{
+  "base": {
+    "style": {
+      "backgroundColor": "var(--oee-lightback)",
+      "borderTopLeftRadius": "6px",
+      "borderTopRightRadius": "6px",
+      "borderBottomLeftRadius": "6px",
+      "borderBottomRightRadius": "6px",
+      "color": "var(--oee-font)",
+      "fontSize": "14px"
+    }
+  }
+}

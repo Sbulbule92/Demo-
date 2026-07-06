@@ -1,0 +1,30 @@
+{
+  "base": {
+    "style": {
+      "backgroundColor": "var(--oee-background)",
+      "borderColor": "#FFFFFF",
+      "borderStyle": "solid",
+      "borderWidth": "1px",
+      "borderTopLeftRadius": "10px",
+      "borderTopRightRadius": "10px",
+      "borderBottomLeftRadius": "10px",
+      "borderBottomRightRadius": "10px",
+      "color": "#FFFFFF",
+      "fontFamily": "Noto Sans",
+      "fontSize": "16px",
+      "marginBottom": "0px",
+      "marginRight": "0px",
+      "marginTop": "0px",
+      "textAlign": "center"
+    }
+  },
+  "variants": [
+    {
+      "pseudo": "disabled",
+      "style": {
+        "backgroundColor": "var(--oee-object)",
+        "fontFamily": "var(oee-font)"
+      }
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+/*
+ * my-custom-dark — variables.css
+ *
+ * How this works (mirrors dark-cool exactly):
+ *   1. We import ../dark/variables.css to inherit all default
+ *      dark theme values as a safe base — just like dark-cool does.
+ *   2. Inside :root we override only the variables we want to change.
+ *      Everything else falls through from the dark base.
+ *
+ * Following Ignition's own dark-cool / dark-warm pattern,
+ * the Neutrals scale is the primary lever for changing the
+ * overall feel of the dark theme (warm vs cool vs custom tint).
+ * The Primary scale controls interactive / brand colour.
+ *
+ * To apply your own brand colour:
+ *   • Change --primary-60 (and nearby shades) to your brand hex.
+ *   • Adjust --neutral-* to shift the dark surface colour family.
+ *   • All other variables inherit from ../dark/variables.css.
+ */
+
+@import "../dark/variables.css";
+
+:root {
+
+    /* =====================================================
+       NEUTRALS
+       Controls: page background, card surfaces, borders,
+       dividers, secondary text, placeholder text.
+       Dark scale = darkest (10) → lightest (100).
+       Tinted with a cool navy hue (like dark-cool) for
+       a more intentional, branded dark environment.
+       ===================================================== */
+    --neutral-10:  #0D1117; /* Deepest — page root background    */
+    --neutral-20:  #161B22; /* Card / panel surface              */
+    --neutral-30:  #21262D; /* Raised surface (modals, dropdowns)*/
+    --neutral-40:  #30363D; /* Default borders & dividers        */
+    --neutral-50:  #484F58; /* Muted borders / disabled          */
+    --neutral-60:  #6E7681; /* Placeholder text                  */
+    --neutral-70:  #8B949E; /* Secondary / label text            */
+    --neutral-80:  #B1BAC4; /* Body text                         */
+    --neutral-90:  #CDD9E5; /* Heading / strong text             */
+    --neutral-100: #E6EDF3; /* Lightest — primary text on dark   */
+
+    /* =====================================================
+       PRIMARY (Brand Blue — electric, readable on dark)
+       Controls: primary buttons, active tabs, focus rings,
+       links, selected states, interactive highlights.
+       On dark themes, primary colours must be LIGHTER than
+       on light themes to maintain contrast.
+       Change --primary-60 to your brand accent colour.
+       ===================================================== */
+    --primary-10:  #040F30;
+    --primary-20:  #082260;
+    --primary-30:  #0D3A90;
+    --primary-40:  #1558C0;
+    --primary-50:  #2878E8;
+    --primary-60:  #4496FF; /* ★ MAIN BRAND COLOUR — change this */
+    --primary-70:  #6BB0FF; /* Hover state                       */
+    --primary-80:  #90C5FF; /* Pressed / active state            */
+    --primary-90:  #BCDBFF;
+    --primary-100: #E5F2FF;
+
+    /* =====================================================
+       FUNCTIONAL — SUCCESS (Green)
+       Optimised for visibility on dark backgrounds.
+       ===================================================== */
+    --functional-green-10:  #031004;
+    --functional-green-20:  #072409;
+    --functional-green-30:  #0E3E14;
+    --functional-green-40:  #175C1F;
+    --functional-green-50:  #238030; /* ★ Default success (dark)   */
+    --functional-green-60:  #3FB950; /* Preferred on dark surface  */
+    --functional-green-70:  #56D364;
+    --functional-green-80:  #7EE78A;
+    --functional-green-90:  #ACEEB5;
+    --functional-green-100: #D8F3DC;
+
+    /* =====================================================
+       FUNCTIONAL — WARNING (Amber)
+       ===================================================== */
+    --functional-yellow-10:  #231700;
+    --functional-yellow-20:  #472F00;
+    --functional-yellow-30:  #744D00;
+    --functional-yellow-40:  #A06B00;
+    --functional-yellow-50:  #CC8A00; /* ★ Default warning (dark)  */
+    --functional-yellow-60:  #D29922; /* Preferred on dark surface  */
+    --functional-yellow-70:  #E3B341;
+    --functional-yellow-80:  #F0CA60;
+    --functional-yellow-90:  #FAE090;
+    --functional-yellow-100: #FDF3CC;
+
+    /* =====================================================
+       FUNCTIONAL — ERROR (Red)
+       ===================================================== */
+    --functional-red-10:  #200202;
+    --functional-red-20:  #420707;
+    --functional-red-30:  #6E0F0F;
+    --functional-red-40:  #9C1A1A;
+    --functional-red-50:  #C72828; /* ★ Default error (dark)       */
+    --functional-red-60:  #F85149; /* Preferred on dark surface    */
+    --functional-red-70:  #FF6B6B;
+    --functional-red-80:  #FF9090;
+    --functional-red-90:  #FFB8B8;
+    --functional-red-100: #FFECEC;
+
+    /* =====================================================
+       FUNCTIONAL — INFO (Cyan / Teal)
+       ===================================================== */
+    --functional-teal-10:  #001520;
+    --functional-teal-20:  #002E3A;
+    --functional-teal-30:  #004C5E;
+    --functional-teal-40:  #006880;
+    --functional-teal-50:  #0088AA; /* ★ Default info (dark)       */
+    --functional-teal-60:  #39C5CF; /* Preferred on dark surface   */
+    --functional-teal-70:  #4DD0E1;
+    --functional-teal-80:  #80DFE8;
+    --functional-teal-90:  #B3EEF5;
+    --functional-teal-100: #E0F8FA;
+}

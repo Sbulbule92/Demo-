@@ -1,12 +1,5 @@
 [
   {
-    "valueSource": "memory",
-    "dataType": "DateTime",
-    "name": "Test",
-    "formatString": "yyyy-MM-dd h:mm:ss aa",
-    "tagType": "AtomicTag"
-  },
-  {
     "valueSource": "opc",
     "opcItemPath": "nsu\u003dKepware Server;s\u003dHitachi_Energy.WOCL_1.Coil_percentage",
     "dataType": "Float4",
@@ -19,6 +12,13 @@
     "historyProvider": "Historian",
     "name": "test_tag",
     "historyEnabled": true,
+    "tagType": "AtomicTag"
+  },
+  {
+    "valueSource": "memory",
+    "dataType": "DateTime",
+    "name": "Test",
+    "formatString": "yyyy-MM-dd h:mm:ss aa",
     "tagType": "AtomicTag"
   },
   {

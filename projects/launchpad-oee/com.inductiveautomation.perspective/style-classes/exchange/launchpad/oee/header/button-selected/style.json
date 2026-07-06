@@ -1,0 +1,21 @@
+{
+  "base": {
+    "style": {
+      "backgroundColor": "var(--oee-highlight)",
+      "borderColor": "var(--oee-highlight)",
+      "borderStyle": "solid",
+      "borderWidth": "3px",
+      "borderTopLeftRadius": "10px",
+      "borderTopRightRadius": "10px",
+      "borderBottomLeftRadius": "10px",
+      "borderBottomRightRadius": "10px",
+      "color": "#000000",
+      "fontFamily": "Noto Sans",
+      "fontSize": "16px",
+      "marginBottom": "15px",
+      "marginRight": "15px",
+      "marginTop": "15px",
+      "textAlign": "center"
+    }
+  }
+}

@@ -11,7 +11,7 @@
   },
   {
     "name": "Current_Shift",
-    "typeId": "shift",
+    "typeId": "Shift",
     "tagType": "UdtInstance"
   },
   {

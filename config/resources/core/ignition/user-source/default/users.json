@@ -72,6 +72,56 @@
       ],
       "scheduleAdjustments": [],
       "contactInfos": []
+    },
+    {
+      "uuid": "1357f408-ebf0-404c-bd55-b78c83cc3414",
+      "username": "kunal",
+      "firstName": "",
+      "lastName": "",
+      "schedule": "Always",
+      "description": "",
+      "password": "[DD504FC3]31326dede3a5218ba872ff48fe24f0c1545efda8c35941205e2bfc0835eb605b",
+      "passwordDate": "20260701.122333993+0530",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260701.122333989+0530",
+      "lastModifiedDate": "20260701.122349654+0530",
+      "roles": [
+        "a7b5c064-c8ee-46e6-b56d-18dfff0272d1"
+      ],
+      "extraProps": [
+        {
+          "propertyKey": "user.pin",
+          "propertyValue": ""
+        }
+      ],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    },
+    {
+      "uuid": "45727545-9a6d-4c6e-91fd-fa1ec2462bdf",
+      "username": "jassi",
+      "firstName": "",
+      "lastName": "",
+      "schedule": "Always",
+      "description": "",
+      "password": "[0A8E5270]b15001d000b3118c19604b4510ae136c28b94f764fcc4364d282d6264cbd802e",
+      "passwordDate": "20260701.122436727+0530",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260701.122436727+0530",
+      "lastModifiedDate": "20260701.122447212+0530",
+      "roles": [
+        "d8d2324b-a9c7-4676-bc0b-40c3494a5990"
+      ],
+      "extraProps": [
+        {
+          "propertyKey": "user.pin",
+          "propertyValue": ""
+        }
+      ],
+      "scheduleAdjustments": [],
+      "contactInfos": []
     }
   ],
   "roles": [
@@ -79,13 +129,13 @@
       "uuid": "d8d2324b-a9c7-4676-bc0b-40c3494a5990",
       "rolename": "Administrator",
       "createdDate": "20251219.183654483+0530",
-      "lastModifiedDate": "20260320.210728928+0530"
+      "lastModifiedDate": "20260701.122447073+0530"
     },
     {
       "uuid": "a7b5c064-c8ee-46e6-b56d-18dfff0272d1",
       "rolename": "Operator",
       "createdDate": "20260204.125110001+0530",
-      "lastModifiedDate": "20260204.125116041+0530"
+      "lastModifiedDate": "20260701.122349519+0530"
     },
     {
       "uuid": "52c1e990-31a5-4074-869c-8f6bf2cc881a",

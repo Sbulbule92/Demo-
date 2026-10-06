@@ -1,0 +1,60 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "UpdateQuery",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "5575aea95af3dbb9f2f668809d9b2f9957bc0c00488cc40236f8b9aeb7815306",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "shivab",
+      "timestamp": "2026-04-06T15:23:26Z"
+    },
+    "parameters": [
+      {
+        "type": "Parameter",
+        "identifier": "op_status",
+        "sqlType": 2
+      },
+      {
+        "type": "Parameter",
+        "identifier": "machine_id",
+        "sqlType": 2
+      },
+      {
+        "type": "Parameter",
+        "identifier": "po_number",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "serial_number",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "User",
+        "sqlType": 7
+      }
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "Query",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "Ignition_PROD-WOCL",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "fbacd99bd2de8625d8898ead171654b937e96b4df44f69add8018f5a4604dece",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "prasantm",
+      "timestamp": "2026-04-07T13:19:55Z"
+    },
+    "parameters": [
+      {
+        "type": "Parameter",
+        "identifier": "MachineID",
+        "sqlType": 2
+      }
+    ]
+  }
+}

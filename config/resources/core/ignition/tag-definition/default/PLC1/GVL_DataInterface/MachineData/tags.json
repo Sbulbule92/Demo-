@@ -1,0 +1,138 @@
+[
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.MachineData.OperatorPresentSensor",
+    "dataType": "Boolean",
+    "name": "OperatorPresentSensor",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.MachineData.TestCommunication",
+    "dataType": "Boolean",
+    "name": "TestCommunication",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.MachineData.CoilPresentSensor",
+    "dataType": "Boolean",
+    "name": "CoilPresentSensor",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.MachineData.ManualeMode",
+    "dataType": "Boolean",
+    "name": "ManualeMode",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.MachineData.ErrorCode",
+    "dataType": "Int4",
+    "name": "ErrorCode",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.MachineData.ErrorActive",
+    "dataType": "Boolean",
+    "name": "ErrorActive",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.MachineData.FixingCoolingChannel",
+    "dataType": "Boolean",
+    "name": "FixingCoolingChannel",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.MachineData.SingleClipImplementation",
+    "dataType": "Boolean",
+    "name": "SingleClipImplementation",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.MachineData.UnitOn",
+    "dataType": "Boolean",
+    "name": "UnitOn",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.MachineData.FoilGrindingStationActive",
+    "dataType": "Boolean",
+    "name": "FoilGrindingStationActive",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.MachineData.CancelProduction",
+    "dataType": "Boolean",
+    "name": "CancelProduction",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.MachineData.BlockMachine",
+    "dataType": "Boolean",
+    "name": "BlockMachine",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.MachineData.SecurityCageOpen",
+    "dataType": "Boolean",
+    "name": "SecurityCageOpen",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.MachineData.OperatingHour",
+    "dataType": "Int8",
+    "name": "OperatingHour",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.MachineData.ProductionTime",
+    "dataType": "Int8",
+    "name": "ProductionTime",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.MachineData.AutomaticMode",
+    "dataType": "Boolean",
+    "name": "AutomaticMode",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.MachineData.ColdPressureWeldingActive",
+    "dataType": "Boolean",
+    "name": "ColdPressureWeldingActive",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  }
+]

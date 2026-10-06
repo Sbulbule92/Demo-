@@ -1,0 +1,33 @@
+[
+  {
+    "name": "FInAttach",
+    "typeId": "UDT_WeldRobot",
+    "tagType": "UdtInstance",
+    "tags": [
+      {
+        "name": "DataAutomation",
+        "tagType": "Folder",
+        "tags": [
+          {
+            "opcItemPath": "nsu\u003durn:OMRON:NxOpcUaServer:FactoryAutomation;s\u003dOPC_TankDataRequest",
+            "opcServer": "Sec221_FinAttachNxOpcUaServer@10.118.10.136",
+            "name": "OPC_TankDataRequest",
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": "nsu\u003durn:OMRON:NxOpcUaServer:FactoryAutomation;s\u003dOPC_TankData",
+            "opcServer": "Sec221_FinAttachNxOpcUaServer@10.118.10.136",
+            "name": "OPC_TankData",
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": "nsu\u003durn:OMRON:NxOpcUaServer:FactoryAutomation;s\u003dOPC_TankID",
+            "opcServer": "Sec221_FinAttachNxOpcUaServer@10.118.10.136",
+            "name": "OPC_TankID",
+            "tagType": "AtomicTag"
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "scope": "A",
+  "description": "",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Hitachi Title.png"
+  ],
+  "attributes": {
+    "width": 703,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "Gannon",
+      "timestamp": "2026-09-09T14:56:14Z"
+    },
+    "size": 34818,
+    "lastModificationSignature": "eb4ee90b6200e8ae94bbaf6674adc122b75e4b12a66701d6ab768f4e6083702d",
+    "height": 219
+  }
+}

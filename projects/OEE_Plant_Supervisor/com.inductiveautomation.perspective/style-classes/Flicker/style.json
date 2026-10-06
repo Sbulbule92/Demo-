@@ -1,0 +1,20 @@
+{
+  "base": {
+    "style": {}
+  },
+  "variants": [
+    {
+      "pseudo": "enabled",
+      "animation": {
+        "keyframes": {
+          "0%": {
+            "backgroundColor": "var(--error)"
+          },
+          "100%": {
+            "backgroundColor": "var(--warning)"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+UPDATE tbl_Machine SET IsActive=0 WHERE MachineID=:MachineID;

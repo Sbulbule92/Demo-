@@ -1,0 +1,21 @@
+{
+  "base": {
+    "style": {
+      "backgroundColor": "transparent"
+    }
+  },
+  "variants": [
+    {
+      "pseudo": "hover",
+      "style": {
+        "backgroundColor": "--neutral-20"
+      }
+    },
+    {
+      "pseudo": "active",
+      "style": {
+        "backgroundColor": "transparent"
+      }
+    }
+  ]
+}

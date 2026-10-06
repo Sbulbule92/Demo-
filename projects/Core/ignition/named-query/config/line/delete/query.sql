@@ -1,0 +1,1 @@
+UPDATE tbl_Line SET IsActive=0 WHERE LineID=:LineID;

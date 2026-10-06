@@ -1,0 +1,1 @@
+EXEC dbo.sp_Sync_ECS_OPstatus;

@@ -1,0 +1,130 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Template"
+            },
+            "position": {
+              "basis": "380px",
+              "grow": 1
+            },
+            "props": {
+              "params": {
+                "label": "Supervisor Assistance"
+              },
+              "path": "Project/Operator/Operator/repeter/button_Assist",
+              "style": {
+                "classes": "Project/Embded_View"
+              }
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Template_0"
+            },
+            "position": {
+              "basis": "350px",
+              "grow": 1
+            },
+            "props": {
+              "params": {
+                "label": "Break"
+              },
+              "path": "Project/Operator/Operator/repeter/button_Assist",
+              "style": {
+                "classes": "Project/Embded_View"
+              }
+            },
+            "type": "ia.display.view"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "220px",
+          "grow": 1
+        },
+        "props": {
+          "justify": "center",
+          "style": {
+            "margin": "50px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Template"
+            },
+            "position": {
+              "basis": "320px",
+              "grow": 1
+            },
+            "props": {
+              "params": {
+                "label": "Log Downtime"
+              },
+              "path": "Project/Operator/Operator/repeter/button_Assist",
+              "style": {
+                "classes": "Project/Embded_View"
+              }
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Template_0"
+            },
+            "position": {
+              "basis": "320px",
+              "grow": 1
+            },
+            "props": {
+              "params": {
+                "label": "Lunch"
+              },
+              "path": "Project/Operator/Operator/repeter/button_Assist",
+              "style": {
+                "classes": "Project/Embded_View"
+              }
+            },
+            "type": "ia.display.view"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_0"
+        },
+        "position": {
+          "basis": "220px",
+          "grow": 1
+        },
+        "props": {
+          "style": {
+            "margin": "50px"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "classes": "Page/mainpage"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

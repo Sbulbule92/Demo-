@@ -1,0 +1,16 @@
+{
+  "scope": "D",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "data.bin"
+  ],
+  "attributes": {
+    "lastModificationSignature": "80017019c6019ff8be6501d62c9957c43c2726801bded2fd43587eff119ae9d9",
+    "lastModification": {
+      "actor": "Noah",
+      "timestamp": "2025-12-17T21:21:45Z"
+    }
+  }
+}

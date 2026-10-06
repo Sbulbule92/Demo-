@@ -1,0 +1,3 @@
+DELETE FROM tbl_DowntimeLog 
+OUTPUT DELETED.LogID
+WHERE LogID = :LogID

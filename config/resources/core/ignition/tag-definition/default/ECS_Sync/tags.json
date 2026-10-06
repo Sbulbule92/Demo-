@@ -1,0 +1,71 @@
+[
+  {
+    "valueSource": "memory",
+    "dataType": "DataSet",
+    "name": "lspec_last_sync_status",
+    "defaultValue": "{\"columns\":[{\"name\":\"Status\",\"type\":\"java.lang.Integer\"},{\"name\":\"InsertedCount\",\"type\":\"java.lang.Integer\"},{\"name\":\"UpdatedCount\",\"type\":\"java.lang.Integer\"},{\"name\":\"NoChangeCount\",\"type\":\"java.lang.Integer\"},{\"name\":\"TotalProcessed\",\"type\":\"java.lang.Integer\"},{\"name\":\"ErrorMessage\",\"type\":\"java.lang.Integer\"}],\"rows\":[[1,0,0,1088,1088,null]]}",
+    "tagType": "AtomicTag"
+  },
+  {
+    "valueSource": "memory",
+    "dataType": "DataSet",
+    "name": "wo_last_sync_status",
+    "defaultValue": "{\"columns\":[{\"name\":\"Status\",\"type\":\"java.lang.Integer\"},{\"name\":\"InsertedCount\",\"type\":\"java.lang.Integer\"},{\"name\":\"ErrorMessage\",\"type\":\"java.lang.String\"}],\"rows\":[[0,0,\"Violation of PRIMARY KEY constraint \u0027PK__work_ord__BED14FEF19554160\u0027. Cannot insert duplicate key in object \u0027dbo.work_orders\u0027. The duplicate key value is (1LUJJC297190003_CoilWind_3).\"]]}",
+    "tagType": "AtomicTag"
+  },
+  {
+    "valueSource": "memory",
+    "dataType": "Boolean",
+    "name": "lspec_sync_inprogress",
+    "defaultValue": false,
+    "tagType": "AtomicTag"
+  },
+  {
+    "valueSource": "memory",
+    "dataType": "Boolean",
+    "name": "op_status_sync_inprogress",
+    "defaultValue": false,
+    "tagType": "AtomicTag"
+  },
+  {
+    "valueSource": "memory",
+    "dataType": "Boolean",
+    "name": "xfr_status_sync_inprogress",
+    "defaultValue": false,
+    "tagType": "AtomicTag"
+  },
+  {
+    "valueSource": "memory",
+    "dataType": "Boolean",
+    "name": "Update_wo",
+    "defaultValue": false,
+    "tagType": "AtomicTag"
+  },
+  {
+    "eventScripts": [
+      {
+        "eventid": "valueChanged",
+        "script": "\tif currentValue.value \u003d\u003dFalse :\n\t\ttagpath\u003d[\"[.]Update_wo\"]\n\t\tsystem.tag.writeBlocking(tagpath,[True])"
+      }
+    ],
+    "valueSource": "memory",
+    "dataType": "Boolean",
+    "name": "WO_sync_inprogress",
+    "defaultValue": false,
+    "tagType": "AtomicTag"
+  },
+  {
+    "valueSource": "memory",
+    "dataType": "DataSet",
+    "name": "xfr_last_sync_status",
+    "defaultValue": "{\"columns\":[{\"name\":\"Status\",\"type\":\"java.lang.Integer\"},{\"name\":\"InsertedCount\",\"type\":\"java.lang.Integer\"},{\"name\":\"UpdatedCount\",\"type\":\"java.lang.Integer\"},{\"name\":\"NoChangeCount\",\"type\":\"java.lang.Integer\"},{\"name\":\"TotalProcessed\",\"type\":\"java.lang.Integer\"},{\"name\":\"ErrorMessage\",\"type\":\"java.lang.Integer\"}],\"rows\":[[1,0,0,1088,1088,null]]}",
+    "tagType": "AtomicTag"
+  },
+  {
+    "valueSource": "memory",
+    "dataType": "DataSet",
+    "name": "Opstatus_last_sync_status",
+    "defaultValue": "{\"columns\":[{\"name\":\"Status\",\"type\":\"java.lang.Integer\"},{\"name\":\"InsertedCount\",\"type\":\"java.lang.Integer\"},{\"name\":\"ErrorMessage\",\"type\":\"java.lang.String\"}],\"rows\":[[0,0,\"Violation of PRIMARY KEY constraint \u0027PK__work_ord__BED14FEF19554160\u0027. Cannot insert duplicate key in object \u0027dbo.work_orders\u0027. The duplicate key value is (1LUJJC297190003_CoilWind_3).\"]]}",
+    "tagType": "AtomicTag"
+  }
+]

@@ -1,0 +1,1 @@
+DELETE FROM wo_event_types WHERE id=:id;

@@ -34,6 +34,27 @@
       "maxActive": -1,
       "queueId": "_proxy_",
       "timeoutMillis": 3600000
+    },
+    {
+      "description": "Retrieves the redundant activity level from a remote machine",
+      "friendlyName": "GAN Activity Info Service",
+      "maxActive": -1,
+      "queueId": "service_RedundancyService",
+      "timeoutMillis": 60000
+    },
+    {
+      "description": "Provides some information about a remote machine, such as the reachable URL",
+      "friendlyName": "Remote Gateway Info",
+      "maxActive": -1,
+      "queueId": "service_GanNodeDetailsService",
+      "timeoutMillis": 60000
+    },
+    {
+      "description": "Handles gateway redundant node messages over the Gateway Network",
+      "friendlyName": "Redundancy Service",
+      "maxActive": -1,
+      "queueId": "service_GatewayRedundancyService",
+      "timeoutMillis": 60000
     }
   ]
 }

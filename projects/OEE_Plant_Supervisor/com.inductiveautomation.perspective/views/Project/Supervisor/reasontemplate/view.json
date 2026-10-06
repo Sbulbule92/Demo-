@@ -1,0 +1,212 @@
+{
+  "custom": {},
+  "params": {
+    "DurationMinutes": 19,
+    "LogID": "value",
+    "ReasonID": "value",
+    "ReasonName": "Computer",
+    "Remarks": "Test Change over"
+  },
+  "propConfig": {
+    "params.DurationMinutes": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.LogID": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.ReasonID": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.ReasonName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.Remarks": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 44
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Reason"
+        },
+        "position": {
+          "basis": "250px"
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.ReasonID"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "--neutral-20",
+            "borderBottomLeftRadius": "10px",
+            "borderBottomRightRadius": "10px",
+            "borderStyle": "solid",
+            "borderTopLeftRadius": "10px",
+            "borderTopRightRadius": "10px",
+            "borderWidth": "1px",
+            "margin": "2px"
+          },
+          "textStyle": {
+            "fontFamily": "Verdana",
+            "fontSize": "18px",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tselectedreasonID\u003dself.view.params.ReasonID\n\tselectedlogID\u003dself.view.params.LogID\n\tparams \u003d {\"ReasonID\":self.view.params.ReasonName,\"logID\":selectedlogID}\n\tsystem.perspective.openPopup(\"PopUp1\", view \u003d \"Project/Supervisor/downtime_confirm_popup\", \n\t\t\t\t\t\t\t\t\t\tparams \u003d params, \n\t\t\t\t\t\t\t\t\t\tshowCloseIcon \u003d False,\n\t\t\t\t\t\t\t\t\t\tdraggable \u003d False, \n\t\t\t\t\t\t\t\t\t\tmodal \u003d True)"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "comments"
+        },
+        "position": {
+          "basis": "400px",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.Remarks"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "--neutral-10",
+            "borderBottomLeftRadius": "10px",
+            "borderBottomRightRadius": "10px",
+            "borderStyle": "solid",
+            "borderTopLeftRadius": "10px",
+            "borderTopRightRadius": "10px",
+            "borderWidth": "1px",
+            "cursor": "pointer",
+            "margin": "2px"
+          },
+          "textStyle": {
+            "fontFamily": "Verdana",
+            "fontSize": "18px",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "time_taken"
+        },
+        "position": {
+          "basis": "120px"
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.DurationMinutes}+\" Min\""
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "--neutral-20",
+            "borderBottomLeftRadius": "10px",
+            "borderBottomRightRadius": "10px",
+            "borderStyle": "solid",
+            "borderTopLeftRadius": "10px",
+            "borderTopRightRadius": "10px",
+            "borderWidth": "1px",
+            "margin": "2px"
+          },
+          "textStyle": {
+            "fontFamily": "Verdana",
+            "fontSize": "20px",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tserial \u003d self.view.params.LogID\n\treason \u003d self.view.params.ReasonID\n\tprimaryText \u003d \"Do you really want to delete downtime reason -  %s?\" % reason\n\t\n\tsecondaryText \u003d \"Warning: You are about to delete Log ID  {serial}. This action will delete the downtime permanently. Do you wish to proceed?\".format(serial\u003dserial)\n\tparams \u003d {\n\t\t\"action\" : \"delete\",\n\t\t\"primaryText\":primaryText,\n\t\t\"secondaryText\": secondaryText,\n\t\t\"LogID\": self.view.params.LogID\n\t}\n\t\n\tsystem.perspective.openPopup(id \u003d \"confirm\", \n\t\t\t\t\t\t\t\tview \u003d \"Project/Supervisor/Job Cancell/Pop-up\", \n\t\t\t\t\t\t\t\tparams \u003d params,\n\t\t\t\t\t\t\t\tshowCloseIcon \u003d False,\n\t\t\t\t\t\t\t\tdraggable \u003d False,\n\t\t\t\t\t\t\t\tmodal \u003d True)"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "props": {
+          "image": {
+            "height": 30,
+            "icon": {
+              "color": "#FFFFFF",
+              "path": "material/delete"
+            },
+            "position": "center",
+            "width": 30
+          },
+          "style": {
+            "backgroundColor": "--error",
+            "borderBottomLeftRadius": "10px",
+            "borderBottomRightRadius": "10px",
+            "borderTopLeftRadius": "10px",
+            "borderTopRightRadius": "10px",
+            "marginBottom": "2px",
+            "marginLeft": "5px",
+            "marginRight": "5px",
+            "marginTop": "2px"
+          },
+          "text": "",
+          "textStyle": {
+            "fontSize": "20px"
+          }
+        },
+        "type": "ia.input.button"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.flex"
+  }
+}

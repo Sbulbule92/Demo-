@@ -1,0 +1,21 @@
+{
+  "scope": "A",
+  "description": "",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "icons8-printer-64.png"
+  ],
+  "attributes": {
+    "width": 64,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "Gannon",
+      "timestamp": "2026-05-29T13:15:39Z"
+    },
+    "size": 511,
+    "lastModificationSignature": "fc7f99d33741ff2ad5591c1197f8c3d33409961124169ba34c3660ae3e64f124",
+    "height": 64
+  }
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.MachineData.FB_OperatingHour.ist_ActMachineState.me_MachineState",
+    "dataType": "Int4",
+    "name": "me_MachineState",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.MachineData.FB_OperatingHour.ist_ActMachineState.me_SubState",
+    "dataType": "Int4",
+    "name": "me_SubState",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.MachineData.FB_OperatingHour.ist_ActMachineState.me_StatePrio",
+    "dataType": "Int4",
+    "name": "me_StatePrio",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  }
+]

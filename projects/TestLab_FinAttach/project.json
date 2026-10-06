@@ -1,0 +1,6 @@
+{
+  "title": "Test Lab Fin Attach",
+  "description": "This Controller is located in the Server lab. The name is  structure is Location_MachineName for example Sec221_FinAttach",
+  "enabled": true,
+  "inheritable": false
+}

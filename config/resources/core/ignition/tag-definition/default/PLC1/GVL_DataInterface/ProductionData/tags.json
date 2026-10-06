@@ -1,0 +1,218 @@
+[
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.ProductionData.ActualTurnNumber",
+    "dataType": "Float8",
+    "name": "ActualTurnNumber",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.ProductionData.InsulationDiameter",
+    "dataType": "Float8Array",
+    "name": "InsulationDiameter",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.ProductionData.WindingProgramStart",
+    "dataType": "Boolean",
+    "name": "WindingProgramStart",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.ProductionData.WindingProgramEnd",
+    "dataType": "Boolean",
+    "name": "WindingProgramEnd",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.ProductionData.FoilWidth",
+    "dataType": "Float8Array",
+    "name": "FoilWidth",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.ProductionData.ActualWinderSpeed",
+    "dataType": "Float8",
+    "name": "ActualWinderSpeed",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.ProductionData.InsulationTension",
+    "dataType": "Float8Array",
+    "name": "InsulationTension",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.ProductionData.WireFeederPosition",
+    "dataType": "Float8",
+    "name": "WireFeederPosition",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.ProductionData.FoilFeederPosition",
+    "dataType": "Float8",
+    "name": "FoilFeederPosition",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.ProductionData.InsulationThickness",
+    "dataType": "Float8Array",
+    "name": "InsulationThickness",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.ProductionData.FoilTension",
+    "dataType": "Float8Array",
+    "name": "FoilTension",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.ProductionData.FoilThickness",
+    "dataType": "Float8Array",
+    "name": "FoilThickness",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.ProductionData.TurnNumberrWire",
+    "dataType": "Float8",
+    "name": "TurnNumberrWire",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.ProductionData.TurnNumberInsulationAndWire",
+    "dataType": "Float8",
+    "name": "TurnNumberInsulationAndWire",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.ProductionData.NextStop",
+    "dataType": "Float8",
+    "name": "NextStop",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.ProductionData.FoilDiameter",
+    "dataType": "Float8Array",
+    "name": "FoilDiameter",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.ProductionData.TurnNumberInsulation",
+    "dataType": "Float8",
+    "name": "TurnNumberInsulation",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.ProductionData.ProductionID",
+    "dataType": "String",
+    "name": "ProductionID",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.ProductionData.WireWidht",
+    "dataType": "Float8Array",
+    "name": "WireWidht",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.ProductionData.InsulationWidth",
+    "dataType": "Float8Array",
+    "name": "InsulationWidth",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.ProductionData.Actual_Circumference",
+    "dataType": "Float8",
+    "name": "Actual_Circumference",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.ProductionData.WireDiameter",
+    "dataType": "Float8Array",
+    "name": "WireDiameter",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.ProductionData.TotalWinding",
+    "dataType": "Float8",
+    "name": "TotalWinding",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.ProductionData.WireThickness",
+    "dataType": "Float8Array",
+    "name": "WireThickness",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.ProductionData.Wire_Tension",
+    "dataType": "Float8Array",
+    "name": "Wire_Tension",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.ProductionData.InsulationFeederPosition",
+    "dataType": "Float8",
+    "name": "InsulationFeederPosition",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.ProductionData.ActualCoilDiameter",
+    "dataType": "Float8",
+    "name": "ActualCoilDiameter",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  }
+]

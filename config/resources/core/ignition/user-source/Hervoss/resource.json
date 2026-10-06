@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "description": "This is for Hervoss Access",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "config.json",
+    "users.json"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "unknown",
+      "timestamp": "2026-01-21T22:36:02Z"
+    },
+    "uuid": "e75e239f-611f-43b9-bade-45ddf187ef2f",
+    "lastModificationSignature": "90dcaac6423ee0944eb123af86c8595f9ea8df462ae59600be14c4e388608f0c",
+    "enabled": true
+  }
+}

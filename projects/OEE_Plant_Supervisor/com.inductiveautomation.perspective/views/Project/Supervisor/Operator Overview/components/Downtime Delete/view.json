@@ -1,0 +1,91 @@
+{
+  "custom": {},
+  "params": {
+    "rowData": {
+      "DurationMinutes": 20,
+      "EndTime": 1777531735553,
+      "LogID": 453,
+      "ReasonName": "Break",
+      "Remarks": "",
+      "StartTime": 1777530501627,
+      "delete": 1,
+      "update": 1
+    }
+  },
+  "propConfig": {
+    "params.rowData": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 49,
+      "width": 148
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "basis": "80px",
+          "grow": 1
+        },
+        "props": {
+          "image": {
+            "icon": {
+              "color": "--error",
+              "path": "material/delete"
+            }
+          },
+          "style": {
+            "backgroundColor": "transparent",
+            "borderBottomLeftRadius": "10px",
+            "borderBottomRightRadius": "10px",
+            "borderColor": "--error",
+            "borderStyle": "solid",
+            "borderTopLeftRadius": "10px",
+            "borderTopRightRadius": "10px",
+            "borderWidth": "2px",
+            "marginBottom": "5px",
+            "marginLeft": "10px",
+            "marginRight": "10px",
+            "marginTop": "5px"
+          },
+          "text": "DELETE",
+          "textStyle": {
+            "color": "--error"
+          }
+        },
+        "type": "ia.input.button"
+      }
+    ],
+    "events": {
+      "dom": {
+        "onClick": {
+          "config": {
+            "script": "\tserial \u003d self.view.params.rowData.LogID\n\treason \u003d self.view.params.rowData.ReasonName\n\tprimaryText \u003d \"Do you really want to delete downtime reason -  %s?\" % reason\n\t\n\tsecondaryText \u003d \"Warning: You are about to delete Log ID  {serial}. This action will delete the downtime permanently. Do you wish to proceed?\".format(serial\u003dserial)\n\tparams \u003d {\n\t\t\"action\" : \"delete\",\n\t\t\"primaryText\":primaryText,\n\t\t\"secondaryText\": secondaryText,\n\t\t\"LogID\": serial\n\t}\n\t\n\tsystem.perspective.openPopup(id \u003d \"confirm\", \n\t\t\t\t\t\t\t\tview \u003d \"Project/Supervisor/Job Cancell/Pop-up\", \n\t\t\t\t\t\t\t\tparams \u003d params,\n\t\t\t\t\t\t\t\tshowCloseIcon \u003d False,\n\t\t\t\t\t\t\t\tdraggable \u003d False,\n\t\t\t\t\t\t\t\tmodal \u003d True)"
+          },
+          "scope": "G",
+          "type": "script"
+        }
+      }
+    },
+    "meta": {
+      "name": "root",
+      "tooltip": {
+        "enabled": true,
+        "text": "Click here to delete Downtime"
+      }
+    },
+    "props": {
+      "style": {
+        "cursor": "pointer"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

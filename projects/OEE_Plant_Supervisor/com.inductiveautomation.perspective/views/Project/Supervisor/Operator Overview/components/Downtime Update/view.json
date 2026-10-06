@@ -1,0 +1,83 @@
+{
+  "custom": {},
+  "params": {
+    "rowData": {
+      "DurationMinutes": 20,
+      "EndTime": 1777531735553,
+      "LogID": 453,
+      "ReasonName": "Break",
+      "Remarks": "",
+      "StartTime": 1777530501627,
+      "delete": 1,
+      "update": 1
+    }
+  },
+  "propConfig": {
+    "params.rowData": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 49,
+      "width": 132
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "basis": "80px",
+          "grow": 1
+        },
+        "props": {
+          "image": {
+            "icon": {
+              "path": "material/system_update"
+            }
+          },
+          "style": {
+            "borderBottomLeftRadius": "10px",
+            "borderBottomRightRadius": "10px",
+            "borderTopLeftRadius": "10px",
+            "borderTopRightRadius": "10px",
+            "marginBottom": "5px",
+            "marginLeft": "10px",
+            "marginRight": "10px",
+            "marginTop": "5px"
+          },
+          "text": "UPDATE"
+        },
+        "type": "ia.input.button"
+      }
+    ],
+    "events": {
+      "dom": {
+        "onClick": {
+          "config": {
+            "script": "\t#\tselectedreasonID\u003dself.view.params.ReasonID\n\tselectedlogID\u003dself.view.params.rowData.LogID\n\tparams \u003d {\"ReasonID\":self.view.params.rowData.ReasonName,\"logID\":selectedlogID}\n\tsystem.perspective.openPopup(\"PopUp1\", view \u003d \"Project/Supervisor/downtime_confirm_popup\", \n\t\t\t\t\t\t\t\t\t\tparams \u003d params, \n\t\t\t\t\t\t\t\t\t\tshowCloseIcon \u003d False,\n\t\t\t\t\t\t\t\t\t\tdraggable \u003d False, \n\t\t\t\t\t\t\t\t\t\tmodal \u003d True)"
+          },
+          "scope": "G",
+          "type": "script"
+        }
+      }
+    },
+    "meta": {
+      "name": "root",
+      "tooltip": {
+        "enabled": true,
+        "text": "Click here to update Downtime"
+      }
+    },
+    "props": {
+      "style": {
+        "cursor": "pointer"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

@@ -1,6 +1,6 @@
 {
   "scope": "A",
-  "description": "This user source profile was automatically created during a startup",
+  "description": "This user source profile was automatically created during a clean startup",
   "version": 1,
   "restricted": false,
   "overridable": true,
@@ -11,9 +11,10 @@
   "attributes": {
     "lastModification": {
       "actor": "unknown",
-      "timestamp": "2026-07-01T06:54:47Z"
+      "timestamp": "2026-09-28T13:18:32Z"
     },
-    "uuid": "47aa5c5a-ed2a-4842-8374-fefbed63c68c",
-    "lastModificationSignature": "cb6f71d4917769ca07dae4bb8be100a5dcd0493323be00d07c14acaac9df47f2"
+    "uuid": "f6b2b342-8bf0-4fd9-b1d1-f9c4bafdb6ca",
+    "lastModificationSignature": "4c050372bece3c7a79fb308fc2440a55bc7108feb97745af6ef71cbf111fd39e",
+    "enabled": true
   }
 }

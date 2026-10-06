@@ -1,0 +1,2004 @@
+{
+  "custom": {
+    "f0": "",
+    "f1": "",
+    "f2": "",
+    "f3": "",
+    "f4": "",
+    "f5": "",
+    "f6": "",
+    "f7": "",
+    "f8": "",
+    "f9": ""
+  },
+  "events": {
+    "system": {
+      "onStartup": {
+        "config": {
+          "script": "\tfor i, fld in enumerate(self.view.params.fieldSpec):\n\t\tself.view.custom[\u0027f%d\u0027 % i] \u003d fld[\u0027value\u0027]"
+        },
+        "scope": "G",
+        "type": "script"
+      }
+    }
+  },
+  "params": {
+    "fieldSpec": [],
+    "isEdit": false,
+    "pkValue": null,
+    "tabKey": "",
+    "title": ""
+  },
+  "propConfig": {
+    "params.fieldSpec": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.isEdit": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.pkValue": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tabKey": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.title": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": "auto",
+      "width": 480
+    },
+    "style": {
+      "borderRadius": "14px",
+      "boxShadow": "0 10px 40px rgba(0,0,0,0.18)",
+      "overflow": "hidden"
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "formTitle"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.title"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "color": "--neutral-10",
+                "fontSize": "18px",
+                "fontWeight": "bold"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.closePopup(\u0027configForm\u0027)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "closeX"
+            },
+            "position": {
+              "basis": "26px"
+            },
+            "props": {
+              "color": "--neutral-10",
+              "path": "material/close",
+              "style": {
+                "cursor": "pointer",
+                "height": "22px",
+                "width": "22px"
+              }
+            },
+            "type": "ia.display.icon"
+          }
+        ],
+        "meta": {
+          "name": "header"
+        },
+        "position": {
+          "basis": "65px"
+        },
+        "propConfig": {
+          "props.style.backgroundColor": {
+            "binding": {
+              "config": {
+                "path": "session.props.theme"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \"#31384C\" if \"light\" in value else \"#BFC0CA\"",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "alignItems": "center",
+          "justify": "space-between",
+          "style": {
+            "borderTopLeftRadius": "14px",
+            "borderTopRightRadius": "14px",
+            "padding": "16px 22px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl0"
+                },
+                "position": {
+                  "basis": "18px"
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "len({view.params.fieldSpec}) \u003e 0"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "{view.params.fieldSpec[0].header}"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "textStyle": {
+                    "fontSize": "12px",
+                    "fontWeight": "600",
+                    "letterSpacing": "0.3px",
+                    "textTransform": "uppercase"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "f0"
+                },
+                "position": {
+                  "basis": "42px"
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "(len({view.params.fieldSpec}) \u003e 0) \u0026\u0026 ({view.params.fieldSpec[0].kind} !\u003d \u0027bool\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "path": "view.custom.f0"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "backgroundColor": "--neutral-10",
+                    "borderColor": "--neutral-30",
+                    "borderRadius": "8px",
+                    "borderStyle": "solid",
+                    "borderWidth": "1px",
+                    "fontSize": "14px",
+                    "padding": "9px 12px"
+                  }
+                },
+                "type": "ia.input.text-field"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "c0"
+                    },
+                    "position": {
+                      "basis": "30px"
+                    },
+                    "propConfig": {
+                      "props.selected": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "path": "view.custom.f0"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "text": ""
+                    },
+                    "type": "ia.input.checkbox"
+                  },
+                  {
+                    "meta": {
+                      "name": "boolLbl0"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "props": {
+                      "text": "Enabled",
+                      "textStyle": {
+                        "fontSize": "13px"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "boolRow0"
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "(len({view.params.fieldSpec}) \u003e 0) \u0026\u0026 ({view.params.fieldSpec[0].kind} \u003d \u0027bool\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "alignItems": "center",
+                  "style": {
+                    "backgroundColor": "--neutral-10",
+                    "borderColor": "--neutral-30",
+                    "borderRadius": "8px",
+                    "borderStyle": "solid",
+                    "borderWidth": "1px",
+                    "gap": "10px",
+                    "padding": "8px 12px"
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "field0"
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "len({view.params.fieldSpec}) \u003e 0"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "borderColor": "--neutral-30",
+                "borderStyle": "none",
+                "borderWidth": "1px",
+                "gap": "6px",
+                "marginBottom": "4px",
+                "overflow": "hidden"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl1"
+                },
+                "position": {
+                  "basis": "18px"
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "len({view.params.fieldSpec}) \u003e 1"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "{view.params.fieldSpec[1].header}"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "textStyle": {
+                    "fontSize": "12px",
+                    "fontWeight": "600",
+                    "letterSpacing": "0.3px",
+                    "textTransform": "uppercase"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "f1"
+                },
+                "position": {
+                  "basis": "42px"
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "(len({view.params.fieldSpec}) \u003e 1) \u0026\u0026 ({view.params.fieldSpec[1].kind} !\u003d \u0027bool\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "path": "view.custom.f1"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "backgroundColor": "--neutral-10",
+                    "borderColor": "--neutral-30",
+                    "borderRadius": "8px",
+                    "borderStyle": "solid",
+                    "borderWidth": "1px",
+                    "fontSize": "14px",
+                    "padding": "9px 12px"
+                  }
+                },
+                "type": "ia.input.text-field"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "c1"
+                    },
+                    "position": {
+                      "basis": "30px"
+                    },
+                    "propConfig": {
+                      "props.selected": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "path": "view.custom.f1"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "text": ""
+                    },
+                    "type": "ia.input.checkbox"
+                  },
+                  {
+                    "meta": {
+                      "name": "boolLbl1"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "props": {
+                      "text": "Enabled",
+                      "textStyle": {
+                        "fontSize": "13px"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "boolRow1"
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "(len({view.params.fieldSpec}) \u003e 1) \u0026\u0026 ({view.params.fieldSpec[1].kind} \u003d \u0027bool\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "alignItems": "center",
+                  "style": {
+                    "backgroundColor": "--neutral-10",
+                    "borderColor": "--neutral-30",
+                    "borderRadius": "8px",
+                    "borderStyle": "solid",
+                    "borderWidth": "1px",
+                    "gap": "10px",
+                    "padding": "8px 12px"
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "field1"
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "len({view.params.fieldSpec}) \u003e 1"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "borderColor": "--neutral-30",
+                "borderStyle": "none",
+                "borderWidth": "1px",
+                "gap": "6px",
+                "marginBottom": "4px",
+                "overflow": "hidden"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl2"
+                },
+                "position": {
+                  "basis": "18px"
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "len({view.params.fieldSpec}) \u003e 2"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "{view.params.fieldSpec[2].header}"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "textStyle": {
+                    "fontSize": "12px",
+                    "fontWeight": "600",
+                    "letterSpacing": "0.3px",
+                    "textTransform": "uppercase"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "f2"
+                },
+                "position": {
+                  "basis": "42px"
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "(len({view.params.fieldSpec}) \u003e 2) \u0026\u0026 ({view.params.fieldSpec[2].kind} !\u003d \u0027bool\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "path": "view.custom.f2"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "backgroundColor": "--neutral-10",
+                    "borderColor": "--neutral-30",
+                    "borderRadius": "8px",
+                    "borderStyle": "solid",
+                    "borderWidth": "1px",
+                    "fontSize": "14px",
+                    "padding": "9px 12px"
+                  }
+                },
+                "type": "ia.input.text-field"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "c2"
+                    },
+                    "position": {
+                      "basis": "30px"
+                    },
+                    "propConfig": {
+                      "props.selected": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "path": "view.custom.f2"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "text": ""
+                    },
+                    "type": "ia.input.checkbox"
+                  },
+                  {
+                    "meta": {
+                      "name": "boolLbl2"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "props": {
+                      "text": "Enabled",
+                      "textStyle": {
+                        "fontSize": "13px"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "boolRow2"
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "(len({view.params.fieldSpec}) \u003e 2) \u0026\u0026 ({view.params.fieldSpec[2].kind} \u003d \u0027bool\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "alignItems": "center",
+                  "style": {
+                    "backgroundColor": "--neutral-10",
+                    "borderColor": "--neutral-30",
+                    "borderRadius": "8px",
+                    "borderStyle": "solid",
+                    "borderWidth": "1px",
+                    "gap": "10px",
+                    "padding": "8px 12px"
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "field2"
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "len({view.params.fieldSpec}) \u003e 2"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "borderColor": "--neutral-30",
+                "borderStyle": "none",
+                "borderWidth": "1px",
+                "gap": "6px",
+                "marginBottom": "4px",
+                "overflow": "hidden"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl3"
+                },
+                "position": {
+                  "basis": "18px"
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "len({view.params.fieldSpec}) \u003e 3"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "{view.params.fieldSpec[3].header}"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "textStyle": {
+                    "fontSize": "12px",
+                    "fontWeight": "600",
+                    "letterSpacing": "0.3px",
+                    "textTransform": "uppercase"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "f3"
+                },
+                "position": {
+                  "basis": "42px"
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "(len({view.params.fieldSpec}) \u003e 3) \u0026\u0026 ({view.params.fieldSpec[3].kind} !\u003d \u0027bool\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "path": "view.custom.f3"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "backgroundColor": "--neutral-10",
+                    "borderColor": "--neutral-30",
+                    "borderRadius": "8px",
+                    "borderStyle": "solid",
+                    "borderWidth": "1px",
+                    "fontSize": "14px",
+                    "padding": "9px 12px"
+                  }
+                },
+                "type": "ia.input.text-field"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "c3"
+                    },
+                    "position": {
+                      "basis": "30px"
+                    },
+                    "propConfig": {
+                      "props.selected": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "path": "view.custom.f3"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "text": ""
+                    },
+                    "type": "ia.input.checkbox"
+                  },
+                  {
+                    "meta": {
+                      "name": "boolLbl3"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "props": {
+                      "text": "Enabled",
+                      "textStyle": {
+                        "fontSize": "13px"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "boolRow3"
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "(len({view.params.fieldSpec}) \u003e 3) \u0026\u0026 ({view.params.fieldSpec[3].kind} \u003d \u0027bool\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "alignItems": "center",
+                  "style": {
+                    "backgroundColor": "--neutral-10",
+                    "borderColor": "--neutral-30",
+                    "borderRadius": "8px",
+                    "borderStyle": "solid",
+                    "borderWidth": "1px",
+                    "gap": "10px",
+                    "padding": "8px 12px"
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "field3"
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "len({view.params.fieldSpec}) \u003e 3"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "borderColor": "--neutral-30",
+                "borderStyle": "none",
+                "borderWidth": "1px",
+                "gap": "6px",
+                "marginBottom": "4px",
+                "overflow": "hidden"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl4"
+                },
+                "position": {
+                  "basis": "18px"
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "len({view.params.fieldSpec}) \u003e 4"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "{view.params.fieldSpec[4].header}"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "textStyle": {
+                    "fontSize": "12px",
+                    "fontWeight": "600",
+                    "letterSpacing": "0.3px",
+                    "textTransform": "uppercase"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "f4"
+                },
+                "position": {
+                  "basis": "42px"
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "(len({view.params.fieldSpec}) \u003e 4) \u0026\u0026 ({view.params.fieldSpec[4].kind} !\u003d \u0027bool\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "path": "view.custom.f4"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "backgroundColor": "--neutral-10",
+                    "borderColor": "--neutral-30",
+                    "borderRadius": "8px",
+                    "borderStyle": "solid",
+                    "borderWidth": "1px",
+                    "fontSize": "14px",
+                    "padding": "9px 12px"
+                  }
+                },
+                "type": "ia.input.text-field"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "c4"
+                    },
+                    "position": {
+                      "basis": "30px"
+                    },
+                    "propConfig": {
+                      "props.selected": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "path": "view.custom.f4"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "text": ""
+                    },
+                    "type": "ia.input.checkbox"
+                  },
+                  {
+                    "meta": {
+                      "name": "boolLbl4"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "props": {
+                      "text": "Enabled",
+                      "textStyle": {
+                        "fontSize": "13px"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "boolRow4"
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "(len({view.params.fieldSpec}) \u003e 4) \u0026\u0026 ({view.params.fieldSpec[4].kind} \u003d \u0027bool\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "alignItems": "center",
+                  "style": {
+                    "backgroundColor": "--neutral-10",
+                    "borderColor": "--neutral-30",
+                    "borderRadius": "8px",
+                    "borderStyle": "solid",
+                    "borderWidth": "1px",
+                    "gap": "10px",
+                    "padding": "8px 12px"
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "field4"
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "len({view.params.fieldSpec}) \u003e 4"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "borderColor": "--neutral-30",
+                "borderStyle": "none",
+                "borderWidth": "1px",
+                "gap": "6px",
+                "marginBottom": "4px",
+                "overflow": "hidden"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl5"
+                },
+                "position": {
+                  "basis": "18px"
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "len({view.params.fieldSpec}) \u003e 5"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "{view.params.fieldSpec[5].header}"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "textStyle": {
+                    "fontSize": "12px",
+                    "fontWeight": "600",
+                    "letterSpacing": "0.3px",
+                    "textTransform": "uppercase"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "f5"
+                },
+                "position": {
+                  "basis": "42px"
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "(len({view.params.fieldSpec}) \u003e 5) \u0026\u0026 ({view.params.fieldSpec[5].kind} !\u003d \u0027bool\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "path": "view.custom.f5"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "backgroundColor": "--neutral-10",
+                    "borderColor": "--neutral-30",
+                    "borderRadius": "8px",
+                    "borderStyle": "solid",
+                    "borderWidth": "1px",
+                    "fontSize": "14px",
+                    "padding": "9px 12px"
+                  }
+                },
+                "type": "ia.input.text-field"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "c5"
+                    },
+                    "position": {
+                      "basis": "30px"
+                    },
+                    "propConfig": {
+                      "props.selected": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "path": "view.custom.f5"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "text": ""
+                    },
+                    "type": "ia.input.checkbox"
+                  },
+                  {
+                    "meta": {
+                      "name": "boolLbl5"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "props": {
+                      "text": "Enabled",
+                      "textStyle": {
+                        "fontSize": "13px"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "boolRow5"
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "(len({view.params.fieldSpec}) \u003e 5) \u0026\u0026 ({view.params.fieldSpec[5].kind} \u003d \u0027bool\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "alignItems": "center",
+                  "style": {
+                    "backgroundColor": "--neutral-10",
+                    "borderColor": "--neutral-30",
+                    "borderRadius": "8px",
+                    "borderStyle": "solid",
+                    "borderWidth": "1px",
+                    "gap": "10px",
+                    "padding": "8px 12px"
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "field5"
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "len({view.params.fieldSpec}) \u003e 5"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "borderColor": "--neutral-30",
+                "borderStyle": "none",
+                "borderWidth": "1px",
+                "gap": "6px",
+                "marginBottom": "4px",
+                "overflow": "hidden"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl6"
+                },
+                "position": {
+                  "basis": "18px"
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "len({view.params.fieldSpec}) \u003e 6"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "{view.params.fieldSpec[6].header}"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "textStyle": {
+                    "fontSize": "12px",
+                    "fontWeight": "600",
+                    "letterSpacing": "0.3px",
+                    "textTransform": "uppercase"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "f6"
+                },
+                "position": {
+                  "basis": "42px"
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "(len({view.params.fieldSpec}) \u003e 6) \u0026\u0026 ({view.params.fieldSpec[6].kind} !\u003d \u0027bool\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "path": "view.custom.f6"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "backgroundColor": "--neutral-10",
+                    "borderColor": "--neutral-30",
+                    "borderRadius": "8px",
+                    "borderStyle": "solid",
+                    "borderWidth": "1px",
+                    "fontSize": "14px",
+                    "padding": "9px 12px"
+                  }
+                },
+                "type": "ia.input.text-field"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "c6"
+                    },
+                    "position": {
+                      "basis": "30px"
+                    },
+                    "propConfig": {
+                      "props.selected": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "path": "view.custom.f6"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "text": ""
+                    },
+                    "type": "ia.input.checkbox"
+                  },
+                  {
+                    "meta": {
+                      "name": "boolLbl6"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "props": {
+                      "text": "Enabled",
+                      "textStyle": {
+                        "fontSize": "13px"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "boolRow6"
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "(len({view.params.fieldSpec}) \u003e 6) \u0026\u0026 ({view.params.fieldSpec[6].kind} \u003d \u0027bool\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "alignItems": "center",
+                  "style": {
+                    "backgroundColor": "--neutral-10",
+                    "borderColor": "--neutral-30",
+                    "borderRadius": "8px",
+                    "borderStyle": "solid",
+                    "borderWidth": "1px",
+                    "gap": "10px",
+                    "padding": "8px 12px"
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "field6"
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "len({view.params.fieldSpec}) \u003e 6"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "borderColor": "--neutral-30",
+                "borderStyle": "none",
+                "borderWidth": "1px",
+                "gap": "6px",
+                "marginBottom": "4px",
+                "overflow": "hidden"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl7"
+                },
+                "position": {
+                  "basis": "18px"
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "len({view.params.fieldSpec}) \u003e 7"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "{view.params.fieldSpec[7].header}"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "textStyle": {
+                    "fontSize": "12px",
+                    "fontWeight": "600",
+                    "letterSpacing": "0.3px",
+                    "textTransform": "uppercase"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "f7"
+                },
+                "position": {
+                  "basis": "42px"
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "(len({view.params.fieldSpec}) \u003e 7) \u0026\u0026 ({view.params.fieldSpec[7].kind} !\u003d \u0027bool\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "path": "view.custom.f7"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "backgroundColor": "--neutral-10",
+                    "borderColor": "--neutral-30",
+                    "borderRadius": "8px",
+                    "borderStyle": "solid",
+                    "borderWidth": "1px",
+                    "fontSize": "14px",
+                    "padding": "9px 12px"
+                  }
+                },
+                "type": "ia.input.text-field"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "c7"
+                    },
+                    "position": {
+                      "basis": "30px"
+                    },
+                    "propConfig": {
+                      "props.selected": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "path": "view.custom.f7"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "text": ""
+                    },
+                    "type": "ia.input.checkbox"
+                  },
+                  {
+                    "meta": {
+                      "name": "boolLbl7"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "props": {
+                      "text": "Enabled",
+                      "textStyle": {
+                        "fontSize": "13px"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "boolRow7"
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "(len({view.params.fieldSpec}) \u003e 7) \u0026\u0026 ({view.params.fieldSpec[7].kind} \u003d \u0027bool\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "alignItems": "center",
+                  "style": {
+                    "backgroundColor": "--neutral-10",
+                    "borderColor": "--neutral-30",
+                    "borderRadius": "8px",
+                    "borderStyle": "solid",
+                    "borderWidth": "1px",
+                    "gap": "10px",
+                    "padding": "8px 12px"
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "field7"
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "len({view.params.fieldSpec}) \u003e 7"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "borderColor": "--neutral-30",
+                "borderStyle": "none",
+                "borderWidth": "1px",
+                "gap": "6px",
+                "marginBottom": "4px",
+                "overflow": "hidden"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl8"
+                },
+                "position": {
+                  "basis": "18px"
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "len({view.params.fieldSpec}) \u003e 8"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "{view.params.fieldSpec[8].header}"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "textStyle": {
+                    "fontSize": "12px",
+                    "fontWeight": "600",
+                    "letterSpacing": "0.3px",
+                    "textTransform": "uppercase"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "f8"
+                },
+                "position": {
+                  "basis": "42px"
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "(len({view.params.fieldSpec}) \u003e 8) \u0026\u0026 ({view.params.fieldSpec[8].kind} !\u003d \u0027bool\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "path": "view.custom.f8"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "backgroundColor": "--neutral-10",
+                    "borderColor": "--neutral-30",
+                    "borderRadius": "8px",
+                    "borderStyle": "solid",
+                    "borderWidth": "1px",
+                    "fontSize": "14px",
+                    "padding": "9px 12px"
+                  }
+                },
+                "type": "ia.input.text-field"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "c8"
+                    },
+                    "position": {
+                      "basis": "30px"
+                    },
+                    "propConfig": {
+                      "props.selected": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "path": "view.custom.f8"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "text": ""
+                    },
+                    "type": "ia.input.checkbox"
+                  },
+                  {
+                    "meta": {
+                      "name": "boolLbl8"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "props": {
+                      "text": "Enabled",
+                      "textStyle": {
+                        "fontSize": "13px"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "boolRow8"
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "(len({view.params.fieldSpec}) \u003e 8) \u0026\u0026 ({view.params.fieldSpec[8].kind} \u003d \u0027bool\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "alignItems": "center",
+                  "style": {
+                    "backgroundColor": "--neutral-10",
+                    "borderColor": "--neutral-30",
+                    "borderRadius": "8px",
+                    "borderStyle": "solid",
+                    "borderWidth": "1px",
+                    "gap": "10px",
+                    "padding": "8px 12px"
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "field8"
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "len({view.params.fieldSpec}) \u003e 8"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "borderColor": "--neutral-30",
+                "borderStyle": "none",
+                "borderWidth": "1px",
+                "gap": "6px",
+                "marginBottom": "4px",
+                "overflow": "hidden"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "lbl9"
+                },
+                "position": {
+                  "basis": "18px"
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "len({view.params.fieldSpec}) \u003e 9"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "{view.params.fieldSpec[9].header}"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "textStyle": {
+                    "fontSize": "12px",
+                    "fontWeight": "600",
+                    "letterSpacing": "0.3px",
+                    "textTransform": "uppercase"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "f9"
+                },
+                "position": {
+                  "basis": "42px"
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "(len({view.params.fieldSpec}) \u003e 9) \u0026\u0026 ({view.params.fieldSpec[9].kind} !\u003d \u0027bool\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "path": "view.custom.f9"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "backgroundColor": "--neutral-10",
+                    "borderColor": "--neutral-30",
+                    "borderRadius": "8px",
+                    "borderStyle": "solid",
+                    "borderWidth": "1px",
+                    "fontSize": "14px",
+                    "padding": "9px 12px"
+                  }
+                },
+                "type": "ia.input.text-field"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "c9"
+                    },
+                    "position": {
+                      "basis": "25px"
+                    },
+                    "propConfig": {
+                      "props.selected": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "path": "view.custom.f9"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "text": ""
+                    },
+                    "type": "ia.input.checkbox"
+                  },
+                  {
+                    "meta": {
+                      "name": "boolLbl9"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "props": {
+                      "text": "Enabled",
+                      "textStyle": {
+                        "fontSize": "13px"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "boolRow9"
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "(len({view.params.fieldSpec}) \u003e 9) \u0026\u0026 ({view.params.fieldSpec[9].kind} \u003d \u0027bool\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "alignItems": "center",
+                  "style": {
+                    "backgroundColor": "--neutral-10",
+                    "borderColor": "--neutral-30",
+                    "borderRadius": "8px",
+                    "borderStyle": "solid",
+                    "borderWidth": "1px",
+                    "gap": "10px",
+                    "padding": "8px 12px"
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "field9"
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "len({view.params.fieldSpec}) \u003e 9"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "borderColor": "--neutral-30",
+                "borderStyle": "none",
+                "borderWidth": "1px",
+                "gap": "6px",
+                "marginBottom": "4px",
+                "overflow": "hidden"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "body"
+        },
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "backgroundColor": "--neutral-20",
+            "gap": "12px",
+            "padding": "22px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tsystem.perspective.closePopup(\u0027configForm\u0027)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "btnCancel"
+            },
+            "position": {
+              "basis": "100px"
+            },
+            "props": {
+              "style": {
+                "backgroundColor": "#ffffff",
+                "borderColor": "#d1d5db",
+                "borderRadius": "8px",
+                "borderStyle": "solid",
+                "borderWidth": "1px",
+                "color": "#374151",
+                "fontWeight": "600",
+                "padding": "9px 18px"
+              },
+              "text": "Cancel"
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tvals \u003d [self.view.custom[\u0027f%d\u0027 % i] for i in range(len(self.view.params.fieldSpec))]\n\tok \u003d config_admin.saveForm(self.session, self.view.params.tabKey, self.view.params.fieldSpec, vals, self.view.params.pkValue)\n\tif ok:\n\t\tsystem.perspective.closePopup(\u0027configForm\u0027)\n\t\tsystem.perspective.sendMessage(\u0027reloadTab\u0027, payload\u003d{\u0027tab\u0027: self.view.params.tabKey}, scope\u003d\u0027page\u0027)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "btnSave"
+            },
+            "position": {
+              "basis": "120px"
+            },
+            "propConfig": {
+              "props.style.backgroundColor": {
+                "binding": {
+                  "config": {
+                    "path": "session.props.theme"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\treturn \"#31384C\" if \"light\" in value else \"#BFC0CA\"",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "borderRadius": "8px",
+                "color": "--neutral-10",
+                "fontWeight": "bold",
+                "padding": "9px 22px"
+              },
+              "text": "Save"
+            },
+            "type": "ia.input.button"
+          }
+        ],
+        "meta": {
+          "name": "actions"
+        },
+        "position": {
+          "basis": "54px"
+        },
+        "props": {
+          "alignItems": "center",
+          "justify": "flex-end",
+          "style": {
+            "borderBottomLeftRadius": "14px",
+            "borderBottomRightRadius": "14px",
+            "borderTopColor": "--info",
+            "borderTopStyle": "solid",
+            "borderTopWidth": "2px",
+            "gap": "10px",
+            "overflow": "hidden",
+            "padding": "14px 22px"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "backgroundColor": "--neutral-20",
+        "borderRadius": "14px",
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

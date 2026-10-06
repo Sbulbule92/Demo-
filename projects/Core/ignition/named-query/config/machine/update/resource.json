@@ -1,0 +1,90 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "UpdateQuery",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "d2d84e269764da91ca38ea458c97de3b0f0eadd9d460fc9fdd7667363c60eebe",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "shivab",
+      "timestamp": "2026-07-02T12:14:53Z"
+    },
+    "parameters": [
+      {
+        "type": "Parameter",
+        "identifier": "MachineCode",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "MachineName",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "LineID",
+        "sqlType": 2
+      },
+      {
+        "type": "Parameter",
+        "identifier": "Section",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "IPAddress",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "SupplierName",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "EquipmentName",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "OPRID",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "Description",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "IsActive",
+        "sqlType": 6
+      },
+      {
+        "type": "Parameter",
+        "identifier": "MachineID",
+        "sqlType": 2
+      }
+    ]
+  }
+}

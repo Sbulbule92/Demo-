@@ -1,0 +1,14 @@
+{
+  "pages": {
+    "/": {
+      "viewPath": "View"
+    },
+    "/new-page": {
+      "title": "",
+      "viewPath": "testprinter (1)"
+    }
+  },
+  "sharedDocks": {
+    "cornerPriority": "top-bottom"
+  }
+}

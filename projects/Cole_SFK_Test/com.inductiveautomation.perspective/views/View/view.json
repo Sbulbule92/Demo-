@@ -1,0 +1,73 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Icon"
+        },
+        "position": {
+          "height": 30,
+          "width": 30,
+          "x": 370,
+          "y": 283
+        },
+        "props": {
+          "path": "material/insert_emoticon"
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "height": 32,
+          "width": 139,
+          "x": 330.5,
+          "y": 241
+        },
+        "props": {
+          "text": "Hello World!"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Checkbox"
+        },
+        "position": {
+          "height": 36,
+          "width": 124,
+          "x": 350,
+          "y": 368
+        },
+        "props": {
+          "text": "yay"
+        },
+        "type": "ia.input.checkbox"
+      },
+      {
+        "meta": {
+          "name": "Checkbox_0"
+        },
+        "position": {
+          "height": 36,
+          "width": 56,
+          "x": 350,
+          "y": 404
+        },
+        "props": {
+          "text": "nay"
+        },
+        "type": "ia.input.checkbox"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.coord"
+  }
+}

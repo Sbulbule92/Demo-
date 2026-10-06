@@ -1,0 +1,245 @@
+{
+  "custom": {
+    "WrongDevice": "False",
+    "machine": "WOCL_1071",
+    "machineInfo": {
+      "Code": "WOCL_1071",
+      "EquipmentName": "EI_511_CoilWindingHV_1071",
+      "ID": 2,
+      "Name": "WOCL Machine 1",
+      "OPRID": "Coil_HV_SC_1071",
+      "basePath": "Sec 511/UDT_WOCL_1071_OEE",
+      "lineID": 1,
+      "section": "Sec 511"
+    },
+    "qualityChecks": "IN_PROGRESS",
+    "refresh": false,
+    "sessionLogID": 1
+  },
+  "propConfig": {
+    "custom.WrongDevice": {
+      "onChange": {
+        "enabled": false,
+        "script": "\tif currentValue.value \u003d\u003d True :\n\t\timport time\n\t\ttime.sleep(10)\n\t\tsystem.perspective.sendMessage(messageType\u003d\"logoutOPR\", payload\u003d{}, scope\u003d\"session\")"
+      }
+    },
+    "custom.activeDowntime": {
+      "binding": {
+        "config": {
+          "expression": "now(300)"
+        },
+        "transforms": [
+          {
+            "code": "\tpath \u003d [self.custom.machineInfo.basePath +  \u0027/Downtime/Ongoingbreakdown\u0027, self.custom.machineInfo.basePath + \u0027/Downtime/DowntimeUpdated\u0027, self.custom.machineInfo.basePath + \u0027/Session_status/Session_Active\u0027]\n\tresult \u003d system.tag.readBlocking(path)\n\tsession \u003d result[0].value\n\tpendingUpdate \u003d result[1].value\n\tval\u003d result[2].value\n\treturn True if val and session and not pendingUpdate else False ",
+            "type": "script"
+          }
+        ],
+        "type": "expr"
+      },
+      "onChange": {
+        "enabled": null,
+        "script": "\tif currentValue.value \u003d\u003d True:\n\t\tsystem.perspective.sendMessage(\"OpenDowntime\", scope\u003d\"session\")"
+      }
+    },
+    "custom.activeUser": {
+      "binding": {
+        "config": {
+          "path": "this.custom.refresh"
+        },
+        "transforms": [
+          {
+            "code": "    tagPaths \u003d [\n        \"[default]Current_Shift/Start_time\",\n        \"[default]Current_Shift/End_time\"\n    ]\n    tagValue  \u003d system.tag.readBlocking(tagPaths)\n    startTime \u003d tagValue[0].value\n    endTime   \u003d tagValue[1].value\n\n    query \u003d \"\"\"\n        SELECT operator FROM (\n            SELECT TOP 1\n                operator,\n                COUNT(*) AS LoginCount\n            FROM [Ignition].[dbo].[Trace_Operator]\n            WHERE\n                login_time  \u003e ?\n                AND logout_time \u003c ?\n                AND machineID \u003d ?\n            GROUP BY operator\n            ORDER BY LoginCount DESC\n        ) AS SubQuery\n    \"\"\"\n\n    params \u003d [startTime, endTime, self.session.custom.machineInfo.ID]\n\n    # ✅ Positional arguments\n    user \u003d system.db.runPrepQuery(query, params, \"Ignition_PROD-WOCL\")\n\n    # ✅ Safe check before getValueAt\n    if user.getRowCount() \u003e 0:\n        return user.getValueAt(0, \"operator\")\n    else:\n        return \"System\"",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      }
+    },
+    "custom.cleaning": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "machine": "{this.custom.machineInfo.basePath}"
+          },
+          "tagPath": "[default]{machine}/Downtime/planned downtime/cleaning/Active"
+        },
+        "type": "tag"
+      },
+      "onChange": {
+        "enabled": null,
+        "script": "\tif currentValue.value \u003d\u003d True:\n\t\tsystem.perspective.sendMessage(\"plannedDt\", scope\u003d\"session\")"
+      }
+    },
+    "custom.downtime": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "basePath": "{this.custom.machineInfo.basePath}"
+          },
+          "tagPath": "[default]{basePath}/Downtime/ActiveTime"
+        },
+        "type": "tag"
+      },
+      "onChange": {
+        "enabled": null,
+        "script": "\tif currentValue.value \u003d\u003d 10:\n\t\tsystem.perspective.sendMessage(\"logout\", scope\u003d\"session\")"
+      }
+    },
+    "custom.idealtime": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "machine": "{this.custom.machine}"
+          },
+          "tagPath": "[default]{machine}/Downtime/Ideal_time/duration"
+        },
+        "type": "tag"
+      },
+      "onChange": {
+        "enabled": null,
+        "script": "\tif currentValue.value \u003d\u003d 3 :\n\t\tsystem.perspective.sendMessage(messageType\u003d\"logoutOPR\", payload\u003d{}, scope\u003d\"session\")"
+      }
+    },
+    "custom.lunch_overdue": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "machine": "{this.custom.machineInfo.basePath}"
+          },
+          "tagPath": "[default]{machine}/Downtime/Lunch/Overdue"
+        },
+        "type": "tag"
+      },
+      "onChange": {
+        "enabled": null,
+        "script": "\tif  currentValue.value \u003d\u003d True :\n\t\tmachineID\u003dself.custom.machineInfo.ID\n\t\tmachineCode\u003dself.custom.machineInfo.Code\n\t\tlineID\u003dself.custom.machineInfo.lineID\n\t\tsystem.perspective.sendMessage(\"openLunchPopuP\",payload\u003d{\"MachineID\":machineID,\"Code\":machineCode,\"LineID\":lineID}, scope\u003d\"session\")"
+      }
+    },
+    "custom.meeting": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "machine": "{this.custom.machineInfo.basePath}"
+          },
+          "tagPath": "[default]{machine}/Downtime/planned downtime/meeting/Active"
+        },
+        "type": "tag"
+      }
+    },
+    "custom.pendingDowntimes": {
+      "binding": {
+        "config": {
+          "path": "this.custom.refresh"
+        },
+        "transforms": [
+          {
+            "code": "\ttagPaths \u003d [\"[default]Current_Shift/Start_time\", \"[default]Current_Shift/End_time\"]\n\ttagValue \u003d system.tag.readBlocking(tagPaths)\n\tstartTime \u003d tagValue[0].value\n\tendTime   \u003d tagValue[1].value\n\tquery \u003d \"\"\"\n\t\t    SELECT * \n\t\t    FROM tbl_DowntimeLog \n\t\t    WHERE \n\t\t        StartTime BETWEEN ? AND ?\n\t\t        AND MachineID \u003d ? AND ReasonID \u003d 16\n\t\t\"\"\"\n\tparams \u003d [startTime, endTime, self.session.custom.machineInfo.ID]\n\tdata \u003d system.db.runPrepQuery(query\u003dquery, args\u003dparams, database\u003d\"Ignition_PROD-WOCL\")\n\treturn data",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      }
+    },
+    "custom.pending_downtime": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "machine": "{this.custom.machineInfo.basePath}"
+          },
+          "tagPath": "[default]{machine}/Downtime/pending_downtime"
+        },
+        "type": "tag"
+      },
+      "onChange": {
+        "enabled": null,
+        "script": "\tif currentValue.value \u003e 0 :\n\t\tsystem.perspective.sendMessage(\"OpenDowntime\", scope\u003d\"session\")\n\t#return value"
+      }
+    },
+    "custom.refresh": {
+      "onChange": {
+        "enabled": null,
+        "script": "\timport time\n\tif currentValue.value \u003d\u003d True:\n\t\ttime.sleep(1)\n\t\tself.custom.refresh \u003d False"
+      }
+    },
+    "props.auth": {
+      "access": "PRIVATE",
+      "persistent": false
+    },
+    "props.device.accelerometer": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.device.identifier": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.device.timezone": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.device.type": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.device.userAgent": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.gateway": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.geolocation.data": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.geolocation.permissionGranted": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.host": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.id": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.lastActivity": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.offline.capable": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.offline.enabled": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.offline.lastSynced": {
+      "access": "SYSTEM",
+      "persistent": false
+    }
+  },
+  "props": {
+    "address": "10.72.57.24",
+    "device": {},
+    "geolocation": {},
+    "locale": "en-US",
+    "offline": {},
+    "timeZoneId": "America/Chicago"
+  }
+}

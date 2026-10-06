@@ -1,0 +1,66 @@
+[
+  {
+    "valueSource": "opc",
+    "opcItemPath": "ns\u003d1;s\u003dPLC1.Model",
+    "dataType": "Document",
+    "name": "Model",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "ns\u003d1;s\u003dPLC1.SoftwareRevision",
+    "dataType": "String",
+    "name": "SoftwareRevision",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "ns\u003d1;s\u003dPLC1.HardwareRevision",
+    "dataType": "String",
+    "name": "HardwareRevision",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "ns\u003d1;s\u003dPLC1.SerialNumber",
+    "dataType": "String",
+    "name": "SerialNumber",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "ns\u003d1;s\u003dPLC1.Manufacturer",
+    "dataType": "Document",
+    "name": "Manufacturer",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "ns\u003d1;s\u003dPLC1.DeviceManual",
+    "dataType": "String",
+    "name": "DeviceManual",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "ns\u003d1;s\u003dPLC1.RevisionCounter",
+    "dataType": "Int4",
+    "name": "RevisionCounter",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "ns\u003d1;s\u003dPLC1.DeviceRevision",
+    "dataType": "String",
+    "name": "DeviceRevision",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  }
+]

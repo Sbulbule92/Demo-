@@ -1,0 +1,1 @@
+SELECT id, name as event_name FROM wo_event_types ORDER BY id;

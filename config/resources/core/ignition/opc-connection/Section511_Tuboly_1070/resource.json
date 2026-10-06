@@ -1,0 +1,19 @@
+{
+  "scope": "A",
+  "description": "",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "config.json"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "Gannon",
+      "timestamp": "2026-08-06T20:25:43Z"
+    },
+    "uuid": "001b3e29-c105-4a21-8db6-0f5b4eb4ea7a",
+    "lastModificationSignature": "1bb5e92c25b198fb5f4b393823469829e09424680f4cdbf53624d8414c4dc251",
+    "enabled": true
+  }
+}

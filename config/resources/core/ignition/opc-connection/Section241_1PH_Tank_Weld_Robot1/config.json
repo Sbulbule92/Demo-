@@ -1,0 +1,69 @@
+{
+  "profile": {
+    "readOnly": false,
+    "type": "com.inductiveautomation.OpcUaServerType"
+  },
+  "settings": {
+    "advanced": {
+      "acknowledgeTimeout": 5000,
+      "browseOrigin": "OBJECTS_FOLDER",
+      "connectTimeout": 5000,
+      "deprecatedDataTypeDictionarySupport": false,
+      "maxArrayLength": 2147483647,
+      "maxMessageSize": 33554432,
+      "maxNotificationsPerPublish": 65535,
+      "maxPendingPublishRequests": 2,
+      "maxPerOperation": 8192,
+      "maxReferencesPerNode": 8192,
+      "maxStringLength": 2147483647,
+      "requestTimeout": 60000,
+      "sessionTimeout": 120000
+    },
+    "authentication": {
+      "password": {
+        "data": {
+          "ciphertext": "grY",
+          "encrypted_key": "zkDmH4BJ_rjrDszR6JocMEyuTMCacmCoEvRLCwEmNuEMKNcEkSma3Q",
+          "iv": "bkehRJwACWA3ceT0",
+          "protected": "eyJhbGciOiJBMjU2S1ciLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNzY0Nzk0NTk5LCJ6aXAiOiJERUYifQ",
+          "tag": "ta7q0QoD0sPIw8NMFLq1rQ"
+        },
+        "type": "Embedded"
+      },
+      "username": ""
+    },
+    "endpoint": {
+      "discoveryUrl": "opc.tcp://10.118.10.138:4840",
+      "endpointUrl": "opc.tcp://10.118.10.138:4840",
+      "hostOverride": "",
+      "securityMode": "None",
+      "securityPolicy": "None"
+    },
+    "failover": {
+      "discoveryUrl": "",
+      "enabled": false,
+      "endpointUrl": "",
+      "hostOverride": "",
+      "threshold": 1
+    },
+    "keepAlive": {
+      "failuresAllowed": 1,
+      "interval": 15000,
+      "timeout": 10000
+    },
+    "security": {
+      "certificateValidationEnabled": true,
+      "keyStoreAlias": "client",
+      "keyStoreAliasPassword": {
+        "data": {
+          "ciphertext": "v9R4cQ3GFISABQ",
+          "encrypted_key": "j0ArR5zLQmTU_yzNfY5GyeWaG6SyC1DVx1eyurvOBBS1AsV4PZjZvQ",
+          "iv": "q0_iLLuYOobDmKjK",
+          "protected": "eyJhbGciOiJBMjU2S1ciLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNzY0Nzk0NTk5LCJ6aXAiOiJERUYifQ",
+          "tag": "rbEMEUFMp1Eblvyt4_5GHA"
+        },
+        "type": "Embedded"
+      }
+    }
+  }
+}

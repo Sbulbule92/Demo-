@@ -1,0 +1,26 @@
+{
+  "scope": "G",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "onTagChange.py"
+  ],
+  "attributes": {
+    "changeTypes": [
+      "ValueChange",
+      "QualityChange",
+      "TimestampChange"
+    ],
+    "lastModificationSignature": "606c90a4963626771d616329ddcb532537f260a784ffb9c5db019f49d37da392",
+    "paths": [
+      "[default]Sec221/FinAttach/FInAttach/DataAutomation/DebugTestBool",
+      "[default]Sec221/FinAttach/FInAttach/DataAutomation/OPC_TankDataRequest"
+    ],
+    "lastModification": {
+      "actor": "admin",
+      "timestamp": "2026-01-05T16:15:22Z"
+    },
+    "enabled": true
+  }
+}

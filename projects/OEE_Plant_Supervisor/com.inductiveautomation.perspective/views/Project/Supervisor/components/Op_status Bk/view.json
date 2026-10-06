@@ -1,0 +1,365 @@
+{
+  "custom": {
+    "color": "#F87171",
+    "status": "Cancelled",
+    "visibility": false
+  },
+  "params": {
+    "rowData": "value",
+    "value": 32
+  },
+  "propConfig": {
+    "custom.color": {
+      "binding": {
+        "config": {
+          "path": "view.params.value"
+        },
+        "transforms": [
+          {
+            "fallback": "#9CA3AF",
+            "inputType": "scalar",
+            "mappings": [
+              {
+                "input": 2,
+                "output": "#9CA3AF"
+              },
+              {
+                "input": 4,
+                "output": "--success"
+              },
+              {
+                "input": 8,
+                "output": "#F59E0b"
+              },
+              {
+                "input": 32,
+                "output": "#F87171"
+              }
+            ],
+            "outputType": "scalar",
+            "type": "map"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.status": {
+      "binding": {
+        "config": {
+          "path": "view.params.value"
+        },
+        "transforms": [
+          {
+            "fallback": "Unknown",
+            "inputType": "scalar",
+            "mappings": [
+              {
+                "input": 2,
+                "output": "Not Started"
+              },
+              {
+                "input": 4,
+                "output": "Running"
+              },
+              {
+                "input": 8,
+                "output": "Hold"
+              },
+              {
+                "input": 32,
+                "output": "Cancelled"
+              }
+            ],
+            "outputType": "scalar",
+            "type": "map"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.visibility": {
+      "persistent": true
+    },
+    "params.rowData": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.value": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": "auto",
+      "width": 250
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "5px"
+                },
+                "propConfig": {
+                  "props.style.backgroundColor": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.color"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "borderBottomLeftRadius": "50px",
+                    "borderBottomRightRadius": "50px",
+                    "borderColor": "#808080",
+                    "borderStyle": "solid",
+                    "borderTopLeftRadius": "50px",
+                    "borderTopRightRadius": "50px",
+                    "borderWidth": "1px",
+                    "marginBottom": "12px",
+                    "marginLeft": "15px",
+                    "marginRight": "10px",
+                    "marginTop": "12px",
+                    "padding": "2px 4px"
+                  },
+                  "textStyle": {
+                    "alignContent": "center",
+                    "alignSelf": "center",
+                    "padding": "0px"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Label_0"
+                },
+                "position": {
+                  "basis": "200px"
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.status"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "props.textStyle.color": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.color"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "textStyle": {
+                    "alignSelf": "flex-start",
+                    "fontWeight": "500",
+                    "padding": "0px"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer"
+            },
+            "position": {
+              "basis": "150px"
+            },
+            "propConfig": {
+              "props.style.borderColor": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.color"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "borderBottomLeftRadius": "10px",
+                "borderBottomRightRadius": "10px",
+                "borderStyle": "solid",
+                "borderTopLeftRadius": "10px",
+                "borderTopRightRadius": "10px",
+                "borderWidth": "2px",
+                "margin": "5px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\tcurrent \u003d self.view.custom.visibility\n\tif current:\n\t\tself.view.custom.visibility \u003d False\n\telif self.view.params.value\u003c\u003e32:\n\t\tself.view.custom.visibility \u003d True"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Button"
+                },
+                "position": {
+                  "basis": "80px"
+                },
+                "propConfig": {
+                  "props.enabled": {
+                    "binding": {
+                      "config": {
+                        "expression": "if({view.params.value}\u003d 2 || {view.params.value} \u003d 32, True, False)"
+                      },
+                      "enabled": false,
+                      "type": "expr"
+                    }
+                  },
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "case(\r\n    {view.params.value},         \r\n    2,  \u0027Hold\u0027,   \r\n    8, \u0027Release\u0027,\r\n    32, \u0027Continue\u0027,     \r\n    \u0027Hold\u0027        \r\n)"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "borderBottomLeftRadius": "10px",
+                    "borderBottomRightRadius": "10p",
+                    "borderTopLeftRadius": "10px",
+                    "borderTopRightRadius": "10px"
+                  }
+                },
+                "type": "ia.input.button"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_0"
+            },
+            "position": {
+              "basis": "50px",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "margin": "5px"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "47px"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Dropdown"
+            },
+            "position": {
+              "basis": "146px"
+            },
+            "propConfig": {
+              "props.options": {
+                "binding": {
+                  "config": {
+                    "queryPath": "ecs/workorder/op_event/getEventTypes",
+                    "returnFormat": "json"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tcurrentValue \u003d self.view.params.value\n\tdata \u003d []\n\tfor item in value:\n\t\tif item[\"value\"]\u003c\u003ecurrentValue and item[\"value\"]\u003c\u003e45:\n\t\t\tdata.append(item)\n\treturn data",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "query"
+                }
+              }
+            },
+            "props": {
+              "value": 4
+            },
+            "type": "ia.input.dropdown"
+          },
+          {
+            "meta": {
+              "name": "Button"
+            },
+            "position": {
+              "basis": "70px"
+            },
+            "props": {
+              "style": {
+                "marginLeft": "12px",
+                "marginRight": "2px",
+                "marginTop": "0px"
+              },
+              "text": "Update"
+            },
+            "type": "ia.input.button"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_0"
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.custom.visibility"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "borderColor": "#AAAAAA",
+            "borderStyle": "none",
+            "borderWidth": "1px",
+            "margin": "5px",
+            "padding": "5px"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

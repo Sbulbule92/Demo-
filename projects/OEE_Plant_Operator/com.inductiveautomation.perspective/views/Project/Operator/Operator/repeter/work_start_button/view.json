@@ -1,0 +1,141 @@
+{
+  "custom": {
+    "key": "value",
+    "op_status": {
+      "$": [
+        "ds",
+        192,
+        1775494932971
+      ],
+      "$columns": [
+        {
+          "data": [
+            1,
+            2,
+            4,
+            8,
+            16,
+            18,
+            32,
+            128,
+            256,
+            45
+          ],
+          "name": "op_status",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            "No",
+            "Ready to Start",
+            "Running",
+            "Paused",
+            "Completed",
+            "Restart",
+            "Cancelled",
+            "Locked",
+            "Sidelined",
+            "Cancel Requested"
+          ],
+          "name": "name",
+          "type": "String"
+        }
+      ]
+    }
+  },
+  "params": {
+    "value": {
+      "PO": "value",
+      "program_name": "RT23HC",
+      "serial_number": "67GHTG",
+      "work_status": 18
+    }
+  },
+  "propConfig": {
+    "custom.key": {
+      "persistent": true
+    },
+    "custom.op_status": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "direct",
+          "tagPath": "[default]Ignition_Project_Config/Op_Status"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "params.value": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 48,
+      "width": 140
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\n\ttagvalue\u003dsystem.tag.readBlocking([self.session.custom.machineInfo.basePath+\"/WO/status\",self.session.custom.machineInfo.basePath+\"/Downtime/Ongoingbreakdown\"])\n\tcurrentmachinestatus\u003dtagvalue[0].value\n\tmachinefaultstatus\u003dtagvalue[1].value\n\tif currentmachinestatus \u003d\u003d 0:\n\t\tif machinefaultstatus\u003d\u003dFalse :\n\t\t\tserialnumber\u003dself.view.params.value.serial_number\n\t\t\tprogramnumber\u003dself.view.params.value.program_name\n\t\t\tworkstatus\u003dself.view.params.value.work_status\n\t\t\tPO\u003dself.view.params.value.PO\n\t\t\tparams \u003d {\"secondaryText\":\" Are you sure you want to start this \"+str(serialnumber) +\" job with program number \" + str(programnumber)+ \" ?\",\"program_name\":str(programnumber),\"serial_number\":str(serialnumber),\"work_status\":workstatus,\"PO\":PO}\n\t\t\tsystem.perspective.openPopup(\"PopUp\", view \u003d \"Project/Pop-Up/Job_start_confirm\", \n\t\t\t\t\t\t\t\t\t\t\t\tparams \u003d params, \n\t\t\t\t\t\t\t\t\t\t\t\tshowCloseIcon \u003d False,\n\t\t\t\t\t\t\t\t\t\t\t\tdraggable \u003d False, \n\t\t\t\t\t\t\t\t\t\t\t\tmodal \u003d True)\n\t\telse :\t\t\t\t\t\t\t\t\t\t\n\t\t\tparams \u003d {\"action\":\"error\", \"primaryText\": \"Error occured! Active downtime detected!\", \"secondaryText\":\"Please complete the ongoing downtime or wait until it is finished.\"}\n\t\t\tsystem.perspective.openPopup(\"PopUp\", view \u003d \"Project/Pop-Up/Pop-up\", \n\t\t\t\t\t\t\t\t\t\t\t\tparams \u003d params, \n\t\t\t\t\t\t\t\t\t\t\t\tshowCloseIcon \u003d False,\n\t\t\t\t\t\t\t\t\t\t\t\tdraggable \u003d False, \n\t\t\t\t\t\t\t\t\t\t\t\tmodal \u003d True)\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\n\telse:\n\t\tparams \u003d {\"action\":\"error\", \"primaryText\": \"Error occured! Already job running!\", \"secondaryText\":\"Please cancel work in progress job from \u0027Work In Progress\u0027 screen to start a new one!\"}\n\t\tsystem.perspective.openPopup(\"PopUp\", view \u003d \"Project/Pop-Up/Pop-up\", \n\t\t\t\t\t\t\t\t\t\t\tparams \u003d params, \n\t\t\t\t\t\t\t\t\t\t\tshowCloseIcon \u003d False,\n\t\t\t\t\t\t\t\t\t\t\tdraggable \u003d False, \n\t\t\t\t\t\t\t\t\t\t\tmodal \u003d True)"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "basis": "34px",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "expression": "if({view.params.value.work_status}\u003d2 || {view.params.value.work_status}\u003d18,True,False)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "//if({view.params.value.work_status}\u003d0,\"START\",\"COMPLETED\")\r\n//case({view.params.value.work_status},2,\"START\",4,\"STARTED\",16,\"COMPLETED\",8,\"PAUSED\",7,\"Cancel Requested\",\"START\")\r\nlookup({view.custom.op_status},toint({view.params.value.work_status}),\"Unknown\", \"op_status\", \"name\")"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "borderBottomLeftRadius": "10px",
+            "borderBottomRightRadius": "10px",
+            "borderTopLeftRadius": "10px",
+            "borderTopRightRadius": "10px",
+            "fontFamily": "Verdana",
+            "marginBottom": "10px",
+            "marginTop": "10px"
+          }
+        },
+        "type": "ia.input.button"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

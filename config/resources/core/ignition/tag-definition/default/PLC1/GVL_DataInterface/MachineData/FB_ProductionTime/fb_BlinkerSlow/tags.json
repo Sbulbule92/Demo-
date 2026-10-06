@@ -1,0 +1,42 @@
+[
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.MachineData.FB_ProductionTime.fb_BlinkerSlow.it_BlinkerOff",
+    "dataType": "Int8",
+    "name": "it_BlinkerOff",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.MachineData.FB_ProductionTime.fb_BlinkerSlow.it_BlinkerOn",
+    "dataType": "Int8",
+    "name": "it_BlinkerOn",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.MachineData.FB_ProductionTime.fb_BlinkerSlow.mb_Blinker_2",
+    "dataType": "Boolean",
+    "name": "mb_Blinker_2",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.MachineData.FB_ProductionTime.fb_BlinkerSlow.qb_Blinker",
+    "dataType": "Boolean",
+    "name": "qb_Blinker",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.MachineData.FB_ProductionTime.fb_BlinkerSlow.mb_Blinker_1",
+    "dataType": "Boolean",
+    "name": "mb_Blinker_1",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  }
+]

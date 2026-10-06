@@ -1,0 +1,90 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "UpdateQuery",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "d396e43bf7b3bf20eeec3a14700522a5e2ff17322ab0bccf22c3dbbb06cfb01b",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "shivab",
+      "timestamp": "2026-06-17T12:22:14Z"
+    },
+    "parameters": [
+      {
+        "type": "Parameter",
+        "identifier": "jobId",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "lineId",
+        "sqlType": 2
+      },
+      {
+        "type": "Parameter",
+        "identifier": "machineId",
+        "sqlType": 2
+      },
+      {
+        "type": "Parameter",
+        "identifier": "shiftId",
+        "sqlType": 2
+      },
+      {
+        "type": "Parameter",
+        "identifier": "coreShifted",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "insThickness",
+        "sqlType": 6
+      },
+      {
+        "type": "Parameter",
+        "identifier": "insWidth",
+        "sqlType": 6
+      },
+      {
+        "type": "Parameter",
+        "identifier": "longWound",
+        "sqlType": 5
+      },
+      {
+        "type": "Parameter",
+        "identifier": "shortWound",
+        "sqlType": 5
+      },
+      {
+        "type": "Parameter",
+        "identifier": "comments",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "username",
+        "sqlType": 7
+      }
+    ]
+  }
+}

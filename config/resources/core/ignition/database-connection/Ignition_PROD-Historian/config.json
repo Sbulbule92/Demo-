@@ -1,0 +1,33 @@
+{
+  "connectURL": "jdbc:sqlserver://HPG0000009616.CORP.hitachi-powergrids.com:8484",
+  "connectionProps": "databaseName\u003dIgnitionHistorian",
+  "connectionResetParams": "",
+  "defaultTransactionLevel": "DEFAULT",
+  "driver": "Microsoft SQLServer",
+  "evictionRate": -1,
+  "evictionTests": 3,
+  "evictionTime": 1800000,
+  "failoverMode": "STANDARD",
+  "failoverProfile": "",
+  "includeSchemaInTableName": false,
+  "password": {
+    "data": {
+      "providerName": "Database Accounts",
+      "secretName": "IGNITION-HISTORIAN"
+    },
+    "type": "Referenced"
+  },
+  "poolInitSize": 0,
+  "poolMaxActive": 8,
+  "poolMaxIdle": 8,
+  "poolMaxWait": 5000,
+  "poolMinIdle": 0,
+  "slowQueryLogThreshold": 60000,
+  "testOnBorrow": true,
+  "testOnReturn": false,
+  "testWhileIdle": false,
+  "translator": "MSSQL",
+  "username": "IGNITION-HISTORIAN",
+  "validationQuery": "SELECT 1",
+  "validationSleepTime": 10000
+}

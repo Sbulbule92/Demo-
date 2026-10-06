@@ -1,0 +1,1493 @@
+{
+  "custom": {
+    "alerts": 0,
+    "display": true
+  },
+  "params": {},
+  "propConfig": {
+    "custom.alerts": {
+      "binding": {
+        "config": {
+          "expression": "now(500)"
+        },
+        "transforms": [
+          {
+            "code": "    dt \u003d system.date.now()\n    timeLimit \u003d system.date.addHours(dt, -24)\n    props \u003d [(\"eventtime\", \"\u003e\", timeLimit)]\n#    ackAlarms   \u003d system.alarm.queryStatus(state \u003d [\"ActiveAcked\"], path \u003d [\"*Press*\"], any_properties \u003d props)\n    \n    alarms \u003d system.alarm.queryStatus(state \u003d \"ActiveUnacked\", any_properties \u003d props).getDataset()\n    if alarms.getRowCount()\u003e0:\n    \tsystem.perspective.openPopup(id \u003d \"PopUpCancel\",\n\t\t\t\t\t\t\t\t\tview \u003d \"Project/Supervisor/Job Cancell/jobCancelTable\",\n\t\t\t\t\t\t\t\t\tshowCloseIcon \u003d False,\n\t\t\t\t\t\t\t\t\tdraggable \u003d False,\n\t\t\t\t\t\t\t\t\tmodal \u003d True)\n    return int(alarms.getRowCount()) + int(self.session.custom.activeAlarms)\n#    self.parent.custom.activeAlmNo \u003d alarms.getRowCount()\n#    return True if alarms.getRowCount()\u003e0 else False",
+            "type": "script"
+          }
+        ],
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.display": {
+      "persistent": true
+    },
+    "props.defaultSize.width": {
+      "binding": {
+        "config": {
+          "path": "view.custom.display"
+        },
+        "transforms": [
+          {
+            "code": "\treturn 230 if value else 80",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      }
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 768
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "LogoBadge"
+            },
+            "position": {
+              "basis": "36px",
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "alignItems": "center",
+                "backgroundColor": "#f59e0b",
+                "borderRadius": "7px",
+                "display": "flex",
+                "fontFamily": "Rajdhani, sans-serif",
+                "fontSize": "20px",
+                "fontWeight": "700",
+                "height": "36px",
+                "justifyContent": "center",
+                "letterSpacing": "1px",
+                "width": "36px"
+              },
+              "text": "H"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "BrandName"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.display"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "fontFamily": "Rajdhani, sans-serif",
+                "fontSize": "28px",
+                "fontWeight": "700",
+                "letterSpacing": "3px",
+                "marginLeft": "10px",
+                "whiteSpace": "nowrap"
+              },
+              "text": "HITACHI"
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "LogoRow"
+        },
+        "position": {
+          "basis": "56px",
+          "display": false,
+          "shrink": 0
+        },
+        "props": {
+          "alignItems": "center",
+          "gap": "12px",
+          "style": {
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": "2px",
+            "padding": "0 12px",
+            "width": "100%"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "SectionSupervisor"
+        },
+        "position": {
+          "basis": "16px",
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "borderColor": "--neutral-50",
+            "borderStyle": "solid",
+            "borderWidth": "1px",
+            "color": "--neutral-10",
+            "fontFamily": "monospace",
+            "fontSize": "10px",
+            "letterSpacing": "5px",
+            "margin": "5px",
+            "marginTop": "10px",
+            "paddingLeft": "7px",
+            "paddingTop": "0px",
+            "whiteSpace": "nowrap"
+          },
+          "text": "SUPERVISOR",
+          "textStyle": {
+            "fontWeight": "bold"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "25px",
+              "shrink": 0
+            },
+            "props": {
+              "path": "material/dashboard",
+              "style": {
+                "fontSize": "20px",
+                "height": "36px",
+                "width": "36px"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.display"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "fontSize": "12px",
+                "fontWeight": "600",
+                "marginLeft": "10px",
+                "whiteSpace": "nowrap"
+              },
+              "text": "Job Board"
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "page": "/"
+              },
+              "scope": "C",
+              "type": "nav"
+            }
+          }
+        },
+        "meta": {
+          "name": "NavJobBoard"
+        },
+        "position": {
+          "basis": "44px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.style.backgroundColor": {
+            "binding": {
+              "config": {
+                "path": "page.props.path"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \"--warning\" if value \u003d\u003d \u0027/\u0027 else \"transparent\"",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "alignItems": "center",
+          "gap": "12px",
+          "style": {
+            "borderBottomLeftRadius": "10px",
+            "borderBottomRightRadius": "10px",
+            "borderTopLeftRadius": "10px",
+            "borderTopRightRadius": "10px",
+            "classes": "Project/dock",
+            "cursor": "pointer",
+            "letterSpacing": "1.5px",
+            "marginBottom": "5px",
+            "marginLeft": "5px",
+            "marginRight": "10px",
+            "marginTop": "3px",
+            "padding": "0 12px",
+            "textTransform": "uppercase"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "25px",
+              "shrink": 0
+            },
+            "props": {
+              "path": "material/schedule",
+              "style": {
+                "fontSize": "20px",
+                "height": "36px",
+                "width": "36px"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.display"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "fontSize": "12px",
+                "fontWeight": "600",
+                "marginLeft": "10px",
+                "whiteSpace": "nowrap"
+              },
+              "text": "Downtime Logs"
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "page": "/sup_downtime_monitor"
+              },
+              "scope": "C",
+              "type": "nav"
+            }
+          }
+        },
+        "meta": {
+          "name": "NavDowntime"
+        },
+        "position": {
+          "basis": "44px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.style.backgroundColor": {
+            "binding": {
+              "config": {
+                "path": "page.props.path"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \"--warning\" if value \u003d\u003d \u0027/sup_downtime_monitor\u0027 else \"transparent\"",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.style.borderStyle": {
+            "binding": {
+              "config": {
+                "path": "page.props.path"
+              },
+              "enabled": false,
+              "transforms": [
+                {
+                  "code": "\treturn \"solid\" if value \u003d\u003d \u0027/sup_downtime_monitor\u0027 else \"none\"",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "alignItems": "center",
+          "gap": "12px",
+          "style": {
+            "borderBottomLeftRadius": "10px",
+            "borderBottomRightRadius": "10px",
+            "borderTopLeftRadius": "10px",
+            "borderTopRightRadius": "10px",
+            "classes": "Project/dock",
+            "cursor": "pointer",
+            "letterSpacing": "1.5px",
+            "marginBottom": "5px",
+            "marginLeft": "5px",
+            "marginRight": "10px",
+            "marginTop": "3px",
+            "padding": "0 12px",
+            "textTransform": "uppercase"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "Divider"
+        },
+        "position": {
+          "basis": "2px",
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "margin": "6px 0",
+            "width": "100%"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "SectionMonitoring"
+        },
+        "position": {
+          "basis": "16px",
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "borderColor": "--neutral-50",
+            "borderStyle": "solid",
+            "borderWidth": "1px",
+            "color": "--neutral-10",
+            "fontFamily": "monospace",
+            "fontSize": "10px",
+            "letterSpacing": "5px",
+            "margin": "5px",
+            "paddingLeft": "7px",
+            "paddingTop": "0px",
+            "whiteSpace": "nowrap"
+          },
+          "text": "MONITORING",
+          "textStyle": {
+            "fontWeight": "bold"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "25px",
+              "shrink": 0
+            },
+            "props": {
+              "path": "material/leaderboard",
+              "style": {
+                "fontSize": "20px",
+                "height": "36px",
+                "width": "36px"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.display"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "fontSize": "12px",
+                "fontWeight": "600",
+                "marginLeft": "10px",
+                "whiteSpace": "nowrap"
+              },
+              "text": "LINE OVERVIEW"
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "page": "/oee_dashboard"
+              },
+              "scope": "C",
+              "type": "nav"
+            }
+          }
+        },
+        "meta": {
+          "name": "NavLineOverview"
+        },
+        "position": {
+          "basis": "44px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.style.backgroundColor": {
+            "binding": {
+              "config": {
+                "path": "page.props.path"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \"--warning\" if value \u003d\u003d \u0027/oee_dashboard\u0027 else \"transparent\"",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.style.borderStyle": {
+            "binding": {
+              "config": {
+                "path": "page.props.path"
+              },
+              "enabled": false,
+              "transforms": [
+                {
+                  "code": "\treturn \"solid\" if value \u003d\u003d \u0027/sup_downtime_monitor\u0027 else \"none\"",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "alignItems": "center",
+          "gap": "12px",
+          "style": {
+            "borderBottomLeftRadius": "10px",
+            "borderBottomRightRadius": "10px",
+            "borderTopLeftRadius": "10px",
+            "borderTopRightRadius": "10px",
+            "classes": "Project/dock",
+            "cursor": "pointer",
+            "letterSpacing": "1.5px",
+            "marginBottom": "5px",
+            "marginLeft": "5px",
+            "marginRight": "10px",
+            "marginTop": "3px",
+            "padding": "0 12px",
+            "textTransform": "uppercase"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "25px",
+              "shrink": 0
+            },
+            "props": {
+              "path": "material/show_chart",
+              "style": {
+                "fontSize": "20px",
+                "height": "36px",
+                "width": "36px"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.display"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "fontSize": "12px",
+                "fontWeight": "600",
+                "marginLeft": "10px",
+                "whiteSpace": "nowrap"
+              },
+              "text": "Operator Overview"
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "page": "/opr_overview"
+              },
+              "scope": "C",
+              "type": "nav"
+            }
+          }
+        },
+        "meta": {
+          "name": "NavOEE"
+        },
+        "position": {
+          "basis": "44px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.style.backgroundColor": {
+            "binding": {
+              "config": {
+                "path": "page.props.path"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \"--warning\" if value \u003d\u003d \u0027/opr_overview\u0027 else \"transparent\"",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.style.borderStyle": {
+            "binding": {
+              "config": {
+                "path": "page.props.path"
+              },
+              "enabled": false,
+              "transforms": [
+                {
+                  "code": "\treturn \"solid\" if value \u003d\u003d \u0027/sup_downtime_monitor\u0027 else \"none\"",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "alignItems": "center",
+          "gap": "12px",
+          "style": {
+            "borderBottomLeftRadius": "10px",
+            "borderBottomRightRadius": "10px",
+            "borderTopLeftRadius": "10px",
+            "borderTopRightRadius": "10px",
+            "classes": "Project/dock",
+            "cursor": "pointer",
+            "letterSpacing": "1.5px",
+            "marginBottom": "5px",
+            "marginLeft": "5px",
+            "marginRight": "10px",
+            "marginTop": "3px",
+            "padding": "0 12px",
+            "textTransform": "uppercase"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "25px",
+              "shrink": 0
+            },
+            "props": {
+              "path": "material/supervised_user_circle",
+              "style": {
+                "fontSize": "20px",
+                "height": "36px",
+                "width": "36px"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.display"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "fontSize": "12px",
+                "fontWeight": "600",
+                "marginLeft": "10px",
+                "whiteSpace": "nowrap"
+              },
+              "text": "Shift Overview"
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "page": "/shift_overview"
+              },
+              "scope": "C",
+              "type": "nav"
+            }
+          }
+        },
+        "meta": {
+          "name": "NavOEE_0"
+        },
+        "position": {
+          "basis": "44px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.style.backgroundColor": {
+            "binding": {
+              "config": {
+                "path": "page.props.path"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \"--warning\" if value \u003d\u003d \u0027/shift_overview\u0027 else \"transparent\"",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.style.borderStyle": {
+            "binding": {
+              "config": {
+                "path": "page.props.path"
+              },
+              "enabled": false,
+              "transforms": [
+                {
+                  "code": "\treturn \"solid\" if value \u003d\u003d \u0027/sup_downtime_monitor\u0027 else \"none\"",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "alignItems": "center",
+          "gap": "12px",
+          "style": {
+            "borderBottomLeftRadius": "10px",
+            "borderBottomRightRadius": "10px",
+            "borderTopLeftRadius": "10px",
+            "borderTopRightRadius": "10px",
+            "classes": "Project/dock",
+            "cursor": "pointer",
+            "letterSpacing": "1.5px",
+            "marginBottom": "5px",
+            "marginLeft": "5px",
+            "marginRight": "10px",
+            "marginTop": "3px",
+            "padding": "0 12px",
+            "textTransform": "uppercase"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "25px",
+              "shrink": 0
+            },
+            "props": {
+              "path": "material/high_quality",
+              "style": {
+                "fontSize": "20px",
+                "height": "36px",
+                "width": "36px"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.display"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "fontSize": "12px",
+                "fontWeight": "600",
+                "marginLeft": "10px",
+                "whiteSpace": "nowrap"
+              },
+              "text": "Quality Report"
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "page": "/quality_report"
+              },
+              "scope": "C",
+              "type": "nav"
+            }
+          }
+        },
+        "meta": {
+          "name": "NavOEE_1"
+        },
+        "position": {
+          "basis": "44px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.style.backgroundColor": {
+            "binding": {
+              "config": {
+                "path": "page.props.path"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \"--warning\" if value \u003d\u003d \u0027/quality_report\u0027 else \"transparent\"",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.style.borderStyle": {
+            "binding": {
+              "config": {
+                "path": "page.props.path"
+              },
+              "enabled": false,
+              "transforms": [
+                {
+                  "code": "\treturn \"solid\" if value \u003d\u003d \u0027/sup_downtime_monitor\u0027 else \"none\"",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "alignItems": "center",
+          "gap": "12px",
+          "style": {
+            "borderBottomLeftRadius": "10px",
+            "borderBottomRightRadius": "10px",
+            "borderTopLeftRadius": "10px",
+            "borderTopRightRadius": "10px",
+            "classes": "Project/dock",
+            "cursor": "pointer",
+            "letterSpacing": "1.5px",
+            "marginBottom": "5px",
+            "marginLeft": "5px",
+            "marginRight": "10px",
+            "marginTop": "3px",
+            "padding": "0 12px",
+            "textTransform": "uppercase"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "25px",
+              "shrink": 0
+            },
+            "props": {
+              "path": "material/notifications",
+              "style": {
+                "fontSize": "20px",
+                "height": "36px",
+                "width": "36px"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.display"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "fontSize": "12px",
+                "fontWeight": "600",
+                "marginLeft": "10px",
+                "whiteSpace": "nowrap"
+              },
+              "text": "ALERTS"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "AlertBadge"
+            },
+            "position": {
+              "basis": "20px",
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.display"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.alerts"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "backgroundColor": "--error",
+                "borderRadius": "8px",
+                "color": "--neutral-10",
+                "fontFamily": "monospace",
+                "fontSize": "12px",
+                "fontWeight": "700",
+                "padding": "1px 6px",
+                "whiteSpace": "nowrap"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tsystem.perspective.openPopup(\"PopUpCancel\", view \u003d \"Project/Supervisor/Job Cancell/jobCancelTable\", \n\t\t\t\t\t\t\t\t\t\tshowCloseIcon \u003d False,\n\t\t\t\t\t\t\t\t\t\tdraggable \u003d False, \n\t\t\t\t\t\t\t\t\t\tmodal \u003d True)"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "NavAlerts"
+        },
+        "position": {
+          "basis": "44px",
+          "shrink": 0
+        },
+        "props": {
+          "alignItems": "center",
+          "gap": "12px",
+          "style": {
+            "borderBottomLeftRadius": "10px",
+            "borderBottomRightRadius": "10px",
+            "borderTopLeftRadius": "10px",
+            "borderTopRightRadius": "10px",
+            "classes": "Project/dock",
+            "cursor": "pointer",
+            "letterSpacing": "1.5px",
+            "marginBottom": "5px",
+            "marginLeft": "5px",
+            "marginRight": "10px",
+            "marginTop": "3px",
+            "padding": "0 12px",
+            "textTransform": "uppercase"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "25px",
+              "shrink": 0
+            },
+            "props": {
+              "path": "material/settings",
+              "style": {
+                "fontSize": "20px",
+                "height": "36px",
+                "width": "36px"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.display"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "fontSize": "12px",
+                "fontWeight": "600",
+                "marginLeft": "10px",
+                "whiteSpace": "nowrap"
+              },
+              "text": "SETTINGS"
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "page": "/config"
+              },
+              "scope": "C",
+              "type": "nav"
+            }
+          }
+        },
+        "meta": {
+          "name": "NavSettings"
+        },
+        "position": {
+          "basis": "44px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.style.backgroundColor": {
+            "binding": {
+              "config": {
+                "path": "page.props.path"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \"--warning\" if value \u003d\u003d \u0027/config\u0027 else \"transparent\"",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "alignItems": "center",
+          "gap": "12px",
+          "style": {
+            "borderBottomLeftRadius": "10px",
+            "borderBottomRightRadius": "10px",
+            "borderTopLeftRadius": "10px",
+            "borderTopRightRadius": "10px",
+            "classes": "Project/dock",
+            "cursor": "pointer",
+            "letterSpacing": "1.5px",
+            "marginBottom": "5px",
+            "marginLeft": "5px",
+            "marginRight": "10px",
+            "marginTop": "3px",
+            "padding": "0 12px",
+            "textTransform": "uppercase"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "Spacer"
+        },
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "style": {
+            "borderTopStyle": "none",
+            "borderTopWidth": "2px",
+            "marginTop": "10px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "MachineValue"
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "if({session.props.gateway.connected}\u003dTrue, \"CONNECTED\", \"NOT CONNECTED\")"
+                      },
+                      "enabled": false,
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "fontFamily": "Rajdhani, sans-serif",
+                    "fontSize": "17px",
+                    "fontWeight": "700",
+                    "whiteSpace": "nowrap"
+                  },
+                  "text": "Status:"
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "MachineInfo"
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "marginLeft": "10px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "meta": {
+              "name": "MachineValue_0"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "if({session.props.gateway.connected}\u003dTrue, \"Live\", \"Offline\")"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "color": "--qual-9",
+                "fontFamily": "Rajdhani, sans-serif",
+                "fontSize": "17px",
+                "fontWeight": "700",
+                "marginLeft": "5px",
+                "whiteSpace": "nowrap"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "PulseDot"
+            },
+            "position": {
+              "basis": "10px",
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.style.backgroundColor": {
+                "binding": {
+                  "config": {
+                    "path": "session.props.gateway.connected"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": "--error",
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": "--success"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "borderRadius": "50%",
+                "height": "10px",
+                "marginLeft": "5px",
+                "marginTop": "0px",
+                "width": "2px"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "MachineChip"
+        },
+        "position": {
+          "basis": "50px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.custom.display"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "alignItems": "center",
+          "style": {
+            "backgroundColor": "rgba(137,180,250,0.05)",
+            "borderRadius": "8px",
+            "padding": "8px 10px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Avatar"
+            },
+            "position": {
+              "basis": "32px",
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "session.props.auth.user.userName"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tif value is not None:\n\t\tfirstInitial \u003d self.session.props.auth.user.firstName[0:1].upper() if self.session.props.auth.user.firstName is not None else \"\"\n\t\tlastInitial  \u003d self.session.props.auth.user.lastName[0:1].upper() if self.session.props.auth.user.lastName is not None else \"\"\n\t\treturn firstInitial + lastInitial",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "alignItems": "center",
+                "background": "linear-gradient(135deg, #f59e0b 0%, #ef4444 100%)",
+                "borderRadius": "50%",
+                "color": "#ffffff",
+                "display": "flex",
+                "fontFamily": "Rajdhani, sans-serif",
+                "fontSize": "11px",
+                "fontWeight": "700",
+                "height": "32px",
+                "justifyContent": "center",
+                "width": "32px"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "UserName"
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "{session.props.auth.user.firstName} + \u0027 \u0027 +{session.props.auth.user.lastName}"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "fontFamily": "Rajdhani, sans-serif",
+                    "fontSize": "14px",
+                    "fontWeight": "600",
+                    "whiteSpace": "nowrap"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "UserShift"
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "{session.props.auth.user.roles[0]} "
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "fontFamily": "monospace",
+                    "fontSize": "10px",
+                    "letterSpacing": "1px",
+                    "marginTop": "1px",
+                    "whiteSpace": "nowrap"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "UserInfo"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.display"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "marginLeft": "10px"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "UserFooter"
+        },
+        "position": {
+          "basis": "56px",
+          "shrink": 0
+        },
+        "props": {
+          "alignItems": "center",
+          "gap": "10px",
+          "style": {
+            "borderTop": "1px solid #1a1d2e",
+            "cursor": "pointer",
+            "padding": "10px 12px",
+            "width": "100%"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "events": {
+      "dom": {
+        "onMouseEnter": {
+          "config": {
+            "script": "\tself.view.custom.display \u003d True"
+          },
+          "enabled": false,
+          "scope": "G",
+          "type": "script"
+        },
+        "onMouseLeave": {
+          "config": {
+            "script": "\tself.view.custom.display \u003d False"
+          },
+          "enabled": false,
+          "scope": "G",
+          "type": "script"
+        }
+      }
+    },
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "props.style.backgroundColor": {
+        "binding": {
+          "config": {
+            "path": "session.props.theme"
+          },
+          "transforms": [
+            {
+              "code": "\treturn \"#31384C\" if \"light\" in value else \"--neutral-90\"",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      },
+      "props.style.color": {
+        "binding": {
+          "config": {
+            "path": "session.props.theme"
+          },
+          "transforms": [
+            {
+              "code": "\treturn \"--neutral-10\" ",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      }
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "borderRight": "1px solid #1a1d2e",
+        "height": "100%",
+        "overflowX": "hidden",
+        "paddingTop": "0px",
+        "width": "100%"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

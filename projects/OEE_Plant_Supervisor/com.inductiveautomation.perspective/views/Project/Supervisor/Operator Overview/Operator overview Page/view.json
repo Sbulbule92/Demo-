@@ -1,0 +1,299 @@
+{
+  "custom": {
+    "OperatorDetails": {},
+    "day": {
+      "$": [
+        "ts",
+        0,
+        1780988136844
+      ],
+      "$ts": 1780556133000
+    },
+    "shift": 1,
+    "shiftCode": "C",
+    "times": {
+      "end": {
+        "$": [
+          "ts",
+          192,
+          1780988136889
+        ],
+        "$ts": 1780635599000
+      },
+      "start": {
+        "$": [
+          "ts",
+          192,
+          1780988136889
+        ],
+        "$ts": 1780549201000
+      }
+    }
+  },
+  "events": {
+    "system": {
+      "onStartup": {
+        "config": {
+          "script": "\tsystem.perspective.print(self.custom.day)"
+        },
+        "scope": "G",
+        "type": "script"
+      }
+    }
+  },
+  "params": {},
+  "propConfig": {
+    "custom.OperatorDetails": {
+      "persistent": true
+    },
+    "custom.OperatorDetails.OperatorList": {
+      "binding": {
+        "config": {
+          "parameters": {
+            "EndTime": "{view.custom.times.end}",
+            "StartTime": "{view.custom.times.start}"
+          },
+          "queryPath": "Operator Overview/getAllOperator",
+          "returnFormat": "json"
+        },
+        "transforms": [
+          {
+            "code": "\tfor i in range(0,len(value)):\n\t\tuser \u003d system.user.getUser(\u0027default\u0027, value[i][\u0027operator\u0027])\n\t\tif user is not None:\n\t\t\tuserName \u003d user.get(\"firstName\") + \u0027 \u0027 + user.get(\"lastname\")\n\t\t\tvalue[i][\"operator_name\"]\u003d userName\n\t\telse:\n\t\t\tvalue[i][\"operator_name\"] \u003d \"\"\n\treturn value",
+            "type": "script"
+          }
+        ],
+        "type": "query"
+      }
+    },
+    "custom.day": {
+      "binding": {
+        "config": {
+          "path": "/root/Headers/FlexContainer/EmbeddedView.props.params.date"
+        },
+        "type": "property"
+      },
+      "onChange": {
+        "enabled": null,
+        "script": "\tif currentValue.value \u003c\u003e previousValue.value:\n\t\tsystem.perspective.sendMessage(\"instances\")"
+      },
+      "persistent": true
+    },
+    "custom.shift": {
+      "binding": {
+        "config": {
+          "path": "view.custom.shiftCode"
+        },
+        "transforms": [
+          {
+            "code": "\tif value \u003d\u003d \u0027C\u0027:\n\t\treturn 1\n\telif value \u003d\u003d \u0027A\u0027:\n\t\treturn 2\n\telif value \u003d\u003d \u0027B\u0027:\n\t\treturn 3",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.shiftCode": {
+      "binding": {
+        "config": {
+          "path": "/root/Headers/FlexContainer/EmbeddedView.props.params.shift"
+        },
+        "type": "property"
+      },
+      "onChange": {
+        "enabled": null,
+        "script": "\tif currentValue.value !\u003d previousValue.value:\n\t\tsystem.perspective.sendMessage(\"instances\")"
+      },
+      "persistent": true
+    },
+    "custom.times": {
+      "binding": {
+        "config": {
+          "path": "view.custom.day"
+        },
+        "transforms": [
+          {
+            "code": "\tday \u003d system.date.format(value, \"yyyy-MM-dd\")\n\tstartDateTime \u003d str(day + \" \"  +\"00:00:01\")\n\tendDateTime \u003d str(day + \" \" + \"23:59:59\")\n\treturn {\"start\": system.date.parse(startDateTime, \"yyyy-MM-dd HH:mm:ss\"), \"end\": system.date.parse(endDateTime, \"yyyy-MM-dd HH:mm:ss\")} ",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 2500,
+      "width": 1500
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "EmbeddedView"
+                },
+                "position": {
+                  "basis": "200px",
+                  "grow": 1
+                },
+                "props": {
+                  "params": {
+                    "date": {
+                      "$": [
+                        "ts",
+                        0,
+                        1780988136844
+                      ],
+                      "$ts": 1780556133000
+                    },
+                    "shift": "C"
+                  },
+                  "path": "Project/Supervisor/Operator Overview/components/Primary Header",
+                  "style": {
+                    "backgroundColor": "transparent"
+                  },
+                  "useDefaultViewHeight": true,
+                  "useDefaultViewWidth": true
+                },
+                "type": "ia.display.view"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer"
+            },
+            "position": {
+              "basis": "200px",
+              "grow": 1
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "Headers"
+        },
+        "position": {
+          "basis": "56px"
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "backgroundColor": "--neutral-30",
+            "borderBottomLeftRadius": "15px",
+            "borderBottomRightRadius": "15px",
+            "borderTopLeftRadius": "15px",
+            "borderTopRightRadius": "15px",
+            "marginBottom": "5px",
+            "marginLeft": "20px",
+            "marginRight": "20px",
+            "marginTop": "5px",
+            "paddingLeft": "50px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "custom": {
+              "user": "Ben Stokes"
+            },
+            "meta": {
+              "name": "FlexRepeater"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "props.instances": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.OperatorDetails.OperatorList"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\n\tday \u003d self.view.custom.day\n\tdata \u003d  []\n\tfor item in value:\n\t\tpath \u003d \"Operator Overview/getOperatorDowntimeDetails\"\n\t\tparams \u003d {\"StartTime\":self.view.custom.times.start, \"EndTime\":self.view.custom.times.end, \"UserName\":item[\"operator\"]}\n\t\tresult \u003d system.db.execQuery(path\u003dpath, parameters\u003dparams)\n\t\t\n\t\tquery \u003d \"Operator Overview/getProductionDataByOperator\"\n\t\tparameters \u003d {\"StartTime\":self.view.custom.times.start, \"EndTime\":self.view.custom.times.end, \"Operator\":item[\"operator\"]}\n\t\tdetails \u003d system.db.execQuery(path\u003dquery, parameters\u003dparameters)\n\t\tratio \u003d 0\n\t\tif details is not None:\n\t\t\tfor i in range(0, len(details)):\n\t\t\t\tratio \u003d ratio + details[i][12]\n\t\t\tlenght \u003d float(len(details))\n\t\t\tperformance\u003d0\n\t\t\ttry: \n\t\t\t\tperformance \u003d  int((ratio/lenght)*100) \n\t\t\texcept: \n\t\t\t\tpass\n\t\tcontent \u003d {\n\t\t  \"instanceStyle\": {\n\t\t    \"classes\": \"\"\n\t\t  },\n\t\t  \"instancePosition\": {},\n\t\t  \"A\": result[0][5],\n\t\t  \"OEE\": (result[0][5]*performance * 100)/10000,\n\t\t  \"P\": performance,\n\t\t  \"Q\": 100,\n\t\t  \"active\": True,\n\t\t  \"day\": day,\n\t\t  \"operator_name\": item[\"operator_name\"],\n\t\t  \"opr_id\":item[\"operator\"]\n\t\t}\n#\t\tif content[\"A\"]\u003c\u003e0 and content[\"P\"]\u003c\u003e0:\n#\t\t\tdata.append(content)\n\t\tdata.append(content)\n\tunique \u003d []\n\tfor d in data:\n\t    if d not in unique:\n\t        unique.append(d)\n\treturn unique",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "alignContent": "flex-start",
+              "elementStyle": {
+                "margin": "15px"
+              },
+              "justify": "space-around",
+              "path": "Project/Supervisor/Operator Overview/components/Data Card",
+              "style": {
+                "paddingBottom": "5px",
+                "paddingTop": "5px"
+              },
+              "wrap": "wrap"
+            },
+            "scripts": {
+              "customMethods": [],
+              "extensionFunctions": null,
+              "messageHandlers": [
+                {
+                  "messageType": "instances",
+                  "pageScope": true,
+                  "script": "\t# implement your handler here\n\tself.refreshBinding(\"props.instances\")",
+                  "sessionScope": false,
+                  "viewScope": false
+                }
+              ]
+            },
+            "type": "ia.display.flex-repeater"
+          }
+        ],
+        "meta": {
+          "name": "Body Flex"
+        },
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "direction": "column",
+          "justify": "center",
+          "style": {
+            "backgroundColor": "--neutral-30",
+            "borderBottomLeftRadius": "15px",
+            "borderBottomRightRadius": "15px",
+            "borderTopLeftRadius": "15px",
+            "borderTopRightRadius": "15px",
+            "marginBottom": "20px",
+            "marginLeft": "20px",
+            "marginRight": "20px"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "events": {
+      "system": {
+        "onStartup": {
+          "config": {
+            "script": "\tself.getChild(\"Headers\").getChild(\"FlexContainer\").getChild(\"EmbeddedView\").props.params.date \u003d system.date.addDays(system.date.now(), -1)\n\tself.getChild(\"Headers\").getChild(\"FlexContainer\").getChild(\"EmbeddedView\").props.params.shift \u003d \u0027A\u0027"
+          },
+          "scope": "G",
+          "type": "script"
+        }
+      }
+    },
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

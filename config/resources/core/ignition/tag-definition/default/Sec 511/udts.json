@@ -1,0 +1,91 @@
+[
+  {
+    "name": "UDT_WOCL_1072_OEE",
+    "typeId": "Machine_WOCL",
+    "parameters": {
+      "PLC_Device": {
+        "dataType": "String",
+        "value": "Section511_Tuboly_1072"
+      },
+      "MetaData": {
+        "dataType": "String",
+        "value": "Ignition_PROD-WOCL"
+      },
+      "MachineID": {
+        "dataType": "Integer",
+        "value": 2
+      },
+      "basepath": {
+        "dataType": "String",
+        "value": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface"
+      },
+      "Historian": {
+        "dataType": "String",
+        "value": "Ignition_PROD-Historian"
+      },
+      "Machine_Name": {
+        "dataType": "String",
+        "value": "WOCL 2"
+      }
+    },
+    "tagType": "UdtInstance",
+    "enabled": true,
+    "tags": [
+      {
+        "name": "Machine Block",
+        "tagType": "Folder",
+        "tags": [
+          {
+            "value": true,
+            "name": "MachineBlock",
+            "tagType": "AtomicTag"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "UDT_WOCL_1071_OEE",
+    "typeId": "Machine_WOCL",
+    "parameters": {
+      "PLC_Device": {
+        "dataType": "String",
+        "value": "Section511_Tuboly_1071"
+      },
+      "MetaData": {
+        "dataType": "String",
+        "value": "Ignition_PROD-WOCL"
+      },
+      "MachineID": {
+        "dataType": "Integer",
+        "value": 1
+      },
+      "basepath": {
+        "dataType": "String",
+        "value": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface"
+      },
+      "Historian": {
+        "dataType": "String",
+        "value": "Ignition_PROD-Historian"
+      },
+      "Machine_Name": {
+        "dataType": "String",
+        "value": "WOCL_1071"
+      }
+    },
+    "tagType": "UdtInstance",
+    "tags": [
+      {
+        "name": "Machine Block",
+        "tagType": "Folder",
+        "tags": [
+          {
+            "value": true,
+            "name": "MachineBlock",
+            "tagType": "AtomicTag"
+          }
+        ]
+      }
+    ]
+  }
+]

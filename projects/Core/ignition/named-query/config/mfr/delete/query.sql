@@ -1,0 +1,1 @@
+UPDATE tbl_WireManufacturer SET IsActive=0 WHERE ManufacturerID=:ManufacturerID;

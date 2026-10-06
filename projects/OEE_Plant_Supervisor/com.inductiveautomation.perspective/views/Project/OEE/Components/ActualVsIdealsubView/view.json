@@ -1,0 +1,730 @@
+{
+  "custom": {},
+  "params": {
+    "data": [
+      {
+        "actualMin": 116.93,
+        "completionPct": 100,
+        "fullLifeMin": 220.36,
+        "idealMin": 213.6,
+        "serial": "041_CoilWind_2",
+        "serialFull": "1LUJJC319030041_CoilWind_2",
+        "status": "Completed"
+      },
+      {
+        "actualMin": 227.47,
+        "completionPct": 100,
+        "fullLifeMin": 227.46,
+        "idealMin": 213.6,
+        "serial": "041_CoilWind_3",
+        "serialFull": "1LUJJC319030041_CoilWind_3",
+        "status": "Completed"
+      },
+      {
+        "actualMin": 216.9,
+        "completionPct": 100,
+        "fullLifeMin": 216.92,
+        "idealMin": 213.6,
+        "serial": "040_CoilWind_3",
+        "serialFull": "1LUJJC319030040_CoilWind_3",
+        "status": "Completed"
+      },
+      {
+        "actualMin": 257.53,
+        "completionPct": 100,
+        "fullLifeMin": 257.54,
+        "idealMin": 213.6,
+        "serial": "042_CoilWind_1",
+        "serialFull": "1LUJJC319030042_CoilWind_1",
+        "status": "Completed"
+      },
+      {
+        "actualMin": 139.52,
+        "completionPct": 100,
+        "fullLifeMin": 139.51,
+        "idealMin": 213.6,
+        "serial": "042_CoilWind_3",
+        "serialFull": "1LUJJC319030042_CoilWind_3",
+        "status": "Completed"
+      },
+      {
+        "actualMin": 122927.78,
+        "completionPct": 100,
+        "fullLifeMin": 124035.86,
+        "idealMin": 213.6,
+        "serial": "043_CoilWind_3",
+        "serialFull": "1LUJJC319030043_CoilWind_3",
+        "status": "In Progress"
+      },
+      {
+        "actualMin": 152.82,
+        "completionPct": 100,
+        "fullLifeMin": 152.82,
+        "idealMin": 213.6,
+        "serial": "043_CoilWind_1",
+        "serialFull": "1LUJJC319030043_CoilWind_1",
+        "status": "Completed"
+      },
+      {
+        "actualMin": 242.3,
+        "completionPct": 100,
+        "fullLifeMin": 242.3,
+        "idealMin": 213.6,
+        "serial": "045_CoilWind_2",
+        "serialFull": "1LUJJC319030045_CoilWind_2",
+        "status": "Completed"
+      },
+      {
+        "actualMin": 36.72,
+        "completionPct": 100,
+        "fullLifeMin": 36.71,
+        "idealMin": 213.6,
+        "serial": "046_CoilWind_2",
+        "serialFull": "1LUJJC319030046_CoilWind_2",
+        "status": "Completed"
+      },
+      {
+        "actualMin": 162.12,
+        "completionPct": 100,
+        "fullLifeMin": 162.12,
+        "idealMin": 213.6,
+        "serial": "046_CoilWind_1",
+        "serialFull": "1LUJJC319030046_CoilWind_1",
+        "status": "Completed"
+      },
+      {
+        "actualMin": 188.03,
+        "completionPct": 100,
+        "fullLifeMin": 188.03,
+        "idealMin": 213.6,
+        "serial": "047_CoilWind_2",
+        "serialFull": "1LUJJC319030047_CoilWind_2",
+        "status": "Completed"
+      },
+      {
+        "actualMin": 307.67,
+        "completionPct": 100,
+        "fullLifeMin": 307.66,
+        "idealMin": 213.6,
+        "serial": "050_CoilWind_3",
+        "serialFull": "1LUJJC319030050_CoilWind_3",
+        "status": "Completed"
+      },
+      {
+        "actualMin": 249.68,
+        "completionPct": 100,
+        "fullLifeMin": 249.67,
+        "idealMin": 213.6,
+        "serial": "050_CoilWind_1",
+        "serialFull": "1LUJJC319030050_CoilWind_1",
+        "status": "Completed"
+      },
+      {
+        "actualMin": 186.53,
+        "completionPct": 100,
+        "fullLifeMin": 186.53,
+        "idealMin": 213.6,
+        "serial": "052_CoilWind_1",
+        "serialFull": "1LUJJC319030052_CoilWind_1",
+        "status": "Completed"
+      },
+      {
+        "actualMin": 161.58,
+        "completionPct": 100,
+        "fullLifeMin": 161.59,
+        "idealMin": 213.6,
+        "serial": "052_CoilWind_2",
+        "serialFull": "1LUJJC319030052_CoilWind_2",
+        "status": "Completed"
+      },
+      {
+        "actualMin": 254.83,
+        "completionPct": 100,
+        "fullLifeMin": 254.83,
+        "idealMin": 213.6,
+        "serial": "052_CoilWind_3",
+        "serialFull": "1LUJJC319030052_CoilWind_3",
+        "status": "Completed"
+      },
+      {
+        "actualMin": 349.62,
+        "completionPct": 100,
+        "fullLifeMin": 349.62,
+        "idealMin": 213.6,
+        "serial": "053_CoilWind_2",
+        "serialFull": "1LUJJC319030053_CoilWind_2",
+        "status": "Completed"
+      },
+      {
+        "actualMin": 379.98,
+        "completionPct": 100,
+        "fullLifeMin": 379.99,
+        "idealMin": 213.6,
+        "serial": "159_CoilWind_1",
+        "serialFull": "1LUJJC286080159_CoilWind_1",
+        "status": "Completed"
+      },
+      {
+        "actualMin": 254.95,
+        "completionPct": 100,
+        "fullLifeMin": 254.94,
+        "idealMin": 213.6,
+        "serial": "159_CoilWind_2",
+        "serialFull": "1LUJJC286080159_CoilWind_2",
+        "status": "Completed"
+      },
+      {
+        "actualMin": 284.53,
+        "completionPct": 100,
+        "fullLifeMin": 284.53,
+        "idealMin": 213.6,
+        "serial": "051_CoilWind_3",
+        "serialFull": "1LUJJC319030051_CoilWind_3",
+        "status": "Completed"
+      },
+      {
+        "actualMin": 408.25,
+        "completionPct": 100,
+        "fullLifeMin": 408.24,
+        "idealMin": 213.6,
+        "serial": "160_CoilWind_2",
+        "serialFull": "1LUJJC286080160_CoilWind_2",
+        "status": "Completed"
+      },
+      {
+        "actualMin": 286.23,
+        "completionPct": 100,
+        "fullLifeMin": 286.24,
+        "idealMin": 213.6,
+        "serial": "161_CoilWind_2",
+        "serialFull": "1LUJJC286080161_CoilWind_2",
+        "status": "Completed"
+      },
+      {
+        "actualMin": 0.18,
+        "completionPct": 100,
+        "fullLifeMin": 0.18,
+        "idealMin": 213.6,
+        "serial": "002_CoilWind_1",
+        "serialFull": "1LUJJC315990002_CoilWind_1",
+        "status": "Completed"
+      },
+      {
+        "actualMin": 274.13,
+        "completionPct": 100,
+        "fullLifeMin": 274.13,
+        "idealMin": 213.6,
+        "serial": "002_CoilWind_3",
+        "serialFull": "1LUJJC315990002_CoilWind_3",
+        "status": "Completed"
+      },
+      {
+        "actualMin": 162.77,
+        "completionPct": 100,
+        "fullLifeMin": 162.77,
+        "idealMin": 213.6,
+        "serial": "163_CoilWind_3",
+        "serialFull": "1LUJJC286080163_CoilWind_3",
+        "status": "Completed"
+      },
+      {
+        "actualMin": 356.63,
+        "completionPct": 100,
+        "fullLifeMin": 356.63,
+        "idealMin": 213.6,
+        "serial": "163_CoilWind_2",
+        "serialFull": "1LUJJC286080163_CoilWind_2",
+        "status": "Completed"
+      },
+      {
+        "actualMin": 946.3,
+        "completionPct": 100,
+        "fullLifeMin": 946.29,
+        "idealMin": 213.6,
+        "serial": "027_CoilWind_3",
+        "serialFull": "1LUJJC332910027_CoilWind_3",
+        "status": "Completed"
+      },
+      {
+        "actualMin": 240.88,
+        "completionPct": 100,
+        "fullLifeMin": 240.88,
+        "idealMin": 213.6,
+        "serial": "028_CoilWind_1",
+        "serialFull": "1LUJJC332910028_CoilWind_1",
+        "status": "Completed"
+      },
+      {
+        "actualMin": 417.93,
+        "completionPct": 100,
+        "fullLifeMin": 417.93,
+        "idealMin": 213.6,
+        "serial": "029_CoilWind_2",
+        "serialFull": "1LUJJC332910029_CoilWind_2",
+        "status": "Completed"
+      },
+      {
+        "actualMin": 164.62,
+        "completionPct": 100,
+        "fullLifeMin": 164.63,
+        "idealMin": 213.6,
+        "serial": "030_CoilWind_1",
+        "serialFull": "1LUJJC332910030_CoilWind_1",
+        "status": "Completed"
+      },
+      {
+        "actualMin": 109.43,
+        "completionPct": 100,
+        "fullLifeMin": 109.43,
+        "idealMin": 213.6,
+        "serial": "031_CoilWind_1",
+        "serialFull": "1LUJJC332910031_CoilWind_1",
+        "status": "Completed"
+      },
+      {
+        "actualMin": 282.98,
+        "completionPct": 100,
+        "fullLifeMin": 282.98,
+        "idealMin": 213.6,
+        "serial": "031_CoilWind_3",
+        "serialFull": "1LUJJC332910031_CoilWind_3",
+        "status": "Completed"
+      },
+      {
+        "actualMin": 109.3,
+        "completionPct": 100,
+        "fullLifeMin": 109.31,
+        "idealMin": 213.6,
+        "serial": "056_CoilWind_2",
+        "serialFull": "1LUJJC319030056_CoilWind_2",
+        "status": "Completed"
+      },
+      {
+        "actualMin": 152.42,
+        "completionPct": 100,
+        "fullLifeMin": 152.42,
+        "idealMin": 213.6,
+        "serial": "058_CoilWind_3",
+        "serialFull": "1LUJJC319030058_CoilWind_3",
+        "status": "Completed"
+      },
+      {
+        "actualMin": 548.08,
+        "completionPct": 100,
+        "fullLifeMin": 548.09,
+        "idealMin": 213.6,
+        "serial": "060_CoilWind_2",
+        "serialFull": "1LUJJC319030060_CoilWind_2",
+        "status": "Completed"
+      },
+      {
+        "actualMin": 6.78,
+        "completionPct": 100,
+        "fullLifeMin": 6.78,
+        "idealMin": 213.6,
+        "serial": "059_CoilWind_2",
+        "serialFull": "1LUJJC319030059_CoilWind_2",
+        "status": "Completed"
+      },
+      {
+        "actualMin": 158.92,
+        "completionPct": 100,
+        "fullLifeMin": 158.92,
+        "idealMin": 213.6,
+        "serial": "061_CoilWind_1",
+        "serialFull": "1LUJJC319030061_CoilWind_1",
+        "status": "Completed"
+      },
+      {
+        "actualMin": 116.83,
+        "completionPct": 100,
+        "fullLifeMin": 116.83,
+        "idealMin": 213.6,
+        "serial": "008_CoilWind_1",
+        "serialFull": "1LUJJC292990008_CoilWind_1",
+        "status": "Completed"
+      },
+      {
+        "actualMin": 94901.48,
+        "completionPct": 100,
+        "fullLifeMin": 96009.55,
+        "idealMin": 213.6,
+        "serial": "064_CoilWind_1",
+        "serialFull": "1LUJJC319030064_CoilWind_1",
+        "status": "In Progress"
+      }
+    ]
+  },
+  "propConfig": {
+    "params.data": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 500,
+      "width": 750
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Table"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "props.data": {
+            "binding": {
+              "config": {
+                "path": "view.params.data"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "cells": {
+            "style": {
+              "marginLeft": "20px"
+            }
+          },
+          "columns": [
+            {
+              "align": "center",
+              "boolean": "checkbox",
+              "dateFormat": "MM/DD/YYYY",
+              "editable": false,
+              "field": "id",
+              "filter": {
+                "boolean": {
+                  "condition": ""
+                },
+                "date": {
+                  "condition": "",
+                  "value": ""
+                },
+                "enabled": false,
+                "number": {
+                  "condition": "",
+                  "value": ""
+                },
+                "string": {
+                  "condition": "",
+                  "value": ""
+                },
+                "visible": "on-hover"
+              },
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "center",
+                "style": {
+                  "classes": ""
+                },
+                "title": "id"
+              },
+              "justify": "center",
+              "nullFormat": {
+                "includeNullStrings": false,
+                "nullFormatValue": "",
+                "strict": false
+              },
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "max": 100,
+                "min": 0,
+                "track": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "value": {
+                  "enabled": true,
+                  "format": "0,0.##",
+                  "justify": "center",
+                  "style": {
+                    "classes": ""
+                  }
+                }
+              },
+              "render": "auto",
+              "resizable": true,
+              "sort": "none",
+              "sortable": true,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "",
+                  "unselected": ""
+                }
+              },
+              "viewParams": {},
+              "viewPath": "",
+              "visible": true,
+              "width": ""
+            },
+            {
+              "align": "center",
+              "boolean": "checkbox",
+              "dateFormat": "MM/DD/YYYY",
+              "editable": false,
+              "field": "serial_number",
+              "filter": {
+                "boolean": {
+                  "condition": ""
+                },
+                "date": {
+                  "condition": "",
+                  "value": ""
+                },
+                "enabled": false,
+                "number": {
+                  "condition": "",
+                  "value": ""
+                },
+                "string": {
+                  "condition": "",
+                  "value": ""
+                },
+                "visible": "on-hover"
+              },
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "center",
+                "style": {
+                  "classes": ""
+                },
+                "title": "Serial Number"
+              },
+              "justify": "center",
+              "nullFormat": {
+                "includeNullStrings": false,
+                "nullFormatValue": "",
+                "strict": false
+              },
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "max": 100,
+                "min": 0,
+                "track": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "value": {
+                  "enabled": true,
+                  "format": "0,0.##",
+                  "justify": "center",
+                  "style": {
+                    "classes": ""
+                  }
+                }
+              },
+              "render": "auto",
+              "resizable": true,
+              "sort": "none",
+              "sortable": true,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "",
+                  "unselected": ""
+                }
+              },
+              "viewParams": {},
+              "viewPath": "",
+              "visible": true,
+              "width": ""
+            },
+            {
+              "align": "center",
+              "boolean": "checkbox",
+              "dateFormat": "MM/DD/YYYY",
+              "editable": false,
+              "field": "serialFull",
+              "filter": {
+                "boolean": {
+                  "condition": ""
+                },
+                "date": {
+                  "condition": "",
+                  "value": ""
+                },
+                "enabled": false,
+                "number": {
+                  "condition": "",
+                  "value": ""
+                },
+                "string": {
+                  "condition": "",
+                  "value": ""
+                },
+                "visible": "on-hover"
+              },
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "center",
+                "style": {
+                  "classes": ""
+                },
+                "title": "WIP %"
+              },
+              "justify": "center",
+              "nullFormat": {
+                "includeNullStrings": false,
+                "nullFormatValue": "",
+                "strict": false
+              },
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "max": 100,
+                "min": 0,
+                "track": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "value": {
+                  "enabled": true,
+                  "format": "0,0.##",
+                  "justify": "center",
+                  "style": {
+                    "classes": ""
+                  }
+                }
+              },
+              "render": "auto",
+              "resizable": true,
+              "sort": "none",
+              "sortable": true,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "",
+                  "unselected": ""
+                }
+              },
+              "viewParams": {},
+              "viewPath": "",
+              "visible": true,
+              "width": ""
+            }
+          ],
+          "headerStyle": {
+            "backgroundColor": "--neutral-90",
+            "color": "--neutral-10",
+            "fontWeight": "bold",
+            "textTransform": "uppercase"
+          },
+          "pager": {
+            "bottom": false
+          },
+          "sortOrder": [
+            "id"
+          ]
+        },
+        "type": "ia.display.table"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tsystem.perspective.closePopup(\u0027subview\u0027)"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "props": {
+          "style": {
+            "marginBottom": "5px",
+            "marginLeft": "560px",
+            "marginRight": "10px",
+            "marginTop": "5px",
+            "padding": "15px"
+          },
+          "text": "Close"
+        },
+        "type": "ia.input.button"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "borderBottomLeftRadius": "5px",
+        "borderBottomRightRadius": "5px",
+        "borderTopLeftRadius": "5px",
+        "borderTopRightRadius": "5px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

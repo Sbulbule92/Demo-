@@ -1,0 +1,1598 @@
+{
+  "custom": {
+    "Day_Data": {
+      "OEE_Day": {
+        "Quality": 100
+      },
+      "unplannedDtMin1": 55,
+      "unplannedDtMin2": 149,
+      "unplannedMin1": 57
+    },
+    "IdealVsActual": [
+      {
+        "ActualCycleTime": 27,
+        "Hour": "00:00",
+        "IdealCycleTime": 27
+      },
+      {
+        "ActualCycleTime": 20,
+        "Hour": "01:00",
+        "IdealCycleTime": 20
+      },
+      {
+        "ActualCycleTime": 22,
+        "Hour": "02:00",
+        "IdealCycleTime": 23
+      },
+      {
+        "ActualCycleTime": 22,
+        "Hour": "03:00",
+        "IdealCycleTime": 23
+      },
+      {
+        "ActualCycleTime": 29,
+        "Hour": "04:00",
+        "IdealCycleTime": 30
+      },
+      {
+        "ActualCycleTime": 19,
+        "Hour": "05:00",
+        "IdealCycleTime": 20
+      },
+      {
+        "ActualCycleTime": 30,
+        "Hour": "23:00",
+        "IdealCycleTime": 31
+      }
+    ],
+    "OEE": {
+      "Quality": 100
+    },
+    "ProductionCounts": {
+      "coilStarted": "value"
+    },
+    "Top20Dt": null,
+    "TotalProdTime_min": 390,
+    "TotalShiftTime": 480,
+    "autoMode": 0,
+    "cols": [
+      {
+        "align": "center",
+        "field": "UserName",
+        "header": {
+          "align": "center",
+          "justify": "center",
+          "style": {
+            "classes": ""
+          },
+          "title": "UserName"
+        },
+        "justify": "center",
+        "render": "auto"
+      },
+      {
+        "align": "center",
+        "field": "EndTime",
+        "header": {
+          "align": "center",
+          "justify": "center",
+          "style": {
+            "classes": ""
+          },
+          "title": "EndTime"
+        },
+        "justify": "center",
+        "render": "auto"
+      },
+      {
+        "align": "center",
+        "field": "StartTime",
+        "header": {
+          "align": "center",
+          "justify": "center",
+          "style": {
+            "classes": ""
+          },
+          "title": "StartTime"
+        },
+        "justify": "center",
+        "render": "auto"
+      },
+      {
+        "align": "center",
+        "field": "Duration",
+        "header": {
+          "align": "center",
+          "justify": "center",
+          "style": {
+            "classes": ""
+          },
+          "title": "Duration"
+        },
+        "justify": "center",
+        "render": "auto"
+      },
+      {
+        "align": "center",
+        "field": "ReasonName",
+        "header": {
+          "align": "center",
+          "justify": "center",
+          "style": {
+            "classes": ""
+          },
+          "title": "ReasonName"
+        },
+        "justify": "center",
+        "render": "auto"
+      },
+      {
+        "align": "center",
+        "field": "Remarks",
+        "header": {
+          "align": "center",
+          "justify": "center",
+          "style": {
+            "classes": ""
+          },
+          "title": "Remarks"
+        },
+        "justify": "center",
+        "render": "auto"
+      },
+      {
+        "align": "center",
+        "field": "ReasonID",
+        "header": {
+          "align": "center",
+          "justify": "center",
+          "style": {
+            "classes": ""
+          },
+          "title": "ReasonID"
+        },
+        "justify": "center",
+        "render": "auto"
+      },
+      {
+        "align": "center",
+        "field": "LogID",
+        "header": {
+          "align": "center",
+          "justify": "center",
+          "style": {
+            "classes": ""
+          },
+          "title": "LogID"
+        },
+        "justify": "center",
+        "render": "auto"
+      }
+    ],
+    "earnedHours": 232,
+    "operatingTime_shift": 390,
+    "productionData": {},
+    "reasons": [
+      {
+        "ReasonName": "Full Change Over"
+      },
+      {
+        "ReasonName": "Partial Change over"
+      },
+      {
+        "ReasonName": "Computer"
+      },
+      {
+        "ReasonName": "Design Questions"
+      },
+      {
+        "ReasonName": "Program Function"
+      },
+      {
+        "ReasonName": "Material Quality"
+      },
+      {
+        "ReasonName": "Waiting on Material"
+      },
+      {
+        "ReasonName": "Break"
+      },
+      {
+        "ReasonName": "Lunch"
+      },
+      {
+        "ReasonName": "Welder - Maintenance"
+      },
+      {
+        "ReasonName": "Sensor - Maintenance"
+      },
+      {
+        "ReasonName": "Electrical - Maintenance"
+      },
+      {
+        "ReasonName": "Mechanical - Maintenance"
+      },
+      {
+        "ReasonName": "Wire/Paper Tension"
+      },
+      {
+        "ReasonName": "Other"
+      },
+      {
+        "ReasonName": "Extended Lunch break"
+      }
+    ],
+    "refresh": true,
+    "selected": {
+      "$": [
+        "ts",
+        192,
+        1779345576492
+      ],
+      "$ts": 1779345576344
+    },
+    "selectedLine": 1,
+    "selectedMachine": 1,
+    "shift": 2,
+    "shiftDetails": {
+      "end": {
+        "$": [
+          "ts",
+          192,
+          1779345576887
+        ],
+        "$ts": 1779424200000
+      },
+      "start": {
+        "$": [
+          "ts",
+          192,
+          1779345576887
+        ],
+        "$ts": 1779395400000
+      }
+    },
+    "shiftDown": {
+      "Shift_A": {
+        "shiftId": 1
+      },
+      "Shift_B": {
+        "shiftId": 2
+      },
+      "Shift_C": {
+        "shiftId": 3
+      }
+    },
+    "shiftStartTime": {
+      "date": {
+        "$": [
+          "ts",
+          0,
+          1774270016726
+        ],
+        "$ts": 1774006412000
+      },
+      "shift": 1
+    },
+    "totalProductionTime": "06:30:00",
+    "unplannedDTMin": 0,
+    "unplannedMinutes": 390,
+    "unplannedMinutes1": 390,
+    "unplannedMinutesold": 390,
+    "uplannedDowntime": "00:00:00"
+  },
+  "params": {},
+  "propConfig": {
+    "custom.Day_Data": {
+      "persistent": true
+    },
+    "custom.Day_Data.DayTimes": {
+      "binding": {
+        "config": {
+          "path": "view.custom.selected"
+        },
+        "transforms": [
+          {
+            "code": "\tday \u003d system.date.format(value, \"yyyy-MM-dd\")\n\tstartDateTime \u003d str(day + \" \"  +\"00:00:01\")\n\tendDateTime \u003d str(day + \" \" + \"23:59:59\")\n\treturn {\"start\": system.date.parse(startDateTime, \"yyyy-MM-dd HH:mm:ss\"), \"end\": system.date.parse(endDateTime, \"yyyy-MM-dd HH:mm:ss\")} ",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      }
+    },
+    "custom.Day_Data.OEE_Day.Availability": {
+      "binding": {
+        "config": {
+          "expression": "coalesce(toInt(({view.custom.Day_Data.operatingTimeForDay}/{view.custom.Day_Data.TotalProductionTime})*100),0)"
+        },
+        "type": "expr"
+      }
+    },
+    "custom.Day_Data.OEE_Day.OEE": {
+      "binding": {
+        "config": {
+          "expression": "toint(({view.custom.Day_Data.OEE_Day.Quality} * {view.custom.Day_Data.OEE_Day.Availability} *{view.custom.Day_Data.OEE_Day.Performance})/10000)"
+        },
+        "type": "expr"
+      }
+    },
+    "custom.Day_Data.OEE_Day.Performance": {
+      "binding": {
+        "config": {
+          "expression": "toint({view.custom.Day_Data.dayProductionData.complete}/{view.custom.Day_Data.dayProductionData.target}*100)"
+        },
+        "type": "expr"
+      }
+    },
+    "custom.Day_Data.TotalProductionTime": {
+      "binding": {
+        "config": {
+          "expression": "({view.custom.TotalShiftTime}*3)-(90*3)"
+        },
+        "type": "expr"
+      }
+    },
+    "custom.Day_Data.UnplannedDT": {
+      "binding": {
+        "config": {
+          "path": "view.custom.Day_Data.unplannedDtMin"
+        },
+        "transforms": [
+          {
+            "code": "\tif value \u003e 0:\n\t\tseconds \u003d value * 60\n\t\thours \u003d seconds // 3600\n\t\tminutes \u003d (seconds % 3600) // 60\n\t\tsecs \u003d seconds % 60\n\t\treturn \"%02d:%02d:%02d\" % (hours, minutes, secs)\n\telse:\n\t\treturn \u002700:00:00\u0027",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      }
+    },
+    "custom.Day_Data.dayProductionData": {
+      "binding": {
+        "config": {
+          "parameters": {
+            "EndTime": "{view.custom.Day_Data.DayTimes.end}",
+            "MachineID": "{view.custom.selectedMachine}",
+            "StartTime": "{view.custom.Day_Data.DayTimes.start}"
+          },
+          "queryPath": "OEE_Dashboard/getProductionData",
+          "returnFormat": "json"
+        },
+        "transforms": [
+          {
+            "code": "\tcoilStarted \u003d 0\n\tcoilInProcess \u003d 0\n\tcoilCompleted \u003d 0\n\ttarget \u003d 0\n\tcomplete \u003d 0\n\tfor item in value:\n\t\tif item[\"op_status\"]\u003d\u003d16:\n\t\t\tcoilCompleted \u003d coilCompleted + 1\n\t\telif item[\"op_status\"]\u003d\u003d8:\n\t\t\tcoilInProcess \u003d coilInProcess + 1\n#\t\telif item[\"op_status\"]\u003d\u003d4 and item[\"op_status\"]\u003d\u003d8 and item[\"op_status\"]\u003d\u003d32:\n\t\telif item[\"op_status\"]\u003d\u003d4 or item[\"op_status\"]\u003d\u003d32:\n\t\t\tcoilStarted \u003d coilStarted + 1\n\t\ttarget \u003d target + 1\n\t\tcomplete \u003d complete + (item[\"actual_ratio\"] if item[\"actual_ratio\"] is not None else 0)\n#\treturn earnedHours * 100\n\treturn {\"coilStarted\": coilStarted, \"coilCompleted\": coilCompleted, \"coilInProcess\": coilInProcess, \"target\": target, \"complete\": complete}",
+            "type": "script"
+          }
+        ],
+        "type": "query"
+      }
+    },
+    "custom.Day_Data.operatingTimeForDay": {
+      "binding": {
+        "config": {
+          "expression": "(({view.custom.TotalShiftTime}*3)-(90*3))-{view.custom.Day_Data.unplannedDtMin}"
+        },
+        "type": "expr"
+      }
+    },
+    "custom.Day_Data.totalTime": {
+      "binding": {
+        "config": {
+          "expression": "now(100)"
+        },
+        "transforms": [
+          {
+            "code": "\timport random\n\tval \u003d (self.custom.Day_Data.TotalProductionTime) - self.custom.Day_Data.unplannedDtMin\n#\tr \u003d random.randint(35, 65)\n#\tearnedHours \u003d ((410*3) - self.custom.Day_Data.unplannedMin) - self.custom.Data\n#\tself.custom.Day_Data.earnedHours \u003d earnedHours if earnedHours\u003e0 else 0\n#\tself.custom.Day_Data.OEE_Day.Performance \u003d int((float(self.custom.Day_Data.earnedHours)/val)*100)\n#\tself.custom.Day_Data.OEE_Day.OEE \u003d (int(self.custom.Day_Data.OEE_Day.Availability) * int(self.custom.Day_Data.OEE_Day.Quality) * int(self.custom.Day_Data.OEE_Day.Performance))/10000\n\tif val \u003c 0 or value is None:\n\t\treturn \"00:00:00\"\n\telse:\n#\t\tself.custom.Day_Data.OEE_Day.Availability \u003d int((float(val)/1230)*100)\n\t\tseconds \u003d val * 60\n\t\thr \u003d seconds/3600\n\t\tmnt \u003d (seconds % 3600)/60\n\t\tsec \u003d seconds % 60\n\t\treturn \"%02d:%02d:%02d\" % (hr, mnt, sec)",
+            "type": "script"
+          }
+        ],
+        "type": "expr"
+      }
+    },
+    "custom.Day_Data.unplannedDtMin": {
+      "binding": {
+        "config": {
+          "expression": "{view.custom.shiftDown.Shift_A.unplannedDt} + {view.custom.shiftDown.Shift_B.unplannedDt} + {view.custom.shiftDown.Shift_C.unplannedDt}"
+        },
+        "type": "expr"
+      }
+    },
+    "custom.Day_Data.unplannedMin": {
+      "binding": {
+        "config": {
+          "parameters": {
+            "EndTime": "{view.custom.Day_Data.DayTimes.end}",
+            "MachineID": "{view.custom.selectedMachine}",
+            "StartTime": "{view.custom.Day_Data.DayTimes.start}"
+          },
+          "queryPath": "OEE_Dashboard/UnplannedDowntimeInMin",
+          "returnFormat": "dataset"
+        },
+        "transforms": [
+          {
+            "code": "\treturn value[0][0] if value is not None and len(value)\u003e0 else 0",
+            "type": "script"
+          }
+        ],
+        "type": "query"
+      }
+    },
+    "custom.IdealVsActual": {
+      "binding": {
+        "config": {
+          "parameters": {
+            "Day": "{view.custom.selected}",
+            "Shift": "{/root/FlexContainer/EmbeddedView_0.props.params.shift}"
+          },
+          "queryPath": "OEE_Dashboard/IdealVsActualCT",
+          "returnFormat": "json"
+        },
+        "enabled": false,
+        "type": "query"
+      },
+      "persistent": true
+    },
+    "custom.OEE": {
+      "persistent": true
+    },
+    "custom.OEE.Availability": {
+      "binding": {
+        "config": {
+          "expression": "coalesce(toInt(({view.custom.operatingTime_shift}/{view.custom.TotalProdTime_min})*100),0)"
+        },
+        "type": "expr"
+      }
+    },
+    "custom.OEE.OEE": {
+      "binding": {
+        "config": {
+          "expression": "toint(({view.custom.OEE.Quality}*{view.custom.OEE.Availability}*{view.custom.OEE.p})/10000)"
+        },
+        "type": "expr"
+      }
+    },
+    "custom.OEE.Performance": {
+      "binding": {
+        "config": {
+          "expression": "toint({view.custom.productionData.Data.complete}/{view.custom.productionData.Data.target} * 100)"
+        },
+        "type": "expr"
+      }
+    },
+    "custom.OEE.p": {
+      "binding": {
+        "config": {
+          "struct": {
+            "endTime": "{view.custom.shiftDetails.end}",
+            "machineid": "{view.custom.selectedMachine}",
+            "startTime": "{view.custom.shiftDetails.start}"
+          },
+          "waitOnAll": true
+        },
+        "transforms": [
+          {
+            "code": "#\treturn supervisor.oee.getIdealVsActualData(value[\"startTime\"], value[\"endTime\"], value[\"machineid\"])\n\tval \u003d int(supervisor.oee.getPerformance(value[\"startTime\"], value[\"endTime\"], value[\"machineid\"]))\n\treturn val if val \u003c\u003d 100 else 100",
+            "type": "script"
+          }
+        ],
+        "type": "expr-struct"
+      }
+    },
+    "custom.ProductionCounts": {
+      "persistent": true
+    },
+    "custom.Top20Dt": {
+      "binding": {
+        "config": {
+          "parameters": {
+            "EndTime": "{view.custom.shiftDetails.end}",
+            "MachineID": "{view.custom.selectedMachine}",
+            "StartTime": "{view.custom.shiftDetails.start}"
+          },
+          "queryPath": "OEE_Dashboard/Top_20_Downtime",
+          "returnFormat": "dataset"
+        },
+        "transforms": [
+          {
+            "code": "\timport random\n\ttry:\n\t\tdata \u003d []\n\t\tfor row in value:\n\t\t    row_dict \u003d {}\n\t\t    for col in value.getColumnNames():\n\t\t        row_dict[col] \u003d row[col]\n\t\t    data.append(row_dict)\n\t\t\n\t\t# Now this works\n\t\tkeys \u003d data[0].keys()\n\t\tlst \u003d []\n\t\t\n\t\tfor i in keys:\n\t\t\tcol \u003d {\n\t\t\t  \"field\": i,\n\t\t\t  \"render\": \"auto\" if i !\u003d \"StartTime\" or i !\u003d\u0027EndTime\u0027 else date,\n\t\t\t  \"justify\": \"center\",\n\t\t\t  \"align\": \"center\",\n\t\t\t  \"header\": {\n\t\t\t    \"title\": i,\n\t\t\t    \"justify\": \"center\",\n\t\t\t    \"align\": \"center\",\n\t\t\t    \"style\": {\n\t\t\t      \"classes\": \"\"\n\t\t\t    }\n\t\t\t  }\n\t\t\t}\n\t\t\tlst.append(col)\n\t\tself.custom.cols \u003d lst if len(lst)\u003e0 else []\n\t\tfor row in range(value.rowCount):\n\t\t\tr \u003d random.randint(0,14)\n\t\t\tvalue \u003d system.dataset.setValue(value, row, \u0027Remarks\u0027, self.custom.reasons[r].ReasonName)\n\t\treturn value\n\texcept:\n\t\tpass\n\t",
+            "type": "script"
+          }
+        ],
+        "type": "query"
+      },
+      "persistent": true
+    },
+    "custom.TotalProdTime_min": {
+      "binding": {
+        "config": {
+          "expression": "{view.custom.TotalShiftTime}-90"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.TotalShiftTime": {
+      "persistent": true
+    },
+    "custom.autoMode": {
+      "binding": {
+        "config": {
+          "expression": "now(300)"
+        },
+        "transforms": [
+          {
+            "code": "\timport time\n\ttime.sleep(0.5)\n\tstartdate \u003d self.custom.shiftDetails.start\n\tenddate   \u003d self.custom.shiftDetails.end\n\tmachine_id \u003d self.custom.selectedMachine\n#\treturn supervisor.machine.getBooleanTagDuration(machine_id, startdate, enddate)\n\tautoTime \u003d int(supervisor.machine.getBooleanTagDuration(machine_id, startdate, enddate)[\"on_minutes\"])\n\ttotalTime \u003d self.custom.TotalShiftTime\n\tautoPercent \u003d float(autoTime)/float(totalTime) * 100\n\treturn  int(autoPercent)",
+            "type": "script"
+          }
+        ],
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.cols": {
+      "persistent": true
+    },
+    "custom.earnedHours": {
+      "persistent": true
+    },
+    "custom.operatingTime_shift": {
+      "binding": {
+        "config": {
+          "expression": "({view.custom.TotalShiftTime})-90-{view.custom.unplannedDTMin}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.productionData": {
+      "persistent": true
+    },
+    "custom.productionData.AutoModeTime": {
+      "binding": {
+        "config": {
+          "expression": "now(300)"
+        },
+        "transforms": [
+          {
+            "code": "\tstartdate \u003d self.custom.shiftDetails.start\n\tenddate   \u003d self.custom.shiftDetails.end\n\tmachine_id \u003d self.custom.selectedMachine\n#\treturn supervisor.machine.getBooleanTagDuration(machine_id, startdate, enddate)\n\tautoTime \u003d int(supervisor.machine.getBooleanTagDuration(machine_id, startdate, enddate)[\"on_minutes\"])\n\ttotalTime \u003d self.custom.TotalShiftTime\n\tautoPercent \u003d float(autoTime)/float(totalTime) * 100\n\treturn int(autoPercent)",
+            "type": "script"
+          }
+        ],
+        "type": "expr"
+      }
+    },
+    "custom.productionData.Data": {
+      "binding": {
+        "config": {
+          "parameters": {
+            "EndTime": "{view.custom.shiftDetails.end}",
+            "MachineID": "{view.custom.selectedMachine}",
+            "StartTime": "{view.custom.shiftDetails.start}"
+          },
+          "queryPath": "OEE_Dashboard/getProductionData",
+          "returnFormat": "json"
+        },
+        "transforms": [
+          {
+            "code": "\tcoilStarted \u003d 0\n\tcoilInProcess \u003d 0\n\tcoilCompleted \u003d 0\n\ttarget \u003d 0\n\tcomplete \u003d 0\n\tfor item in value:\n\t\tif item[\"op_status\"]\u003d\u003d16:\n\t\t\tcoilCompleted \u003d coilCompleted + 1\n\t\telif item[\"op_status\"]\u003d\u003d4:\n\t\t\tcoilInProcess \u003d coilInProcess + 1\n\t\tstart \u003d system.date.fromMillis(item[\"actual_start\"]) \n\t\tif system.date.isBetween(start, self.custom.shiftDetails.start, self.custom.shiftDetails.end):\n\t\t\tcoilStarted \u003d coilStarted + 1\n\t\ttarget \u003d target + 1\n\t\tcomplete \u003d complete + (item[\"actual_ratio\"] if item[\"actual_ratio\"] is not None else 0)\n#\treturn earnedHours * 100\n\treturn {\"coilStarted\": coilStarted, \"coilCompleted\": coilCompleted, \"coilInProcess\": coilInProcess, \"target\": target, \"complete\": complete}",
+            "type": "script"
+          }
+        ],
+        "type": "query"
+      }
+    },
+    "custom.reasons": {
+      "binding": {
+        "config": {
+          "queryPath": "OEE_Dashboard/getAllReason",
+          "returnFormat": "json"
+        },
+        "type": "query"
+      },
+      "persistent": true
+    },
+    "custom.refresh": {
+      "persistent": true
+    },
+    "custom.selected": {
+      "binding": {
+        "config": {
+          "path": "/root/FlexContainer/EmbeddedView.props.params.SelectedDate"
+        },
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.selectedLine": {
+      "binding": {
+        "config": {
+          "path": "/root/FlexContainer/EmbeddedView_1.props.params.SelectedLine"
+        },
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.selectedMachine": {
+      "binding": {
+        "config": {
+          "path": "/root/FlexContainer/EmbeddedView_1.props.params.SelectedMachine"
+        },
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.shift": {
+      "binding": {
+        "config": {
+          "path": "/root/FlexContainer/EmbeddedView_0.props.params.shift"
+        },
+        "transforms": [
+          {
+            "fallback": 1,
+            "inputType": "scalar",
+            "mappings": [
+              {
+                "input": "A",
+                "output": 1
+              },
+              {
+                "input": "B",
+                "output": 2
+              },
+              {
+                "input": "C",
+                "output": 3
+              }
+            ],
+            "outputType": "scalar",
+            "type": "map"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.shiftDetails": {
+      "binding": {
+        "config": {
+          "parameters": {
+            "shift": "{view.custom.shift}"
+          },
+          "queryPath": "OEE_Dashboard/shiftTimes",
+          "returnFormat": "json"
+        },
+        "transforms": [
+          {
+            "code": "\tday \u003d system.date.format(self.custom.selected, \"yyyy-MM-dd\")\n\tstartDateTime \u003d str(day + \" \"  +value[0][\"StartTime\"])\n\tendDateTime \u003d str(day + \" \" + value[0][\"EndTime\"])\n\treturn {\"start\": system.date.parse(startDateTime, \"yyyy-MM-dd HH:mm:ss\"), \n\t\t\t\"end\": system.date.parse(endDateTime, \"yyyy-MM-dd HH:mm:ss\")} if self.custom.shift !\u003d 3 else {\"end\": system.date.parse(endDateTime, \"yyyy-MM-dd HH:mm:ss\"), \"start\": system.date.addDays(system.date.parse(startDateTime, \"yyyy-MM-dd HH:mm:ss\"), -1)}",
+            "type": "script"
+          }
+        ],
+        "type": "query"
+      },
+      "persistent": true
+    },
+    "custom.shiftDown": {
+      "persistent": true
+    },
+    "custom.shiftDown.Shift_A.time": {
+      "binding": {
+        "config": {
+          "parameters": {
+            "shift": "{view.custom.shiftDown.Shift_A.shiftId}"
+          },
+          "queryPath": "OEE_Dashboard/shiftTimes",
+          "returnFormat": "json"
+        },
+        "type": "query"
+      }
+    },
+    "custom.shiftDown.Shift_A.times": {
+      "binding": {
+        "config": {
+          "path": "view.custom.selected"
+        },
+        "transforms": [
+          {
+            "code": "\tshift \u003d self.custom.shiftDown.Shift_A.shiftId\n\tday \u003d system.date.format(value, \"yyyy-MM-dd\")\n\tstartDateTime \u003d str(day + \" \"  + self.custom.shiftDown.Shift_A.time[0].StartTime)\n\tendDateTime \u003d str(day + \" \" + self.custom.shiftDown.Shift_A.time[0].EndTime)\n\treturn {\"start\": system.date.parse(startDateTime, \"yyyy-MM-dd HH:mm:ss\"), \n\t\t\t\"end\": system.date.parse(endDateTime, \"yyyy-MM-dd HH:mm:ss\")} if shift !\u003d 3 else {\"end\": system.date.parse(endDateTime, \"yyyy-MM-dd HH:mm:ss\"), \"start\": system.date.addDays(system.date.parse(startDateTime, \"yyyy-MM-dd HH:mm:ss\"), -1)}",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      }
+    },
+    "custom.shiftDown.Shift_A.unplannedDt": {
+      "binding": {
+        "config": {
+          "parameters": {
+            "EndTime": "{view.custom.shiftDown.Shift_A.times.end}",
+            "MachineID": "{view.custom.selectedMachine}",
+            "StartTime": "{view.custom.shiftDown.Shift_A.times.start}"
+          },
+          "queryPath": "OEE_Dashboard/AllDowntime",
+          "returnFormat": "json"
+        },
+        "transforms": [
+          {
+            "code": "\tunplannedDt \u003d 0\n\tplannedDt \u003d 0\n\tlunchdt \u003d 0\n\tbreakdt \u003d 0\n\tfor item in value:\n\t\tif item[\"ReasonID\"] not in (8,9):\n\t\t\tunplannedDt \u003d unplannedDt + item[\"ShiftDurationMinutes\"] if item[\"ShiftDurationMinutes\"] is not None else unplannedDt\n\t\tif item[\"ReasonID\"] \u003d\u003d (9):\n\t\t\tlunchdt \u003d lunchdt + item[\"ShiftDurationMinutes\"] if item[\"ShiftDurationMinutes\"] is not None else lunchdt\n\t\tif item[\"ReasonID\"] \u003d\u003d (8):\n\t\t\tbreakdt \u003d breakdt + item[\"ShiftDurationMinutes\"] if item[\"ShiftDurationMinutes\"] is not None else breakdt\n\tbreaks \u003d 0 if breakdt\u003c\u003d60 else breakdt-60\n\tlunch \u003d 0 if lunchdt\u003c\u003d30 else lunchdt-30\n\treturn unplannedDt + breaks + lunch if unplannedDt + breaks + lunch \u003c\u003d390 else 390",
+            "type": "script"
+          }
+        ],
+        "type": "query"
+      }
+    },
+    "custom.shiftDown.Shift_B.time": {
+      "binding": {
+        "config": {
+          "parameters": {
+            "shift": "{view.custom.shiftDown.Shift_B.shiftId}"
+          },
+          "queryPath": "OEE_Dashboard/shiftTimes",
+          "returnFormat": "json"
+        },
+        "type": "query"
+      }
+    },
+    "custom.shiftDown.Shift_B.times": {
+      "binding": {
+        "config": {
+          "path": "view.custom.selected"
+        },
+        "transforms": [
+          {
+            "code": "\tshift \u003d self.custom.shiftDown.Shift_B.shiftId\n\tday \u003d system.date.format(value, \"yyyy-MM-dd\")\n\tstartDateTime \u003d str(day + \" \"  + self.custom.shiftDown.Shift_B.time[0].StartTime)\n\tendDateTime \u003d str(day + \" \" + self.custom.shiftDown.Shift_B.time[0].EndTime)\n\treturn {\"start\": system.date.parse(startDateTime, \"yyyy-MM-dd HH:mm:ss\"), \n\t\t\t\"end\": system.date.parse(endDateTime, \"yyyy-MM-dd HH:mm:ss\")} if shift !\u003d 3 else {\"end\": system.date.parse(endDateTime, \"yyyy-MM-dd HH:mm:ss\"), \"start\": system.date.addDays(system.date.parse(startDateTime, \"yyyy-MM-dd HH:mm:ss\"), -1)}",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      }
+    },
+    "custom.shiftDown.Shift_B.unplannedDt": {
+      "binding": {
+        "config": {
+          "parameters": {
+            "EndTime": "{view.custom.shiftDown.Shift_B.times.end}",
+            "MachineID": "{view.custom.selectedMachine}",
+            "StartTime": "{view.custom.shiftDown.Shift_B.times.start}"
+          },
+          "queryPath": "OEE_Dashboard/AllDowntime",
+          "returnFormat": "json"
+        },
+        "transforms": [
+          {
+            "code": "\tunplannedDt \u003d 0\n\tplannedDt \u003d 0\n\tlunchdt \u003d 0\n\tbreakdt \u003d 0\n\tfor item in value:\n\t\tif item[\"ReasonID\"] not in (8,9):\n\t\t\tunplannedDt \u003d unplannedDt + item[\"ShiftDurationMinutes\"] if item[\"ShiftDurationMinutes\"] is not None else unplannedDt\n\t\tif item[\"ReasonID\"] \u003d\u003d (9):\n\t\t\tlunchdt \u003d lunchdt + item[\"ShiftDurationMinutes\"] if item[\"ShiftDurationMinutes\"] is not None else lunchdt\n\t\tif item[\"ReasonID\"] \u003d\u003d (8):\n\t\t\tbreakdt \u003d breakdt + item[\"ShiftDurationMinutes\"] if item[\"ShiftDurationMinutes\"] is not None else breakdt\n\tbreaks \u003d 0 if breakdt\u003c\u003d60 else breakdt-60\n\tlunch \u003d 0 if lunchdt\u003c\u003d30 else lunchdt-30\n\treturn unplannedDt + breaks + lunch if unplannedDt + breaks + lunch \u003c\u003d390 else 390",
+            "type": "script"
+          }
+        ],
+        "type": "query"
+      }
+    },
+    "custom.shiftDown.Shift_C.time": {
+      "binding": {
+        "config": {
+          "parameters": {
+            "shift": "{view.custom.shiftDown.Shift_C.shiftId}"
+          },
+          "queryPath": "OEE_Dashboard/shiftTimes",
+          "returnFormat": "json"
+        },
+        "type": "query"
+      }
+    },
+    "custom.shiftDown.Shift_C.times": {
+      "binding": {
+        "config": {
+          "path": "view.custom.selected"
+        },
+        "transforms": [
+          {
+            "code": "\tshift \u003d self.custom.shiftDown.Shift_C.shiftId\n\tday \u003d system.date.format(value, \"yyyy-MM-dd\")\n\tstartDateTime \u003d str(day + \" \"  + self.custom.shiftDown.Shift_C.time[0].StartTime)\n\tendDateTime \u003d str(day + \" \" + self.custom.shiftDown.Shift_C.time[0].EndTime)\n\treturn {\"start\": system.date.parse(startDateTime, \"yyyy-MM-dd HH:mm:ss\"), \n\t\t\t\"end\": system.date.parse(endDateTime, \"yyyy-MM-dd HH:mm:ss\")} if shift !\u003d 3 else {\"end\": system.date.parse(endDateTime, \"yyyy-MM-dd HH:mm:ss\"), \"start\": system.date.addDays(system.date.parse(startDateTime, \"yyyy-MM-dd HH:mm:ss\"), -1)}",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      }
+    },
+    "custom.shiftDown.Shift_C.unplannedDt": {
+      "binding": {
+        "config": {
+          "parameters": {
+            "EndTime": "{view.custom.shiftDown.Shift_C.times.end}",
+            "MachineID": "{view.custom.selectedMachine}",
+            "StartTime": "{view.custom.shiftDown.Shift_C.times.start}"
+          },
+          "queryPath": "OEE_Dashboard/AllDowntime",
+          "returnFormat": "json"
+        },
+        "transforms": [
+          {
+            "code": "\tunplannedDt \u003d 0\n\tplannedDt \u003d 0\n\tlunchdt \u003d 0\n\tbreakdt \u003d 0\n\tfor item in value:\n\t\tif item[\"ReasonID\"] not in (8,9):\n\t\t\tunplannedDt \u003d unplannedDt + item[\"ShiftDurationMinutes\"] if item[\"ShiftDurationMinutes\"] is not None else unplannedDt\n\t\tif item[\"ReasonID\"] \u003d\u003d (9):\n\t\t\tlunchdt \u003d lunchdt + item[\"ShiftDurationMinutes\"] if item[\"ShiftDurationMinutes\"] is not None else lunchdt\n\t\tif item[\"ReasonID\"] \u003d\u003d (8):\n\t\t\tbreakdt \u003d breakdt + item[\"ShiftDurationMinutes\"] if item[\"ShiftDurationMinutes\"] is not None else breakdt\n\tbreaks \u003d 0 if breakdt\u003c\u003d60 else breakdt-60\n\tlunch \u003d 0 if lunchdt\u003c\u003d30 else lunchdt-30\n\treturn unplannedDt + breaks + lunch if unplannedDt + breaks + lunch \u003c\u003d390 else 390",
+            "type": "script"
+          }
+        ],
+        "type": "query"
+      }
+    },
+    "custom.totalProductionTime": {
+      "binding": {
+        "config": {
+          "expression": "coalesce(({view.custom.TotalShiftTime}-90)-{view.custom.unplannedDTMin}, 0)"
+        },
+        "transforms": [
+          {
+            "code": "#\treturn value\n\timport random\n\tval \u003d value\n#\tearnedHours \u003d (410 - self.custom.unplannedMinutes) - self.custom.Data\n#\tself.custom.earnedHours \u003d earnedHours if earnedHours\u003e0 else 0\n#\tself.custom.OEE.Performance \u003d int((float(self.custom.earnedHours)/val)*100)\n#\tself.custom.OEE.OEE \u003d (self.custom.OEE.Availability * self.custom.OEE.Quality * self.custom.OEE.Performance)/10000\n\t\n\tif val \u003c 0 or value is None:\n\t\treturn \"00:00:00\"\n\telse:\n#\t\tself.custom.OEE.Availability \u003d int((float(val)/410)*100)\n\t\t\n\t\tseconds \u003d val * 60\n\t\thr \u003d seconds/3600\n\t\tmnt \u003d (seconds % 3600)/60\n\t\tsec \u003d seconds % 60\n\t\treturn \"%02d:%02d:%02d\" % (hr, mnt, sec)",
+            "type": "script"
+          }
+        ],
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.unplannedDTMin": {
+      "binding": {
+        "config": {
+          "parameters": {
+            "EndTime": "{view.custom.shiftDetails.end}",
+            "MachineID": "{view.custom.selectedMachine}",
+            "StartTime": "{view.custom.shiftDetails.start}"
+          },
+          "queryPath": "OEE_Dashboard/AllDowntime",
+          "returnFormat": "json"
+        },
+        "transforms": [
+          {
+            "code": "\tunplannedDt \u003d 0\n\tplannedDt \u003d 0\n\tlunchdt \u003d 0\n\tbreakdt \u003d 0\n\tfor item in value:\n\t\tif item[\"ReasonID\"] not in (8,9):\n\t\t\tunplannedDt \u003d unplannedDt + item[\"ShiftDurationMinutes\"] if item[\"ShiftDurationMinutes\"] is not None else unplannedDt\n\t\tif item[\"ReasonID\"] \u003d\u003d (9):\n\t\t\tlunchdt \u003d lunchdt + item[\"ShiftDurationMinutes\"] if item[\"ShiftDurationMinutes\"] is not None else lunchdt\n\t\tif item[\"ReasonID\"] \u003d\u003d (8):\n\t\t\tbreakdt \u003d breakdt + item[\"ShiftDurationMinutes\"] if item[\"ShiftDurationMinutes\"] is not None else breakdt\n\tbreaks \u003d 0 if breakdt\u003c\u003d60 else breakdt-60\n\tlunch \u003d 0 if lunchdt\u003c\u003d30 else lunchdt-30\n\treturn unplannedDt + breaks + lunch if unplannedDt + breaks + lunch \u003c\u003d390 else 390",
+            "type": "script"
+          }
+        ],
+        "type": "query"
+      },
+      "persistent": true
+    },
+    "custom.unplannedMinutes1": {
+      "binding": {
+        "config": {
+          "parameters": {
+            "EndTime": "{view.custom.shiftDetails.end}",
+            "MachineID": "{view.custom.selectedMachine}",
+            "StartTime": "{view.custom.shiftDetails.start}"
+          },
+          "queryPath": "OEE_Dashboard/UnplannedDowntimeInMin",
+          "returnFormat": "dataset"
+        },
+        "transforms": [
+          {
+            "code": "\tval \u003d value[0][0] if len(value)\u003e0 else 0\n\treturn val if val\u003c 390 else 390",
+            "type": "script"
+          }
+        ],
+        "type": "query"
+      },
+      "persistent": true
+    },
+    "custom.uplannedDowntime": {
+      "binding": {
+        "config": {
+          "path": "view.custom.unplannedDTMin"
+        },
+        "transforms": [
+          {
+            "code": "\tif value \u003e 0:\n\t\tval \u003d value if value \u003c\u003d 390 else 0\n\t\tseconds \u003d val * 60\n\t\thours \u003d seconds // 3600\n\t\tminutes \u003d (seconds % 3600) // 60\n\t\tsecs \u003d seconds % 60\n\t\treturn \"%02d:%02d:%02d\" % (hours, minutes, secs)\n\telse:\n\t\treturn \u002700:00:00\u0027\n\t",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "width": 1297
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "EmbeddedView"
+            },
+            "position": {
+              "grow": 1
+            },
+            "props": {
+              "params": {
+                "SelectedDate": {
+                  "$": [
+                    "ts",
+                    192,
+                    1779345576492
+                  ],
+                  "$ts": 1779345576344
+                }
+              },
+              "path": "Project/Dashboards/OEE/Components/Headers/components/Select Date",
+              "style": {
+                "backgroundColor": "--neutral-10"
+              }
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "EmbeddedView_0"
+            },
+            "position": {
+              "grow": 1
+            },
+            "props": {
+              "params": {
+                "shift": "B"
+              },
+              "path": "Project/Dashboards/OEE/Components/Headers/components/Select Shift",
+              "style": {
+                "backgroundColor": "--neutral-10"
+              }
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "EmbeddedView_1"
+            },
+            "position": {
+              "grow": 1
+            },
+            "props": {
+              "params": {
+                "SelectedLine": 1,
+                "SelectedMachine": 1
+              },
+              "path": "Project/Dashboards/OEE/Components/Headers/components/Select Line-Machine",
+              "style": {
+                "backgroundColor": "--neutral-10"
+              }
+            },
+            "type": "ia.display.view"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "55px"
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "--neutral-10",
+            "borderColor": "#808080",
+            "borderStyle": "solid",
+            "borderWidth": "1px",
+            "marginLeft": "5px",
+            "marginRight": "5px",
+            "marginTop": "5px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "EmbeddedView"
+                    },
+                    "position": {
+                      "basis": "320px",
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.params.Availability": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.OEE.Availability"
+                          },
+                          "type": "property"
+                        }
+                      },
+                      "props.params.OEE": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.OEE.OEE"
+                          },
+                          "type": "property"
+                        }
+                      },
+                      "props.params.Performance": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.OEE.p"
+                          },
+                          "type": "property"
+                        }
+                      },
+                      "props.params.Quality": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.OEE.Quality"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "path": "Project/Dashboards_New/OEE/Components/OEE Parameter/OEE Main"
+                    },
+                    "type": "ia.display.view"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer"
+                },
+                "position": {
+                  "basis": "200px",
+                  "grow": 1
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "EmbeddedView"
+                    },
+                    "position": {
+                      "basis": "320px",
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.params.autoMode": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.autoMode"
+                          },
+                          "type": "property"
+                        }
+                      },
+                      "props.params.coilCompleted": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.productionData.Data.coilCompleted"
+                          },
+                          "type": "property"
+                        }
+                      },
+                      "props.params.coilInProgress": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.productionData.Data.coilInProcess"
+                          },
+                          "type": "property"
+                        }
+                      },
+                      "props.params.coilStarted": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.productionData.Data.coilStarted"
+                          },
+                          "type": "property"
+                        }
+                      },
+                      "props.params.productionTime": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.totalProductionTime"
+                          },
+                          "type": "property"
+                        }
+                      },
+                      "props.params.unplannedDT": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.uplannedDowntime"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "params": {
+                        "hide": false
+                      },
+                      "path": "Project/Dashboards_New/OEE/Components/KPI"
+                    },
+                    "type": "ia.display.view"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer_1"
+                },
+                "position": {
+                  "basis": "200px",
+                  "grow": 1
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer"
+            },
+            "position": {
+              "basis": "175px"
+            },
+            "props": {
+              "style": {
+                "backgroundColor": "--neutral-30",
+                "borderBottomLeftRadius": "10px",
+                "borderBottomRightRadius": "10px",
+                "borderLeftColor": "--info",
+                "borderLeftStyle": "solid",
+                "borderLeftWidth": "5px",
+                "borderTopLeftRadius": "10px",
+                "borderTopRightRadius": "10px",
+                "margin": "10px",
+                "padding": "5px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "EmbeddedView"
+                        },
+                        "position": {
+                          "grow": 1
+                        },
+                        "propConfig": {
+                          "props.params.day": {
+                            "binding": {
+                              "config": {
+                                "path": "view.custom.selected"
+                              },
+                              "type": "property"
+                            }
+                          },
+                          "props.params.machine": {
+                            "binding": {
+                              "config": {
+                                "path": "view.custom.selectedMachine"
+                              },
+                              "type": "property"
+                            }
+                          },
+                          "props.params.shift": {
+                            "binding": {
+                              "config": {
+                                "path": "view.custom.shift"
+                              },
+                              "type": "property"
+                            }
+                          }
+                        },
+                        "props": {
+                          "path": "Project/Dashboards_New/OEE/Components/Pareto Chart",
+                          "style": {
+                            "backgroundColor": "--neutral-10",
+                            "borderBottomLeftRadius": "10px",
+                            "borderBottomRightRadius": "10px",
+                            "borderTopLeftRadius": "10px",
+                            "borderTopRightRadius": "10px",
+                            "marginLeft": "5px",
+                            "marginRight": "3px",
+                            "marginTop": "0px",
+                            "overflow": "hidden"
+                          }
+                        },
+                        "type": "ia.display.view"
+                      }
+                    ],
+                    "meta": {
+                      "name": "FlexContainer"
+                    },
+                    "position": {
+                      "basis": "200px",
+                      "grow": 1
+                    },
+                    "type": "ia.container.flex"
+                  },
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "EmbeddedView"
+                        },
+                        "position": {
+                          "grow": 1
+                        },
+                        "propConfig": {
+                          "props.params.date": {
+                            "binding": {
+                              "config": {
+                                "path": "view.custom.selected"
+                              },
+                              "type": "property"
+                            }
+                          },
+                          "props.params.machine": {
+                            "binding": {
+                              "config": {
+                                "path": "view.custom.selectedMachine"
+                              },
+                              "type": "property"
+                            }
+                          },
+                          "props.params.shift": {
+                            "binding": {
+                              "config": {
+                                "path": "view.custom.shift"
+                              },
+                              "type": "property"
+                            }
+                          }
+                        },
+                        "props": {
+                          "path": "Project/Dashboards_New/OEE/Components/Ideal vs Actual CT",
+                          "style": {
+                            "backgroundColor": "--neutral-10",
+                            "borderBottomLeftRadius": "10px",
+                            "borderBottomRightRadius": "10px",
+                            "borderTopLeftRadius": "10px",
+                            "borderTopRightRadius": "10px",
+                            "marginRight": "5px",
+                            "marginTop": "0px",
+                            "overflow": "hidden"
+                          }
+                        },
+                        "type": "ia.display.view"
+                      }
+                    ],
+                    "meta": {
+                      "name": "FlexContainer_0"
+                    },
+                    "position": {
+                      "basis": "200px",
+                      "grow": 1
+                    },
+                    "props": {
+                      "style": {
+                        "borderBottomLeftRadius": "10px",
+                        "borderBottomRightRadius": "10px",
+                        "borderTopLeftRadius": "10px",
+                        "borderTopRightRadius": "10px",
+                        "marginLeft": "4px"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer_0"
+                },
+                "position": {
+                  "basis": "200px",
+                  "grow": 1
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "Label"
+                        },
+                        "position": {
+                          "basis": "32px"
+                        },
+                        "props": {
+                          "style": {
+                            "backgroundColor": "--neutral-20",
+                            "borderBottomLeftRadius": "0px",
+                            "borderBottomRightRadius": "0px",
+                            "borderTopLeftRadius": "10px",
+                            "borderTopRightRadius": "10px",
+                            "textAlign": "center"
+                          },
+                          "text": "DAILY OEE PERFORMANCE OVERVIEW",
+                          "textStyle": {
+                            "fontFamily": "verdana",
+                            "fontSize": "20px",
+                            "textTransform": "uppercase"
+                          }
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "meta": {
+                          "name": "EmbeddedView"
+                        },
+                        "position": {
+                          "grow": 1
+                        },
+                        "propConfig": {
+                          "props.params.Availability": {
+                            "binding": {
+                              "config": {
+                                "path": "view.custom.Day_Data.OEE_Day.Availability"
+                              },
+                              "type": "property"
+                            }
+                          },
+                          "props.params.OEE": {
+                            "binding": {
+                              "config": {
+                                "path": "view.custom.Day_Data.OEE_Day.OEE"
+                              },
+                              "type": "property"
+                            }
+                          },
+                          "props.params.Performance": {
+                            "binding": {
+                              "config": {
+                                "path": "view.custom.Day_Data.OEE_Day.Performance"
+                              },
+                              "type": "property"
+                            }
+                          },
+                          "props.params.Quality": {
+                            "binding": {
+                              "config": {
+                                "path": "view.custom.Day_Data.OEE_Day.Quality"
+                              },
+                              "type": "property"
+                            }
+                          }
+                        },
+                        "props": {
+                          "path": "Project/Dashboards_New/OEE/Components/OEE Parameter/OEE Main",
+                          "style": {
+                            "borderBottomLeftRadius": "10px",
+                            "borderBottomRightRadius": "10px",
+                            "borderTopLeftRadius": "0px",
+                            "borderTopRightRadius": "0px",
+                            "margin-bottom": "2px",
+                            "marginLeft": "5px",
+                            "marginRight": "5px",
+                            "marginTop": "0px",
+                            "overflow": "hidden"
+                          }
+                        },
+                        "type": "ia.display.view"
+                      },
+                      {
+                        "meta": {
+                          "name": "EmbeddedView_0"
+                        },
+                        "position": {
+                          "grow": 1
+                        },
+                        "propConfig": {
+                          "props.params.productionTime": {
+                            "binding": {
+                              "config": {
+                                "path": "view.custom.Day_Data.totalTime"
+                              },
+                              "type": "property"
+                            }
+                          },
+                          "props.params.unplannedDT": {
+                            "binding": {
+                              "config": {
+                                "path": "view.custom.Day_Data.UnplannedDT"
+                              },
+                              "type": "property"
+                            }
+                          }
+                        },
+                        "props": {
+                          "params": {
+                            "hide": true
+                          },
+                          "path": "Project/Dashboards_New/OEE/Components/KPI",
+                          "style": {
+                            "borderBottomLeftRadius": "10px",
+                            "borderBottomRightRadius": "10px",
+                            "borderTopLeftRadius": "10px",
+                            "borderTopRightRadius": "10px",
+                            "marginLeft": "5px",
+                            "marginRight": "5px",
+                            "marginTop": "0px",
+                            "overflow": "hidden"
+                          }
+                        },
+                        "type": "ia.display.view"
+                      }
+                    ],
+                    "meta": {
+                      "name": "FlexContainer"
+                    },
+                    "position": {
+                      "basis": "190px",
+                      "grow": 1
+                    },
+                    "props": {
+                      "direction": "column",
+                      "style": {
+                        "borderBottomLeftRadius": "10px",
+                        "borderBottomRightRadius": "10px",
+                        "borderTopColor": "--info",
+                        "borderTopLeftRadius": "10px",
+                        "borderTopRightRadius": "10px",
+                        "borderTopStyle": "solid",
+                        "marginLeft": "5px",
+                        "marginRight": "5px",
+                        "marginTop": "5px"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  },
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "EmbeddedView"
+                        },
+                        "position": {
+                          "grow": 1
+                        },
+                        "propConfig": {
+                          "props.params.cols": {
+                            "binding": {
+                              "config": {
+                                "path": "view.custom.cols"
+                              },
+                              "type": "property"
+                            }
+                          },
+                          "props.params.data": {
+                            "binding": {
+                              "config": {
+                                "path": "view.custom.Top20Dt"
+                              },
+                              "type": "property"
+                            }
+                          },
+                          "props.params.date": {
+                            "binding": {
+                              "config": {
+                                "path": "view.custom.selected"
+                              },
+                              "type": "property"
+                            }
+                          },
+                          "props.params.machine": {
+                            "binding": {
+                              "config": {
+                                "path": "view.custom.selectedMachine"
+                              },
+                              "type": "property"
+                            }
+                          },
+                          "props.params.shift": {
+                            "binding": {
+                              "config": {
+                                "path": "view.custom.shift"
+                              },
+                              "type": "property"
+                            }
+                          }
+                        },
+                        "props": {
+                          "path": "Project/Dashboards_New/OEE/Components/Downtime Logs",
+                          "style": {
+                            "marginRight": "5px",
+                            "marginTop": "3px",
+                            "overflow": "hidden"
+                          }
+                        },
+                        "type": "ia.display.view"
+                      }
+                    ],
+                    "meta": {
+                      "name": "FlexContainer_0"
+                    },
+                    "position": {
+                      "basis": "200px",
+                      "grow": 1
+                    },
+                    "props": {
+                      "style": {
+                        "borderBottomLeftRadius": "10px",
+                        "borderBottomRightRadius": "10px",
+                        "borderTopLeftRadius": "10px",
+                        "borderTopRightRadius": "10px"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer_1"
+                },
+                "position": {
+                  "basis": "200px",
+                  "grow": 1
+                },
+                "props": {
+                  "style": {
+                    "marginBottom": "5px"
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_0"
+            },
+            "position": {
+              "basis": "400px",
+              "grow": 1
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "backgroundColor": "--neutral-30",
+                "borderBottomLeftRadius": "10px",
+                "borderBottomRightRadius": "10px",
+                "borderLeftColor": "--warning",
+                "borderLeftStyle": "solid",
+                "borderLeftWidth": "5px",
+                "borderTopLeftRadius": "10px",
+                "borderTopRightRadius": "10px",
+                "margin": "10px",
+                "padding": "5px"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_0"
+        },
+        "position": {
+          "basis": "55px",
+          "grow": 1
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "borderBottomColor": "#808080",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": "1px"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "scripts": {
+      "customMethods": [],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "refreshBinding",
+          "pageScope": true,
+          "script": "\t# implement your handler here\n#\tpath \u003d self.view.custom.unplannedMinutes\n\tself.view.refreshBinding(\"custom.unplannedMinutes\")\n\t",
+          "sessionScope": false,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.flex"
+  }
+}

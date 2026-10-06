@@ -43,680 +43,22 @@
     ]
   },
   {
-    "name": "Project_Config",
-    "typeId": null,
-    "tagType": "UdtType",
-    "tags": [
-      {
-        "valueSource": "memory",
-        "dataType": "String",
-        "name": "PlantName",
-        "value": "Jefferson City",
-        "tagType": "AtomicTag"
-      }
-    ]
-  },
-  {
-    "name": "LineConfig",
-    "tagType": "UdtType",
-    "tags": [
-      {
-        "name": "Config",
-        "tagType": "Folder",
-        "tags": [
-          {
-            "valueSource": "memory",
-            "dataType": "Float8",
-            "documentation": "Multiply production counter by this value to get output.  ",
-            "name": "OutfeedFactor",
-            "tooltip": "Multiply production counter by this value to get output",
-            "value": 1.0,
-            "tagType": "AtomicTag"
-          },
-          {
-            "valueSource": "memory",
-            "dataType": "Float8",
-            "documentation": "Multiply reject counter by this value to get output. ",
-            "name": "RejectFactor",
-            "tooltip": "Multiply production counter by this value to get output",
-            "value": 1.0,
-            "tagType": "AtomicTag"
-          },
-          {
-            "valueSource": "memory",
-            "dataType": "String",
-            "name": "RateTime",
-            "value": "minute",
-            "tagType": "AtomicTag"
-          },
-          {
-            "valueSource": "memory",
-            "dataType": "String",
-            "name": "RateName",
-            "tooltip": "",
-            "value": "default",
-            "tagType": "AtomicTag"
-          },
-          {
-            "valueSource": "memory",
-            "dataType": "Float8",
-            "documentation": "This value represents the ideal units produced per minute.  UOM stored in engineering units field.",
-            "name": "TargetRate",
-            "tooltip": "default",
-            "value": 15.0,
-            "engUnit": "units",
-            "tagType": "AtomicTag"
-          }
-        ]
-      },
-      {
-        "name": "DayOee",
-        "typeId": "Exchange/Launchpad/Oee/OEE",
-        "tagType": "UdtInstance",
-        "tags": [
-          {
-            "valueSource": "derived",
-            "expression": "secondsBetween({[.]StartTime}, addDays({source},1))",
-            "deriveExpressionGetter": "secondsBetween({[.]StartTime}, addDays({source},1))",
-            "sourceTagPath": "[.]CurrentInterval",
-            "name": "Duration",
-            "tagType": "AtomicTag"
-          },
-          {
-            "expression": "setTime(now(500),0,0,0)",
-            "dataType": "DateTime",
-            "formatString": "yyyy-MM-dd h:mm:ss aa",
-            "name": "CurrentInterval",
-            "tagType": "AtomicTag"
-          },
-          {
-            "value": "Day",
-            "name": "IntervalType",
-            "tagType": "AtomicTag"
-          },
-          {
-            "valueSource": "reference",
-            "sourceTagPath": "[.]../Enabled",
-            "name": "Enabled",
-            "tagType": "AtomicTag"
-          }
-        ]
-      },
-      {
-        "name": "Display",
-        "tagType": "Folder",
-        "tags": [
-          {
-            "valueSource": "memory",
-            "dataType": "Boolean",
-            "name": "Performance",
-            "value": true,
-            "tagType": "AtomicTag"
-          },
-          {
-            "valueSource": "memory",
-            "dataType": "Boolean",
-            "name": "Availability",
-            "value": true,
-            "tagType": "AtomicTag"
-          },
-          {
-            "valueSource": "memory",
-            "dataType": "Boolean",
-            "name": "Quality",
-            "value": true,
-            "tagType": "AtomicTag"
-          },
-          {
-            "valueSource": "memory",
-            "dataType": "Boolean",
-            "name": "OEE",
-            "value": true,
-            "tagType": "AtomicTag"
-          }
-        ]
-      },
-      {
-        "valueSource": "memory",
-        "dataType": "Boolean",
-        "name": "Enabled",
-        "value": false,
-        "tagType": "AtomicTag"
-      },
-      {
-        "name": "HourOee",
-        "typeId": "Exchange/Launchpad/Oee/OEE",
-        "tagType": "UdtInstance",
-        "tags": [
-          {
-            "valueSource": "reference",
-            "sourceTagPath": "[.]../Enabled",
-            "name": "Enabled",
-            "tagType": "AtomicTag"
-          },
-          {
-            "valueSource": "derived",
-            "deriveExpressionGetter": "abs(secondsBetween(setTime({[.]StartTime},{source}+1,0,0), {[.]StartTime}))\r\n",
-            "sourceTagPath": "[.]../HourOee/CurrentInterval",
-            "name": "Duration",
-            "tagType": "AtomicTag"
-          }
-        ]
-      },
-      {
-        "valueSource": "expr",
-        "expression": "{InstanceName}",
-        "dataType": "String",
-        "name": "LineName",
-        "tagType": "AtomicTag"
-      },
-      {
-        "valueSource": "expr",
-        "expression": "{PathToParentFolder}",
-        "dataType": "String",
-        "name": "LinePath",
-        "tagType": "AtomicTag"
-      },
-      {
-        "name": "Plc",
-        "tagType": "Folder",
-        "tags": [
-          {
-            "valueSource": "expr",
-            "expression": "{[.]../Plc/ProductionCounter}*{[.]../Config/OutfeedFactor}",
-            "dataType": "Float8",
-            "name": "Outfeed",
-            "tagType": "AtomicTag"
-          },
-          {
-            "valueSource": "opc",
-            "opcItemPath": "",
-            "historyProvider": "launchpad-oee-historian",
-            "historyEnabled": false,
-            "name": "State",
-            "tagType": "AtomicTag",
-            "opcServer": "Ignition OPC UA Server"
-          },
-          {
-            "eventScripts": [
-              {
-                "eventid": "valueChanged",
-                "script": "\tif not initialChange:\n\t\t\n\t\tlogger \u003d system.util.getLogger(\"exchange.launchpad.oee.tagChange\")\n\t\t#adjust after counter has reset to zero\n\t\tif currentValue.value \u003d\u003d 0 and previousValue.value \u003e 0:\n\t\t\t#first get starting counts\n\t\t\tlogger.info(\"Reject counter reset\")\n\t\t\ttagReadPaths \u003d [\"[.]../HourOee/StartCounter\" , \"[.]../ShiftOee/StartCounter\", \"[.]../DayOee/StartCounter\"]\n\t\t\ttagWritePaths \u003d [\"[.]../HourOee/StartCounter\" , \"[.]../ShiftOee/StartCounter\", \"[.]../DayOee/StartCounter\"]\n\t\t\ttagValues \u003d system.tag.readBlocking(tagReadPaths)\n\t\t\t#OEE Production Count \u003d previous PLC Production Count - Starting Count\n\t\t\t#new starting count \u003d zero - OEE Production Count\n\t\t\t\n\t\t\ttagWriteValues \u003d [0- (previousValue.value - tagValues[0].value)]\t#Hour OEE\n\t\t\ttagWriteValues.append(0- (previousValue.value - tagValues[1].value))\t#Shift OEE\n\t\t\ttagWriteValues.append(0- (previousValue.value - tagValues[2].value))\t#Day OEE\n\t\t\t\n\t\t\tsystem.tag.writeBlocking(tagWritePaths, tagWriteValues)\n\t\t\t\n\t\t\t\n\t\t\t#logger.info(\"PLC Outfeed tag change.  Hour Start Counter %d ShiftPC %d, Day PC %d\" %(tagValues[1].value,tagValues[2].value,tagValues[3].value))\n\t\t\t"
-              }
-            ],
-            "valueSource": "opc",
-            "opcItemPath": "",
-            "name": "ProductionCounter",
-            "tagType": "AtomicTag",
-            "opcServer": "Ignition OPC UA Server"
-          },
-          {
-            "eventScripts": [
-              {
-                "eventid": "valueChanged",
-                "script": "\tif not initialChange:\n\t\t\n\t\tlogger \u003d system.util.getLogger(\"exchange.launchpad.oee.tagChange\")\n\t\t#adjust after counter has reset to zero\n\t\tif currentValue.value \u003d\u003d 0 and previousValue.value \u003e 0:\n\t\t\t#first get starting counts\n\t\t\tlogger.info(\"Reject counter reset\")\n\t\t\ttagReadPaths \u003d [\"[.]../HourOee/StartReject\" , \"[.]../ShiftOee/StartReject\", \"[.]../DayOee/StartReject\"]\n\t\t\ttagWritePaths \u003d [\"[.]../HourOee/StartReject\" , \"[.]../ShiftOee/StartReject\", \"[.]../DayOee/StartReject\"]\n\t\t\ttagValues \u003d system.tag.readBlocking(tagReadPaths)\n\t\t\t#OEE Reject Count \u003d previous PLC Reject Count - Starting Count\n\t\t\t#new starting count \u003d zero - OEE Reject Count\n\t\t\t\n\t\t\ttagWriteValues \u003d [0- (previousValue.value - tagValues[0].value)]\t#Hour OEE\n\t\t\ttagWriteValues.append(0- (previousValue.value - tagValues[1].value))\t#Shift OEE\n\t\t\ttagWriteValues.append(0- (previousValue.value - tagValues[2].value))\t#Day OEE\n\t\t\t\n\t\t\tsystem.tag.writeBlocking(tagWritePaths, tagWriteValues)\n\t\t\t\n"
-              }
-            ],
-            "valueSource": "opc",
-            "opcItemPath": "",
-            "name": "RejectCounter",
-            "enabled": true,
-            "tagType": "AtomicTag",
-            "opcServer": "Ignition OPC UA Server"
-          },
-          {
-            "valueSource": "expr",
-            "expression": "{[.]../Plc/RejectCounter}*{[.]../Config/RejectFactor}",
-            "dataType": "Float8",
-            "name": "Reject",
-            "tagType": "AtomicTag"
-          }
-        ]
-      },
-      {
-        "name": "Schedule",
-        "typeId": "Exchange/Launchpad/Oee/Schedule",
-        "tagType": "UdtInstance",
-        "tags": [
-          {
-            "name": "1",
-            "tagType": "UdtInstance",
-            "tags": [
-              {
-                "value": 600,
-                "name": "StartTime",
-                "tagType": "AtomicTag"
-              },
-              {
-                "value": false,
-                "name": "ShiftEnabled",
-                "tagType": "AtomicTag"
-              },
-              {
-                "value": 1400,
-                "name": "StopTime",
-                "tagType": "AtomicTag"
-              }
-            ]
-          },
-          {
-            "expression": "// get the current hour and minute in four digit format to compare with shift setups\r\n100*getHour24(now(500))  + getMinute(now(500))\r\n",
-            "name": "CurrentHourMinute",
-            "tagType": "AtomicTag"
-          },
-          {
-            "name": "3",
-            "tagType": "UdtInstance",
-            "tags": [
-              {
-                "value": false,
-                "name": "ShiftEnabled",
-                "tagType": "AtomicTag"
-              },
-              {
-                "value": 2200,
-                "name": "StartTime",
-                "tagType": "AtomicTag"
-              },
-              {
-                "value": 600,
-                "name": "StopTime",
-                "tagType": "AtomicTag"
-              }
-            ]
-          },
-          {
-            "name": "2",
-            "tagType": "UdtInstance",
-            "tags": [
-              {
-                "value": false,
-                "name": "ShiftEnabled",
-                "tagType": "AtomicTag"
-              }
-            ]
-          },
-          {
-            "eventScripts": [
-              {
-                "eventid": "valueChanged",
-                "script": "\tif not initialChange:\n\t\tlogger \u003d system.util.getLogger(\"exchange.launchpad.oee.tagChange\")\n\t\tprevShift \u003d previousValue.value\n\t\ttagReadPaths \u003d [\"[.]../ShiftOee/StartTime\", \"[.]../LineName\", \"[.]../LinePath\"]\n\t\ttagValues \u003d system.tag.readBlocking(tagReadPaths)\n\t\tprevShiftStart \u003d tagValues[0].value\n\t\tlineName \u003d tagValues[1].value\n\t\tlinePath \u003d tagValues[2].value\n\t\tlineValue \u003d system.tag.readBlocking(linePath)[0].value\n\t\t#record shift end\n\t\tif prevShift \u003e 0:\n\t\t\texchange.launchpad.oee.recordShiftEnd(prevShift, lineName, lineValue, prevShiftStart )\n\t\t#start next shift\n\t\tshiftDuration \u003d system.tag.readBlocking([\"[.]%s/ShiftSeconds\" %(currentValue.value)])[0].value\n\t\ttagWritePaths \u003d [\"[.]../ShiftOee/CurrentInterval\", \"[.]../ShiftOee/PreviousInterval\", \"[.]../ShiftOee/Duration\"]\n\t\ttagWriteValues \u003d [currentValue.value, previousValue.value,shiftDuration]\n\t\tsystem.tag.writeBlocking(tagWritePaths, tagWriteValues)\n\t\t\n\t\n\t\t\n\n\t\t"
-              }
-            ],
-            "name": "CurrentShift",
-            "tagType": "AtomicTag"
-          }
-        ]
-      },
-      {
-        "name": "ShiftOee",
-        "typeId": "Exchange/Launchpad/Oee/OEE",
-        "tagType": "UdtInstance",
-        "tags": [
-          {
-            "valueSource": "memory",
-            "name": "CurrentInterval",
-            "tagType": "AtomicTag"
-          },
-          {
-            "value": "Shift",
-            "name": "IntervalType",
-            "tagType": "AtomicTag"
-          },
-          {
-            "valueSource": "reference",
-            "sourceTagPath": "[.]../Enabled",
-            "name": "Enabled",
-            "tagType": "AtomicTag"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "OEE",
-    "tagType": "UdtType",
-    "tags": [
-      {
-        "valueSource": "expr",
-        "expression": "//  Availability \u003d \u2028 Run Time /Planned Production Time\r\nif({[.]SecondsElapsed} \u003d 0, 1,\r\n{[.]RunSeconds} /{[.]SecondsElapsed})",
-        "dataType": "Float8",
-        "engHigh": 1.0,
-        "name": "A",
-        "formatString": "##.0%",
-        "tagType": "AtomicTag"
-      },
-      {
-        "eventScripts": [
-          {
-            "eventid": "valueChanged",
-            "script": "\t#on change, reset counters and record  records in database\n\tnow \u003dsystem.date.now()\n\tlogger \u003d system.util.getLogger(\"exchange.launchpad.oee.tagChange\")\n\t\n\ttagReadPaths \u003d [\"[.]../Plc/ProductionCounter\",\"[.]../Plc/RejectCounter\",\"[.]../LineName\",\"[.]../LinePath\", \"[.]../Config/RateName\", \"[.]../Config/TargetRate\",\"[.]StartTime\",\"[.]IntervalType\", \"[.]Enabled\",\"[.]PreviousInterval\"]\n\ttagValues \u003d system.tag.readBlocking(tagReadPaths)\n\tstartCounter \u003d tagValues[0].value\n\tstartReject \u003d tagValues[1].value\n\tlineName \u003d tagValues[2].value\n\tprevIntervalStart \u003d tagValues[6].value\t\n\tintervalType \u003d tagValues[7].value\n\tenabled \u003d tagValues[8].value\t\n\tprevInterval \u003d tagValues[9].value\n\ttargetRate \u003d tagValues[5].value\n\ttargetRateName \u003d tagValues[4].value\t\n\tcurrentInterval \u003d currentValue.value\n\t\n\t#execute on  change, or when new instance is created and no start time has been recorded\n\tif (not initialChange or prevIntervalStart\u003d\u003dNone) and enabled:\n\t\t#logger.info(\"Current Interval %s Change %s %s %s\" %(intervalType, currentValue, currentValue.value, currentInterval))\n\t\t#read values from line UDT instance\n\t\tlineValue \u003d system.tag.readBlocking([tagValues[3].value])[0].value\n\t\t# initialize variables\n\t\tif startCounter \u003d\u003d None: startCounter \u003d 0\n\t\tif startReject \u003d\u003d None: startReject \u003d 0\n\t\t#set zero milliseconds on the new interval start\n\t\tintervalStart \u003d system.date.addSeconds(system.date.addMillis(now, 0-system.date.getMillis(now)), 0-system.date.getSecond(now))\n\t\t\t\n\t\tif prevIntervalStart and intervalType \u003d\u003d \"Hour\":\n\t\t\t#record end of hour\n\t\t\texchange.launchpad.oee.recordHourEnd( lineName, lineValue,prevIntervalStart )\n\t\t\n\t\t#reset running time\n\t\ttagWritePaths \u003d [\"[.]RunSeconds\"] \n\t\ttagWritePaths.append(\"[.]DownSeconds\")\n\t\ttagWriteValues \u003d [0,0]\n\t\t#set starting production counter and reject counter\n\t\ttagWritePaths.append(\"[.]StartCounter\")\n\t\ttagWriteValues.append(startCounter)\n\t\ttagWritePaths.append(\"[.]StartReject\")\n\t\ttagWriteValues.append(startReject)\n\t\t#set  start time\n\t\ttagWritePaths.append(\"[.]StartTime\")\n\t\ttagWriteValues.append(intervalStart)\n\n\t\t#reset target production\n\t\ttargetRateHistory \u003d exchange.launchpad.oee.getTargetRateDataset(targetRateName, targetRate)\n\t\ttagWritePaths.append(\"[.]TargetRateHistory\")\n\t\ttagWriteValues.append(targetRateHistory)\n\n\t\t#set tag values\n\t\tsystem.tag.writeAsync(tagWritePaths, tagWriteValues)\n\t\t\n\t\tif enabled and intervalType \u003d\u003d \"Hour\":\n\t\t\t#start new database record for the current hour\n\t\t\t#logger.info(\"Recording start of hour %s starting %s\" %(currentInterval,intervalStart))\n\t\t\texchange.launchpad.oee.recordHourStart(currentInterval ,intervalStart, lineName, lineValue)\n\t\tif currentInterval \u003e 0 and intervalType \u003d\u003d \"Shift\":\n\t\t\t#start new database record for the current shift\n\t\t\texchange.launchpad.oee.recordShiftStart(currentInterval, lineName, lineValue)\n\t\t\t\n\t\t"
-          }
-        ],
-        "valueSource": "expr",
-        "expression": "getHour24(now(500))",
-        "name": "CurrentInterval",
-        "value": 0,
-        "tagType": "AtomicTag"
-      },
-      {
-        "valueSource": "expr",
-        "expression": "//  Downtime \u003d \u2028 1 -  Availability (Run Time /Planned Production Time)\r\n1-{[.]A}",
-        "dataType": "Float8",
-        "engHigh": 1.0,
-        "name": "D",
-        "formatString": "##.0%",
-        "tagType": "AtomicTag"
-      },
-      {
-        "valueSource": "memory",
-        "name": "DownSeconds",
-        "value": 0,
-        "tagType": "AtomicTag"
-      },
-      {
-        "valueSource": "memory",
-        "name": "Duration",
-        "value": 0,
-        "tagType": "AtomicTag"
-      },
-      {
-        "eventScripts": [
-          {
-            "eventid": "valueChanged",
-            "script": "\t#set counters and second timers for the new interval start\n\tlogger \u003d system.util.getLogger(\"exchange.launchpad.oee.tagChange\")\n\tnow \u003dsystem.date.now()\n\tintervalStart \u003d system.date.addSeconds(system.date.addMillis(now, 0-system.date.getMillis(now)), 0-system.date.getSecond(now))\n\t\n\tif currentValue.value \u003d\u003d 0:\n\t\tsystem.tag.writeBlocking([\"[.]StartTime\"],None)\n\telse:\n\t\tsystem.tag.writeBlocking([\"[.]StartTime\"], intervalStart)\n\t\n\ttagReadPaths \u003d [\"[.]../Plc/ProductionCounter\",\"[.]../Plc/RejectCounter\",\"[.]../LineName\",\"[.]../LinePath\", \"[.]../Config/RateName\", \"[.]../Config/TargetRate\",\"[.]StartTime\",\"[.]IntervalType\", \"[.]Enabled\",\"[.]PreviousInterval\"]\n\ttagValues \u003d system.tag.readBlocking(tagReadPaths)\n\tstartCounter \u003d tagValues[0].value\n\tstartReject \u003d tagValues[1].value\n\tlineName \u003d tagValues[2].value\n\ttargetRateName \u003d tagValues[4].value\t\n\ttargetRate \u003d tagValues[5].value\n\tprevIntervalStart \u003d tagValues[6].value\t\n\tintervalType \u003d tagValues[7].value\n\tenabled \u003d tagValues[8].value\t\n\tprevInterval \u003d tagValues[9].value\n\t\n\tlogger.info(\"Enabled lineName %s %s, intervalStart %s, startCounter %d, starting reject %d\" %(lineName, intervalType, intervalStart, startCounter, startReject))\n\t\n\t#set run seconds and down seconds to zero\n\ttagWritePaths \u003d [\"[.]RunSeconds\"] \n\ttagWritePaths.append(\"[.]DownSeconds\")\n\ttagWriteValues \u003d [0,0]\n\t#set starting production counter and reject counter\n\ttagWritePaths.append(\"[.]StartCounter\")\n\ttagWriteValues.append(startCounter)\n\ttagWritePaths.append(\"[.]StartReject\")\n\ttagWriteValues.append(startReject)\n\t#set  start time\n\ttagWritePaths.append(\"[.]StartTime\")\n\ttagWriteValues.append(intervalStart)\n\t\n\t#reset target production\n\ttargetRateHistory \u003d exchange.launchpad.oee.getTargetRateDataset(targetRateName, targetRate)\n\ttagWritePaths.append(\"[.]TargetRateHistory\")\n\ttagWriteValues.append(targetRateHistory)\n\t\n\t#set tag values\n\tsystem.tag.writeAsync(tagWritePaths, tagWriteValues)\n"
-          }
-        ],
-        "valueSource": "memory",
-        "dataType": "Boolean",
-        "name": "Enabled",
-        "value": false,
-        "tagType": "AtomicTag"
-      },
-      {
-        "valueSource": "expr",
-        "expression": "max({[.]SecondsElapsed}-({[.]DownSeconds} + {[.]RunSeconds}),0)",
-        "name": "IdleSeconds",
-        "tagType": "AtomicTag"
-      },
-      {
-        "valueSource": "memory",
-        "dataType": "String",
-        "name": "IntervalType",
-        "value": "Hour",
-        "tagType": "AtomicTag"
-      },
-      {
-        "valueSource": "expr",
-        "expression": "//  OEE \u003d \u2028 Availability * Performance * Quality\r\n{[.]A} * {[.]P} * {[.]Q}",
-        "dataType": "Float8",
-        "engHigh": 1.0,
-        "name": "O",
-        "formatString": "##.0%",
-        "tagType": "AtomicTag"
-      },
-      {
-        "valueSource": "expr",
-        "expression": "//Performance\u2028 \u003d Production Count/Target Production Count\r\nif({[.]TargetProductionCount}\u003d0,1,{[.]ProductionCount}/{[.]TargetProductionCount})",
-        "dataType": "Float8",
-        "engHigh": 1.0,
-        "name": "P",
-        "formatString": "##.0%",
-        "tagType": "AtomicTag"
-      },
-      {
-        "valueSource": "memory",
-        "name": "PreviousInterval",
-        "value": 0,
-        "tagType": "AtomicTag"
-      },
-      {
-        "valueSource": "expr",
-        "expression": "//production count since start\r\nif({[.]Enabled},\r\n{[.]../Plc/Outfeed} - \r\n{[.]StartCounter}*{[.]../Config/OutfeedFactor}\r\n,0)",
-        "name": "ProductionCount",
-        "value": 0,
-        "tagType": "AtomicTag"
-      },
-      {
-        "valueSource": "expr",
-        "expression": "//Quality\u2028  \u003d Good Count / Total Count\r\nif({[.]ProductionCount}\u003d0,1\r\n,max({[.]ProductionCount} - {[.]RejectCount},0)/{[.]ProductionCount})",
-        "dataType": "Float8",
-        "engHigh": 1.0,
-        "name": "Q",
-        "formatString": "##.0%",
-        "tagType": "AtomicTag"
-      },
-      {
-        "valueSource": "expr",
-        "expression": "//reject count since start \r\nif({[.]Enabled},\r\n{[.]../Plc/Reject}- \r\n{[.]StartReject}*{[.]../Config/RejectFactor}\r\n,0)",
-        "name": "RejectCount",
-        "value": 0,
-        "tagType": "AtomicTag"
-      },
-      {
-        "valueSource": "memory",
-        "name": "RunSeconds",
-        "value": 0,
-        "tagType": "AtomicTag"
-      },
-      {
-        "eventScripts": [
-          {
-            "eventid": "valueChanged",
-            "script": "\tif not initialChange and currentValue.value \u003e previousValue.value:\n\t\t#update OEE seconds in each state\n\t\tlogger \u003d system.util.getLogger(\"exchange.launchpad.oee.tagScripts\")\n\t\ttimeIncrement \u003d currentValue.value - previousValue.value \t \n\t\t#get current tags values\n\t\ttagReadPaths \u003d [\"[.]CurrentInterval\", \"[.]../Plc/State\",\"[.]RunSeconds\",\"[.]DownSeconds\",\"[.]TargetRateHistory\" ]\n\t\ttagValues \u003d system.tag.readBlocking(tagReadPaths)\n\t\tsecondsElapsed \u003d currentValue.value\n\t\tlineState \u003d tagValues[1].value\n\t\trunningSeconds \u003d tagValues[2].value\n\t\tdownSeconds \u003d tagValues[3].value\n\t\ttargetRateHistory \u003d tagValues[4].value\n\t\trowIndex \u003d targetRateHistory.rowCount-1\n\t\t#logger.info(\"Seconds Elapsed Timer (%d) : lineState %d, runningSeconds %d, downSeconds %d\" %(timeIncrement, lineState,runningSeconds,downSeconds)  )\n\t\tif rowIndex \u003e\u003d0:\n\t\t\trateRunningSeconds \u003d targetRateHistory.getValueAt(rowIndex,\"SecondsRunning\")\n\t\t\trateDownSeconds \u003d targetRateHistory.getValueAt(rowIndex,\"SecondsFaulted\")\n\t\t\trateIdleSeconds \u003d targetRateHistory.getValueAt(rowIndex,\"SecondsIdle\")\n\t\t\trateSeconds \u003d targetRateHistory.getValueAt(rowIndex,\"SecondsElapsed\")\n\t\t\t\n\t\tif runningSeconds \u003d\u003d None: hourRunningSeconds \u003d 0\n\t\tif downSeconds \u003d\u003d None: hourDownSeconds \u003d 0\n\t\t#update timers\n\t\tif  lineState \u003d\u003d 1 and timeIncrement \u003e 0:\n\t\t\t#update the number of seconds the line has been up during the hour\n\t\t\ttagWritePaths \u003d [\"[.]RunSeconds\",  \"[.]TargetRateHistory\"]\n\t\t\tif rowIndex \u003e\u003d0:\n\t\t\t\ttargetRateHistory \u003d system.dataset.setValue(targetRateHistory, rowIndex, \"SecondsRunning\", min(rateRunningSeconds + timeIncrement,secondsElapsed))\n\t\t\t\ttargetRateHistory \u003d system.dataset.setValue(targetRateHistory, rowIndex, \"SecondsElapsed\", min(rateSeconds + timeIncrement,secondsElapsed))\n\t\t\tsystem.tag.writeAsync(tagWritePaths, [min(runningSeconds + timeIncrement, secondsElapsed), targetRateHistory])\n\t\tif  lineState \u003d\u003d 2 and timeIncrement\u003e0:\n\t\t\t#update the number of seconds the line has been faulted during the hour\n\t\t\ttagWritePaths \u003d [\"[.]DownSeconds\", \"[.]TargetRateHistory\"]\n\t\t\tif rowIndex \u003e\u003d0:\n\t\t\t\ttargetRateHistory \u003d system.dataset.setValue(targetRateHistory, rowIndex, \"SecondsFaulted\", min(rateDownSeconds + timeIncrement,secondsElapsed))\n\t\t\t\ttargetRateHistory \u003d system.dataset.setValue(targetRateHistory, rowIndex, \"SecondsElapsed\", min(rateSeconds + timeIncrement,secondsElapsed))\n\t\t\tsystem.tag.writeAsync(tagWritePaths, [min(downSeconds + timeIncrement, secondsElapsed) ,targetRateHistory])\n\t\tif  lineState \u003d\u003d 0 and timeIncrement\u003e0:\n\t\t\ttagWritePaths \u003d [\"[.]TargetRateHistory\"]\n\t\t\tif rowIndex \u003e\u003d0:\n\t\t\t\ttargetRateHistory \u003d system.dataset.setValue(targetRateHistory, rowIndex, \"SecondsIdle\", min(rateIdleSeconds + timeIncrement,secondsElapsed))\n\t\t\t\ttargetRateHistory \u003d system.dataset.setValue(targetRateHistory, rowIndex, \"SecondsElapsed\", min(rateSeconds + timeIncrement,secondsElapsed))\n\t\t\tsystem.tag.writeAsync(tagWritePaths, targetRateHistory)\n"
-          }
-        ],
-        "valueSource": "expr",
-        "expression": "//seconds between interval starting time and now\r\n//zero if the start time is now, or this instance is disabled\r\nif({[.]StartTime} \u003d None || {[.]Enabled}  \u003d 0 ,0,\r\nmin(secondsBetween({[.]StartTime},now(250)),{[.]Duration})\r\n)",
-        "name": "SecondsElapsed",
-        "value": 0,
-        "tagType": "AtomicTag"
-      },
-      {
-        "valueSource": "memory",
-        "name": "StartCounter",
-        "value": 0,
-        "tagType": "AtomicTag"
-      },
-      {
-        "valueSource": "memory",
-        "name": "StartReject",
-        "value": 0,
-        "tagType": "AtomicTag"
-      },
-      {
-        "valueSource": "memory",
-        "expression": "setTime(now(500),getHour24(now(500)),0,0)",
-        "dataType": "DateTime",
-        "name": "StartTime",
-        "formatString": "yyyy-MM-dd h:mm:ss aa",
-        "tagType": "AtomicTag"
-      },
-      {
-        "valueSource": "expr",
-        "expression": "// target production count \u003d  running time * target rate\r\nrunScript(\"exchange.launchpad.oee.getTargetProductionCount\", 0,{[.]TargetRateHistory})",
-        "dataType": "Float8",
-        "name": "TargetProductionCount",
-        "value": 0.0,
-        "tagType": "AtomicTag"
-      },
-      {
-        "valueSource": "memory",
-        "dataType": "DataSet",
-        "name": "TargetRateHistory",
-        "value": "{\"columns\":[{\"name\":\"RateName\",\"type\":\"java.lang.String\"},{\"name\":\"RateValue\",\"type\":\"java.lang.Double\"},{\"name\":\"SecondsElapsed\",\"type\":\"java.lang.Integer\"},{\"name\":\"SecondsRunning\",\"type\":\"java.lang.Long\"},{\"name\":\"SecondsFaulted\",\"type\":\"java.lang.Long\"},{\"name\":\"SecondsIdle\",\"type\":\"java.lang.Long\"}],\"rows\":[[\"default\",15.0,0,0,0,0]]}",
-        "tagType": "AtomicTag"
-      },
-      {
-        "valueSource": "expr",
-        "expression": "//  Utilization \u003d Planned Production Time / All Time\r\nif({[.]SecondsElapsed} \u003d 0, 1,\r\n({[.]SecondsElapsed}  - {[.]IdleSeconds}) /{[.]SecondsElapsed})",
-        "dataType": "Float8",
-        "engHigh": 1.0,
-        "name": "U",
-        "formatString": "##.0%",
-        "tagType": "AtomicTag"
-      }
-    ]
-  },
-  {
-    "name": "Schedule",
-    "tagType": "UdtType",
-    "tags": [
-      {
-        "name": "1",
-        "typeId": "Exchange/Launchpad/Oee/Shift",
-        "tagType": "UdtInstance",
-        "tags": [
-          {
-            "value": 600,
-            "name": "StartTime",
-            "tagType": "AtomicTag"
-          },
-          {
-            "value": 1400,
-            "name": "StopTime",
-            "tagType": "AtomicTag"
-          },
-          {
-            "value": false,
-            "name": "ShiftEnabled",
-            "tagType": "AtomicTag"
-          }
-        ]
-      },
-      {
-        "name": "2",
-        "typeId": "Exchange/Launchpad/Oee/Shift",
-        "tagType": "UdtInstance",
-        "tags": [
-          {
-            "value": 1400,
-            "name": "StartTime",
-            "tagType": "AtomicTag"
-          },
-          {
-            "value": false,
-            "name": "ShiftEnabled",
-            "tagType": "AtomicTag"
-          },
-          {
-            "value": 2200,
-            "name": "StopTime",
-            "tagType": "AtomicTag"
-          }
-        ]
-      },
-      {
-        "name": "3",
-        "typeId": "Exchange/Launchpad/Oee/Shift",
-        "tagType": "UdtInstance",
-        "tags": [
-          {
-            "value": 2200,
-            "name": "StartTime",
-            "tagType": "AtomicTag"
-          },
-          {
-            "value": 600,
-            "name": "StopTime",
-            "tagType": "AtomicTag"
-          },
-          {
-            "value": false,
-            "name": "ShiftEnabled",
-            "tagType": "AtomicTag"
-          }
-        ]
-      },
-      {
-        "valueSource": "expr",
-        "expression": "// get the current hour and minute in four digit format to compare with shift setups\r\n100*getHour24(now(5000))  + getMinute(now(5000))\r\n",
-        "name": "CurrentHourMinute",
-        "tagType": "AtomicTag"
-      },
-      {
-        "valueSource": "expr",
-        "expression": "\r\nif({[.]1/ShiftEnabled} \u0026\u0026  {[.]1/StartTime} \u003c {[.]1/StopTime} \u0026\u0026 {[.]CurrentHourMinute} \u003e\u003d {[.]1/StartTime} \u0026\u0026 {[.]CurrentHourMinute} \u003c {[.]1/StopTime},1\r\n,if({[.]2/ShiftEnabled} \u0026\u0026 {[.]2/StartTime} \u003c {[.]2/StopTime} \u0026\u0026 {[.]CurrentHourMinute} \u003e\u003d {[.]2/StartTime} \u0026\u0026 {[.]CurrentHourMinute} \u003c {[.]2/StopTime},2\r\n,if({[.]3/ShiftEnabled} \u0026\u0026 {[.]3/StartTime} \u003c {[.]3/StopTime} \u0026\u0026 {[.]CurrentHourMinute} \u003e\u003d {[.]3/StartTime} \u0026\u0026 {[.]CurrentHourMinute} \u003c {[.]3/StopTime},3\r\n,if({[.]1/ShiftEnabled} \u0026\u0026 {[.]1/StartTime} \u003e {[.]1/StopTime} \u0026\u0026 ({[.]CurrentHourMinute} \u003e\u003d {[.]1/StartTime} || {[.]CurrentHourMinute} \u003c {[.]1/StopTime}),1\r\n,if({[.]2/ShiftEnabled} \u0026\u0026 {[.]2/StartTime} \u003e {[.]2/StopTime} \u0026\u0026 ({[.]CurrentHourMinute} \u003e\u003d {[.]2/StartTime} || {[.]CurrentHourMinute} \u003c {[.]3/StopTime}),2\r\n,if({[.]3/ShiftEnabled} \u0026\u0026 {[.]3/StartTime} \u003e {[.]3/StopTime} \u0026\u0026 ({[.]CurrentHourMinute} \u003e\u003d {[.]3/StartTime} || {[.]CurrentHourMinute} \u003c {[.]3/StopTime}),3\r\n\r\n, 0))))))",
-        "deriveExpressionGetter": "//find current shift\r\nif({source} \u003e\u003d {[.]1/StartTime} \u0026\u0026 {source} \u003c {[.]1/StopTime}, 1\r\n,if({source} \u003e\u003d {[.]2/StartTime} \u0026\u0026 {source} \u003c {[.]2/StopTime}, 2\r\n,if({source} \u003e\u003d {[.]3/StartTime} \u0026\u0026 {source} \u003c {[.]3/StopTime}, 3\r\n,0)))",
-        "sourceTagPath": "[.]CurrentHourMinute",
-        "name": "CurrentShift",
-        "executionMode": "TagGroupRate",
-        "tagType": "AtomicTag"
-      },
-      {
-        "valueSource": "expr",
-        "expression": "if({[.]CurrentShift}\u003d1 \u0026\u0026 {[.]1/StartTime} \u003c {[.]1/StopTime}  ,setTime(now(0), floor({[.]1/StartTime} /100) , {[.]1/StartTime} %100,0) \r\n,if({[.]CurrentShift}\u003d2 \u0026\u0026 {[.]2/StartTime} \u003c {[.]2/StopTime} ,setTime(now(0), floor({[.]2/StartTime} /100) , {[.]2/StartTime} %100,0) \r\n,if({[.]CurrentShift}\u003d3 \u0026\u0026 {[.]3/StartTime} \u003c {[.]3/StopTime} ,setTime(now(0), floor({[.]3/StartTime} /100) , {[.]3/StartTime} %100,0) \r\n,if({[.]CurrentShift}\u003d1 \u0026\u0026 {[.]1/StartTime} \u003e {[.]1/StopTime} ,setTime(addDays(now(0),-1), floor({[.]1/StartTime} /100) , {[.]1/StartTime} %100,0) \r\n,if({[.]CurrentShift}\u003d2 \u0026\u0026 {[.]2/StartTime} \u003e {[.]2/StopTime} ,setTime(addDays(now(0),-1), floor({[.]2/StartTime} /100) , {[.]2/StartTime} %100,0) \r\n,if({[.]CurrentShift}\u003d3 \u0026\u0026 {[.]3/StartTime} \u003e {[.]3/StopTime} ,setTime(addDays(now(0),-1), floor({[.]3/StartTime} /100) , {[.]3/StartTime} %100,0) \r\n,setTime(now(0),0,0,0)))))))\r\n\r\n\r\n",
-        "dataType": "DateTime",
-        "name": "CurrentShiftStartTime",
-        "formatString": "yyyy-MM-dd h:mm:ss aa",
-        "tagType": "AtomicTag"
-      }
-    ]
-  },
-  {
-    "name": "machineState",
-    "tagType": "UdtType",
-    "tags": [
-      {
-        "valueSource": "memory",
-        "name": "machineFaultCode",
-        "tagType": "AtomicTag"
-      },
-      {
-        "valueSource": "memory",
-        "dataType": "Boolean",
-        "name": "machineIdle",
-        "tagType": "AtomicTag"
-      },
-      {
-        "valueSource": "memory",
-        "dataType": "Boolean",
-        "name": "machineRunning",
-        "tagType": "AtomicTag"
-      },
-      {
-        "valueSource": "memory",
-        "dataType": "Boolean",
-        "name": "machineStopped",
-        "tagType": "AtomicTag"
-      },
-      {
-        "valueSource": "memory",
-        "dataType": "Float4",
-        "name": "motorRPM",
-        "tagType": "AtomicTag"
-      },
-      {
-        "valueSource": "memory",
-        "dataType": "Boolean",
-        "name": "motorReady",
-        "tagType": "AtomicTag"
-      },
-      {
-        "valueSource": "memory",
-        "dataType": "Boolean",
-        "name": "motorRunning",
-        "tagType": "AtomicTag"
-      },
-      {
-        "valueSource": "memory",
-        "dataType": "Boolean",
-        "name": "motorTensionOK",
-        "tagType": "AtomicTag"
-      },
-      {
-        "valueSource": "memory",
-        "dataType": "Float4",
-        "name": "motorTensionValue",
-        "tagType": "AtomicTag"
-      }
-    ]
-  },
-  {
     "typeColor": -21433,
-    "name": "Machine",
+    "name": "Machine_WOCL",
     "parameters": {
       "PLC_Device": {
+        "dataType": "String",
+        "value": null
+      },
+      "MetaData": {
+        "dataType": "String",
+        "value": null
+      },
+      "MachineID": {
+        "dataType": "Integer",
+        "value": null
+      },
+      "basepath": {
         "dataType": "String",
         "value": null
       },
@@ -736,8 +78,83 @@
         "tagType": "Folder",
         "tags": [
           {
+            "datasource": {
+              "bindType": "parameter",
+              "binding": "{MetaData}"
+            },
+            "valueSource": "db",
+            "dataType": "Boolean",
+            "query": "SELECT \r\n    ISNULL(\r\n        (SELECT \r\n            CASE \r\n                WHEN ReasonID \u003d 16 THEN \u0027False\u0027\r\n                ELSE \u0027True\u0027\r\n            END\r\n        FROM [tbl_DowntimeLog]\r\n        WHERE LogID \u003d {[.]InsertID}),\r\n    \u0027False\u0027)  AS Result",
+            "name": "DowntimeUpdated",
+            "executionMode": "FixedRate",
+            "tagType": "AtomicTag",
+            "enabled": true
+          },
+          {
+            "valueSource": "memory",
+            "eventScripts": [
+              {
+                "eventid": "valueChanged",
+                "script": "\tif currentValue.value \u003d\u003dTrue and previousValue.value \u003d\u003dFalse :\n\t\tsystem.tag.writeBlocking([\"[.]Manual_entry_Active\"], [False])"
+              }
+            ],
+            "dataType": "Boolean",
+            "name": "Planned_downtime",
+            "value": false,
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "expr",
+            "expression": "if({[.]condition/breakdown_condition},if(isNull({[.]StartTime}),now(),{[.]StartTime}),null)",
+            "dataType": "DateTime",
+            "name": "StartTime",
+            "formatString": "yyyy-MM-dd h:mm:ss aa",
+            "tagType": "AtomicTag"
+          },
+          {
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "valueSource": "memory",
+            "eventScripts": [
+              {
+                "eventid": "valueChanged",
+                "script": "\tblockTagPath \u003d \"[.]../Machine Block/MachineBlock\"\n\tsessionActive \u003d system.tag.readBlocking(\"[.]../Session_status/Session_Active\")\n\tif currentValue.value \u003d\u003d False and sessionActive:\n\t\t\tsystem.tag.writeBlocking(blockTagPath, False)"
+              }
+            ],
+            "historyMaxAge": 1,
+            "dataType": "Boolean",
+            "historicalDeadbandMode": "Off",
+            "historyEnabled": true,
+            "name": "Ongoingbreakdown",
+            "value": false,
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "memory",
+            "eventScripts": [
+              {
+                "eventid": "valueChanged",
+                "script": "\tif currentValue.value \u003d\u003dFalse and previousValue.value \u003d\u003dTrue :\n\t\ttagpath\u003d[\"[.]../Machineinfo/MachineID\",\"[.]Ongoingbreakdown\",\"[~]Current_Shift/Start_time\", \"[.]Planned_downtime\"]\n\t\ttagvalue\u003dsystem.tag.readBlocking(tagpath)\n\t\tOngoingbreakdown\u003dtagvalue[1].value\n\t\tplannedDt \u003d tagvalue[3].value\n\t\tif Ongoingbreakdown and plannedDt:\n\t\t\tMachineID\u003dtagvalue[0].value\n\t\t\tparameters\u003d{\"MachineID\":MachineID}\n\t\t\tCurrentData \u003d system.db.runNamedQuery(\"downtime/Active_downtime\", parameters)\n\t\t\tif CurrentData.getRowCount() \u003e 0:\n\t\t\t\tDowntimeSource\u003dCurrentData.getValueAt(0,\"DowntimeSource\")\n\t\t\t\tif DowntimeSource\u003d\u003d0:\n\t\t\t\t\tEndTime\u003dtagvalue[2].value\n\t\t\t\t\tLogID\u003dCurrentData.getValueAt(0,\"LogID\")\n\t\t\t\t\tparameters \u003d {\"EndTime\":system.date.now(),\"LogID\":LogID}\n\t\t\t\t\tsystem.db.runNamedQuery(\"downtime/UpdateDowntimeCompletion\", parameters)\n\t\t\t\t\tsystem.tag.writeBlocking([\"[.]../Downtime/Ongoingbreakdown\"], [False])"
+              }
+            ],
+            "dataType": "Boolean",
+            "name": "Manual_entry_Active",
+            "value": false,
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "memory",
+            "dataType": "Boolean",
+            "name": "Inserted",
+            "value": false,
+            "tagType": "AtomicTag"
+          },
+          {
             "valueSource": "memory",
             "name": "InsertID",
+            "value": 0,
             "tagType": "AtomicTag"
           },
           {
@@ -746,36 +163,206 @@
             "tagType": "UdtInstance"
           },
           {
-            "valueSource": "expr",
-            "expression": "if({[.]../MachineData/ErrorActive},if(isNull({[.]StartTime}),now(),{[.]StartTime}),null)",
-            "dataType": "DateTime",
-            "name": "StartTime",
-            "formatString": "yyyy-MM-dd h:mm:ss aa",
+            "name": "condition",
+            "tagType": "Folder",
+            "tags": [
+              {
+                "valueSource": "expr",
+                "expression": "if((!{[.]../Manual_entry_Active} \u0026\u0026 !{[.]../DowntimeUpdated} \u0026\u0026 {[.]../../ProductionData/ActualWinderSpeed} \u003d 0 \u0026\u0026 !{[.]../Planned_downtime}) || !{[.]../../System/HeartBeat}, True, False)",
+                "dataType": "Boolean",
+                "name": "breakdown_condition",
+                "tagType": "AtomicTag"
+              },
+              {
+                "valueSource": "expr",
+                "expression": "{[.]../../MachineData/ManualMode}",
+                "dataType": "Boolean",
+                "name": "ideal_condition",
+                "tagType": "AtomicTag"
+              }
+            ]
+          },
+          {
+            "datasource": {
+              "bindType": "parameter",
+              "binding": "{MetaData}"
+            },
+            "query": {
+              "bindType": "parameter",
+              "binding": "SELECT COUNT(*) AS MatchingCount\r\nFROM [tbl_DowntimeLog]\r\nWHERE ReasonID \u003d 16\r\nAND UserName \u003d \u0027System\u0027and EndTime is not null AND MachineID \u003d{MachineID};"
+            },
+            "valueSource": "db",
+            "name": "pending_downtime",
+            "executionMode": "FixedRate",
+            "executionRate": 60000,
+            "queryType": "Select",
             "tagType": "AtomicTag"
           },
           {
-            "valueSource": "expr",
+            "name": "Lunch",
+            "tagType": "Folder",
+            "tags": [
+              {
+                "valueSource": "memory",
+                "dataType": "DateTime",
+                "name": "Start_Time",
+                "formatString": "yyyy-MM-dd h:mm:ss aa",
+                "tagType": "AtomicTag"
+              },
+              {
+                "valueSource": "memory",
+                "dataType": "Boolean",
+                "name": "Inserted",
+                "value": false,
+                "tagType": "AtomicTag"
+              },
+              {
+                "eventScripts": [
+                  {
+                    "eventid": "valueChanged",
+                    "script": "\t\tif currentValue.value\u003d\u003dTrue and previousValue.value \u003d\u003dFalse:\n\t\t\tsystem.tag.writeBlocking(tagPaths\u003d[\"[.]Overdue\",\"[.]Active\"], values\u003d[0,0])\n\t\t\tpass\n#\t\t\ttagpath\u003d[\"[~]Current_Shift/shift_ID\",\"[.]../../Machineinfo/LineID\",\"[.]../../Machineinfo/MachineID\",\"[.]../../Session_status/Session_Active\"]\n#\t\t\ttagvalue\u003dsystem.tag.readBlocking(tagpath)\n#\t\t\tsessionActive\u003dtagvalue[3].value\n#\t\t\tif sessionActive \u003d\u003d False :\n#\t\t\t\treasondowntime\u003d16\n#\t\t\t\tuser\u003d\u0027System\u0027\n#\t\t\t\tinprogressdowntime\u003dFalse\n#\t\t\t\tstarttime\u003dsystem.date.now()\n#\t\t\t\ttagpath\u003d[\"[~]Current_Shift/shift_ID\",\"[.]../../Machineinfo/LineID\",\"[.]../../Machineinfo/MachineID\",\"[.]../../Session_status/Session_Active\"]\n#\t\t\t\ttagvalue\u003dsystem.tag.readBlocking(tagpath)\n#\t\t\t\tshift\u003dtagvalue[0].value\n#\t\t\t\tLineID\u003dtagvalue[1].value\n#\t\t\t\tMachineID\u003dtagvalue[2].value\n#\t\t\t\tdescdowntime\u003d\u0027\u0027\n#\t\t\t\tparameters \u003d { \"ReasonID\":reasondowntime, \"DowntimeStatus\":not inprogressdowntime,\"username\":user,\"StartTime\":starttime,\"ShiftID\":shift,\"DowntimeSource\":1,\"Remarks\":descdowntime,\"categoryID\":2,\"LineID\":LineID,\"MachineID\":MachineID}\n#\t\t\t\tidreturn\u003dsystem.db.runNamedQuery(\"downtime/InsertDowntimeEntry\", parameters)\n#\t\t\t\tlogId\u003didreturn.getValueAt(0,\"LogID\")\n#\t\t\t\tsystem.tag.writeBlocking(tagPaths\u003d[\"[.]Overdue\",\"[.]extendend_lunch_ID\"], values\u003d[0,logId])\n##\t\t\telse :\n##\t\t\t\tsystem.tag.writeBlocking(tagPaths\u003d[\"[.]Overdue\",\"[.]Active\"], values\u003d[0,0])",
+                    "enabled": false
+                  }
+                ],
+                "valueSource": "expr",
+                "expression": "if({[.]Active},if(now(1000)\u003e{[.]End_Time},True,False),False)",
+                "dataType": "Boolean",
+                "name": "Over",
+                "tagType": "AtomicTag"
+              },
+              {
+                "valueSource": "memory",
+                "dataType": "Boolean",
+                "name": "Overdue",
+                "value": false,
+                "tagType": "AtomicTag"
+              },
+              {
+                "valueSource": "memory",
+                "dataType": "Boolean",
+                "name": "Active",
+                "value": false,
+                "tagType": "AtomicTag"
+              },
+              {
+                "valueSource": "memory",
+                "name": "extendend_lunch_ID",
+                "tagType": "AtomicTag"
+              },
+              {
+                "valueSource": "memory",
+                "dataType": "DateTime",
+                "name": "End_Time",
+                "formatString": "yyyy-MM-dd h:mm:ss aa",
+                "tagType": "AtomicTag"
+              }
+            ]
+          },
+          {
+            "name": "Break",
+            "typeId": "logID",
+            "tagType": "UdtInstance"
+          },
+          {
             "eventScripts": [
               {
                 "eventid": "valueChanged",
-                "script": "\tlogger\u003d system.util.getLogger(\"downtimeevent\")\n\tif currentValue.value \u003d\u003d 10 :\n\t\t\t#breakdown in progress\n\t\t\treasondowntime\u003d16\n\t\t\tuser\u003d\u0027System\u0027\n\t\t\tstarttime\u003dsystem.tag.readBlocking([\"[.]StartTime\"])[0].value\n\t\t\tshift\u003dsystem.tag.readBlocking([\"[~]Current_Shift/shift_ID\"])[0].value\n\t\t\tparameters \u003d { \"ReasonID\":reasondowntime, \"DowntimeStatus\":True,\"username\":user,\"StartTime\":starttime,\"ShiftID\":shift} \n\t\t\t# Run the Named Query\n\t\t\tresult\u003d system.db.runNamedQuery(\"Hitachi_Energy_Transformer\",\"downtime/insert\", parameters)\n\t\t\tlogID\u003dresult[0][\"LogID\"]\n\t\t\tsystem.tag.writeBlocking(tagPaths\u003d[\"[.]Inserted\",\"[.]InsertID\"], values\u003d[1,logID])\n\telif currentValue.value \u003d\u003d 0 and not initialChange:\n\t\t\tLogID\u003dsystem.tag.readBlocking(tagPaths\u003d[\"[.]InsertID\"])[0].value\n\t\t\tparameters \u003d {\"EndTime\":system.date.now(),\"LogID\":LogID}\n\t\t\tsystem.db.runNamedQuery(\"Hitachi_Energy_Transformer\",\"downtime/Update_downtime\", parameters)\n\t\t\tsystem.tag.writeBlocking(tagPaths\u003d[\"[.]Inserted\",\"[.]InsertID\"], values\u003d[0,0])"
+                "script": "\tlogger\u003d system.util.getLogger(\"downtimeevent\")\n\tif currentValue.value \u003d\u003d 10:\n\t\treasondowntime\u003d16\n\t\t\n\t\tinprogressdowntime\u003dFalse\n\t\t#starttime\u003dsystem.date.now()\n\t\ttagpath\u003d[\"[~]Current_Shift/shift_ID\",\"[.]../Machineinfo/LineID\",\"[.]../Machineinfo/MachineID\",\"[.]StartTime\",\"[.]InsertID\",\"[.]Ongoingbreakdown\", \"[.]../Session_status/Session_Active\", \"[.]../Session_status/UserActive\", \"[.]../Session_status/LastUserActive\"]\n\t\ttagvalue\u003dsystem.tag.readBlocking(tagpath)\n\t\tshift\u003dtagvalue[0].value\n\t\tLineID\u003dtagvalue[1].value\n\t\tMachineID\u003dtagvalue[2].value\n\t\tstarttime\u003dtagvalue[3].value\n\t\tuser \u003d \u0027System\u0027\n\t\tif tagvalue[7].value is not None and tagvalue[7].value !\u003d \u0027\u0027:\n\t\t\tuser \u003d tagvalue[7].value\n\t\telif (tagvalue[8].value is not None and tagvalue[8].value !\u003d \u0027\u0027):\n\t\t\tuser \u003d tagvalue[8].value\n\t\t\t\n#\t\tuser\u003d\u0027System\u0027 if tagvalue[7].value is None or tagvalue[7].value \u003d\u003d \u0027\u0027 else tagvalue[7].value\n\t\tdescdowntime\u003d\u0027No Operator at Machine\u0027\n\t\tinserted \u003dTrue\n\t\t\n\t\tparameters \u003d { \"ReasonID\":reasondowntime, \"DowntimeStatus\":not inprogressdowntime,\"username\":user,\"StartTime\":starttime,\"ShiftID\":shift,\"DowntimeSource\":1,\"Remarks\":descdowntime,\"categoryID\":2,\"LineID\":LineID,\"MachineID\":MachineID}\n\t\tidreturn\u003dsystem.db.runNamedQuery(\"downtime/InsertDowntimeEntry\", parameters)\n\t\ttry:\n\t\t\tlogId\u003didreturn.getValueAt(0,\"LogID\")\n\t\t\tActiveDowntime\u003dTrue\n\t\texcept:\t\n\t\t\tlogId\u003dtagvalue[4].value\n\t\t\tActiveDowntime\u003dtagvalue[5].value\n\t\t\tinserted\u003dFalse\n\t\tsystem.tag.writeBlocking(tagPaths\u003d[\"[.]Inserted\",\"[.]InsertID\",\"[.]Ongoingbreakdown\"], values\u003d[inserted,logId,ActiveDowntime])\n\telif currentValue.value \u003d\u003d 0 and not initialChange:\n\t\t\tLogID\u003dsystem.tag.readBlocking(tagPaths\u003d[\"[.]InsertID\"])[0].value\n\t\t\tif LogID \u003e0 :\n\t\t\t\tparameters \u003d {\"EndTime\":system.date.addSeconds(system.date.now(), -2),\"LogID\":LogID}\n\t\t\t\tsystem.db.runNamedQuery(\"downtime/UpdateDowntimeCompletion\", parameters)\n\t\t\t\tsystem.tag.writeBlocking(tagPaths\u003d[\"[.]Inserted\",\"[.]InsertID\",\"[.]Ongoingbreakdown\"], values\u003d[0,0,False])"
               }
             ],
-            "expression": "if({[.]../MachineData/ErrorActive},\r\n    dateDiff(\r\n        {[.]StartTime},\r\n        now(),\r\n        \"minute\"\r\n    ),\r\n    0\r\n)\r\n",
+            "valueSource": "expr",
+            "expression": "if({[.]Active},\r\n    dateDiff(\r\n        {[.]StartTime},\r\n        now(),\r\n        \"minute\"\r\n    ),\r\n    0\r\n)\r\n",
             "name": "ActiveTime",
             "tagType": "AtomicTag"
           },
           {
+            "name": "planned downtime",
+            "tagType": "Folder",
+            "tags": [
+              {
+                "name": "meeting",
+                "tagType": "Folder",
+                "tags": [
+                  {
+                    "valueSource": "memory",
+                    "name": "LogId",
+                    "tagType": "AtomicTag"
+                  },
+                  {
+                    "valueSource": "memory",
+                    "dataType": "Boolean",
+                    "name": "Active",
+                    "value": false,
+                    "tagType": "AtomicTag"
+                  }
+                ]
+              },
+              {
+                "name": "cleaning",
+                "tagType": "Folder",
+                "tags": [
+                  {
+                    "valueSource": "memory",
+                    "dataType": "Boolean",
+                    "name": "Active",
+                    "value": false,
+                    "tagType": "AtomicTag"
+                  },
+                  {
+                    "valueSource": "memory",
+                    "name": "LogId",
+                    "tagType": "AtomicTag"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
             "valueSource": "reference",
+            "historyMaxAge": 1,
+            "expression": "{[.]../MachineData/ErrorActive} || {[.]Lunch/Over}",
             "dataType": "Boolean",
-            "sourceTagPath": "[.]../MachineData/ErrorActive",
+            "sourceTagPath": "[.]condition/breakdown_condition",
+            "historyEnabled": true,
             "name": "Active",
+            "tagType": "AtomicTag"
+          }
+        ]
+      },
+      {
+        "name": "Machine Block",
+        "tagType": "Folder",
+        "tags": [
+          {
+            "valueSource": "memory",
+            "eventScripts": [
+              {
+                "eventid": "valueChanged",
+                "script": "\tblockTagPath \u003d \"[.]../Machine Block/MachineBlock\"\n\tif currentValue.value \u003d\u003d True:\n\t\tsystem.tag.writeBlocking(blockTagPath, False)\n\telse:\n\t\tsessionStatus \u003d system.tag.readBlocking(\"[.]../Session_status/Session_Active\")[0].value\n\t\tif not sessionStatus:\n\t\t\tsystem.tag.writeBlocking(blockTagPath, True)\t"
+              }
+            ],
+            "dataType": "Boolean",
+            "name": "MachineBlockOveride",
+            "value": false,
             "tagType": "AtomicTag"
           },
           {
-            "valueSource": "memory",
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "{basepath}.MachineData.{TagName}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "reference",
             "dataType": "Boolean",
-            "name": "Inserted",
+            "sourceTagPath": "[.]../MachineData/BlockMachine",
+            "name": "MachineBlock",
             "value": false,
             "tagType": "AtomicTag"
           }
@@ -788,7 +375,7 @@
           {
             "opcItemPath": {
               "bindType": "parameter",
-              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.MachineData.ErrorActive"
+              "binding": "{basepath}.MachineData.{TagName}"
             },
             "historyProvider": {
               "bindType": "parameter",
@@ -800,15 +387,20 @@
             },
             "valueSource": "opc",
             "historyMaxAge": 1,
+            "readOnly": true,
             "dataType": "Boolean",
-            "name": "ErrorActive",
             "historyEnabled": true,
+            "name": "TestCommunication",
+            "readPermissions": {
+              "type": "AllOf",
+              "securityLevels": []
+            },
             "tagType": "AtomicTag"
           },
           {
             "opcItemPath": {
               "bindType": "parameter",
-              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.MachineData.ManualMode"
+              "binding": "{basepath}.MachineData.{TagName}"
             },
             "historyProvider": {
               "bindType": "parameter",
@@ -820,35 +412,20 @@
             },
             "valueSource": "opc",
             "historyMaxAge": 1,
+            "readOnly": true,
             "dataType": "Boolean",
-            "name": "ManualMode",
             "historyEnabled": true,
-            "tagType": "AtomicTag"
-          },
-          {
-            "opcItemPath": {
-              "bindType": "parameter",
-              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.MachineData.CoilPresentSensor"
-            },
-            "historyProvider": {
-              "bindType": "parameter",
-              "binding": "{Historian}"
-            },
-            "opcServer": {
-              "bindType": "parameter",
-              "binding": "{PLC_Device}"
-            },
-            "valueSource": "opc",
-            "historyMaxAge": 1,
-            "dataType": "Boolean",
             "name": "CoilPresentSensor",
-            "historyEnabled": true,
+            "readPermissions": {
+              "type": "AllOf",
+              "securityLevels": []
+            },
             "tagType": "AtomicTag"
           },
           {
             "opcItemPath": {
               "bindType": "parameter",
-              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.MachineData.ProductionTime"
+              "binding": "{basepath}.MachineData.{TagName}"
             },
             "historyProvider": {
               "bindType": "parameter",
@@ -860,15 +437,20 @@
             },
             "valueSource": "opc",
             "historyMaxAge": 1,
+            "readOnly": true,
             "dataType": "Int4",
+            "historyEnabled": true,
             "name": "ProductionTime",
-            "historyEnabled": true,
+            "readPermissions": {
+              "type": "AllOf",
+              "securityLevels": []
+            },
             "tagType": "AtomicTag"
           },
           {
             "opcItemPath": {
               "bindType": "parameter",
-              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.MachineData.SecurityCageOpen"
+              "binding": "{basepath}.MachineData.{TagName}"
             },
             "historyProvider": {
               "bindType": "parameter",
@@ -880,15 +462,21 @@
             },
             "valueSource": "opc",
             "historyMaxAge": 1,
+            "readOnly": true,
             "dataType": "Boolean",
-            "name": "SecurityCageOpen",
+            "historicalDeadbandMode": "Off",
             "historyEnabled": true,
+            "name": "ErrorActive",
+            "readPermissions": {
+              "type": "AllOf",
+              "securityLevels": []
+            },
             "tagType": "AtomicTag"
           },
           {
             "opcItemPath": {
               "bindType": "parameter",
-              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.MachineData.AutomaticMode"
+              "binding": "{basepath}.MachineData.{TagName}"
             },
             "historyProvider": {
               "bindType": "parameter",
@@ -900,15 +488,24 @@
             },
             "valueSource": "opc",
             "historyMaxAge": 1,
+            "readOnly": true,
             "dataType": "Boolean",
+            "historicalDeadbandMode": "Off",
+            "historyEnabled": true,
             "name": "AutomaticMode",
-            "historyEnabled": true,
+            "includeMetadata": true,
+            "readPermissions": {
+              "type": "AllOf",
+              "securityLevels": []
+            },
+            "historySampleRate": 30,
+            "sampleMode": "Periodic",
             "tagType": "AtomicTag"
           },
           {
             "opcItemPath": {
               "bindType": "parameter",
-              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.MachineData.OperatingHour"
+              "binding": "{basepath}.MachineData.{TagName}"
             },
             "historyProvider": {
               "bindType": "parameter",
@@ -920,35 +517,20 @@
             },
             "valueSource": "opc",
             "historyMaxAge": 1,
-            "dataType": "Int4",
-            "name": "OperatingHour",
-            "historyEnabled": true,
-            "tagType": "AtomicTag"
-          },
-          {
-            "opcItemPath": {
-              "bindType": "parameter",
-              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.MachineData.SingleClipImplementatin"
-            },
-            "historyProvider": {
-              "bindType": "parameter",
-              "binding": "{Historian}"
-            },
-            "opcServer": {
-              "bindType": "parameter",
-              "binding": "{PLC_Device}"
-            },
-            "valueSource": "opc",
-            "historyMaxAge": 1,
+            "readOnly": false,
             "dataType": "Boolean",
-            "name": "SingleClipImplementatin",
             "historyEnabled": true,
+            "name": "BlockMachine",
+            "readPermissions": {
+              "type": "AllOf",
+              "securityLevels": []
+            },
             "tagType": "AtomicTag"
           },
           {
             "opcItemPath": {
               "bindType": "parameter",
-              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.MachineData.UnitOn"
+              "binding": "{basepath}.MachineData.ManualeMode"
             },
             "historyProvider": {
               "bindType": "parameter",
@@ -960,15 +542,21 @@
             },
             "valueSource": "opc",
             "historyMaxAge": 1,
+            "readOnly": true,
             "dataType": "Boolean",
-            "name": "UnitOn",
+            "historicalDeadbandMode": "Off",
             "historyEnabled": true,
+            "name": "ManualMode",
+            "readPermissions": {
+              "type": "AllOf",
+              "securityLevels": []
+            },
             "tagType": "AtomicTag"
           },
           {
             "opcItemPath": {
               "bindType": "parameter",
-              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.MachineData.FixCoolingChannel"
+              "binding": "{basepath}.MachineData.{TagName}"
             },
             "historyProvider": {
               "bindType": "parameter",
@@ -980,15 +568,20 @@
             },
             "valueSource": "opc",
             "historyMaxAge": 1,
+            "readOnly": true,
             "dataType": "Boolean",
-            "name": "FixCoolingChannel",
             "historyEnabled": true,
+            "name": "ColdPressureWeldingActive",
+            "readPermissions": {
+              "type": "AllOf",
+              "securityLevels": []
+            },
             "tagType": "AtomicTag"
           },
           {
             "opcItemPath": {
               "bindType": "parameter",
-              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.MachineData.CancelProduction"
+              "binding": "{basepath}.MachineData.{TagName}"
             },
             "historyProvider": {
               "bindType": "parameter",
@@ -1000,15 +593,20 @@
             },
             "valueSource": "opc",
             "historyMaxAge": 1,
+            "readOnly": true,
             "dataType": "Boolean",
-            "name": "CancelProduction",
             "historyEnabled": true,
+            "name": "SingleClipImplementation",
+            "readPermissions": {
+              "type": "AllOf",
+              "securityLevels": []
+            },
             "tagType": "AtomicTag"
           },
           {
             "opcItemPath": {
               "bindType": "parameter",
-              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.MachineData.ErrorCode"
+              "binding": "{basepath}.MachineData.{TagName}"
             },
             "historyProvider": {
               "bindType": "parameter",
@@ -1020,23 +618,238 @@
             },
             "valueSource": "opc",
             "historyMaxAge": 1,
+            "readOnly": true,
             "dataType": "Int8",
-            "name": "ErrorCode",
             "historyEnabled": true,
+            "name": "ErrorCode",
+            "readPermissions": {
+              "type": "AllOf",
+              "securityLevels": []
+            },
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "{basepath}.MachineData.{TagName}"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "readOnly": true,
+            "dataType": "Int4",
+            "historyEnabled": true,
+            "name": "OperatingHour",
+            "readPermissions": {
+              "type": "AllOf",
+              "securityLevels": []
+            },
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "{basepath}.MachineData.{TagName}"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "readOnly": true,
+            "dataType": "Boolean",
+            "historyEnabled": true,
+            "name": "FoilGrindingStationActive",
+            "readPermissions": {
+              "type": "AllOf",
+              "securityLevels": []
+            },
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "{basepath}.MachineData.{TagName}"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "readOnly": true,
+            "dataType": "Boolean",
+            "historicalDeadbandMode": "Off",
+            "historyEnabled": true,
+            "name": "CancelProduction",
+            "readPermissions": {
+              "type": "AllOf",
+              "securityLevels": []
+            },
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "{basepath}.MachineData.{TagName}"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "readOnly": true,
+            "dataType": "Boolean",
+            "historyEnabled": true,
+            "name": "UnitOn",
+            "readPermissions": {
+              "type": "AllOf",
+              "securityLevels": []
+            },
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "{basepath}.MachineData.{TagName}"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "readOnly": true,
+            "dataType": "Boolean",
+            "historyEnabled": true,
+            "name": "SecurityCageOpen",
+            "readPermissions": {
+              "type": "AllOf",
+              "securityLevels": []
+            },
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "{basepath}.MachineData.FixingCoolingChannel"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "readOnly": true,
+            "dataType": "Boolean",
+            "historyEnabled": true,
+            "name": "FixCoolingChannel",
+            "readPermissions": {
+              "type": "AllOf",
+              "securityLevels": []
+            },
             "tagType": "AtomicTag"
           }
         ]
       },
       {
-        "value": {
-          "bindType": "parameter",
-          "binding": "{Machine_Name}"
-        },
-        "valueSource": "memory",
-        "valuePersistence": "None",
-        "dataType": "String",
-        "name": "Machine_Name",
-        "tagType": "AtomicTag"
+        "name": "Machineinfo",
+        "tagType": "Folder",
+        "tags": [
+          {
+            "valueSource": "expr",
+            "expression": "{[.]All_in_Dataset}[\"LineName\"]",
+            "dataType": "String",
+            "name": "LineName",
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "expr",
+            "valuePersistence": "None",
+            "expression": "{[.]All_in_Dataset}[\"Section\"]",
+            "dataType": "String",
+            "name": "Section",
+            "tagType": "AtomicTag"
+          },
+          {
+            "datasource": {
+              "bindType": "parameter",
+              "binding": "{MetaData}"
+            },
+            "query": {
+              "bindType": "parameter",
+              "binding": "SELECT \r\n    m.MachineCode,\r\n    m.MachineName,\r\n    l.LineName,\r\n    m.LineID,m.Section,m.SupplierName\r\nFROM [dbo].[tbl_Machine] m\r\nINNER JOIN [dbo].[tbl_Line] l \r\n    ON m.LineID \u003d l.LineID\r\nWHERE m.MachineID \u003d {MachineID}"
+            },
+            "valueSource": "db",
+            "dataType": "DataSet",
+            "name": "All_in_Dataset",
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "expr",
+            "expression": "{[.]All_in_Dataset}[\"LineID\"]",
+            "name": "LineID",
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "expr",
+            "valuePersistence": "None",
+            "expression": "{[.]All_in_Dataset}[\"SupplierName\"]",
+            "dataType": "String",
+            "name": "SupplierName",
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "expr",
+            "expression": "{MachineID}",
+            "name": "MachineID",
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "expr",
+            "valuePersistence": "None",
+            "expression": "{[.]All_in_Dataset}[\"MachineName\"]",
+            "dataType": "String",
+            "name": "Machine_Name",
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "expr",
+            "expression": "{[.]All_in_Dataset}[\"MachineCode\"]",
+            "dataType": "String",
+            "name": "MachineCode",
+            "tagType": "AtomicTag"
+          }
+        ]
       },
       {
         "name": "ProductionData",
@@ -1045,7 +858,7 @@
           {
             "opcItemPath": {
               "bindType": "parameter",
-              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.InsulationWidth"
+              "binding": "{basepath}.ProductionData.{TagName}"
             },
             "historyProvider": {
               "bindType": "parameter",
@@ -1057,235 +870,16 @@
             },
             "valueSource": "opc",
             "historyMaxAge": 1,
-            "dataType": "Int4",
-            "name": "InsulationWidth",
-            "historyEnabled": true,
-            "tagType": "AtomicTag"
-          },
-          {
-            "opcItemPath": {
-              "bindType": "parameter",
-              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.WireFeederPosition"
-            },
-            "historyProvider": {
-              "bindType": "parameter",
-              "binding": "{Historian}"
-            },
-            "opcServer": {
-              "bindType": "parameter",
-              "binding": "{PLC_Device}"
-            },
-            "valueSource": "opc",
-            "historyMaxAge": 1,
-            "dataType": "Int4",
-            "name": "WireFeederPosition",
-            "historyEnabled": true,
-            "tagType": "AtomicTag"
-          },
-          {
-            "opcItemPath": {
-              "bindType": "parameter",
-              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.InsulationThickness"
-            },
-            "historyProvider": {
-              "bindType": "parameter",
-              "binding": "{Historian}"
-            },
-            "opcServer": {
-              "bindType": "parameter",
-              "binding": "{PLC_Device}"
-            },
-            "valueSource": "opc",
-            "historyMaxAge": 1,
-            "dataType": "Int4",
-            "name": "InsulationThickness",
-            "historyEnabled": true,
-            "tagType": "AtomicTag"
-          },
-          {
-            "opcItemPath": {
-              "bindType": "parameter",
-              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.TurnNumberInsulation"
-            },
-            "historyProvider": {
-              "bindType": "parameter",
-              "binding": "{Historian}"
-            },
-            "opcServer": {
-              "bindType": "parameter",
-              "binding": "{PLC_Device}"
-            },
-            "valueSource": "opc",
-            "historyMaxAge": 1,
-            "dataType": "Int4",
-            "name": "TurnNumberInsulation",
-            "historyEnabled": true,
-            "tagType": "AtomicTag"
-          },
-          {
-            "opcItemPath": {
-              "bindType": "parameter",
-              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.WireDiameter"
-            },
-            "historyProvider": {
-              "bindType": "parameter",
-              "binding": "{Historian}"
-            },
-            "opcServer": {
-              "bindType": "parameter",
-              "binding": "{PLC_Device}"
-            },
-            "valueSource": "opc",
-            "historyMaxAge": 1,
-            "dataType": "Int4",
-            "name": "WireDiameter",
-            "historyEnabled": true,
-            "tagType": "AtomicTag"
-          },
-          {
-            "opcItemPath": {
-              "bindType": "parameter",
-              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.InsulationDiameter"
-            },
-            "historyProvider": {
-              "bindType": "parameter",
-              "binding": "{Historian}"
-            },
-            "opcServer": {
-              "bindType": "parameter",
-              "binding": "{PLC_Device}"
-            },
-            "valueSource": "opc",
-            "historyMaxAge": 1,
-            "dataType": "Int4",
-            "name": "InsulationDiameter",
-            "historyEnabled": true,
-            "tagType": "AtomicTag"
-          },
-          {
-            "opcItemPath": {
-              "bindType": "parameter",
-              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.InsulationFeederPosition"
-            },
-            "historyProvider": {
-              "bindType": "parameter",
-              "binding": "{Historian}"
-            },
-            "opcServer": {
-              "bindType": "parameter",
-              "binding": "{PLC_Device}"
-            },
-            "valueSource": "opc",
-            "historyMaxAge": 1,
-            "dataType": "Float4",
-            "name": "InsulationFeederPosition",
-            "historyEnabled": true,
-            "tagType": "AtomicTag"
-          },
-          {
-            "opcItemPath": {
-              "bindType": "parameter",
-              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.TurnNumberWire"
-            },
-            "historyProvider": {
-              "bindType": "parameter",
-              "binding": "{Historian}"
-            },
-            "opcServer": {
-              "bindType": "parameter",
-              "binding": "{PLC_Device}"
-            },
-            "valueSource": "opc",
-            "historyMaxAge": 1,
-            "dataType": "Int4",
-            "name": "TurnNumberWire",
-            "historyEnabled": true,
-            "tagType": "AtomicTag"
-          },
-          {
-            "opcItemPath": {
-              "bindType": "parameter",
-              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.TurnNumberInsulationAndWire"
-            },
-            "historyProvider": {
-              "bindType": "parameter",
-              "binding": "{Historian}"
-            },
-            "opcServer": {
-              "bindType": "parameter",
-              "binding": "{PLC_Device}"
-            },
-            "valueSource": "opc",
-            "historyMaxAge": 1,
-            "dataType": "Int4",
-            "name": "TurnNumberInsulationAndWire",
-            "historyEnabled": true,
-            "tagType": "AtomicTag"
-          },
-          {
-            "opcItemPath": {
-              "bindType": "parameter",
-              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.WireWidth"
-            },
-            "historyProvider": {
-              "bindType": "parameter",
-              "binding": "{Historian}"
-            },
-            "opcServer": {
-              "bindType": "parameter",
-              "binding": "{PLC_Device}"
-            },
-            "valueSource": "opc",
-            "historyMaxAge": 1,
-            "dataType": "Float4",
-            "name": "WireWidth",
-            "historyEnabled": true,
-            "tagType": "AtomicTag"
-          },
-          {
-            "opcItemPath": {
-              "bindType": "parameter",
-              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.TotalWinding"
-            },
-            "historyProvider": {
-              "bindType": "parameter",
-              "binding": "{Historian}"
-            },
-            "opcServer": {
-              "bindType": "parameter",
-              "binding": "{PLC_Device}"
-            },
-            "valueSource": "opc",
-            "historyMaxAge": 1,
-            "dataType": "Int4",
-            "name": "TotalWinding",
-            "historyEnabled": true,
-            "tagType": "AtomicTag"
-          },
-          {
-            "opcItemPath": {
-              "bindType": "parameter",
-              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.InsulationTension"
-            },
-            "historyProvider": {
-              "bindType": "parameter",
-              "binding": "{Historian}"
-            },
-            "opcServer": {
-              "bindType": "parameter",
-              "binding": "{PLC_Device}"
-            },
-            "valueSource": "opc",
-            "historyMaxAge": 1,
-            "dataType": "Int4",
+            "readOnly": true,
+            "dataType": "Float8Array",
+            "historyEnabled": false,
             "name": "InsulationTension",
-            "historyEnabled": true,
             "tagType": "AtomicTag"
           },
           {
             "opcItemPath": {
               "bindType": "parameter",
-              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.ProductionID"
+              "binding": "{basepath}.ProductionData.{TagName}"
             },
             "historyProvider": {
               "bindType": "parameter",
@@ -1297,15 +891,240 @@
             },
             "valueSource": "opc",
             "historyMaxAge": 1,
+            "readOnly": true,
+            "dataType": "Float8Array",
+            "historyEnabled": false,
+            "name": "WireThickness",
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "{basepath}.ProductionData.{TagName}"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "readOnly": true,
+            "dataType": "Float8Array",
+            "historyEnabled": false,
+            "name": "FoilDiameter",
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "{basepath}.ProductionData.{TagName}"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "readOnly": true,
+            "dataType": "Float4",
+            "historyEnabled": true,
+            "name": "ActualTurnNumber",
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "{basepath}.ProductionData.{TagName}"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "readOnly": true,
+            "dataType": "Float8",
+            "historyEnabled": true,
+            "name": "TurnNumberInsulationAndWire",
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "{basepath}.ProductionData.WireWidht"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "readOnly": true,
+            "dataType": "Float8Array",
+            "historyEnabled": false,
+            "name": "WireWidth",
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "{basepath}.ProductionData.TurnNumberrWire"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "readOnly": true,
+            "dataType": "Float8",
+            "historyEnabled": true,
+            "name": "TurnNumberWire",
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "{basepath}.ProductionData.{TagName}"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "readOnly": true,
+            "dataType": "Float8Array",
+            "historyEnabled": false,
+            "name": "InsulationThickness",
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "{basepath}.ProductionData.{TagName}"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "readOnly": true,
+            "dataType": "Float8",
+            "historyEnabled": true,
+            "name": "TurnNumberInsulation",
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "{basepath}.ProductionData.{TagName}"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "readOnly": true,
+            "dataType": "Float4",
+            "historyEnabled": true,
+            "name": "FoilFeederPosition",
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "{basepath}.ProductionData.{TagName}"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "readOnly": true,
+            "dataType": "Float4",
+            "historyEnabled": true,
+            "name": "Actual_Circumference",
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "{basepath}.ProductionData.{TagName}"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "readOnly": true,
+            "dataType": "Float4",
+            "historyEnabled": true,
+            "name": "InsulationFeederPosition",
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "{basepath}.ProductionData.{TagName}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
             "dataType": "String",
             "name": "ProductionID",
-            "historyEnabled": true,
             "tagType": "AtomicTag"
           },
           {
             "opcItemPath": {
               "bindType": "parameter",
-              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.FoilDiameter"
+              "binding": "{basepath}.ProductionData.{TagName}"
             },
             "historyProvider": {
               "bindType": "parameter",
@@ -1317,95 +1136,16 @@
             },
             "valueSource": "opc",
             "historyMaxAge": 1,
-            "dataType": "Int4",
-            "name": "FoilDiameter",
-            "historyEnabled": true,
-            "tagType": "AtomicTag"
-          },
-          {
-            "opcItemPath": {
-              "bindType": "parameter",
-              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.WireThickness"
-            },
-            "historyProvider": {
-              "bindType": "parameter",
-              "binding": "{Historian}"
-            },
-            "opcServer": {
-              "bindType": "parameter",
-              "binding": "{PLC_Device}"
-            },
-            "valueSource": "opc",
-            "historyMaxAge": 1,
-            "dataType": "Float4",
-            "name": "WireThickness",
-            "historyEnabled": true,
-            "tagType": "AtomicTag"
-          },
-          {
-            "opcItemPath": {
-              "bindType": "parameter",
-              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.WindingProgramEnd"
-            },
-            "historyProvider": {
-              "bindType": "parameter",
-              "binding": "{Historian}"
-            },
-            "opcServer": {
-              "bindType": "parameter",
-              "binding": "{PLC_Device}"
-            },
-            "valueSource": "opc",
-            "historyMaxAge": 1,
+            "readOnly": true,
             "dataType": "Boolean",
-            "name": "WindingProgramEnd",
             "historyEnabled": true,
-            "tagType": "AtomicTag"
-          },
-          {
-            "opcItemPath": {
-              "bindType": "parameter",
-              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.ActualTurnNumber"
-            },
-            "historyProvider": {
-              "bindType": "parameter",
-              "binding": "{Historian}"
-            },
-            "opcServer": {
-              "bindType": "parameter",
-              "binding": "{PLC_Device}"
-            },
-            "valueSource": "opc",
-            "historyMaxAge": 1,
-            "dataType": "Float4",
-            "name": "ActualTurnNumber",
-            "historyEnabled": true,
-            "tagType": "AtomicTag"
-          },
-          {
-            "opcItemPath": {
-              "bindType": "parameter",
-              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.WindingProgramStart"
-            },
-            "historyProvider": {
-              "bindType": "parameter",
-              "binding": "{Historian}"
-            },
-            "opcServer": {
-              "bindType": "parameter",
-              "binding": "{PLC_Device}"
-            },
-            "valueSource": "opc",
-            "historyMaxAge": 1,
-            "dataType": "Boolean",
             "name": "WindingProgramStart",
-            "historyEnabled": true,
             "tagType": "AtomicTag"
           },
           {
             "opcItemPath": {
               "bindType": "parameter",
-              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.ActualWinderSpeed"
+              "binding": "{basepath}.ProductionData.{TagName}"
             },
             "historyProvider": {
               "bindType": "parameter",
@@ -1417,15 +1157,16 @@
             },
             "valueSource": "opc",
             "historyMaxAge": 1,
+            "readOnly": true,
             "dataType": "Int4",
+            "historyEnabled": true,
             "name": "ActualWinderSpeed",
-            "historyEnabled": true,
             "tagType": "AtomicTag"
           },
           {
             "opcItemPath": {
               "bindType": "parameter",
-              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.Percemtage_WIP"
+              "binding": "{basepath}.ProductionData.{TagName}"
             },
             "historyProvider": {
               "bindType": "parameter",
@@ -1437,15 +1178,79 @@
             },
             "valueSource": "opc",
             "historyMaxAge": 1,
+            "readOnly": true,
+            "dataType": "Boolean",
+            "historyEnabled": true,
+            "name": "WindingProgramEnd",
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "{basepath}.ProductionData.{TagName}"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "readOnly": true,
+            "dataType": "Float8Array",
+            "historyEnabled": false,
+            "name": "FoilTension",
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "{basepath}.ProductionData.{TagName}"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "readOnly": true,
+            "dataType": "Float8Array",
+            "historyEnabled": false,
+            "name": "Wire_Tension",
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "{basepath}.ProductionData.{TagName}"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "readOnly": true,
             "dataType": "Int4",
-            "name": "Percemtage_WIP",
             "historyEnabled": true,
+            "name": "TotalWinding",
             "tagType": "AtomicTag"
           },
           {
             "opcItemPath": {
               "bindType": "parameter",
-              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.WireTension"
+              "binding": "{basepath}.ProductionData.{TagName}"
             },
             "historyProvider": {
               "bindType": "parameter",
@@ -1457,15 +1262,16 @@
             },
             "valueSource": "opc",
             "historyMaxAge": 1,
-            "dataType": "Int4",
-            "name": "WireTension",
-            "historyEnabled": true,
+            "readOnly": true,
+            "dataType": "Float8Array",
+            "historyEnabled": false,
+            "name": "WireFeederPosition",
             "tagType": "AtomicTag"
           },
           {
             "opcItemPath": {
               "bindType": "parameter",
-              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.ActualCoilDiameter"
+              "binding": "{basepath}.ProductionData.{TagName}"
             },
             "historyProvider": {
               "bindType": "parameter",
@@ -1477,15 +1283,96 @@
             },
             "valueSource": "opc",
             "historyMaxAge": 1,
+            "readOnly": true,
+            "dataType": "Float8Array",
+            "historyEnabled": false,
+            "name": "InsulationWidth",
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "{basepath}.ProductionData.{TagName}"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "readOnly": true,
+            "dataType": "Float8Array",
+            "historyEnabled": false,
+            "name": "WireDiameter",
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "{basepath}.ProductionData.{TagName}"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "readOnly": true,
+            "dataType": "Float8Array",
+            "historyEnabled": false,
+            "name": "InsulationDiameter",
+            "tagType": "AtomicTag"
+          },
+          {
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "valueSource": "expr",
+            "historyMaxAge": 1,
+            "expression": "if(\r\n    {[.]TotalWinding} \u003d 0,\r\n    0,\r\n    min(\r\n        ({[.]ActualTurnNumber} / {[.]TotalWinding}) * 100,\r\n        100\r\n    )\r\n)",
             "dataType": "Float4",
+            "historicalDeadbandMode": "Off",
+            "historyEnabled": true,
+            "name": "WIP",
+            "includeMetadata": true,
+            "historySampleRate": 60,
+            "sampleMode": "Periodic",
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": {
+              "bindType": "parameter",
+              "binding": "{basepath}.ProductionData.{TagName}"
+            },
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "opcServer": {
+              "bindType": "parameter",
+              "binding": "{PLC_Device}"
+            },
+            "valueSource": "opc",
+            "historyMaxAge": 1,
+            "readOnly": true,
+            "dataType": "Float4",
+            "historyEnabled": true,
             "name": "ActualCoilDiameter",
-            "historyEnabled": true,
             "tagType": "AtomicTag"
           },
           {
             "opcItemPath": {
               "bindType": "parameter",
-              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.NextStop"
+              "binding": "{basepath}.ProductionData.{TagName}"
             },
             "historyProvider": {
               "bindType": "parameter",
@@ -1497,81 +1384,1066 @@
             },
             "valueSource": "opc",
             "historyMaxAge": 1,
+            "readOnly": true,
             "dataType": "Int4",
+            "historyEnabled": true,
             "name": "NextStop",
-            "historyEnabled": true,
-            "tagType": "AtomicTag"
-          },
-          {
-            "opcItemPath": {
-              "bindType": "parameter",
-              "binding": "nsu\u003dKepware Server;s\u003dHitachi_Energy.{PLC_Device}.ProductionData.ActualCircumference"
-            },
-            "historyProvider": {
-              "bindType": "parameter",
-              "binding": "{Historian}"
-            },
-            "opcServer": {
-              "bindType": "parameter",
-              "binding": "{PLC_Device}"
-            },
-            "valueSource": "opc",
-            "historyMaxAge": 1,
-            "dataType": "Float4",
-            "name": "ActualCircumference",
-            "historyEnabled": true,
             "tagType": "AtomicTag"
           }
         ]
       },
       {
+        "name": "Session_status",
+        "tagType": "Folder",
+        "tags": [
+          {
+            "valueSource": "memory",
+            "dataType": "String",
+            "name": "LastUserActive",
+            "value": "",
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "expr",
+            "expression": "if({[.]Session_Active},0,0)",
+            "name": "Inactive_time",
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "memory",
+            "dataType": "String",
+            "name": "session_ID",
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "expr",
+            "expression": "if({[.]Session_Active},\r\n    dateDiff(\r\n        {[.]Session_start_time},\r\n        now(),\r\n        \"minute\"\r\n    ),\r\n    0\r\n)",
+            "name": "Session_active_time",
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "memory",
+            "dataType": "DateTime",
+            "name": "Session_start_time",
+            "formatString": "yyyy-MM-dd h:mm:ss aa",
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "memory",
+            "dataType": "String",
+            "name": "UserActive",
+            "value": "",
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "memory",
+            "eventScripts": [
+              {
+                "eventid": "valueChanged",
+                "script": "\tsup_MachineOveride \u003d system.tag.readBlocking(\"[.]../Machine Block/MachineBlockOveride\")[0].value\n\tongoingDT \u003d system.tag.readBlocking(\"[.]../Downtime/Ongoingbreakdown\")[0].value\n\tif not sup_MachineOveride:\n\t\tblockTagPath \u003d \"[.]../Machine Block/MachineBlock\"\n\t\tif currentValue.value \u003d\u003d True and not ongoingDT:\n\t\t\tsystem.tag.writeBlocking(blockTagPath, False)\n\t\telif currentValue.value \u003d\u003d False:\n\t\t\tsystem.tag.writeBlocking(blockTagPath, True)"
+              }
+            ],
+            "dataType": "Boolean",
+            "name": "Session_Active",
+            "value": false,
+            "tagType": "AtomicTag"
+          }
+        ]
+      },
+      {
+        "name": "Shift",
+        "tagType": "Folder",
+        "tags": [
+          {
+            "eventScripts": [
+              {
+                "eventid": "valueChanged",
+                "script": "\tif currentValue.value:\n\t\tpath \u003d \"[.]../Session_status/LastUserActive\"\n\t\tsystem.tag.writeBlocking(path, \"\")\n\t\ttagpath\u003d[\"[.]../WO/PO\",\"[.]../WO/serial_number\",\"[.]../ProductionData/WIP\",\"[~]Current_Shift/Old_shift_ID\"]\n\t\ttagvalue\u003dsystem.tag.readBlocking(tagpath)\n\t\tPO\u003dtagvalue[0].value\n\t\tSerialNumber\u003dtagvalue[1].value\n\t\tWIP\u003dtagvalue[2].value\n\t\tShiftID\u003dtagvalue[3].value\n\t\tif PO is not None:\n\t\t\tparams\u003d{\"PO\": PO,\"SerialNumber\":SerialNumber ,\"WIP\": WIP,\"ShiftID\":ShiftID}\n\t\t\tNQ\u003d\u0027downtime/ShiftChangeData\u0027\n\t\t\tsystem.db.runNamedQuery(NQ,params)\n\telif currentValue.value \u003d\u003dFalse and previousValue.value \u003d\u003dTrue :\n\t\ttagpath\u003d[\"[.]../Machineinfo/MachineID\",\"[.]../Downtime/Ongoingbreakdown\",\"[~]Current_Shift/Start_time\"]\n\t\ttagvalue\u003dsystem.tag.readBlocking(tagpath)\n\t\tOngoingbreakdown\u003dtagvalue[1].value\n\t\tif Ongoingbreakdown:\n\t\t\tMachineID\u003dtagvalue[0].value\n\t\t\tparameters\u003d{\"MachineID\":MachineID}\n\t\t\tCurrentData \u003d system.db.runNamedQuery(\"downtime/Active_downtime\", parameters)\n\t\t\tif CurrentData.getRowCount() \u003e 0:\n\t\t\t\tDowntimeSource\u003dCurrentData.getValueAt(0,\"DowntimeSource\")\n\t\t\t\tif DowntimeSource\u003d\u003d0:\n\t\t\t\t\tEndTime\u003dtagvalue[2].value\n\t\t\t\t\tLogID\u003dCurrentData.getValueAt(0,\"LogID\")\n\t\t\t\t\tparameters \u003d {\"EndTime\":EndTime,\"LogID\":LogID}\n\t\t\t\t\tsystem.db.runNamedQuery(\"downtime/UpdateDowntimeCompletion\", parameters)\n\t\t\t\t\tsystem.tag.writeBlocking([\"[.]../Downtime/Ongoingbreakdown\",\"[.]../Downtime/Manual_entry_Active\"], [False,False])\n\t\t\t\t\t#pass\t\t\t"
+              }
+            ],
+            "valueSource": "reference",
+            "dataType": "Boolean",
+            "sourceTagPath": "[~]Current_Shift/Shift_Change",
+            "name": "Shift_Change",
+            "tagType": "AtomicTag"
+          }
+        ]
+      },
+      {
+        "name": "Supervisor",
+        "tagType": "Folder",
+        "tags": [
+          {
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "valueSource": "memory",
+            "historyMaxAge": 1,
+            "historyEnabled": true,
+            "name": "LastAction",
+            "tooltip": "Any action taken by supervisor",
+            "value": 0,
+            "tagType": "AtomicTag"
+          },
+          {
+            "eventScripts": [
+              {
+                "eventid": "alarmAcked",
+                "script": "\tpath \u003d\"[.]Assistance_requested\"\n\tsystem.tag.writeBlocking(path, False)"
+              }
+            ],
+            "valueSource": "memory",
+            "dataType": "Boolean",
+            "alarms": [
+              {
+                "ackPipeline": "OEE_Plant_Supervisor/Acknoweldge",
+                "setpointA": 1.0,
+                "activePipeline": "OEE_Plant_Supervisor/Acknoweldge",
+                "name": "Assistance_requested",
+                "label": "Assistance Requested",
+                "priority": "High",
+                "voip.customMessage": {
+                  "bindType": "Expression",
+                  "value": "\"Supervisor assistance requested from Machine \" + {Machine_Name}"
+                },
+                "displayPath": {
+                  "bindType": "Expression",
+                  "value": "{[.]../Machineinfo/MachineCode} + \" Assistance Requested\""
+                }
+              }
+            ],
+            "name": "Assistance_requested",
+            "value": false,
+            "tagType": "AtomicTag"
+          },
+          {
+            "eventScripts": [
+              {
+                "eventid": "alarmAcked",
+                "script": "\tpath \u003d\"[.]Job_Cancel_requested\"\n\tsystem.tag.writeBlocking(path, False)"
+              }
+            ],
+            "valueSource": "memory",
+            "dataType": "Boolean",
+            "alarms": [
+              {
+                "setpointA": 1.0,
+                "name": "Job_Cancel_requested",
+                "priority": "High",
+                "label": {
+                  "bindType": "Expression",
+                  "value": "\"Job Cancel Requested\""
+                },
+                "displayPath": {
+                  "bindType": "Expression",
+                  "value": "{[.]../Machineinfo/MachineCode} + \" Job Cancel Requested\""
+                }
+              }
+            ],
+            "name": "Job_Cancel_requested",
+            "value": false,
+            "tagType": "AtomicTag"
+          }
+        ]
+      },
+      {
+        "name": "System",
+        "tagType": "Folder",
+        "tags": [
+          {
+            "valueSource": "expr",
+            "eventScripts": [
+              {
+                "eventid": "valueChanged",
+                "script": "\tif not initialChange:\n\t\tlogger \u003d system.util.getLogger(\"HeartBeat\")\n\t\tlogger.info(\"started\")\n\t\tTagPaths \u003d [\"[.]../Session_status/Session_Active\", \"[.]../Machine Block/MachineBlockOveride\"]\n\t\tresult   \u003d system.tag.readBlocking(TagPaths)\n\t\tsession  \u003d result[0].value\n\t\toverride \u003d result[1].value\n\t\tif currentValue.value \u003d\u003d True and not session and not override:\n\t\t\tsystem.tag.writeBlocking([\"[.]Machine Block/MachineBlock\"], [True])\n\t\t\tlogger.info(\"Executed\")"
+              }
+            ],
+            "expression": "runScript(\"wo.machine.isOpcConnected\", 0, {PLC_Device})",
+            "dataType": "Boolean",
+            "name": "HeartBeat",
+            "executionMode": "TagGroupRate",
+            "tagType": "AtomicTag"
+          }
+        ]
+      },
+      {
+        "name": "WIP_Logic",
+        "tagType": "Folder",
+        "tags": [
+          {
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "valueSource": "reference",
+            "historyMaxAge": 1,
+            "dataType": "Float8",
+            "sourceTagPath": "[.]../ProductionData/InsulationWidth[5]",
+            "historyEnabled": true,
+            "name": "InsulationWidth_5",
+            "tagType": "AtomicTag"
+          },
+          {
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "valueSource": "reference",
+            "historyMaxAge": 1,
+            "dataType": "Float8",
+            "sourceTagPath": "[.]../ProductionData/InsulationThickness[1]",
+            "historyEnabled": true,
+            "name": "insulation_thickness_1",
+            "formatString": "#,##0.###",
+            "tagType": "AtomicTag"
+          },
+          {
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "valueSource": "reference",
+            "historyMaxAge": 1,
+            "dataType": "Float8",
+            "sourceTagPath": "[.]../ProductionData/InsulationWidth[2]",
+            "historyEnabled": true,
+            "name": "InsulationWidth_2",
+            "tagType": "AtomicTag"
+          },
+          {
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "valueSource": "reference",
+            "historyMaxAge": 1,
+            "dataType": "Float8",
+            "sourceTagPath": "[.]../ProductionData/InsulationWidth[4]",
+            "historyEnabled": true,
+            "name": "InsulationWidth_4",
+            "tagType": "AtomicTag"
+          },
+          {
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "valueSource": "reference",
+            "historyMaxAge": 1,
+            "dataType": "Float8",
+            "sourceTagPath": "[.]../ProductionData/InsulationThickness[4]",
+            "historyEnabled": true,
+            "name": "insulation_thickness_4",
+            "formatString": "#,##0.###",
+            "tagType": "AtomicTag"
+          },
+          {
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "valueSource": "reference",
+            "historyMaxAge": 1,
+            "dataType": "Float8",
+            "sourceTagPath": "[.]../ProductionData/InsulationThickness[2]",
+            "historyEnabled": true,
+            "name": "insulation_thickness_2",
+            "formatString": "#,##0.###",
+            "tagType": "AtomicTag"
+          },
+          {
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "valueSource": "reference",
+            "historyMaxAge": 1,
+            "dataType": "Float8",
+            "sourceTagPath": "[.]../ProductionData/InsulationWidth[3]",
+            "historyEnabled": true,
+            "name": "InsulationWidth_3",
+            "tagType": "AtomicTag"
+          },
+          {
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "valueSource": "reference",
+            "historyMaxAge": 1,
+            "dataType": "Float8",
+            "sourceTagPath": "[.]../ProductionData/InsulationWidth[0]",
+            "historyEnabled": true,
+            "name": "InsulationWidth_0",
+            "tagType": "AtomicTag"
+          },
+          {
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "valueSource": "expr",
+            "historyMaxAge": 1,
+            "expression": "toFloat(\r\n    if({[.]insulation_thickness_0} \u003e 0,\r\n        {[.]InsulationWidth_0} / {[.]insulation_thickness_0},\r\n        0\r\n    )\r\n)\r\n+\r\ntoFloat(\r\n    if({[.]insulation_thickness_1} \u003e 0,\r\n        {[.]InsulationWidth_1} / {[.]insulation_thickness_1},\r\n        0\r\n    )\r\n)\r\n+\r\ntoFloat(\r\n    if({[.]insulation_thickness_2} \u003e 0,\r\n        {[.]InsulationWidth_2} / {[.]insulation_thickness_2},\r\n        0\r\n    )\r\n) \r\n\r\n+\r\ntoFloat(\r\n    if({[.]insulation_thickness_4} \u003e 0,\r\n        {[.]InsulationWidth_4} / {[.]insulation_thickness_4},\r\n        0\r\n    )\r\n) \r\n\r\n+\r\ntoFloat(\r\n    if({[.]insulation_thickness_5} \u003e 0,\r\n        {[.]InsulationWidth_5} / {[.]insulation_thickness_5},\r\n        0\r\n    )\r\n) \r\n\r\n+\r\ntoFloat(\r\n    if({[.]insulation_thickness_3} \u003e 0,\r\n        {[.]InsulationWidth_3} / {[.]insulation_thickness_3},\r\n        0\r\n    )\r\n) ",
+            "dataType": "Int4",
+            "historyEnabled": true,
+            "name": "Calculated_Insulation_winding_Turn",
+            "historySampleRate": 30,
+            "sampleMode": "OnChange",
+            "tagType": "AtomicTag"
+          },
+          {
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "valueSource": "reference",
+            "historyMaxAge": 1,
+            "dataType": "Float8",
+            "sourceTagPath": "[.]../ProductionData/InsulationThickness[5]",
+            "historyEnabled": true,
+            "name": "insulation_thickness_5",
+            "formatString": "#,##0.###",
+            "tagType": "AtomicTag"
+          },
+          {
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "valueSource": "reference",
+            "historyMaxAge": 1,
+            "dataType": "Float8",
+            "sourceTagPath": "[.]../ProductionData/InsulationWidth[1]",
+            "historyEnabled": true,
+            "name": "InsulationWidth_1",
+            "tagType": "AtomicTag"
+          },
+          {
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "valueSource": "reference",
+            "historyMaxAge": 1,
+            "dataType": "Float8",
+            "sourceTagPath": "[.]../ProductionData/InsulationThickness[3]",
+            "historyEnabled": true,
+            "name": "insulation_thickness_3",
+            "formatString": "#,##0.###",
+            "tagType": "AtomicTag"
+          },
+          {
+            "historyProvider": {
+              "bindType": "parameter",
+              "binding": "{Historian}"
+            },
+            "valueSource": "reference",
+            "historyMaxAge": 1,
+            "expression": "[.]../ProductionData/InsulationThickness[0]",
+            "dataType": "Float8",
+            "sourceTagPath": "[.]../ProductionData/InsulationTension[0]",
+            "historyEnabled": true,
+            "name": "insulation_thickness_0",
+            "formatString": "#,##0.###",
+            "tagType": "AtomicTag"
+          }
+        ]
+      },
+      {
+        "name": "WO",
+        "tagType": "Folder",
+        "tags": [
+          {
+            "valueSource": "memory",
+            "dataType": "String",
+            "name": "LSPEC",
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "memory",
+            "dataType": "DateTime",
+            "name": "Start_time",
+            "formatString": "yyyy-MM-dd h:mm:ss aa",
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "memory",
+            "dataType": "String",
+            "name": "PO",
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "memory",
+            "dataType": "String",
+            "name": "serial_number",
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "memory",
+            "dataType": "String",
+            "name": "Program_Name",
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "memory",
+            "dataType": "Int4",
+            "name": "status",
+            "value": 0,
+            "tagType": "AtomicTag"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "UDT_CoilWinder",
+    "typeId": "",
+    "tagType": "UdtType",
+    "tags": [
+      {
+        "name": "Alarms",
+        "tagType": "Folder"
+      },
+      {
+        "name": "DataAutomation",
+        "tagType": "Folder"
+      },
+      {
+        "name": "OEE",
+        "tagType": "Folder"
+      }
+    ]
+  },
+  {
+    "name": "Project_Config",
+    "parameters": {
+      "MetaData": {
+        "dataType": "String",
+        "value": null
+      }
+    },
+    "tagType": "UdtType",
+    "tags": [
+      {
+        "valueSource": "memory",
+        "name": "Area",
+        "tagType": "AtomicTag"
+      },
+      {
+        "datasource": {
+          "bindType": "parameter",
+          "binding": "{MetaData}"
+        },
+        "valueSource": "db",
+        "dataType": "DataSet",
+        "query": "SELECT \r\n    op_status,\r\n    CASE \r\n        WHEN op_status \u003d 18 THEN \u0027Restart\u0027\r\n        ELSE name\r\n    END AS name\r\nFROM wo_event_types;",
+        "name": "Op_Status",
+        "tagType": "AtomicTag"
+      },
+      {
         "valueSource": "memory",
         "dataType": "Boolean",
-        "name": "Supervisor_Assistance_requested",
+        "name": "Opr_updated_wo",
         "value": false,
         "tagType": "AtomicTag"
       },
       {
-        "value": {
-          "bindType": "parameter",
-          "binding": "{InstanceName}"
-        },
         "valueSource": "memory",
-        "valuePersistence": "None",
         "dataType": "String",
-        "name": "UDT_Name",
+        "name": "PlantName",
+        "value": "Jefferson City",
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "memory",
+        "dataType": "Boolean",
+        "name": "Sup_updated_wo",
+        "value": false,
         "tagType": "AtomicTag"
       }
     ]
   },
   {
-    "name": "Shift",
-    "typeId": "",
+    "name": "UDT_Tuboly",
     "tagType": "UdtType",
     "tags": [
       {
-        "valueSource": "memory",
-        "dataType": "Boolean",
-        "name": "ShiftEnabled",
-        "value": true,
+        "name": "Alarms",
+        "tagType": "Folder"
+      },
+      {
+        "name": "DataAutomation",
+        "tagType": "Folder"
+      },
+      {
+        "name": "OEE",
+        "tagType": "Folder",
+        "tags": [
+          {
+            "name": "ProductionData",
+            "tagType": "Folder",
+            "tags": [
+              {
+                "valueSource": "opc",
+                "documentation": "actual winder speed [rpm]",
+                "name": "ActualWinderSpeed",
+                "tagType": "AtomicTag"
+              },
+              {
+                "valueSource": "opc",
+                "dataType": "Int8Array",
+                "documentation": "insulation thickness [mm]",
+                "name": "InsulationThickness",
+                "tagType": "AtomicTag"
+              },
+              {
+                "valueSource": "opc",
+                "dataType": "Int8Array",
+                "documentation": "foil diameter [mm]",
+                "name": "FoilDiameter",
+                "tagType": "AtomicTag"
+              },
+              {
+                "valueSource": "opc",
+                "dataType": "Int8",
+                "documentation": "actual coil circumference [mm]",
+                "name": "ActualCircumference",
+                "tagType": "AtomicTag"
+              },
+              {
+                "valueSource": "opc",
+                "dataType": "Int8Array",
+                "documentation": "wire tension [N]",
+                "name": "WireTension",
+                "tagType": "AtomicTag"
+              },
+              {
+                "valueSource": "opc",
+                "dataType": "Int8Array",
+                "documentation": "insulation diameter [mm]",
+                "name": "InsulationDiameter",
+                "tagType": "AtomicTag"
+              },
+              {
+                "valueSource": "opc",
+                "dataType": "Boolean",
+                "documentation": "Start of Production",
+                "name": "WindingProgramStart",
+                "tagType": "AtomicTag"
+              },
+              {
+                "valueSource": "opc",
+                "dataType": "Int8Array",
+                "documentation": "wire width [mm]",
+                "name": "WireWidth",
+                "tagType": "AtomicTag"
+              },
+              {
+                "valueSource": "opc",
+                "dataType": "Int8",
+                "documentation": "total turns in production [Turn]",
+                "name": "TotalWinding",
+                "tagType": "AtomicTag"
+              },
+              {
+                "valueSource": "opc",
+                "dataType": "Int8Array",
+                "documentation": "Insulation TU position [mm]",
+                "name": "InsulationFeederPosition",
+                "tagType": "AtomicTag"
+              },
+              {
+                "valueSource": "opc",
+                "dataType": "String",
+                "documentation": ".CDF file name",
+                "name": "ProductionID",
+                "tagType": "AtomicTag"
+              },
+              {
+                "valueSource": "opc",
+                "dataType": "Int8",
+                "documentation": "actual turn number",
+                "name": "ActualTurnNumber",
+                "tagType": "AtomicTag"
+              },
+              {
+                "valueSource": "opc",
+                "dataType": "Boolean",
+                "documentation": "End of Production",
+                "name": "WindingProgramEnd",
+                "tagType": "AtomicTag"
+              },
+              {
+                "valueSource": "opc",
+                "documentation": "Total insulation turns in production [Turn]",
+                "name": "TurnNumberInsulation",
+                "tagType": "AtomicTag"
+              },
+              {
+                "valueSource": "opc",
+                "dataType": "Int8",
+                "documentation": "Next stop where the Winding machine displays a message [Turn]",
+                "name": "NextStop",
+                "tagType": "AtomicTag"
+              },
+              {
+                "valueSource": "opc",
+                "dataType": "Int8Array",
+                "documentation": "wire thickness [mm]",
+                "name": "WireThickness",
+                "tagType": "AtomicTag"
+              },
+              {
+                "valueSource": "opc",
+                "dataType": "Int8Array",
+                "documentation": "insulation tension [N]",
+                "name": "InsulationTension",
+                "tagType": "AtomicTag"
+              },
+              {
+                "valueSource": "opc",
+                "documentation": "Total wire turns in production [Turn]",
+                "name": "TurnNumberWire",
+                "tagType": "AtomicTag"
+              },
+              {
+                "valueSource": "opc",
+                "dataType": "Int8Array",
+                "documentation": "Wire TU position [mm]",
+                "name": "WireFeederPosition",
+                "tagType": "AtomicTag"
+              },
+              {
+                "valueSource": "opc",
+                "dataType": "Int8",
+                "documentation": "actual coil diameter [mm]",
+                "name": "ActualCoilDiameter",
+                "tagType": "AtomicTag"
+              },
+              {
+                "valueSource": "opc",
+                "dataType": "Int8",
+                "documentation": "Total insulation and wire turns in production [Turn]",
+                "name": "TurnNumberInsulationAndWire",
+                "tagType": "AtomicTag"
+              },
+              {
+                "valueSource": "opc",
+                "dataType": "Int8Array",
+                "documentation": "wire diameter [mm]",
+                "name": "WireDiameter",
+                "tagType": "AtomicTag"
+              },
+              {
+                "valueSource": "opc",
+                "dataType": "Int8Array",
+                "documentation": "insulation width [mm]",
+                "name": "InsulationWidth",
+                "tagType": "AtomicTag"
+              }
+            ]
+          },
+          {
+            "name": "MachineData",
+            "tagType": "Folder",
+            "tags": [
+              {
+                "valueSource": "opc",
+                "dataType": "Boolean",
+                "documentation": "Cooling Channel",
+                "name": "FixCoolingChannel",
+                "tagType": "AtomicTag"
+              },
+              {
+                "valueSource": "opc",
+                "dataType": "DateTime",
+                "documentation": "production time [hh:ss:mm:ms]",
+                "name": "ProductionTime",
+                "formatString": "yyyy-MM-dd h:mm:ss aa",
+                "tagType": "AtomicTag"
+              },
+              {
+                "valueSource": "opc",
+                "dataType": "Boolean",
+                "documentation": "unit on",
+                "name": "UnitOn",
+                "tagType": "AtomicTag"
+              },
+              {
+                "valueSource": "opc",
+                "dataType": "Float8",
+                "documentation": "error code (according language file)",
+                "name": "ErrorCode",
+                "tagType": "AtomicTag"
+              },
+              {
+                "valueSource": "opc",
+                "dataType": "Boolean",
+                "documentation": "coil present",
+                "name": "CoilPresentSensor",
+                "tagType": "AtomicTag"
+              },
+              {
+                "valueSource": "opc",
+                "dataType": "Boolean",
+                "documentation": "error active",
+                "name": "ErrorActive",
+                "tagType": "AtomicTag"
+              },
+              {
+                "valueSource": "opc",
+                "dataType": "Boolean",
+                "documentation": "lead out in progress",
+                "name": "SingleClipImplementation",
+                "tagType": "AtomicTag"
+              },
+              {
+                "valueSource": "opc",
+                "dataType": "Boolean",
+                "documentation": "manual mode active",
+                "name": "ManualMode",
+                "tagType": "AtomicTag"
+              },
+              {
+                "valueSource": "opc",
+                "dataType": "Boolean",
+                "documentation": "Securit door or cage open",
+                "name": "SecurityCageOpen",
+                "tagType": "AtomicTag"
+              },
+              {
+                "valueSource": "opc",
+                "dataType": "Boolean",
+                "documentation": "automatic mode active",
+                "name": "AutomaticMode",
+                "tagType": "AtomicTag"
+              },
+              {
+                "valueSource": "opc",
+                "dataType": "DateTime",
+                "documentation": "operating hours [hh:ss:mm:ms]",
+                "name": "OperatingHour",
+                "formatString": "yyyy-MM-dd h:mm:ss aa",
+                "tagType": "AtomicTag"
+              },
+              {
+                "valueSource": "opc",
+                "dataType": "Boolean",
+                "documentation": "production canceled",
+                "name": "CancelProduction",
+                "tagType": "AtomicTag"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "UDT_WeldRobot",
+    "typeId": null,
+    "parameters": {
+      "Line": {
+        "dataType": "String",
+        "value": null
+      },
+      "Plant": {
+        "dataType": "String",
+        "value": ""
+      },
+      "Description": {
+        "dataType": "String",
+        "value": null
+      },
+      "EMaint Asset ID": {
+        "dataType": "String",
+        "value": null
+      },
+      "Section": {
+        "dataType": "String",
+        "value": "241"
+      },
+      "Asset Number": {
+        "dataType": "String",
+        "value": null
+      }
+    },
+    "tagType": "UdtType",
+    "tags": [
+      {
+        "name": "Alarms",
+        "tagType": "Folder"
+      },
+      {
+        "name": "DataAutomation",
+        "tagType": "Folder",
+        "tags": [
+          {
+            "valueSource": "memory",
+            "dataType": "String",
+            "name": "DebugTestString",
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "memory",
+            "dataType": "Boolean",
+            "name": "DebugTestBool",
+            "value": false,
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "opc",
+            "dataType": "Boolean",
+            "name": "OPC_TankDataRequest",
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "opc",
+            "dataType": "String",
+            "name": "OPC_TankID",
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "opc",
+            "dataType": "String",
+            "name": "OPC_TankData",
+            "tagType": "AtomicTag"
+          }
+        ]
+      },
+      {
+        "name": "OEE",
+        "tagType": "Folder"
+      }
+    ]
+  },
+  {
+    "name": "UDT_Test",
+    "typeId": null,
+    "tagType": "UdtType",
+    "tags": [
+      {
+        "name": "Alarms",
+        "tagType": "Folder"
+      },
+      {
+        "name": "DataAutomation",
+        "tagType": "Folder"
+      },
+      {
+        "name": "OEE",
+        "tagType": "Folder"
+      }
+    ]
+  },
+  {
+    "name": "UDT_Hervoss",
+    "typeId": null,
+    "tagType": "UdtType",
+    "tags": [
+      {
+        "name": "Alarms",
+        "tagType": "Folder"
+      },
+      {
+        "name": "DataAutomation",
+        "tagType": "Folder",
+        "tags": [
+          {
+            "valueSource": "memory",
+            "dataType": "DataSet",
+            "name": "3PHTT",
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "memory",
+            "dataType": "DateTime",
+            "name": "LastRan",
+            "formatString": "yyyy-MM-dd h:mm:ss aa",
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "memory",
+            "dataType": "DataSet",
+            "name": "3PHBLANK",
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "memory",
+            "dataType": "DataSet",
+            "name": "HVSV2",
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "memory",
+            "dataType": "DataSet",
+            "name": "Herr Voss Inputs",
+            "value": "{\"columns\":[{\"name\":\"Material\",\"type\":\"java.lang.String\"},{\"name\":\"Part ID\",\"type\":\"java.lang.String\"},{\"name\":\"Thickness (IN)\",\"type\":\"java.lang.Double\"},{\"name\":\"Width (IN)\",\"type\":\"java.lang.Double\"},{\"name\":\"Density (LB/IN3)\",\"type\":\"java.lang.Double\"},{\"name\":\"Weight Minimum (LB)\",\"type\":\"java.lang.Integer\"},{\"name\":\"Weight Maximum (LB)\",\"type\":\"java.lang.Integer\"},{\"name\":\"STD INNER DIAMETER (IN)\",\"type\":\"java.lang.Integer\"},{\"name\":\"Available Length at Minimum (IN)\",\"type\":\"java.lang.Double\"},{\"name\":\"Available Length at Maximum (IN)\",\"type\":\"java.lang.Double\"},{\"name\":\"MIDPOINT LENGTH (IN)\",\"type\":\"java.lang.Double\"}],\"rows\":[[\"10101CK\",\"10101CKD55\",0.105,37.6,0.284,18000,22000,24,16053.77,19621.27,17837.52],[\"10101CK\",\"10101CKY2U\",0.12,70.0,0.284,18000,22000,24,7545.27,9221.99,8383.63],[\"10101CK\",\"10101CKY5M\",0.105,26.9,0.284,18000,22000,24,22439.47,27426.02,24932.74],[\"10101CK\",\"10101CKY62\",0.075,49.75,0.284,18000,22000,24,16986.34,20761.08,18873.71],[\"10101CK\",\"10101CKY63\",0.075,36.6,0.284,18000,22000,24,23089.36,28220.32,25654.84],[\"10101CK\",\"10101CKY70\",0.09,49.75,0.284,18000,22000,24,14155.28,17300.9,15728.09],[\"10101CK\",\"10101CKY72\",0.09,58.7,0.284,18000,22000,24,11997.02,14663.03,13330.03],[\"10101CK\",\"10101CKY73\",0.09,36.1,0.284,18000,22000,24,19507.63,23842.66,21675.14],[\"10101CK\",\"10101CKY7Y\",0.179,70.0,0.284,18000,22000,24,5058.28,6182.35,5620.31],[\"10101CK\",\"10101CKYLQ\",0.105,46.6,0.284,18000,22000,24,12953.26,15831.76,14392.51],[\"CR CARB\",\"10102DDY4S\",0.057,56.0,0.284,18000,22000,24,19855.98,24268.42,22062.2],[\"409HP STN\",\"10702BMXU0\",0.135,60.0,0.278,18000,22000,24,7993.61,9769.96,8881.78],[\"409HP STN\",\"10702BMY23\",0.09,36.0,0.278,18000,22000,24,19984.01,24424.9,22204.46],[\"409HP STN\",\"10702BMY24\",0.09,48.0,0.278,18000,22000,24,14988.01,18318.68,16653.34],[\"409HP STN\",\"10702BMY26\",0.105,48.0,0.278,18000,22000,24,12846.87,15701.72,14274.29],[\"409HP STN\",\"10702BMY30\",0.12,48.0,0.278,18000,22000,24,11241.01,13739.01,12490.01],[\"409HP STN\",\"10702BMY94\",0.09,44.0,0.278,18000,22000,24,16350.56,19984.01,18167.28],[\"304L STN\",\"10702TJ011\",0.75,58.7,0.289,18000,22000,24,1414.74,1729.12,1571.93],[\"304L STN\",\"10702TJE05\",0.12,72.0,0.289,18000,22000,24,7208.77,8810.71,8009.74],[\"304L STN\",\"10702TJY24\",0.09,48.0,0.289,18000,22000,24,14417.53,17621.43,16019.48],[\"304L STN\",\"10702TJY26\",0.105,48.0,0.289,18000,22000,24,12357.88,15104.08,13730.98],[\"304L STN\",\"10702TJ2J\",0.105,38.5,0.289,18000,22000,24,15407.23,18831.06,17119.15]]}",
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "memory",
+            "dataType": "DataSet",
+            "name": "1PH Steel",
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "memory",
+            "dataType": "DataSet",
+            "name": "Pirmada Inputs",
+            "value": "{\"columns\":[{\"name\":\"Material\",\"type\":\"java.lang.String\"},{\"name\":\"Part ID\",\"type\":\"java.lang.String\"},{\"name\":\"Thickness\",\"type\":\"java.lang.Double\"},{\"name\":\"Width\",\"type\":\"java.lang.Double\"},{\"name\":\"Density\",\"type\":\"java.lang.Double\"},{\"name\":\"WeightMin\",\"type\":\"java.lang.Integer\"},{\"name\":\"WeightMax\",\"type\":\"java.lang.Integer\"},{\"name\":\"InnerDiameter\",\"type\":\"java.lang.Integer\"},{\"name\":\"LengthMin\",\"type\":\"java.lang.Double\"},{\"name\":\"LengthMax\",\"type\":\"java.lang.Double\"},{\"name\":\"MidpointLength\",\"type\":\"java.lang.Double\"}],\"rows\":[[\"10101CK\",\"10101CK02V\",0.179,70.9,0.284,18000,22000,24,4994.0731,6103.8672,5548.9702],[\"10101CK\",\"10101CK03A\",0.12,56.3,0.284,18000,22000,24,9381.3324,11466.0729,10423.7027],[\"10101CK\",\"10101CKD55\",0.105,37.6,0.284,18000,22000,24,16053.7694,19621.2737,17837.5216],[\"10101CK\",\"10101CKXTE\",0.12,48.3,0.284,18000,22000,24,10935.1763,13365.2154,12150.1959],[\"10101CK\",\"10101CKY2U\",0.12,70.0,0.284,18000,22000,24,7545.2716,9221.9987,8383.6351],[\"10101CK\",\"10101CKY5M\",0.105,26.9,0.284,18000,22000,24,22439.4695,27426.0183,24932.7439],[\"10101CK\",\"10101CKY62\",0.075,49.75,0.284,18000,22000,24,16986.3402,20761.0824,18873.7113],[\"10101CK\",\"10101CKY63\",0.075,36.6,0.284,18000,22000,24,23089.3558,28220.3238,25654.8398],[\"10101CK\",\"10101CKY70\",0.09,49.75,0.284,18000,22000,24,14155.2835,17300.902,15728.0927],[\"10101CK\",\"10101CKY72\",0.09,58.7,0.284,18000,22000,24,11997.0247,14663.0302,13330.0275],[\"10101CK\",\"10101CKY73\",0.09,36.1,0.284,18000,22000,24,19507.6275,23842.6558,21675.1416],[\"10101CK\",\"10101CKY7Y\",0.179,70.0,0.284,18000,22000,24,5058.2827,6182.3455,5620.3141],[\"10101CK\",\"10101CKY90\",0.179,64.1,0.284,18000,22000,24,5523.8656,6751.3913,6137.6285],[\"10101CK\",\"10101CKY91\",0.179,56.1,0.284,18000,22000,24,6311.5826,7714.1566,7012.8696],[\"10101CK\",\"10101CKY92\",0.179,52.1,0.284,18000,22000,24,6796.1571,8306.4143,7551.2857],[\"10101CK\",\"10101CKY9Z\",0.179,66.0,0.284,18000,22000,24,5364.8452,6557.0331,5960.9392],[\"10101CK\",\"10101CKYLQ\",0.105,46.6,0.284,18000,22000,24,12953.256,15831.7574,14392.5067],[\"CR CARB\",\"10102DDY4S\",0.057,56.0,0.284,18000,22000,24,19855.978,24268.4175,22062.1977],[\"409HP STN\",\"10702BMXU0\",0.135,60.0,0.278,18000,22000,24,7993.6051,9769.9618,8881.7835],[\"409HP STN\",\"10702BMY23\",0.09,36.0,0.278,18000,22000,24,19984.0128,24424.9045,22204.4587],[\"409HP STN\",\"10702BMY24\",0.09,48.0,0.278,18000,22000,24,14988.0096,18318.6784,16653.344],[\"409HP STN\",\"10702BMY26\",0.105,48.0,0.278,18000,22000,24,12846.8654,15701.7243,14274.2948],[\"409HP STN\",\"10702BMY30\",0.12,48.0,0.278,18000,22000,24,11241.0072,13739.0088,12490.008],[\"409HP STN\",\"10702BMY94\",0.09,44.0,0.278,18000,22000,24,16350.5559,19984.0128,18167.2844],[\"304L STN\",\"10702TJ011\",0.75,58.7,0.289,18000,22000,24,1414.7357,1729.1214,1571.9285],[\"304L STN\",\"10702TJE05\",0.12,72.0,0.289,18000,22000,24,7208.7659,8810.7138,8009.7398],[\"304L STN\",\"10702TJH06\",0.12,62.0,0.289,18000,22000,24,8371.47,10231.7967,9301.6334],[\"304L STN\",\"10702TJY24\",0.09,48.0,0.289,18000,22000,24,14417.5317,17621.4277,16019.4797],[\"304L STN\",\"10702TJY26\",0.105,48.0,0.289,18000,22000,24,12357.8843,15104.0808,13730.9826],[\"304L STN\",\"10702TJ2J\",0.105,38.5,0.289,18000,22000,24,15407.2324,18831.0618,17119.1471],[\"10101CK\",\"10101CKY9Z\",0.179,66.0,0.284,18000,22000,24,5364.8452,6557.0331,5960.9392]]}",
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "memory",
+            "dataType": "DataSet",
+            "name": "TFR",
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "memory",
+            "dataType": "DataSet",
+            "name": "Piranha Blanks",
+            "value": "{\"columns\":[{\"name\":\"Blank ID\",\"type\":\"java.lang.String\"},{\"name\":\"Raw Coil\",\"type\":\"java.lang.String\"},{\"name\":\"MaxStack\",\"type\":\"java.lang.Integer\"}],\"rows\":[[\"14H740A700\",\"10101CKY7Y\",26],[\"14H769A700\",\"10101CKY7Y\",26],[\"14H839A700\",\"10101CKY90\",26],[\"14H879A483\",\"10702TJE05\",26],[\"14H879A563\",\"10101CKXTE\",26],[\"14H889A700\",\"10101CK02V\",26],[\"14H949A700\",\"10101CKY92\",24],[\"14H999A563\",\"10702TJE05\",26],[\"14HA69A483\",\"10101CKY9Z\",26],[\"14HA69A563\",\"10101CKY7Y\",26],[\"14HA89A700\",\"10101CKY7Y\",21],[\"15H768A641\",\"10702TJE05\",17],[\"15H829A660\",\"10101CKY92\",17],[\"15H879A521\",\"10101CKY7Y\",17],[\"15H879A561\",\"10702TJH06\",17],[\"15H889A700\",\"10101CKY9Z\",17],[\"15H919A521\",\"10101CKY90\",17],[\"15H928A660\",\"10101CKY2U\",17],[\"15H969A700\",\"10702TJH06\",16],[\"15H989A641\",\"10101CKY2U\",17],[\"15HA29A660\",\"10101CKY9Z\",16],[\"15HA69A700\",\"10702TJH06\",14],[\"15HA89A521\",\"10101CKY2U\",17],[\"15HA89A561\",\"10101CKY2U\",17],[\"15HB99A641\",\"10702TJE05\",14],[\"15HD09A700\",\"10101CKY2U\",12],[\"15HD59A521\",\"10101CKY9Z\",15],[\"15HD69A660\",\"10101CK02V\",12],[\"15HG09A709\",\"10101CKY2U\",11],[\"15HG39A700\",\"10101CK03A\",10],[\"15HG49A709\",\"10101CK03A\",10],[\"Q4H809A620\",\"10101CKY91\",26],[\"Q4H809A720\",\"10702TJH06\",26],[\"Q4H879A620\",\"10101CKXTE\",26],[\"Q4H949A720\",\"10101CKY90\",24],[\"Q4H979A620\",\"10101CKY92\",26],[\"Q4HA39A620\",\"10101CKY92\",25],[\"Q4HA99A720\",\"10101CK03A\",20],[\"Q4HG39A720\",\"10101CKY91\",15]]}",
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "memory",
+            "dataType": "DataSet",
+            "name": "W1P",
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "memory",
+            "dataType": "DataSet",
+            "name": "Kanban",
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "memory",
+            "dataType": "DataSet",
+            "name": "SUBMERSIBLES",
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "memory",
+            "dataType": "DataSet",
+            "name": "Raw Coils",
+            "value": "{\"columns\":[{\"name\":\"value\",\"type\":\"java.lang.String\"},{\"name\":\"label\",\"type\":\"java.lang.String\"}],\"rows\":[[\"10101CK02V\",\"02V\"],[\"10101CK03A\",\"03A\"],[\"10101CKD55\",\"D55\"],[\"10101CKXTE\",\"XTE\"],[\"10101CKY2U\",\"Y2U\"],[\"10101CKY5M\",\"Y5M\"],[\"10101CKY62\",\"Y62\"],[\"10101CKY63\",\"Y63\"],[\"10101CKY70\",\"Y70\"],[\"10101CKY72\",\"Y72\"],[\"10101CKY73\",\"Y73\"],[\"10101CKY7Y\",\"Y7Y\"],[\"10101CKY90\",\"Y90\"],[\"10101CKY91\",\"Y91\"],[\"10101CKY92\",\"Y92\"],[\"10101CKY9Z\",\"Y9Z\"],[\"10101CKYLQ\",\"YLQ\"],[\"10102DDY4S\",\"Y4S\"],[\"10702BMXU0\",\"XU0\"],[\"10702BMY23\",\"Y23\"],[\"10702BMY24\",\"Y24\"],[\"10702BMY26\",\"Y26\"],[\"10702BMY30\",\"Y30\"],[\"10702BMY94\",\"Y94\"],[\"10702TJ011\",\"011\"],[\"10702TJE05\",\"E05\"],[\"10702TJH06\",\"H06\"],[\"10702TJY24\",\"Y24\"],[\"10702TJY26\",\"Y26\"],[\"10702TJ2J\",\"J2J\"],[\"10101CKY9Z\",\"Y9Z\"]]}",
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "memory",
+            "dataType": "DataSet",
+            "name": "BASING",
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "memory",
+            "dataType": "DataSet",
+            "name": "W7P",
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "memory",
+            "dataType": "DataSet",
+            "name": "3PHU",
+            "tagType": "AtomicTag"
+          }
+        ]
+      },
+      {
+        "name": "OEE",
+        "tagType": "Folder"
+      }
+    ]
+  },
+  {
+    "typeColor": -16711936,
+    "name": "shift",
+    "parameters": {
+      "Database": {
+        "dataType": "String",
+        "value": null
+      }
+    },
+    "tagType": "UdtType",
+    "tags": [
+      {
+        "datasource": {
+          "bindType": "parameter",
+          "binding": "{Database}"
+        },
+        "valueSource": "db",
+        "expression": "runNamedQuery(\"GetCurrentShift\", {})",
+        "dataType": "DataSet",
+        "query": "SELECT TOP 1\r\n    ShiftID,\r\n    ShiftCode,\r\n    ShiftName,\r\n\r\n    -- Shift Start DateTime\r\n    CASE\r\n        -- Normal shift (same day)\r\n        WHEN StartTime \u003c EndTime THEN\r\n            CAST(CAST(GETDATE() AS date) AS datetime)\r\n            + CAST(StartTime AS datetime)\r\n\r\n        -- Overnight shift\r\n        WHEN StartTime \u003e EndTime\r\n             AND CAST(GETDATE() AS time) \u003e\u003d StartTime THEN\r\n            CAST(CAST(GETDATE() AS date) AS datetime)\r\n            + CAST(StartTime AS datetime)\r\n\r\n        -- Overnight shift (after midnight)\r\n        ELSE\r\n            CAST(DATEADD(day, -1, CAST(GETDATE() AS date)) AS datetime)\r\n            + CAST(StartTime AS datetime)\r\n    END AS ShiftStartDateTime,\r\n\r\n    -- Shift End DateTime\r\n    CASE\r\n        -- Normal shift (same day)\r\n        WHEN StartTime \u003c EndTime THEN\r\n            CAST(CAST(GETDATE() AS date) AS datetime)\r\n            + CAST(EndTime AS datetime)\r\n\r\n        -- Overnight shift\r\n        WHEN StartTime \u003e EndTime\r\n             AND CAST(GETDATE() AS time) \u003e\u003d StartTime THEN\r\n            CAST(DATEADD(day, 1, CAST(GETDATE() AS date)) AS datetime)\r\n            + CAST(EndTime AS datetime)\r\n\r\n        -- Overnight shift (after midnight)\r\n        ELSE\r\n            CAST(CAST(GETDATE() AS date) AS datetime)\r\n            + CAST(EndTime AS datetime)\r\n    END AS ShiftEndDateTime\r\n\r\nFROM dbo.tbl_Shift\r\nWHERE IsActive \u003d 1\r\nAND (\r\n        (StartTime \u003c EndTime\r\n         AND CAST(GETDATE() AS time) \u003e\u003d StartTime\r\n         AND CAST(GETDATE() AS time) \u003c EndTime)\r\n\r\n        OR\r\n\r\n        (StartTime \u003e EndTime\r\n         AND (\r\n              CAST(GETDATE() AS time) \u003e\u003d StartTime\r\n              OR CAST(GETDATE() AS time) \u003c EndTime\r\n         ))\r\n    )\r\nORDER BY ShiftID;",
+        "name": "All_in_Dataset",
+        "executionMode": "FixedRate",
+        "executionRate": 10000,
+        "queryType": "Select",
         "tagType": "AtomicTag"
       },
       {
         "valueSource": "expr",
-        "expression": "if({[.]StopTime}\u003e{[.]StartTime}\r\n,secondsBetween(setTime(now(0),floor({[.]StartTime}/100),{[.]StartTime}%100,0)\r\n,setTime(now(0),floor({[.]StopTime}/100),{[.]StopTime}%100,0))\r\n,secondsBetween(setTime(now(0),floor({[.]StartTime}/100),{[.]StartTime}%100,0)\r\n,setTime(addDays(now(0),1),floor({[.]StopTime}/100),{[.]StopTime}%100,0))\r\n)\r\n",
-        "name": "ShiftSeconds",
+        "expression": "{[.]All_in_Dataset}[\u0027ShiftEndDateTime\u0027]\r\n",
+        "dataType": "String",
+        "name": "End_time",
         "tagType": "AtomicTag"
       },
       {
         "valueSource": "memory",
-        "documentation": "Enter an integer value as hours and minutes in 24 hour time format.\nExample:\n8:00 AM \u003d 800\n10:15PM \u003d 2215\n",
-        "name": "StartTime",
+        "expression": "{[.]All_in_Dataset}[\u0027ShiftID\u0027]\r\n",
+        "dataType": "Int4",
+        "name": "Old_shift_ID",
         "tagType": "AtomicTag"
       },
       {
+        "eventScripts": [
+          {
+            "eventid": "valueChanged",
+            "script": "\tif currentValue.value :\n\t\timport time\n\t\ttime.sleep(2)\n\t\ttaglist\u003d[\"[.]Shift_Change\"]\n\t\tsystem.tag.writeBlocking(taglist,[False])"
+          }
+        ],
         "valueSource": "memory",
-        "documentation": "Enter an integer value as hours and minutes in 24 hour time format.\nExample:\n8:00 AM \u003d 800\n10:15PM \u003d 2215\n",
-        "name": "StopTime",
+        "dataType": "Boolean",
+        "name": "Shift_Change",
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "expr",
+        "expression": "{[.]All_in_Dataset}[\u0027ShiftStartDateTime\u0027]\r\n",
+        "dataType": "String",
+        "name": "Start_time",
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "expr",
+        "expression": "{[.]All_in_Dataset}[\u0027ShiftCode\u0027]\r\n",
+        "dataType": "String",
+        "name": "shift_Code",
+        "tagType": "AtomicTag"
+      },
+      {
+        "eventScripts": [
+          {
+            "eventid": "valueChanged",
+            "script": "\n\tif currentValue.value !\u003d previousValue.value:\n\t\ttagpath\u003d[\"[.]Shift_Change\",\"[.]Old_shift_ID\"]\n\t\tsystem.tag.writeBlocking(tagpath,[True,previousValue.value])"
+          }
+        ],
+        "valueSource": "expr",
+        "expression": "{[.]All_in_Dataset}[\u0027ShiftID\u0027]\r\n",
+        "dataType": "Int4",
+        "name": "shift_ID",
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "expr",
+        "expression": "{[.]All_in_Dataset}[\u0027ShiftName\u0027]\r\n",
+        "dataType": "String",
+        "name": "shift_Name",
         "tagType": "AtomicTag"
       }
     ]

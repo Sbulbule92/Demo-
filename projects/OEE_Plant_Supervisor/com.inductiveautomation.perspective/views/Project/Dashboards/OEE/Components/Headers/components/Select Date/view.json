@@ -1,0 +1,141 @@
+{
+  "custom": {
+    "date": {
+      "$": [
+        "ts",
+        192,
+        1776075229487
+      ],
+      "$ts": 1776075229487
+    }
+  },
+  "params": {
+    "SelectedDate": {
+      "$": [
+        "ts",
+        192,
+        1776075229487
+      ],
+      "$ts": 1776075229487
+    }
+  },
+  "propConfig": {
+    "custom.date": {
+      "binding": {
+        "config": {
+          "path": "/root/DateTimeInput.props.value"
+        },
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "params.SelectedDate": {
+      "binding": {
+        "config": {
+          "bidirectional": true,
+          "path": "view.custom.date"
+        },
+        "type": "property"
+      },
+      "paramDirection": "inout",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 54,
+      "width": 402
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "props": {
+          "text": "Date: "
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tsystem.perspective.sendMessage(messageType\u003d \"refreshShift\", scope\u003d\"page\")\n\tnow\u003dsystem.date.now()\n\tself.props.maxDate\u003dnow"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "DateTimeInput"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "props.maxDate": {
+            "binding": {
+              "config": {
+                "expression": "now()"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "format": "ll",
+          "formattedValue": "Apr 13, 2026",
+          "inputProps": {
+            "style": {
+              "fontSize": "20px"
+            }
+          },
+          "pickerType": "date",
+          "value": {
+            "$": [
+              "ts",
+              192,
+              1776075229487
+            ],
+            "$ts": 1776075229487
+          }
+        },
+        "type": "ia.input.date-time-input"
+      }
+    ],
+    "events": {
+      "system": {
+        "onStartup": {
+          "config": {
+            "script": "\tself.getChild(\"DateTimeInput\").props.value \u003d system.date.now()\n#\tself.getChild(\"DateTimeInput\").props.value \u003d system.date.format(system.date.now(), \"dd-MM-YY\")"
+          },
+          "scope": "G",
+          "type": "script"
+        }
+      }
+    },
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "backgroundColor": "--neutral-10",
+        "borderRightColor": "#808080",
+        "borderRightStyle": "solid",
+        "borderRightWidth": "3px",
+        "fontFamily": "verdana",
+        "fontSize": "18px",
+        "paddingBottom": "10px",
+        "paddingLeft": "5px",
+        "paddingRight": "5px",
+        "paddingTop": "10px",
+        "textTransform": "uppercase"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

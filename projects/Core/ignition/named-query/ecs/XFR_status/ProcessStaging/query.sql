@@ -1,0 +1,1 @@
+EXEC dbo.sp_Process_xfr_status_staging

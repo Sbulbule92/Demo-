@@ -6,5 +6,11 @@
   "files": [
     "config.json"
   ],
-  "attributes": {}
+  "attributes": {
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2025-10-21T14:11:38Z"
+    },
+    "lastModificationSignature": "8a1ba2444229297476ab9ef6486db2d89f6e8bfdf76c1dc763db3e864cc0e6ce"
+  }
 }

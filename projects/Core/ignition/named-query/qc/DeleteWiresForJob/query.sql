@@ -1,0 +1,1 @@
+DELETE FROM hv_wires WHERE job_id = :jobId;

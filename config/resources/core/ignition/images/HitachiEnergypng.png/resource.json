@@ -1,0 +1,21 @@
+{
+  "scope": "A",
+  "description": "",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "HitachiEnergypng.png"
+  ],
+  "attributes": {
+    "width": 117,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "Gannon",
+      "timestamp": "2026-05-29T13:14:31Z"
+    },
+    "size": 1882,
+    "lastModificationSignature": "c7945b34b73cdde471ce6c2130771d2a06a1a8c3e467318b3bd3986dbebd03bd",
+    "height": 22
+  }
+}

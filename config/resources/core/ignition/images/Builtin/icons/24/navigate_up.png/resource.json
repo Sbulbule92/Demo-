@@ -10,11 +10,11 @@
     "width": 24,
     "format": "PNG",
     "lastModification": {
-      "actor": "import",
-      "timestamp": "2025-12-19T13:07:30Z"
+      "actor": "8.3-migration",
+      "timestamp": "2025-10-21T14:11:38Z"
     },
     "size": 492,
-    "lastModificationSignature": "d83047512ddcb646b3a61c1d9f292f9917b64d7577a6dd54106d28fcc0de43b4",
+    "lastModificationSignature": "4383a9dd742404c1643db1bc3c0869092a19d7289df72bb30a75e5ea53621c72",
     "height": 24
   }
 }

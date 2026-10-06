@@ -1,0 +1,33 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "Query",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "Ignition_PROD-WOCL",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "7a2c0131feb2a8c8d5da140f21a869b343805ab041c80046d4d95abc5cd92b79",
+    "permissions": [
+      {
+        "zone": "Default",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "prasantm",
+      "timestamp": "2026-04-07T07:28:23Z"
+    }
+  }
+}

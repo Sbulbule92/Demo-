@@ -1,0 +1,26 @@
+[
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.MachineData.FB_OperatingHour.rtHoldByWinderZeroSpeed.M",
+    "dataType": "Boolean",
+    "name": "M",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.MachineData.FB_OperatingHour.rtHoldByWinderZeroSpeed.Q",
+    "dataType": "Boolean",
+    "name": "Q",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.MachineData.FB_OperatingHour.rtHoldByWinderZeroSpeed.CLK",
+    "dataType": "Boolean",
+    "name": "CLK",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  }
+]

@@ -1,0 +1,102 @@
+{
+  "users": [
+    {
+      "uuid": "eca47623-15da-4cae-9277-9108ed38b442",
+      "username": "Noah",
+      "firstName": "Noah",
+      "lastName": "",
+      "schedule": "Always",
+      "description": "",
+      "password": "[14494E08]59de3dfc69359100da7e8144ae57baa0cd61c5672aaa02ed0d5adccf19aca769",
+      "passwordDate": "20260121.163114536-0600",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260121.163114536-0600",
+      "lastModifiedDate": "20260121.163114536-0600",
+      "roles": [],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    },
+    {
+      "uuid": "3475c38e-127d-431a-9a37-88a2a794f5a1",
+      "username": "Admin",
+      "firstName": "Admin",
+      "lastName": "",
+      "schedule": "Always",
+      "description": "",
+      "password": "[1198B38A]b9d32925ef7d0b47601cb203581f702d05057d05662e7a64ca015b61131bbc41",
+      "passwordDate": "20260121.163142547-0600",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260121.163142547-0600",
+      "lastModifiedDate": "20260121.163142547-0600",
+      "roles": [],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    },
+    {
+      "uuid": "2ab3ab4f-a121-4ce8-aeb1-d84db4c3d155",
+      "username": "Joy",
+      "firstName": "Joy",
+      "lastName": "",
+      "schedule": "Always",
+      "description": "",
+      "password": "[65D0373A]e1721b134a8e5a28b2e109854c744155ba46622d14710ce8f49104c2105a9fdb",
+      "passwordDate": "20260121.163202998-0600",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260121.163202998-0600",
+      "lastModifiedDate": "20260121.163202998-0600",
+      "roles": [],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    },
+    {
+      "uuid": "cbb55d8b-8144-4360-8402-63a5d0550b29",
+      "username": "Operator",
+      "firstName": "Operator",
+      "lastName": "Person",
+      "schedule": "Always",
+      "description": "",
+      "password": "[956D1B3B]119f1bd58ddc34217fa485b41e01f2c1d3bcb71c9ea8c28e2eba4dd966fadada",
+      "passwordDate": "20260121.163602454-0600",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260121.163602453-0600",
+      "lastModifiedDate": "20260121.163602453-0600",
+      "roles": [],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    }
+  ],
+  "roles": [
+    {
+      "uuid": "8d43cce9-f743-49b0-a432-27fe1af16e71",
+      "rolename": "IGN Developer",
+      "createdDate": "20260121.162749149-0600",
+      "lastModifiedDate": "20260121.162749149-0600"
+    },
+    {
+      "uuid": "371f5b23-8f1a-4a5e-882f-17d85e6c8d5c",
+      "rolename": "Maintenance",
+      "createdDate": "20260121.162757311-0600",
+      "lastModifiedDate": "20260121.162757311-0600"
+    },
+    {
+      "uuid": "2dde5e87-224b-495d-994c-ac911d850bb9",
+      "rolename": "Administrator",
+      "createdDate": "20260121.162808650-0600",
+      "lastModifiedDate": "20260121.162808650-0600"
+    },
+    {
+      "uuid": "7c4c2293-93b3-4e40-8f11-be019c92ca95",
+      "rolename": "Operator",
+      "createdDate": "20260121.163222434-0600",
+      "lastModifiedDate": "20260121.163222434-0600"
+    }
+  ]
+}

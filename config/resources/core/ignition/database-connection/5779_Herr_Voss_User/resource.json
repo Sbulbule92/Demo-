@@ -1,0 +1,14 @@
+{
+  "scope": "A",
+  "description": "Herr Voss User for Ignition Interface Database on 5779",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "config.json"
+  ],
+  "attributes": {
+    "uuid": "10e9ec84-33f3-4383-9f9a-76aeb58428a4",
+    "enabled": true
+  }
+}

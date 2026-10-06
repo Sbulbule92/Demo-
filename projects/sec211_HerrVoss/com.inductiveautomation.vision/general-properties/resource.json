@@ -1,0 +1,16 @@
+{
+  "scope": "CG",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "data.bin"
+  ],
+  "attributes": {
+    "lastModificationSignature": "a93f8c0946942689063af66588f34332c366a16e0a64e59485359784a080f3bf",
+    "lastModification": {
+      "actor": "Noah",
+      "timestamp": "2025-12-18T20:31:24Z"
+    }
+  }
+}

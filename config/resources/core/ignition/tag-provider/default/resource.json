@@ -3,11 +3,17 @@
   "description": "Default tag provider",
   "version": 1,
   "restricted": false,
-  "overridable": false,
+  "overridable": true,
   "files": [
     "config.json"
   ],
   "attributes": {
-    "uuid": "e3c4f7eb-472c-48da-bbd9-45c532d6bf7b"
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2025-10-21T14:11:47Z"
+    },
+    "uuid": "cfba6c8a-c68d-44df-80d4-8f9bcfff4f7f",
+    "lastModificationSignature": "bee6b6c9d5386e23f2bc2ca4f6280deaf6d11b48a488d057d0f2ac8db1fa743c",
+    "enabled": true
   }
 }

@@ -1,0 +1,1 @@
+INSERT INTO wo_event_types (name) VALUES (:event_name);

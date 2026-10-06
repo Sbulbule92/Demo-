@@ -1,0 +1,7 @@
+{
+  "title": "",
+  "description": "This project holds resources whgich is related to supervisor only.",
+  "enabled": true,
+  "inheritable": false,
+  "parent": "Core"
+}

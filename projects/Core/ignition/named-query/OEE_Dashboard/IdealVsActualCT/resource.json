@@ -1,0 +1,45 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "Query",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "a1a77df47c41bf2d6d8adc99c5ddf7544aaf851abdfafa999e444cc9aaca4797",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "shivab",
+      "timestamp": "2026-04-06T15:14:19Z"
+    },
+    "parameters": [
+      {
+        "type": "Parameter",
+        "identifier": "Shift",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "Day",
+        "sqlType": 8
+      }
+    ]
+  }
+}

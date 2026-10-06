@@ -1,0 +1,70 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "UpdateQuery",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "761ac7450adaffeec4007c35681690126f9b3ef0ed5d991b9fb982367433aecf",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "prasantm",
+      "timestamp": "2026-03-25T12:04:02Z"
+    },
+    "parameters": [
+      {
+        "type": "Parameter",
+        "identifier": "po_number",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "serial_number",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "lspec_id",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "scheduled_start",
+        "sqlType": 8
+      },
+      {
+        "type": "Parameter",
+        "identifier": "op_status",
+        "sqlType": 2
+      },
+      {
+        "type": "Parameter",
+        "identifier": "serial_status",
+        "sqlType": 2
+      },
+      {
+        "type": "Parameter",
+        "identifier": "XFRMR_Serial",
+        "sqlType": 7
+      }
+    ]
+  }
+}

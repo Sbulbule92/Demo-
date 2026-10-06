@@ -1,0 +1,188 @@
+{
+  "custom": {
+    "color": "--error",
+    "status": "System"
+  },
+  "params": {
+    "rowData": {
+      "DurationMinutes": 20,
+      "EndTime": 1777531735553,
+      "LogID": 453,
+      "ReasonName": "Break",
+      "Remarks": "",
+      "StartTime": 1777530501627,
+      "delete": 1,
+      "update": 1
+    },
+    "value": "System"
+  },
+  "propConfig": {
+    "custom.color": {
+      "binding": {
+        "config": {
+          "path": "view.params.value"
+        },
+        "transforms": [
+          {
+            "fallback": "--warning",
+            "inputType": "scalar",
+            "mappings": [
+              {
+                "input": "Lunch",
+                "output": "--info"
+              },
+              {
+                "input": "System",
+                "output": "--error"
+              }
+            ],
+            "outputType": "scalar",
+            "type": "map"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.status": {
+      "binding": {
+        "config": {
+          "path": "view.params.value"
+        },
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "params.rowData": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.value": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": "auto",
+      "width": 199
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "5px"
+            },
+            "propConfig": {
+              "props.style.backgroundColor": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.color"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "borderBottomLeftRadius": "50px",
+                "borderBottomRightRadius": "50px",
+                "borderColor": "#808080",
+                "borderStyle": "solid",
+                "borderTopLeftRadius": "50px",
+                "borderTopRightRadius": "50px",
+                "borderWidth": "1px",
+                "marginBottom": "12px",
+                "marginLeft": "15px",
+                "marginRight": "10px",
+                "marginTop": "12px",
+                "padding": "2px 4px"
+              },
+              "textStyle": {
+                "alignContent": "center",
+                "alignSelf": "center",
+                "padding": "0px"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "basis": "200px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.status"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.textStyle.color": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.color"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "alignSelf": "flex-start",
+                "fontWeight": 500,
+                "padding": "0px"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "36px"
+        },
+        "propConfig": {
+          "props.style.borderColor": {
+            "binding": {
+              "config": {
+                "path": "view.custom.color"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "borderBottomLeftRadius": "10px",
+            "borderBottomRightRadius": "10px",
+            "borderStyle": "solid",
+            "borderTopLeftRadius": "10px",
+            "borderTopRightRadius": "10px",
+            "borderWidth": "2px",
+            "margin": "5px"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

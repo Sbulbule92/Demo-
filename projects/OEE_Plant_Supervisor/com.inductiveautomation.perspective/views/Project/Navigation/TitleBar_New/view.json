@@ -1,0 +1,606 @@
+{
+  "custom": {
+    "Blink": 0,
+    "Title": "JOB BOARD",
+    "currentTheme": "dark-cool",
+    "sessionUser": "shivab"
+  },
+  "params": {},
+  "propConfig": {
+    "custom.Blink": {
+      "binding": {
+        "config": {
+          "expression": "now(500)"
+        },
+        "transforms": [
+          {
+            "code": "    dt \u003d system.date.now()\n    timeLimit \u003d system.date.addHours(dt, -24)\n    props \u003d [(\"eventtime\", \"\u003e\", timeLimit)]\n#    ackAlarms   \u003d system.alarm.queryStatus(state \u003d [\"ActiveAcked\"], path \u003d [\"*Press*\"], any_properties \u003d props)\n    \n    alarms \u003d system.alarm.queryStatus(state \u003d \"ActiveUnacked\", any_properties \u003d props).getDataset()\n    if alarms.getRowCount()\u003e0:\n    \tsystem.perspective.openPopup(id \u003d \"PopUpCancel\",\n\t\t\t\t\t\t\t\t\tview \u003d \"Project/Supervisor/Job Cancell/jobCancelTable\",\n\t\t\t\t\t\t\t\t\tshowCloseIcon \u003d False,\n\t\t\t\t\t\t\t\t\tdraggable \u003d False,\n\t\t\t\t\t\t\t\t\tmodal \u003d True)\n    return alarms.getRowCount()\n#    self.parent.custom.activeAlmNo \u003d alarms.getRowCount()\n#    return True if alarms.getRowCount()\u003e0 else False",
+            "type": "script"
+          }
+        ],
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.Title": {
+      "binding": {
+        "config": {
+          "path": "page.props.path"
+        },
+        "transforms": [
+          {
+            "code": "\tif value \u003d\u003d \"/opr_assist\":\n\t\treturn \"Assitance\".upper()\n\telif value \u003d\u003d \"/opr_downtime_entry\":\n\t\treturn \"Downtime Entry\".upper()\n\telif value \u003d\u003d \"/opr_job_board\":\n\t\treturn \"Job Board\".upper()\n\telif value \u003d\u003d \u0027/oee_dashboard\u0027:\n\t\treturn \"OEE DASHBOARD\".upper()\n\telif value \u003d\u003d \"/sup_downtime_monitor\":\n\t\treturn \"Downtime Logs\".upper()\n\telif value \u003d\u003d \"/opr_overview\":\n\t\treturn \"Operator Overview\".upper()\n\telif value \u003d\u003d \"/shift_overview\":\n\t\treturn \"Shift Overview\".upper()\n\telse:\n\t\treturn \"Job Board\".upper()",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.currentTheme": {
+      "binding": {
+        "config": {
+          "bidirectional": true,
+          "path": "session.props.theme"
+        },
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.sessionUser": {
+      "binding": {
+        "config": {
+          "path": "session.props.auth.user.userName"
+        },
+        "type": "property"
+      },
+      "onChange": {
+        "enabled": null,
+        "script": "\troles \u003d self.props.auth.user.roles\n\tif \u0027Operator\u0027 in roles :\n\t\tsystem.perspective.sendMessage(\"opertorURL\", scope\u003d\"session\")"
+      },
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 48,
+      "width": 998
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "id": "Menu",
+                    "type": "toggle"
+                  },
+                  "scope": "C",
+                  "type": "dock"
+                }
+              }
+            },
+            "meta": {
+              "name": "Menu Icon"
+            },
+            "position": {
+              "basis": "45px"
+            },
+            "propConfig": {
+              "props.color": {
+                "binding": {
+                  "config": {
+                    "path": "session.props.theme"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\treturn \"--neutral-10\" if \"light\" in value else \"--neutral-10\"",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "path": "material/menu",
+              "style": {
+                "cursor": "pointer",
+                "marginLeft": "5px",
+                "marginRight": "2px"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "meta": {
+              "name": "LogoBadge"
+            },
+            "position": {
+              "basis": "36px",
+              "display": false,
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "alignItems": "center",
+                "backgroundColor": "#f59e0b",
+                "borderRadius": "7px",
+                "color": "#0d0f14",
+                "display": "flex",
+                "fontFamily": "Rajdhani, sans-serif",
+                "fontSize": "20px",
+                "fontWeight": "700",
+                "height": "36px",
+                "justifyContent": "center",
+                "letterSpacing": "1px",
+                "width": "36px"
+              },
+              "text": "H"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "BrandName"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.display"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "color": "--neutral-10",
+                "fontFamily": "Rajdhani, sans-serif",
+                "fontSize": "28px",
+                "fontWeight": "800",
+                "letterSpacing": "3px",
+                "marginLeft": "2px",
+                "paddingBottom": "4px",
+                "whiteSpace": "nowrap"
+              },
+              "text": "HITACHI"
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "LogoRow"
+        },
+        "position": {
+          "basis": "220px",
+          "shrink": 0
+        },
+        "props": {
+          "alignItems": "center",
+          "gap": "12px",
+          "style": {
+            "borderBottomStyle": "none",
+            "borderBottomWidth": "2px",
+            "overflow": "hidden",
+            "padding": "0 7px",
+            "width": "80%"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "EnvBadge"
+            },
+            "position": {
+              "basis": "60px",
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.display"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "backgroundColor": "--success",
+                "borderRadius": "5px",
+                "color": "#FFFFFF",
+                "fontSize": "15px",
+                "fontWeight": "bold",
+                "letterSpacing": "1px",
+                "marginBottom": "7px",
+                "marginLeft": "5px",
+                "marginTop": "7px",
+                "padding": "2px 5px",
+                "transform": "scale(1.05)",
+                "transformStyle": "preserve-3d",
+                "transition": "transform 0.4s ease-in-out",
+                "whiteSpace": "nowrap"
+              },
+              "text": "PROD",
+              "textStyle": {
+                "alignSelf": "center"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "Left Flex"
+        },
+        "position": {
+          "basis": "70px"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.Title"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.textStyle.color": {
+                "binding": {
+                  "config": {
+                    "path": "session.props.theme"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\treturn \"--neutral-10\" if \"light\" in value else \"--neutral-10\"",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "margin-right": "20px"
+              },
+              "textStyle": {
+                "fontSize": "30px",
+                "fontWeight": "bolder"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "Middle Flex"
+        },
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "justify": "center"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "propConfig": {
+              "props.style.color": {
+                "binding": {
+                  "config": {
+                    "path": "session.props.theme"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\treturn \"--neutral-10\" if \"light\" in value else \"--neutral-10\"",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "{session.props.auth.user.firstName}+\" \"+{session.props.auth.user.lastName}"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "margin-right": "15px"
+              },
+              "textStyle": {
+                "fontSize": "18px",
+                "fontWeight": "bolder"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "custom": {
+              "currentTheme": "light"
+            },
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\n\tparams \u003d {\t\"action\": \"confirm\",\n\t\t\t\t\"primaryText\": \"Are you sure you want to log off ?\",\n\t\t\t\t\"secondaryText\":\" You will be logged out from the current session once you press confirm.\",\n\t\t\t\t\"label\":\u0027Logout\u0027}\n\tsystem.perspective.openPopup(\"PopUp\", view \u003d \"Project/Pop-Up/Lunch\", \n\t\t\t\t\t\t\t\t\t\tparams \u003d params, \n\t\t\t\t\t\t\t\t\t\tshowCloseIcon \u003d False,\n\t\t\t\t\t\t\t\t\t\tdraggable \u003d False, \n\t\t\t\t\t\t\t\t\t\tmodal \u003d True)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "user"
+            },
+            "position": {
+              "basis": "35px"
+            },
+            "propConfig": {
+              "props.style.color": {
+                "binding": {
+                  "config": {
+                    "path": "session.props.theme"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\treturn \"--neutral-10\" if \"light\" in value else \"--neutral-10\"",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "path": "material/person",
+              "style": {
+                "classes": "",
+                "cursor": "Pointer",
+                "marginRight": "15px"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "custom": {
+              "currentTheme": "light"
+            },
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\n\tparams \u003d {\t\"action\": \"confirm\",\n\t\t\t\t\"primaryText\": \"Are you sure you want to log off ?\",\n\t\t\t\t\"secondaryText\":\" You will be logged out from the current session once you press confirm.\",\n\t\t\t\t\"label\":\u0027Logout\u0027}\n\tsystem.perspective.openPopup(\"PopUp\", view \u003d \"Project/Pop-Up/Lunch\", \n\t\t\t\t\t\t\t\t\t\tparams \u003d params, \n\t\t\t\t\t\t\t\t\t\tshowCloseIcon \u003d False,\n\t\t\t\t\t\t\t\t\t\tdraggable \u003d False, \n\t\t\t\t\t\t\t\t\t\tmodal \u003d True)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "user_0",
+              "visible": false
+            },
+            "position": {
+              "basis": "35px",
+              "display": false
+            },
+            "props": {
+              "path": "material/login",
+              "style": {
+                "classes": "",
+                "cursor": "Pointer",
+                "marginRight": "15px"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "custom": {
+              "currentTheme": "light"
+            },
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\n\tsystem.perspective.openPopup(\"PopUpCancel\", view \u003d \"Project/Supervisor/Job Cancell/jobCancelTable\", \n\t\t\t\t\t\t\t\t\t\tshowCloseIcon \u003d False,\n\t\t\t\t\t\t\t\t\t\tdraggable \u003d False, \n\t\t\t\t\t\t\t\t\t\tmodal \u003d True)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "user_1"
+            },
+            "position": {
+              "basis": "35px"
+            },
+            "propConfig": {
+              "props.color": {
+                "binding": {
+                  "config": {
+                    "expression": "if({view.custom.Blink}, if(toMillis(now())%2\u003d0, \u0027--error\u0027, \u0027\u0027), \u0027\u0027)"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.style.color": {
+                "binding": {
+                  "config": {
+                    "path": "session.props.theme"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\treturn \"--neutral-10\" if \"light\" in value else \"--neutral-10\"",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "path": "material/notification_important",
+              "style": {
+                "classes": "",
+                "cursor": "Pointer",
+                "marginRight": "15px"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tif self.custom.currentTheme in [\u0027light-cool\u0027, \u0027light\u0027, \u0027light-warm\u0027]:\n\t\tself.custom.currentTheme \u003d \u0027dark-cool\u0027\n\telse:\n\t\tself.custom.currentTheme \u003d \u0027light-cool\u0027\n\t\t\n##\tlist1 \u003d [\u0027light\u0027, \u0027light-cool\u0027, \u0027light-warm\u0027, \u0027dark\u0027, \u0027dark-cool\u0027, \u0027dark-warm\u0027]\n#\tsystem.perspective.print(\"started\")\n#\tlist1 \u003d [\u0027light-cool\u0027, \u0027dark-cool\u0027]\n#\tcurrent_Value \u003d list1.index(str(self.view.custom.currentTheme))\n#\tsystem.perspective.print(current_Value)\n#\tif current_Value \u003c (len(list1)-1):\n#\t\tcurrent_Value \u003d current_Value + 1\n#\telse:\n#\t\tcurrent_Value \u003d 0\n#\tself.view.custom.currentTheme \u003d list1[current_Value]\n#\tsystem.perspective.print(self.view.custom.currentTheme)\n##\tself.getSibling(\"Label\").props.text \u003d list1[current_Value]\n\tif self.custom.currentTheme in [\u0027light-cool\u0027, \u0027light\u0027, \u0027light-warm\u0027]:\n\t\tself.props.path \u003d \u0027material/bedtime\u0027\n\telse:\n\t\tself.props.path \u003d \u0027material/wb_sunny\u0027\n#\tcurrent_theme \u003d self.session.props.theme\n#\tif current_theme \u003d\u003d \u0027light-cool\u0027:\n#\t\tself.session.props.theme \u003d \u0027dark-cool\u0027\n#\t\tself.props.path \u003d \u0027material/wb_sunny\u0027\n#\telse:\n#\t\tself.session.props.theme \u003d \u0027light-cool\u0027\n#\t\tself.props.path \u003d \u0027material/bedtime\u0027"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Theme"
+            },
+            "position": {
+              "basis": "35px"
+            },
+            "propConfig": {
+              "custom.currentTheme": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "session.props.theme"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.style.color": {
+                "binding": {
+                  "config": {
+                    "path": "session.props.theme"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\treturn \"--neutral-10\" if \"light\" in value else \"--neutral-10\"",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "path": "material/bedtime",
+              "style": {
+                "classes": "",
+                "cursor": "Pointer",
+                "marginRight": "10px"
+              }
+            },
+            "type": "ia.display.icon"
+          }
+        ],
+        "meta": {
+          "name": "Right Flex"
+        },
+        "props": {
+          "justify": "center"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "custom": {
+      "sessionuser": "value"
+    },
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "props.style.backgroundColor": {
+        "binding": {
+          "config": {
+            "path": "session.props.theme"
+          },
+          "transforms": [
+            {
+              "code": "\treturn \"#31384C\" if \"light\" in value else \"--neutral-90\"",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      }
+    },
+    "props": {
+      "style": {
+        "borderBottomColor": "#808080",
+        "borderBottomStyle": "solid",
+        "borderBottomWidth": "2px",
+        "borderTopColor": "#808080",
+        "borderTopStyle": "solid",
+        "borderTopWidth": "2px"
+      }
+    },
+    "scripts": {
+      "customMethods": [],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "openGatewayPopup",
+          "pageScope": false,
+          "script": "\t# implement your handler here\n#\troles \u003dself.session.props.auth.user.roles[0]\n#\tif \"Operator\" in roles :\n\t\tsystem.perspective.openPopup(id\u003d\u002710UI\u0027,view\u003d\u0027Operator/downtime_entry_popup\u0027,showCloseIcon\u003dFalse,modal\u003dTrue)",
+          "sessionScope": true,
+          "viewScope": false
+        },
+        {
+          "messageType": "openLunchPopuP",
+          "pageScope": false,
+          "script": "\t# implement your handler here\n\tparams \u003d {\"label\":\"Lunch Break\"}\n\tsystem.perspective.openPopup(id\u003d\u0027PopUp\u0027,view\u003d\u0027Project/Pop-Up/Lunch\u0027,params \u003d params, showCloseIcon\u003dFalse,modal\u003dTrue)",
+          "sessionScope": true,
+          "viewScope": false
+        },
+        {
+          "messageType": "logoutOPR",
+          "pageScope": false,
+          "script": "\tuser\u003dself.session.props.auth.user.userName\n\ttagpath\u003d[\"WOCL_1/Downtime/Ideal_time/Start_time\",\"Current_Shift/shift_ID\"]\n\ttagvalue\u003dsystem.tag.readBlocking(tagpath)\n\treasondowntime\u003d37\n\tuser\u003dself.session.props.auth.user.userName\n\tinprogressdowntime\u003dFalse\n\tstarttime\u003dtagvalue[0].value\n\tshift\u003dtagvalue[1].value\n\tdescdowntime\u003d\u0027\u0027\n\tparameters \u003d { \"ReasonID\":reasondowntime, \"DowntimeStatus\":not inprogressdowntime,\"username\":user,\"StartTime\":starttime,\"ShiftID\":shift,\"DowntimeSource\":1,\"Remarks\":descdowntime}\n\tidreturn\u003dsystem.db.runNamedQuery(\"Hitachi_Energy_Transformer\",\"downtime/insert\", parameters)\n\tlogId\u003didreturn.getValueAt(0,\"LogID\")\n\tsystem.tag.writeBlocking(tagPaths\u003d[\"WOCL_1/Downtime/Ideal_time/logID\"], values\u003d[logId])\n\tsystem.perspective.logout()",
+          "sessionScope": true,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.flex"
+  }
+}

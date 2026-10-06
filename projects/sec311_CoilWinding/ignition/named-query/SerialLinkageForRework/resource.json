@@ -1,0 +1,40 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "Query",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "JeffCity2Engineering",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "04434c051d6cb57a880725fcfd5dffe444577836e8dfc8989d740730efe8d308",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "Gannon",
+      "timestamp": "2026-09-10T15:56:03Z"
+    },
+    "parameters": [
+      {
+        "type": "Parameter",
+        "identifier": "JCserial",
+        "sqlType": 7
+      }
+    ]
+  }
+}

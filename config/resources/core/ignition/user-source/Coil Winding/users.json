@@ -1,0 +1,244 @@
+{
+  "users": [
+    {
+      "uuid": "fede3d87-8418-462a-aca4-b906a5d88ab2",
+      "username": "WalterS",
+      "firstName": "Walter",
+      "lastName": "Sinclair",
+      "schedule": "Always",
+      "description": "",
+      "password": "[90F51792]1120a9a3fa8111102f51d909b93286dd63b2472d8db90387eebc405234cb3e7e",
+      "passwordDate": "20260529.080510322-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260529.080510322-0500",
+      "lastModifiedDate": "20260529.080622144-0500",
+      "roles": [
+        "20c79b6b-a997-4f15-88b5-fc6d5492cb5f"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    },
+    {
+      "uuid": "0a6d381e-7ce2-4d6f-84c6-10b8b4b75514",
+      "username": "MatthewB",
+      "firstName": "Matthew",
+      "lastName": "Brownfield",
+      "schedule": "Always",
+      "description": "",
+      "password": "[425DE2AD]8906106789cebf9764e60ae2c36ade5e85a0e0d16df0d6fbfebab9e0a483e337",
+      "passwordDate": "20260529.095217391-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260529.080432373-0500",
+      "lastModifiedDate": "20260529.095217391-0500",
+      "roles": [
+        "20c79b6b-a997-4f15-88b5-fc6d5492cb5f"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    },
+    {
+      "uuid": "af7ed81a-7125-4094-8771-ab0ce4a5297e",
+      "username": "JonathanS",
+      "firstName": "Jonathan",
+      "lastName": "Shankle",
+      "schedule": "Always",
+      "description": "",
+      "password": "[0E19D262]9e595d9e2129702f7b474b8979f13a1d3f795f970818c209d6bb00345136c998",
+      "passwordDate": "20260701.082348746-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260529.080349065-0500",
+      "lastModifiedDate": "20260701.082348746-0500",
+      "roles": [
+        "20c79b6b-a997-4f15-88b5-fc6d5492cb5f"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    },
+    {
+      "uuid": "11e14953-bd87-45f2-bfa8-5f5f80f602c2",
+      "username": "AnnalyssaH",
+      "firstName": "Annalyssa",
+      "lastName": "",
+      "schedule": "Always",
+      "description": "",
+      "password": "[877A132A]64b88f2ef22bb06bf7349f0bbca70cc6e782a3c6e874fb8750503965815ca28e",
+      "passwordDate": "20260826.103228225-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260826.103228223-0500",
+      "lastModifiedDate": "20260826.103235779-0500",
+      "roles": [
+        "20c79b6b-a997-4f15-88b5-fc6d5492cb5f"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    },
+    {
+      "uuid": "e9361568-04e7-4f17-b57d-97c4bb3b4e6b",
+      "username": "FranciscoB",
+      "firstName": "Francisco",
+      "lastName": "Blanco",
+      "schedule": "Always",
+      "description": "",
+      "password": "[B69D9648]86d464fb5ae7db9da26c9802369c4dfdc5a88dab579d5d557dc57a99f353b030",
+      "passwordDate": "20260826.103519635-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260529.080244844-0500",
+      "lastModifiedDate": "20260826.103519635-0500",
+      "roles": [
+        "20c79b6b-a997-4f15-88b5-fc6d5492cb5f"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    },
+    {
+      "uuid": "86dcf692-2faa-4545-8640-159dca8775fb",
+      "username": "IanM",
+      "firstName": "Ian",
+      "lastName": "McMillan",
+      "schedule": "Always",
+      "description": "",
+      "password": "[AAC7FDC1]e9a55e5eab9494b5bdada21cc69d96e201d8eb1d4c6ed7b09013fb5a045e5e6e",
+      "passwordDate": "20260826.162112940-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260724.103458169-0500",
+      "lastModifiedDate": "20260826.162112940-0500",
+      "roles": [
+        "20c79b6b-a997-4f15-88b5-fc6d5492cb5f"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    },
+    {
+      "uuid": "91f9eb63-f277-4af9-ad49-3f666f3b1f11",
+      "username": "LeannaR",
+      "firstName": "Leanna",
+      "lastName": "Ritter",
+      "schedule": "Always",
+      "description": "",
+      "password": "[FB105D49]df85cd2449768be32396e9046e18cc7e6bf14f8c873f67a48bb25112984f122e",
+      "passwordDate": "20260827.130635027-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260710.142627118-0500",
+      "lastModifiedDate": "20260827.130635027-0500",
+      "roles": [
+        "20c79b6b-a997-4f15-88b5-fc6d5492cb5f"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "leanna.m.ritter@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "5a1faf43-9d3c-4efd-b314-c9df557ce6d4",
+      "username": "JohnF",
+      "firstName": "John",
+      "lastName": "Fletcher",
+      "schedule": "Always",
+      "description": "",
+      "password": "[C5E40160]15711f4bf17eaa832a26523188b71758b48091c53f6fba819dc3624c76528e22",
+      "passwordDate": "20260828.071713093-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260529.080323095-0500",
+      "lastModifiedDate": "20260828.071713093-0500",
+      "roles": [
+        "20c79b6b-a997-4f15-88b5-fc6d5492cb5f"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    },
+    {
+      "uuid": "3e6ceb87-f7e7-40e2-9335-79f7f1d6210a",
+      "username": "Gannon",
+      "firstName": "Gannon",
+      "lastName": "Heidbrink",
+      "schedule": "Always",
+      "description": "",
+      "password": "[EC86A7CE]e094eba7fa0ac166bf07ca891c29612c3b6d059fe41602ef97a0405240804d07",
+      "passwordDate": "20260529.080201006-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260529.080201005-0500",
+      "lastModifiedDate": "20260910.131923201-0500",
+      "roles": [
+        "20c79b6b-a997-4f15-88b5-fc6d5492cb5f"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    },
+    {
+      "uuid": "7cc1b318-9f91-4d00-bc20-062619da9b0f",
+      "username": "EricT",
+      "firstName": "Eric",
+      "lastName": "Timmons",
+      "schedule": "Always",
+      "description": "",
+      "password": "[B8E29091]26bb514daac8bb47f699f484bc575a2a04861a0f2c8727718efcd801f42f6615",
+      "passwordDate": "20260925.083748383-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260529.080225498-0500",
+      "lastModifiedDate": "20260925.083748383-0500",
+      "roles": [
+        "20c79b6b-a997-4f15-88b5-fc6d5492cb5f"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    },
+    {
+      "uuid": "aa99a6cc-8f3a-4fbf-b736-b077d63ebfc4",
+      "username": "TrentonE",
+      "firstName": "Trenton",
+      "lastName": "Edgar",
+      "schedule": "Always",
+      "description": "",
+      "password": "[06768874]86a1efd97b3fb97f42fa4a2ba6f37bec4e5141172f4699d11018bb8341999810",
+      "passwordDate": "20260925.135154135-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260529.080454236-0500",
+      "lastModifiedDate": "20260925.135154135-0500",
+      "roles": [
+        "20c79b6b-a997-4f15-88b5-fc6d5492cb5f"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    }
+  ],
+  "roles": [
+    {
+      "uuid": "2fbc85cd-3494-4bdd-980f-ba8bd9f77fa4",
+      "rolename": "Administrator",
+      "createdDate": "20260529.080530550-0500",
+      "lastModifiedDate": "20260910.131923135-0500"
+    },
+    {
+      "uuid": "20c79b6b-a997-4f15-88b5-fc6d5492cb5f",
+      "rolename": "Supervisor",
+      "createdDate": "20260529.080534251-0500",
+      "lastModifiedDate": "20260826.103235705-0500"
+    }
+  ]
+}

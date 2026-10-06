@@ -1,0 +1,1 @@
+Select op_status as value, name as label from wo_event_types;

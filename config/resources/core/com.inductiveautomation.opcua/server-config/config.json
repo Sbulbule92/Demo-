@@ -1,11 +1,10 @@
 {
   "advanced": {
     "exposedTagsEnabled": false,
-    "gdsPushEnabled": false,
     "maxSessionCount": 100
   },
   "authentication": {
-    "anonymousAccessAllowed": true,
+    "anonymousAccessAllowed": false,
     "authenticationProfile": "opcua-module"
   },
   "endpoint": {
@@ -16,9 +15,6 @@
     "endpointAddresses": [
       "\u003chostname\u003e",
       "\u003clocalhost\u003e"
-    ],
-    "messageSecurityModes": [
-      "SignAndEncrypt"
     ],
     "securityPolicies": [
       "Basic256Sha256"

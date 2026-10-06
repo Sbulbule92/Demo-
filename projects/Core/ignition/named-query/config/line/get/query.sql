@@ -1,0 +1,1 @@
+SELECT LineID, LineCode, LineName, Description, IsActive FROM tbl_Line ORDER BY LineID;

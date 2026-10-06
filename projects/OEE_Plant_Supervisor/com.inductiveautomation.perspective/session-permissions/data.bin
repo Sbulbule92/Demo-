@@ -1,0 +1,39 @@
+{
+  "type": "AnyOf",
+  "securityLevels": [
+    {
+      "name": "Authenticated",
+      "children": [
+        {
+          "name": "Roles",
+          "children": [
+            {
+              "name": "Business Manager",
+              "children": []
+            },
+            {
+              "name": "Controls Engineer",
+              "children": []
+            },
+            {
+              "name": "IGN Developer",
+              "children": []
+            },
+            {
+              "name": "Maintenance",
+              "children": []
+            },
+            {
+              "name": "RO Administrator",
+              "children": []
+            },
+            {
+              "name": "Supervisor",
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

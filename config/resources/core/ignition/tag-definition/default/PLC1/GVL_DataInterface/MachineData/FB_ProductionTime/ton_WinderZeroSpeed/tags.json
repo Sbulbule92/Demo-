@@ -1,0 +1,50 @@
+[
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.MachineData.FB_ProductionTime.ton_WinderZeroSpeed.IN",
+    "dataType": "Boolean",
+    "name": "IN",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.MachineData.FB_ProductionTime.ton_WinderZeroSpeed.PT",
+    "dataType": "Int8",
+    "name": "PT",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.MachineData.FB_ProductionTime.ton_WinderZeroSpeed.ET",
+    "dataType": "Int8",
+    "name": "ET",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.MachineData.FB_ProductionTime.ton_WinderZeroSpeed.M",
+    "dataType": "Boolean",
+    "name": "M",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.MachineData.FB_ProductionTime.ton_WinderZeroSpeed.Q",
+    "dataType": "Boolean",
+    "name": "Q",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "nsu\u003durn:BeckhoffAutomation:Ua:PLC1;s\u003dGVL_DataInterface.MachineData.FB_ProductionTime.ton_WinderZeroSpeed.StartTime",
+    "dataType": "Int8",
+    "name": "StartTime",
+    "tagType": "AtomicTag",
+    "opcServer": "Section511_Tuboly_1071"
+  }
+]

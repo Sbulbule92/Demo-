@@ -1,0 +1,2 @@
+SELECT SerialNumber,OP_Status,Scheduled_Start,ECS_AWAIT
+FROM Tuboly_HV_Schedule

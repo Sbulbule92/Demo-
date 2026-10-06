@@ -1,0 +1,1535 @@
+{
+  "custom": {
+    "Job_Status": "Pending",
+    "jobid": "1LUJJC319030112_CoilWind_1",
+    "opstatus": {
+      "$": [
+        "ds",
+        192,
+        1781410123568
+      ],
+      "$columns": [
+        {
+          "data": [
+            1,
+            2,
+            4,
+            8,
+            16,
+            18,
+            32,
+            128,
+            256,
+            45
+          ],
+          "name": "op_status",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            "No",
+            "Ready to Start",
+            "Running",
+            "Paused",
+            "Completed",
+            "Restart",
+            "Cancelled",
+            "Locked",
+            "Sidelined",
+            "Cancel Requested"
+          ],
+          "name": "name",
+          "type": "String"
+        }
+      ]
+    },
+    "program": "value",
+    "wo_details": [
+      {
+        "actual_num_turns": null,
+        "core_status": "Ready",
+        "ecs_op_status": 2,
+        "op_status": 2,
+        "po_number": "1003751863",
+        "priority": false,
+        "program_name": "1LUJ004049AWHD_2500_150",
+        "serial_number": "1LUJJC305620003_CoilWind_2",
+        "tank_status": "Ready"
+      }
+    ]
+  },
+  "events": {
+    "system": {
+      "onStartup": {
+        "config": {
+          "script": "\tself.custom.Job_Status \u003d quality_report.getJobQcStatus(self.custom.jobid)  "
+        },
+        "scope": "G",
+        "type": "script"
+      }
+    }
+  },
+  "params": {
+    "Machine": "",
+    "jobid": "1LUJJC305620003_CoilWind_2",
+    "program": "AWHD-15795",
+    "workstatus": "value"
+  },
+  "propConfig": {
+    "custom.Job_Status": {
+      "binding": {
+        "config": {
+          "expression": "now(500)"
+        },
+        "transforms": [
+          {
+            "code": "\treturn quality_report.getJobQcStatus(self.custom.jobid)  ",
+            "type": "script"
+          }
+        ],
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.jobid": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "basePath": "{session.custom.machineInfo.basePath}"
+          },
+          "tagPath": "{basePath}/WO/serial_number"
+        },
+        "transforms": [
+          {
+            "expression": "if({value} !\u003dnull,{value},\"NA\")",
+            "type": "expression"
+          }
+        ],
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.opstatus": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "direct",
+          "tagPath": "[default]Ignition_Project_Config/Op_Status"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.program": {
+      "persistent": true
+    },
+    "custom.wo_details": {
+      "binding": {
+        "config": {
+          "queryPath": "ecs/workorder/GetpendingWorkorder",
+          "returnFormat": "json"
+        },
+        "transforms": [
+          {
+            "code": "\tdata \u003d []\n\tfor item in value:\n\t\tif item[\"serial_number\"] \u003d\u003d self.view.params.jobid:\n\t\t\tdata.append(item)\n\treturn data",
+            "type": "script"
+          }
+        ],
+        "type": "query"
+      },
+      "persistent": true
+    },
+    "params.Machine": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.jobid": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.program": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.workstatus": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 790,
+      "width": 1132
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "jobid"
+                        },
+                        "props": {
+                          "text": "Job ID:",
+                          "textStyle": {
+                            "classes": "heading",
+                            "fontFamily": "Verdana",
+                            "fontSize": "22px",
+                            "fontWeight": "bold"
+                          }
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "meta": {
+                          "name": "jobid_0"
+                        },
+                        "position": {
+                          "grow": 1
+                        },
+                        "propConfig": {
+                          "props.text": {
+                            "binding": {
+                              "config": {
+                                "fallbackDelay": 2.5,
+                                "mode": "indirect",
+                                "references": {
+                                  "basePath": "{session.custom.machineInfo.basePath}"
+                                },
+                                "tagPath": "{basePath}/WO/serial_number"
+                              },
+                              "transforms": [
+                                {
+                                  "expression": "if({value} !\u003dnull,{value},\"NA\")",
+                                  "type": "expression"
+                                }
+                              ],
+                              "type": "tag"
+                            }
+                          }
+                        },
+                        "props": {
+                          "style": {
+                            "classes": "component/basic",
+                            "marginLeft": "10px"
+                          },
+                          "textStyle": {
+                            "fontFamily": "Verdana",
+                            "fontSize": "22px",
+                            "textDecoration": "underline"
+                          }
+                        },
+                        "type": "ia.display.label"
+                      }
+                    ],
+                    "meta": {
+                      "name": "FlexContainer"
+                    },
+                    "position": {
+                      "basis": "200px"
+                    },
+                    "type": "ia.container.flex"
+                  },
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "program"
+                        },
+                        "props": {
+                          "text": "Program:",
+                          "textStyle": {
+                            "alignSelf": "flex-end",
+                            "classes": "heading",
+                            "fontFamily": "Verdana",
+                            "fontSize": "22px",
+                            "fontWeight": "bold"
+                          }
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "meta": {
+                          "name": "program_0"
+                        },
+                        "position": {
+                          "grow": 1
+                        },
+                        "propConfig": {
+                          "props.text": {
+                            "binding": {
+                              "config": {
+                                "fallbackDelay": 2.5,
+                                "mode": "indirect",
+                                "references": {
+                                  "basePath": "{session.custom.machineInfo.basePath}"
+                                },
+                                "tagPath": "{basePath}/WO/Program_Name"
+                              },
+                              "transforms": [
+                                {
+                                  "expression": "if({value} !\u003dnull,{value},\"NA\")",
+                                  "type": "expression"
+                                }
+                              ],
+                              "type": "tag"
+                            }
+                          }
+                        },
+                        "props": {
+                          "style": {
+                            "classes": "component/basic"
+                          },
+                          "textStyle": {
+                            "alignSelf": "flex-start",
+                            "classes": "heading",
+                            "fontFamily": "Verdana",
+                            "fontSize": "22px",
+                            "textDecoration": "underline"
+                          }
+                        },
+                        "type": "ia.display.label"
+                      }
+                    ],
+                    "meta": {
+                      "name": "FlexContainer_0"
+                    },
+                    "position": {
+                      "basis": "200px"
+                    },
+                    "type": "ia.container.flex"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer"
+                },
+                "position": {
+                  "basis": "200px",
+                  "grow": 1
+                },
+                "props": {
+                  "direction": "column"
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "Label"
+                        },
+                        "props": {
+                          "text": "Started Time:",
+                          "textStyle": {
+                            "fontFamily": "Verdana",
+                            "fontSize": "22px",
+                            "fontWeight": "bold"
+                          }
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "meta": {
+                          "name": "Label_0"
+                        },
+                        "propConfig": {
+                          "props.text": {
+                            "binding": {
+                              "config": {
+                                "fallbackDelay": 2.5,
+                                "mode": "indirect",
+                                "references": {
+                                  "basepath": "{session.custom.machineInfo.basePath}"
+                                },
+                                "tagPath": "{basepath}/WO/Start_time"
+                              },
+                              "transforms": [
+                                {
+                                  "formatType": "datetime",
+                                  "formatValue": {
+                                    "time": "medium"
+                                  },
+                                  "type": "format"
+                                }
+                              ],
+                              "type": "tag"
+                            }
+                          }
+                        },
+                        "props": {
+                          "style": {
+                            "marginLeft": "10px"
+                          },
+                          "textStyle": {
+                            "fontFamily": "Verdana",
+                            "fontSize": "22px",
+                            "textDecoration": "underline"
+                          }
+                        },
+                        "type": "ia.display.label"
+                      }
+                    ],
+                    "meta": {
+                      "name": "FlexContainer"
+                    },
+                    "position": {
+                      "basis": "200px"
+                    },
+                    "props": {
+                      "justify": "flex-end",
+                      "style": {
+                        "marginRight": "10px"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  },
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "Label"
+                        },
+                        "props": {
+                          "text": "Elapsed Time:",
+                          "textStyle": {
+                            "fontFamily": "Verdana",
+                            "fontSize": "22px",
+                            "fontWeight": "bold",
+                            "marginLeft": "34px"
+                          }
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "meta": {
+                          "name": "Label_0"
+                        },
+                        "propConfig": {
+                          "props.text": {
+                            "binding": {
+                              "config": {
+                                "fallbackDelay": 2.5,
+                                "mode": "direct",
+                                "tagPath": "[default]Project/Simulation/loopValue"
+                              },
+                              "transforms": [
+                                {
+                                  "expression": "toStr(toInteger({value}/60)) + \u0027:\u0027 + toStr(toInteger({value}%60)) + \u0027 Min\u0027",
+                                  "type": "expression"
+                                }
+                              ],
+                              "type": "tag"
+                            }
+                          }
+                        },
+                        "props": {
+                          "style": {
+                            "marginLeft": "10px"
+                          },
+                          "textStyle": {
+                            "fontFamily": "Verdana",
+                            "fontSize": "22px",
+                            "textDecoration": "underline"
+                          }
+                        },
+                        "type": "ia.display.label"
+                      }
+                    ],
+                    "meta": {
+                      "name": "FlexContainer_0"
+                    },
+                    "position": {
+                      "basis": "200px",
+                      "display": false
+                    },
+                    "props": {
+                      "justify": "flex-end",
+                      "style": {
+                        "marginRight": "10px"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer_0"
+                },
+                "position": {
+                  "basis": "200px",
+                  "grow": 1
+                },
+                "props": {
+                  "direction": "column"
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer"
+            },
+            "position": {
+              "basis": "80px"
+            },
+            "props": {
+              "justify": "flex-end",
+              "style": {
+                "backgroundColor": "--neutral-30"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "Icon"
+                        },
+                        "position": {
+                          "basis": "50px"
+                        },
+                        "props": {
+                          "color": "--success",
+                          "path": "material/play_circle_filled",
+                          "style": {
+                            "marginLeft": "20px"
+                          }
+                        },
+                        "type": "ia.display.icon"
+                      },
+                      {
+                        "meta": {
+                          "name": "Label"
+                        },
+                        "position": {
+                          "grow": 1
+                        },
+                        "propConfig": {
+                          "props.text": {
+                            "binding": {
+                              "config": {
+                                "fallbackDelay": 2.5,
+                                "mode": "indirect",
+                                "references": {
+                                  "basepath": "{session.custom.machineInfo.basePath}"
+                                },
+                                "tagPath": "{basepath}/WO/status"
+                              },
+                              "transforms": [
+                                {
+                                  "expression": "lookup({view.custom.opstatus},toint({value}),\"No Job Available\", \"op_status\", \"name\")",
+                                  "type": "expression"
+                                }
+                              ],
+                              "type": "tag"
+                            }
+                          }
+                        },
+                        "props": {
+                          "textStyle": {
+                            "classes": "heading",
+                            "fontSize": "30px",
+                            "fontWeight": "bold",
+                            "margin-left": "3px",
+                            "textAlign": "left"
+                          }
+                        },
+                        "type": "ia.display.label"
+                      }
+                    ],
+                    "meta": {
+                      "name": "FlexContainer"
+                    },
+                    "props": {
+                      "style": {
+                        "overflow": "hidden"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  },
+                  {
+                    "meta": {
+                      "name": "SimpleGauge"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.arc.color": {
+                        "binding": {
+                          "config": {
+                            "path": "this.props.value"
+                          },
+                          "transforms": [
+                            {
+                              "fallback": "#de1b1b",
+                              "inputType": "range",
+                              "mappings": [
+                                {
+                                  "input": {
+                                    "max": 40,
+                                    "min": 0
+                                  },
+                                  "output": "#de1b1b"
+                                },
+                                {
+                                  "input": {
+                                    "max": 70,
+                                    "min": 41
+                                  },
+                                  "output": "#cf7911"
+                                },
+                                {
+                                  "input": {
+                                    "max": 100,
+                                    "min": 71
+                                  },
+                                  "output": "#038537"
+                                }
+                              ],
+                              "outputType": "scalar",
+                              "type": "map"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      },
+                      "props.label.color": {
+                        "binding": {
+                          "config": {
+                            "path": "this.props.value"
+                          },
+                          "enabled": false,
+                          "transforms": [
+                            {
+                              "fallback": "#de1b1b",
+                              "inputType": "range",
+                              "mappings": [
+                                {
+                                  "input": {
+                                    "max": 40,
+                                    "min": 0
+                                  },
+                                  "output": "#de1b1b"
+                                },
+                                {
+                                  "input": {
+                                    "max": 70,
+                                    "min": 41
+                                  },
+                                  "output": "#cf7911"
+                                },
+                                {
+                                  "input": {
+                                    "max": 100,
+                                    "min": 71
+                                  },
+                                  "output": "#038537"
+                                }
+                              ],
+                              "outputType": "scalar",
+                              "type": "map"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      },
+                      "props.value": {
+                        "binding": {
+                          "config": {
+                            "fallbackDelay": 2.5,
+                            "mode": "indirect",
+                            "references": {
+                              "basepath": "{session.custom.machineInfo.basePath}"
+                            },
+                            "tagPath": "[default]{basepath}/ProductionData/WIP"
+                          },
+                          "transforms": [
+                            {
+                              "expression": "round({value},2)",
+                              "type": "expression"
+                            }
+                          ],
+                          "type": "tag"
+                        }
+                      }
+                    },
+                    "props": {
+                      "arc": {},
+                      "endAngle": 520,
+                      "label": {
+                        "color": "#555555",
+                        "maxDecimal": 2,
+                        "offsetX": 20,
+                        "offsetY": 45,
+                        "size": 55,
+                        "units": "%"
+                      },
+                      "maxValue": 120,
+                      "style": {
+                        "margin": "10px"
+                      }
+                    },
+                    "type": "ia.chart.simple-gauge"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer"
+                },
+                "position": {
+                  "basis": "340px",
+                  "grow": 1
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "marginBottom": "20px",
+                    "marginLeft": "20px",
+                    "marginRight": "20px",
+                    "marginTop": "20px",
+                    "overflow": "hidden"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "Label"
+                        },
+                        "position": {
+                          "grow": 1
+                        },
+                        "props": {
+                          "text": "Job Overview",
+                          "textStyle": {
+                            "classes": "heading",
+                            "color": "--info",
+                            "fontSize": "30px",
+                            "fontWeight": "bold",
+                            "margin-left": "3px",
+                            "textAlign": "Center"
+                          }
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "events": {
+                          "component": {
+                            "onActionPerformed": {
+                              "config": {
+                                "params": {
+                                  "jobId": "{view.custom.jobid}"
+                                },
+                                "view": "Project/Operator/Quality Check/Quality Checks"
+                              },
+                              "scope": "C",
+                              "type": "nav"
+                            }
+                          }
+                        },
+                        "meta": {
+                          "name": "Button",
+                          "tooltip": {
+                            "text": "Quality Check already Completed!"
+                          }
+                        },
+                        "propConfig": {
+                          "meta.tooltip.enabled": {
+                            "binding": {
+                              "config": {
+                                "expression": "!{this.props.enabled}"
+                              },
+                              "type": "expr"
+                            }
+                          },
+                          "props.enabled": {
+                            "binding": {
+                              "config": {
+                                "path": "view.custom.Job_Status"
+                              },
+                              "transforms": [
+                                {
+                                  "code": "\treturn False if value \u003d\u003d \u0027Completed\u0027 else True",
+                                  "type": "script"
+                                }
+                              ],
+                              "type": "property"
+                            }
+                          },
+                          "props.image.icon.color": {
+                            "binding": {
+                              "config": {
+                                "path": "view.custom.Job_Status"
+                              },
+                              "transforms": [
+                                {
+                                  "code": "\tif value is None or value \u003d\u003d \"Not Started\":\n\t\treturn \"--neutral-40\" \n\telif value \u003d\u003d \"Pending\":\n\t\treturn \"--warning\"\n\telif value \u003d\u003d \"Completed\":\n\t\treturn \"--success\"\n",
+                                  "type": "script"
+                                }
+                              ],
+                              "type": "property"
+                            }
+                          },
+                          "props.image.icon.path": {
+                            "binding": {
+                              "config": {
+                                "path": "view.custom.Job_Status"
+                              },
+                              "transforms": [
+                                {
+                                  "code": "\tif value is None or value \u003d\u003d \"Not Started\":\n\t\treturn \"material/radio_button_unchecked\"\n\telif value \u003d\u003d \"Pending\":\n\t\treturn \"material/error\"\n\telif value \u003d\u003d \"Completed\": \n\t\treturn \"material/check_circle\"",
+                                  "type": "script"
+                                }
+                              ],
+                              "type": "property"
+                            }
+                          },
+                          "props.style.backgroundColor": {
+                            "binding": {
+                              "config": {
+                                "path": "view.custom.Job_Status"
+                              },
+                              "transforms": [
+                                {
+                                  "fallback": "--neutral-10",
+                                  "inputType": "scalar",
+                                  "mappings": [
+                                    {
+                                      "input": "Completed",
+                                      "output": "rgba(26, 159, 104, 0.09)"
+                                    },
+                                    {
+                                      "input": "Pending",
+                                      "output": "rgba(201, 125, 10, 0.09)"
+                                    }
+                                  ],
+                                  "outputType": "scalar",
+                                  "type": "map"
+                                }
+                              ],
+                              "type": "property"
+                            }
+                          },
+                          "props.style.borderColor": {
+                            "binding": {
+                              "config": {
+                                "path": "view.custom.Job_Status"
+                              },
+                              "transforms": [
+                                {
+                                  "code": "\tif value is None or value \u003d\u003d \"Not Started\":\n\t\treturn \"--neutral-40\" \n\telif value \u003d\u003d \"Pending\":\n\t\treturn \"--warning\"\n\telif value \u003d\u003d \"Completed\":\n\t\treturn \"--success\"\n",
+                                  "type": "script"
+                                }
+                              ],
+                              "type": "property"
+                            }
+                          },
+                          "props.style.color": {
+                            "binding": {
+                              "config": {
+                                "path": "view.custom.Job_Status"
+                              },
+                              "transforms": [
+                                {
+                                  "code": "\tif value is None or value \u003d\u003d \"Not Started\":\n\t\treturn \"--info\" \n\telif value \u003d\u003d \"Pending\":\n\t\treturn \"--warning\"\n\telif value \u003d\u003d \"Completed\":\n\t\treturn \"--success\"\n",
+                                  "type": "script"
+                                }
+                              ],
+                              "type": "property"
+                            }
+                          },
+                          "props.text": {
+                            "binding": {
+                              "config": {
+                                "expression": "\"Quality Checks \" + {view.custom.Job_Status}"
+                              },
+                              "type": "expr"
+                            }
+                          }
+                        },
+                        "props": {
+                          "image": {
+                            "icon": {}
+                          },
+                          "style": {
+                            "borderBottomLeftRadius": "10px",
+                            "borderBottomRightRadius": "10px",
+                            "borderStyle": "solid",
+                            "borderTopLeftRadius": "10px",
+                            "borderTopRightRadius": "10px",
+                            "borderWidth": "1px",
+                            "marginBottom": "10px",
+                            "marginRight": "30px",
+                            "marginTop": "10px"
+                          }
+                        },
+                        "type": "ia.input.button"
+                      }
+                    ],
+                    "meta": {
+                      "name": "FlexContainer"
+                    },
+                    "position": {
+                      "basis": "62px"
+                    },
+                    "props": {
+                      "justify": "space-around"
+                    },
+                    "type": "ia.container.flex"
+                  },
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "meta": {
+                              "name": "Label"
+                            },
+                            "position": {
+                              "basis": "50px",
+                              "grow": 1
+                            },
+                            "props": {
+                              "text": "Serial No.:"
+                            },
+                            "type": "ia.display.label"
+                          },
+                          {
+                            "meta": {
+                              "name": "Label_0"
+                            },
+                            "position": {
+                              "basis": "50px",
+                              "grow": 1
+                            },
+                            "propConfig": {
+                              "props.text": {
+                                "binding": {
+                                  "config": {
+                                    "fallbackDelay": 2.5,
+                                    "mode": "indirect",
+                                    "references": {
+                                      "basePath": "{session.custom.machineInfo.basePath}"
+                                    },
+                                    "tagPath": "{basePath}/WO/serial_number"
+                                  },
+                                  "transforms": [
+                                    {
+                                      "expression": "if({value} !\u003dnull,{value},\"NA\")",
+                                      "type": "expression"
+                                    }
+                                  ],
+                                  "type": "tag"
+                                }
+                              }
+                            },
+                            "props": {
+                              "textStyle": {
+                                "fontSize": "15px",
+                                "fontWeight": "500"
+                              }
+                            },
+                            "type": "ia.display.label"
+                          }
+                        ],
+                        "meta": {
+                          "name": "FlexContainer"
+                        },
+                        "position": {
+                          "basis": "59px"
+                        },
+                        "props": {
+                          "style": {
+                            "borderBottomColor": "--neutral-40",
+                            "borderBottomStyle": "solid",
+                            "borderBottomWidth": "1px",
+                            "padding": "10px"
+                          }
+                        },
+                        "type": "ia.container.flex"
+                      },
+                      {
+                        "children": [
+                          {
+                            "meta": {
+                              "name": "Label"
+                            },
+                            "position": {
+                              "basis": "50px",
+                              "grow": 1
+                            },
+                            "props": {
+                              "text": "Priority:"
+                            },
+                            "type": "ia.display.label"
+                          },
+                          {
+                            "meta": {
+                              "name": "Label_0"
+                            },
+                            "position": {
+                              "basis": "50px",
+                              "grow": 1
+                            },
+                            "propConfig": {
+                              "props.text": {
+                                "binding": {
+                                  "config": {
+                                    "path": "view.custom.wo_details[0].priority"
+                                  },
+                                  "transforms": [
+                                    {
+                                      "code": "\treturn \"High\" if value and len(self.view.custom.wo_details)\u003e0 else \"Low\"",
+                                      "type": "script"
+                                    }
+                                  ],
+                                  "type": "property"
+                                }
+                              }
+                            },
+                            "props": {
+                              "textStyle": {
+                                "fontSize": "15px",
+                                "fontWeight": "500"
+                              }
+                            },
+                            "type": "ia.display.label"
+                          }
+                        ],
+                        "meta": {
+                          "name": "FlexContainer_0"
+                        },
+                        "position": {
+                          "basis": "59px"
+                        },
+                        "props": {
+                          "style": {
+                            "borderBottomColor": "--neutral-40",
+                            "borderBottomStyle": "solid",
+                            "borderBottomWidth": "1px",
+                            "padding": "10px"
+                          }
+                        },
+                        "type": "ia.container.flex"
+                      },
+                      {
+                        "children": [
+                          {
+                            "meta": {
+                              "name": "Label"
+                            },
+                            "position": {
+                              "basis": "50px",
+                              "grow": 1
+                            },
+                            "props": {
+                              "text": "Tank Status:"
+                            },
+                            "type": "ia.display.label"
+                          },
+                          {
+                            "meta": {
+                              "name": "Label_0"
+                            },
+                            "position": {
+                              "basis": "50px",
+                              "grow": 1
+                            },
+                            "propConfig": {
+                              "props.text": {
+                                "binding": {
+                                  "config": {
+                                    "path": "view.custom.wo_details[0].tank_status"
+                                  },
+                                  "transforms": [
+                                    {
+                                      "code": "\treturn value if value and len(self.view.custom.wo_details)\u003e0 else \"NA\"",
+                                      "type": "script"
+                                    }
+                                  ],
+                                  "type": "property"
+                                }
+                              }
+                            },
+                            "props": {
+                              "textStyle": {
+                                "fontSize": "15px",
+                                "fontWeight": "500"
+                              }
+                            },
+                            "type": "ia.display.label"
+                          }
+                        ],
+                        "meta": {
+                          "name": "FlexContainer_1"
+                        },
+                        "position": {
+                          "basis": "59px"
+                        },
+                        "props": {
+                          "style": {
+                            "borderBottomColor": "--neutral-40",
+                            "borderBottomStyle": "solid",
+                            "borderBottomWidth": "1px",
+                            "padding": "10px"
+                          }
+                        },
+                        "type": "ia.container.flex"
+                      },
+                      {
+                        "children": [
+                          {
+                            "meta": {
+                              "name": "Label"
+                            },
+                            "position": {
+                              "basis": "50px",
+                              "grow": 1
+                            },
+                            "props": {
+                              "text": "Core Status:"
+                            },
+                            "type": "ia.display.label"
+                          },
+                          {
+                            "meta": {
+                              "name": "Label_0"
+                            },
+                            "position": {
+                              "basis": "50px",
+                              "grow": 1
+                            },
+                            "propConfig": {
+                              "props.text": {
+                                "binding": {
+                                  "config": {
+                                    "path": "view.custom.wo_details[0].core_status"
+                                  },
+                                  "transforms": [
+                                    {
+                                      "code": "\treturn value if value and len(self.view.custom.wo_details)\u003e0 else \"NA\"",
+                                      "type": "script"
+                                    }
+                                  ],
+                                  "type": "property"
+                                }
+                              }
+                            },
+                            "props": {
+                              "textStyle": {
+                                "fontSize": "15px",
+                                "fontWeight": "500"
+                              }
+                            },
+                            "type": "ia.display.label"
+                          }
+                        ],
+                        "meta": {
+                          "name": "FlexContainer_2"
+                        },
+                        "position": {
+                          "basis": "59px"
+                        },
+                        "props": {
+                          "style": {
+                            "borderBottomColor": "--neutral-40",
+                            "borderBottomStyle": "solid",
+                            "borderBottomWidth": "1px",
+                            "padding": "10px"
+                          }
+                        },
+                        "type": "ia.container.flex"
+                      },
+                      {
+                        "children": [
+                          {
+                            "meta": {
+                              "name": "Label"
+                            },
+                            "position": {
+                              "basis": "50px",
+                              "grow": 1
+                            },
+                            "props": {
+                              "text": "ECS OP Status:"
+                            },
+                            "type": "ia.display.label"
+                          },
+                          {
+                            "meta": {
+                              "name": "Label_0"
+                            },
+                            "position": {
+                              "basis": "50px",
+                              "grow": 1
+                            },
+                            "propConfig": {
+                              "props.text": {
+                                "binding": {
+                                  "config": {
+                                    "path": "view.custom.wo_details[0].ecs_op_status"
+                                  },
+                                  "transforms": [
+                                    {
+                                      "code": "\treturn value if value and len(self.view.custom.wo_details)\u003e0 else \"NA\"",
+                                      "type": "script"
+                                    }
+                                  ],
+                                  "type": "property"
+                                }
+                              }
+                            },
+                            "props": {
+                              "textStyle": {
+                                "fontSize": "15px",
+                                "fontWeight": "500"
+                              }
+                            },
+                            "type": "ia.display.label"
+                          }
+                        ],
+                        "meta": {
+                          "name": "FlexContainer_3"
+                        },
+                        "position": {
+                          "basis": "59px"
+                        },
+                        "props": {
+                          "style": {
+                            "borderBottomColor": "--neutral-40",
+                            "borderBottomStyle": "solid",
+                            "borderBottomWidth": "1px",
+                            "padding": "10px"
+                          }
+                        },
+                        "type": "ia.container.flex"
+                      },
+                      {
+                        "children": [
+                          {
+                            "meta": {
+                              "name": "Label"
+                            },
+                            "position": {
+                              "basis": "50px",
+                              "grow": 1
+                            },
+                            "props": {
+                              "text": "OP Status:"
+                            },
+                            "type": "ia.display.label"
+                          },
+                          {
+                            "meta": {
+                              "name": "Label_0"
+                            },
+                            "position": {
+                              "basis": "50px",
+                              "grow": 1
+                            },
+                            "propConfig": {
+                              "props.text": {
+                                "binding": {
+                                  "config": {
+                                    "path": "view.custom.wo_details[0].op_status"
+                                  },
+                                  "transforms": [
+                                    {
+                                      "code": "\treturn value if value and len(self.view.custom.wo_details)\u003e0 else \"NA\"",
+                                      "type": "script"
+                                    }
+                                  ],
+                                  "type": "property"
+                                }
+                              }
+                            },
+                            "props": {
+                              "textStyle": {
+                                "fontSize": "15px",
+                                "fontWeight": "500"
+                              }
+                            },
+                            "type": "ia.display.label"
+                          }
+                        ],
+                        "meta": {
+                          "name": "FlexContainer_4"
+                        },
+                        "position": {
+                          "basis": "59px"
+                        },
+                        "props": {
+                          "style": {
+                            "borderBottomColor": "--neutral-40",
+                            "borderBottomStyle": "solid",
+                            "borderBottomWidth": "1px",
+                            "padding": "10px"
+                          }
+                        },
+                        "type": "ia.container.flex"
+                      }
+                    ],
+                    "meta": {
+                      "name": "FlexContainer_0"
+                    },
+                    "position": {
+                      "basis": "432px"
+                    },
+                    "props": {
+                      "direction": "column",
+                      "style": {
+                        "padding": "20px"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer_0"
+                },
+                "position": {
+                  "basis": "300px",
+                  "grow": 1
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "overflow": "hidden"
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_0"
+            },
+            "position": {
+              "basis": "500px",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "backgroundColor": "--neutral-20",
+                "overflow": "hidden"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\tparams \u003d {\t\"action\": \"confirm\",\n\t\t\t\t\"primaryText\": \"Do you really want to cancel this running job?\",\n\t\t\t\t\"secondaryText\":\" Supervisor should be notified about the cancellation, Please confirm to proceed.\",\"label\":\"Supervisor Assistance\"}\n\tsystem.perspective.openPopup(\"PopUp\", view \u003d \"Project/Pop-Up/Pop-up\", \n\t\t\t\t\t\t\t\t\t\tparams \u003d params, \n\t\t\t\t\t\t\t\t\t\tshowCloseIcon \u003d False,\n\t\t\t\t\t\t\t\t\t\tdraggable \u003d False, \n\t\t\t\t\t\t\t\t\t\tmodal \u003d True)"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Button_0",
+                  "tooltip": {
+                    "enabled": true,
+                    "style": {
+                      "fontSize": 16,
+                      "fontWeight": "bold"
+                    }
+                  }
+                },
+                "position": {
+                  "basis": "25%"
+                },
+                "propConfig": {
+                  "meta.tooltip.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "if({this.props.enabled},\"\",\"Cancel request pending or No Job running\")"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.enabled": {
+                    "binding": {
+                      "config": {
+                        "expression": "//if(tag({session.custom.machineInfo.basePath}+\"/Supervisor/Job_Cancel_requested\"),False,True)\r\n\r\nif(\r\n    tag({session.custom.machineInfo.basePath} + \"/Supervisor/Job_Cancel_requested\") ||\r\n    (tag({session.custom.machineInfo.basePath} + \"/WO/status\")\u003d0),\r\n    False,\r\n    True\r\n)"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "image": {
+                    "height": 36,
+                    "width": 36
+                  },
+                  "style": {
+                    "backgroundColor": "transparent",
+                    "borderColor": "--error",
+                    "borderStyle": "solid",
+                    "borderWidth": "2px",
+                    "classes": "button_popup",
+                    "marginLeft": "0px"
+                  },
+                  "text": "Cancel",
+                  "textStyle": {
+                    "color": "--error",
+                    "fontSize": "32px"
+                  }
+                },
+                "type": "ia.input.button"
+              },
+              {
+                "meta": {
+                  "name": "Label",
+                  "visible": false
+                },
+                "position": {
+                  "basis": "50px",
+                  "display": false,
+                  "grow": 1
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\tprogramid\u003dself.view.params.program\n\tbasepath\u003dself.session.custom.machineInfo.basePath\n\ttaglist\u003d[\n\t\t    \"{}/WO/PO\".format(basepath),\n\t\t    \"{}/WO/serial_number\".format(basepath),\n\t\t    \"{}/WO/Start_time\".format(basepath),\n\t\t    \"{}/WO/status\".format(basepath)\n\t\t]\n\t# ---- QC gate: block completion unless quality checks are COMPLETED ----\n\tserial_number \u003d self.view.custom.jobid\n\tqcStatus \u003d quality_report.getJobQcStatus(serial_number, display\u003dTrue)\n\tsystem.perspective.print(qcStatus)\n\tsystem.perspective.print(serial_number)\n\tlogger \u003d system.util.getLogger(\"logger\")\n\tif qcStatus !\u003d \u0027Completed\u0027:\n\t\tlogger.warn(\"Completion blocked - QC not complete | SN\u003d%s, qcStatus\u003d%s\"\n\t\t\t\t\t% (str(serial_number), str(qcStatus)))\n\t\tfriendly \u003d {\n\t\t\t\u0027NOT_STARTED\u0027: \"Quality checks have not been started for this job.\",\n\t\t\t\u0027IN_PROGRESS\u0027: \"Quality checks are not yet completed for this job.\",\n\t\t\t\u0027FAILED\u0027:      \"Quality checks have failed for this job.\"\n\t\t}.get(qcStatus, \"Quality checks are not completed for this job.\")\n\t\tparams \u003d {\n\t\t\t\"action\": \"error\",\n\t\t\t\"primaryText\": \"Cannot complete job\",\n\t\t\t\"secondaryText\": friendly\n\t\t}\n\t\tsystem.perspective.openPopup(\"PopUp\", view\u003d\"Project/Pop-Up/Pop-up\",\n\t\t\t\t\t\t\t\t\tparams\u003dparams,\n\t\t\t\t\t\t\t\t\tshowCloseIcon\u003dFalse,\n\t\t\t\t\t\t\t\t\tdraggable\u003dFalse,\n\t\t\t\t\t\t\t\t\tmodal\u003dTrue)\n\tif qcStatus \u003d\u003d \u0027Completed\u0027:\t\n\t\tcurrentWO\u003dsystem.tag.readBlocking(taglist)\n\t\tPO\u003dcurrentWO[0].value\n\t\tserialnumber\u003dcurrentWO[1].value\n\t\tworkstatus\u003dcurrentWO[3].value\n\t\tparams \u003d {\t\"action\": \"confirm\",\n\t\t\t\t\t\"secondaryText\":\"Do you really want to Complete the Job!\",\"program_name\":programid,\"serial_number\":serialnumber,\"work_status\":workstatus,\"PO\":PO}\n\t\tsystem.perspective.openPopup(\"PopUp\", view \u003d \"Project/Pop-Up/Job_start_confirm\", \n\t\t\t\t\t\t\t\t\t\t\tparams \u003d params, \n\t\t\t\t\t\t\t\t\t\t\tshowCloseIcon \u003d False,\n\t\t\t\t\t\t\t\t\t\t\tdraggable \u003d False, \n\t\t\t\t\t\t\t\t\t\t\tmodal \u003d True)"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Button",
+                  "tooltip": {
+                    "enabled": true,
+                    "style": {
+                      "fontSize": 16,
+                      "fontWeight": "bold"
+                    }
+                  }
+                },
+                "position": {
+                  "basis": "25%"
+                },
+                "propConfig": {
+                  "meta.tooltip.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "if({this.props.enabled},\"\",\"Check Job status)"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.enabled": {
+                    "binding": {
+                      "config": {
+                        "expression": "if(tag({session.custom.machineInfo.basePath}+\"/WO/status\")\u003d4 ,True,False)"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "image": {
+                    "height": 36,
+                    "width": 36
+                  },
+                  "style": {
+                    "backgroundColor": "--success",
+                    "borderColor": "#FFFFFF",
+                    "borderStyle": "solid",
+                    "borderWidth": "2px",
+                    "classes": "button_popup",
+                    "marginRight": "0px"
+                  },
+                  "text": "Job Complete",
+                  "textStyle": {
+                    "fontSize": "32px"
+                  }
+                },
+                "type": "ia.input.button"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_1"
+            },
+            "position": {
+              "basis": "80px"
+            },
+            "props": {
+              "justify": "space-around",
+              "style": {
+                "backgroundColor": "transparent",
+                "marginTop": "30px"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "1289px"
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "backgroundColor": "--neutral-10",
+            "borderBottomLeftRadius": "20px",
+            "borderBottomRightRadius": "20p",
+            "borderTopLeftRadius": "20px",
+            "borderTopRightRadius": "20px"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "alignItems": "center",
+      "justify": "center"
+    },
+    "scripts": {
+      "customMethods": [],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "startJob",
+          "pageScope": true,
+          "script": "\t# implement your handler here\n\tsystem.perspective.print(payload)\n\tself.view.custom.jobid \u003d payload[\u0027jobid\u0027]\n\tself.view.custom.program \u003d payload[\u0027program\u0027]",
+          "sessionScope": false,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.flex"
+  }
+}

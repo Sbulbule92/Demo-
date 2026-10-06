@@ -1,0 +1,83 @@
+{
+  "pages": {
+    "/": {
+      "title": "",
+      "viewPath": "Project/Supervisor/Job Board"
+    },
+    "/config": {
+      "title": "",
+      "viewPath": "Project/Config/ConfigAdmin"
+    },
+    "/oee_dashboard": {
+      "title": "",
+      "viewPath": "Project/OEE/OEE Main"
+    },
+    "/opr_overview": {
+      "title": "",
+      "viewPath": "Project/Supervisor/Operator Overview/Operator overview Page"
+    },
+    "/quality_report": {
+      "title": "",
+      "viewPath": "Project/Supervisor/Quality/Quality Report"
+    },
+    "/shift_overview": {
+      "title": "",
+      "viewPath": "Project/Supervisor/Shift Overview/ShiftOverview Page"
+    },
+    "/sup_downtime_monitor": {
+      "title": "",
+      "viewPath": "Project/Supervisor/downtime_logs"
+    }
+  },
+  "sharedDocks": {
+    "bottom": [
+      {
+        "anchor": "fixed",
+        "autoBreakpoint": 480,
+        "content": "push",
+        "handle": "hide",
+        "iconUrl": "",
+        "id": "",
+        "modal": false,
+        "resizable": false,
+        "show": "visible",
+        "size": 30,
+        "viewParams": {},
+        "viewPath": "Project/Navigation/footer/Info-footer_final"
+      }
+    ],
+    "cornerPriority": "top-bottom",
+    "left": [
+      {
+        "anchor": "fixed",
+        "autoBreakpoint": 480,
+        "content": "push",
+        "handle": "hide",
+        "iconUrl": "",
+        "id": "Menu",
+        "modal": false,
+        "resizable": false,
+        "show": "onDemand",
+        "size": 220,
+        "viewParams": {},
+        "viewPath": "Project/Navigation/Menu Bar/Nav/Side Dock_New"
+      }
+    ],
+    "top": [
+      {
+        "anchor": "fixed",
+        "autoBreakpoint": 480,
+        "content": "push",
+        "handle": "hide",
+        "iconUrl": "",
+        "id": "",
+        "modal": false,
+        "resizable": false,
+        "show": "visible",
+        "size": 55,
+        "viewParams": {},
+        "viewPath": "Project/Navigation/TitleBar_New"
+      }
+    ]
+  }
+}

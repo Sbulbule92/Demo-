@@ -8,10 +8,11 @@
   ],
   "attributes": {
     "lastModification": {
-      "actor": "system",
-      "timestamp": "2025-12-19T13:06:54Z"
+      "actor": "8.3-migration",
+      "timestamp": "2025-10-21T14:11:36Z"
     },
     "uuid": "37e58452-b92f-4dd0-ae5f-04b0848286dd",
-    "lastModificationSignature": "b37acc94e596461469fcc7676523f8aa9316ede7083545ba9b11b6c564060759"
+    "lastModificationSignature": "0a4554f0c79b2507201f5e139622fdf1c8b7c339830a579f8142a860e9cbf05d",
+    "enabled": true
   }
 }

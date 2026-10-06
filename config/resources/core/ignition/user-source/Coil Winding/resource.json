@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "description": "User Source for all applications involved in Coil Winding Area",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "config.json",
+    "users.json"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "unknown",
+      "timestamp": "2026-09-25T18:51:54Z"
+    },
+    "uuid": "8860ae0e-a1e3-4342-9ae3-46c810e25b6d",
+    "lastModificationSignature": "410450550ed7796964180b5d422cd6c411472d274b884c181bdcca652fb1a6d4",
+    "enabled": true
+  }
+}

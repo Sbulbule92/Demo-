@@ -1,0 +1,33 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "Query",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "ECSMachineReady",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "1bd0e9a0f79fa8b7891ef8ab177a5722b7e0cd35af63897cfc135ad4a5c126ad",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "Noah",
+      "timestamp": "2026-03-27T11:26:02Z"
+    }
+  }
+}

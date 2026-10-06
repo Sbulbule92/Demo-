@@ -6,12 +6,39 @@
           "children": [
             {
               "children": [],
-              "description": "System generated security level representing read and write privileges to Gateway configuration",
-              "name": "Administrator"
+              "name": "Business Manager"
             },
             {
               "children": [],
-              "name": "Manager"
+              "name": "Business User"
+            },
+            {
+              "children": [],
+              "name": "Controls Engineer"
+            },
+            {
+              "children": [],
+              "name": "IGN Developer"
+            },
+            {
+              "children": [],
+              "name": "Maintenance"
+            },
+            {
+              "children": [],
+              "name": "Operator"
+            },
+            {
+              "children": [],
+              "name": "RO Administrator"
+            },
+            {
+              "children": [],
+              "name": "Supervisor"
+            },
+            {
+              "children": [],
+              "name": "View Only"
             }
           ],
           "description": "Represents the roles that a user has.",
@@ -20,23 +47,6 @@
       ],
       "description": "Represents a user who has been authenticated by the system.",
       "name": "Authenticated"
-    },
-    {
-      "children": [
-        {
-          "children": [],
-          "name": "Access"
-        },
-        {
-          "children": [],
-          "name": "Read"
-        },
-        {
-          "children": [],
-          "name": "Write"
-        }
-      ],
-      "name": "APIToken"
     }
   ]
 }

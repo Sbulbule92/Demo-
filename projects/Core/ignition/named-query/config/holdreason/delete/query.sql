@@ -1,0 +1,1 @@
+DELETE FROM wo_hold_reasons WHERE id=:id;

@@ -1,0 +1,990 @@
+{
+  "custom": {
+    "action": "Disable"
+  },
+  "params": {
+    "currentValue": false,
+    "data": {
+      "BasePath": "Sec 511/UDT_WOCL_1071_OEE",
+      "IsActive": true,
+      "LineID": 1,
+      "MachineBlock": false,
+      "MachineCode": "WOCL_1071",
+      "SerialNumber": "",
+      "SessionActive": true,
+      "WIP": 100
+    },
+    "previousValue": true
+  },
+  "propConfig": {
+    "custom.action": {
+      "binding": {
+        "config": {
+          "path": "view.params.currentValue"
+        },
+        "transforms": [
+          {
+            "fallback": "Disable",
+            "inputType": "scalar",
+            "mappings": [
+              {
+                "input": true,
+                "output": "Enable"
+              }
+            ],
+            "outputType": "scalar",
+            "type": "map"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "params.currentValue": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.data": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.previousValue": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 411,
+      "width": 699
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Icon"
+                },
+                "position": {
+                  "basis": "30px",
+                  "grow": 1
+                },
+                "props": {
+                  "color": "--warning",
+                  "path": "material/sync"
+                },
+                "type": "ia.display.icon"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer"
+            },
+            "position": {
+              "basis": "60px"
+            },
+            "props": {
+              "style": {
+                "borderBottomLeftRadius": "10px",
+                "borderBottomRightRadius": "10px",
+                "borderColor": "--warning",
+                "borderStyle": "solid",
+                "borderTopLeftRadius": "10px",
+                "borderTopRightRadius": "10px",
+                "borderWidth": "1px",
+                "margin-left": "10px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "42px"
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "{view.custom.action} + \u0027 Inhibit\u0027"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "marginLeft": "5px"
+                  },
+                  "textStyle": {
+                    "fontSize": "25px",
+                    "fontWeight": "600"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Label_0"
+                },
+                "position": {
+                  "basis": "22px"
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "{view.custom.action} + \u0027 Inhibit will apply Ignition machine block Logic.\u0027"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "marginLeft": "5px"
+                  },
+                  "textStyle": {
+                    "fontSize": "13px",
+                    "fontWeight": "500"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_0"
+            },
+            "position": {
+              "basis": "200px",
+              "grow": 1
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "marginLeft": "10px",
+                "overflow": "hidden"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Icon"
+                },
+                "position": {
+                  "basis": "30px",
+                  "grow": 1
+                },
+                "props": {
+                  "path": "material/close"
+                },
+                "type": "ia.display.icon"
+              }
+            ],
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.sendMessage(\"update\",  scope\u003d\"page\")\n\tsystem.perspective.sendMessage(\"refresh\",  scope\u003d\"page\")\n\tsystem.perspective.closePopup(\"inhibit\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "FlexContainer_1"
+            },
+            "position": {
+              "basis": "40px"
+            },
+            "props": {
+              "style": {
+                "borderBottomLeftRadius": "10px",
+                "borderBottomRightRadius": "10px",
+                "borderColor": "",
+                "borderStyle": "none",
+                "borderTopLeftRadius": "10px",
+                "borderTopRightRadius": "10px",
+                "borderWidth": "1px",
+                "cursor": "pointer",
+                "margin": "15px"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "54px"
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "--neutral-10",
+            "borderBottomColor": "--neutral-20",
+            "borderBottomLeftRadius": "10px",
+            "borderBottomRightRadius": "10px",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": "1px",
+            "borderTopLeftRadius": "10px",
+            "borderTopRightRadius": "10px",
+            "marginBottom": "10px",
+            "marginLeft": "10px",
+            "marginRight": "10px",
+            "marginTop": "5px",
+            "overflow": "hidden",
+            "paddingBottom": "5px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "42px"
+                },
+                "props": {
+                  "style": {
+                    "marginLeft": "5px"
+                  },
+                  "text": "MACHINE DETAILS",
+                  "textStyle": {
+                    "fontSize": "15px",
+                    "fontWeight": "600"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_0"
+            },
+            "position": {
+              "basis": "100px",
+              "grow": 1
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "backgroundColor": "--neutral-10",
+                "marginBottom": "3px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "props": {
+                      "style": {
+                        "marginLeft": "5px"
+                      },
+                      "text": "Machine Name",
+                      "textStyle": {
+                        "fontSize": "12px",
+                        "fontWeight": "normal"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Label_0"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "path": "view.params.data.MachineCode"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "marginLeft": "5px"
+                      },
+                      "textStyle": {
+                        "fontSize": "17px",
+                        "fontWeight": "600"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer"
+                },
+                "position": {
+                  "basis": "42px",
+                  "grow": 1
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "borderRightColor": "--neutral-40",
+                    "borderRightStyle": "solid",
+                    "borderRightWidth": "2px",
+                    "margin": "5px"
+                  },
+                  "wrap": "wrap"
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "props": {
+                      "style": {
+                        "marginLeft": "5px"
+                      },
+                      "text": "Line",
+                      "textStyle": {
+                        "alignSelf": "center",
+                        "fontSize": "12px",
+                        "fontWeight": "normal"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Label_0"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "path": "view.params.data.LineID"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "marginLeft": "5px",
+                        "paddingLeft": "5px"
+                      },
+                      "textStyle": {
+                        "alignSelf": "center",
+                        "fontSize": "17px",
+                        "fontWeight": "600"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer_0"
+                },
+                "position": {
+                  "basis": "122px"
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "borderRightColor": "--neutral-40",
+                    "borderRightStyle": "solid",
+                    "borderRightWidth": "2px",
+                    "margin": "5px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "props": {
+                      "style": {
+                        "marginLeft": "5px"
+                      },
+                      "text": "Current Coil",
+                      "textStyle": {
+                        "fontSize": "12px",
+                        "fontWeight": "normal"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Label_0"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "path": "view.params.data.SerialNumber"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "marginLeft": "5px"
+                      },
+                      "textStyle": {
+                        "fontSize": "15px",
+                        "fontWeight": "600"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer_1"
+                },
+                "position": {
+                  "basis": "42px",
+                  "grow": 1
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "borderRightColor": "--neutral-40",
+                    "borderRightStyle": "none",
+                    "borderRightWidth": "2px",
+                    "margin": "5px"
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_1"
+            },
+            "position": {
+              "basis": "200px",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "borderTopLeftRadius": "10px",
+                "borderTopRightRadius": "10px"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_0"
+        },
+        "position": {
+          "basis": "79px"
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "backgroundColor": "--neutral-20",
+            "borderBottomLeftRadius": "10px",
+            "borderBottomRightRadius": "10px",
+            "borderTopLeftRadius": "10px",
+            "borderTopRightRadius": "10px",
+            "marginBottom": "5px",
+            "marginLeft": "10px",
+            "marginRight": "10px",
+            "marginTop": "0px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "props": {
+                      "alignVertical": "bottom",
+                      "style": {
+                        "marginLeft": "5px"
+                      },
+                      "text": "Current Inhibit Status",
+                      "textStyle": {
+                        "fontSize": "12px",
+                        "fontWeight": "600"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "ToggleSwitch"
+                    },
+                    "position": {
+                      "basis": "36px",
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.label.text": {
+                        "binding": {
+                          "config": {
+                            "path": "this.props.selected"
+                          },
+                          "transforms": [
+                            {
+                              "fallback": "OFF",
+                              "inputType": "scalar",
+                              "mappings": [
+                                {
+                                  "input": true,
+                                  "output": "ON"
+                                }
+                              ],
+                              "outputType": "scalar",
+                              "type": "map"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      },
+                      "props.selected": {
+                        "binding": {
+                          "config": {
+                            "path": "view.params.previousValue"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "color": {
+                        "selected": "--success",
+                        "unselected": "--error"
+                      },
+                      "label": {},
+                      "style": {
+                        "marginLeft": "18px"
+                      }
+                    },
+                    "type": "ia.input.toggle-switch"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer"
+                },
+                "position": {
+                  "basis": "42px",
+                  "grow": 1
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "borderRightColor": "--neutral-40",
+                    "borderRightStyle": "solid",
+                    "borderRightWidth": "2px",
+                    "margin": "5px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Icon"
+                    },
+                    "position": {
+                      "basis": "20px",
+                      "grow": 1
+                    },
+                    "props": {
+                      "color": "--info",
+                      "path": "material/arrow_right_alt",
+                      "style": {
+                        "padding": "15px"
+                      }
+                    },
+                    "type": "ia.display.icon"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer_0"
+                },
+                "position": {
+                  "basis": "122px"
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "borderRightColor": "--neutral-40",
+                    "borderRightStyle": "solid",
+                    "borderRightWidth": "2px",
+                    "margin": "5px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "props": {
+                      "alignVertical": "bottom",
+                      "style": {
+                        "marginLeft": "5px"
+                      },
+                      "text": "New Inhibit Status",
+                      "textStyle": {
+                        "fontSize": "12px",
+                        "fontWeight": "600"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "ToggleSwitch"
+                    },
+                    "position": {
+                      "basis": "36px",
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.label.text": {
+                        "binding": {
+                          "config": {
+                            "path": "this.props.selected"
+                          },
+                          "transforms": [
+                            {
+                              "fallback": "OFF",
+                              "inputType": "scalar",
+                              "mappings": [
+                                {
+                                  "input": true,
+                                  "output": "ON"
+                                }
+                              ],
+                              "outputType": "scalar",
+                              "type": "map"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      },
+                      "props.selected": {
+                        "binding": {
+                          "config": {
+                            "path": "view.params.currentValue"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "color": {
+                        "selected": "--success",
+                        "unselected": "--error"
+                      },
+                      "label": {},
+                      "style": {
+                        "marginLeft": "18px"
+                      }
+                    },
+                    "type": "ia.input.toggle-switch"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer_1"
+                },
+                "position": {
+                  "basis": "42px",
+                  "grow": 1
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "borderRightColor": "--neutral-40",
+                    "borderRightStyle": "none",
+                    "borderRightWidth": "2px",
+                    "margin": "5px"
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_1"
+            },
+            "position": {
+              "basis": "200px",
+              "grow": 1
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_1"
+        },
+        "position": {
+          "basis": "69px"
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "backgroundColor": "--neutral-20",
+            "borderBottomLeftRadius": "10px",
+            "borderBottomRightRadius": "10px",
+            "borderTopLeftRadius": "10px",
+            "borderTopRightRadius": "10px",
+            "marginBottom": "5px",
+            "marginLeft": "10px",
+            "marginRight": "10px",
+            "marginTop": "0px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "22px"
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "\u0027Reason for\u0027 + {view.custom.action} + \u0027ing Inhibit\u0027"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "marginLeft": "18px"
+          },
+          "textStyle": {
+            "fontSize": "14px",
+            "fontWeight": "500"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "TextArea"
+            },
+            "position": {
+              "basis": "160px"
+            },
+            "props": {
+              "style": {
+                "marginBottom": "5px",
+                "marginLeft": "10px",
+                "marginRight": "10px",
+                "marginTop": "5px"
+              }
+            },
+            "type": "ia.input.text-area"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "32px"
+            },
+            "props": {
+              "style": {
+                "marginBottom": "5px",
+                "marginLeft": "10px",
+                "marginRight": "15px"
+              },
+              "text": "(*)Mandotory Field",
+              "textStyle": {
+                "alignSelf": "flex-end",
+                "color": "--error",
+                "fontSize": "12px"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_2"
+        },
+        "position": {
+          "basis": "69px",
+          "grow": 1
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "backgroundColor": "--neutral-20",
+            "borderBottomLeftRadius": "10px",
+            "borderBottomRightRadius": "10px",
+            "borderTopLeftRadius": "10px",
+            "borderTopRightRadius": "10px",
+            "marginBottom": "5px",
+            "marginLeft": "10px",
+            "marginRight": "10px",
+            "marginTop": "0px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\tif self.view.params.currentValue !\u003d self.view.params.previousValue:\n\t\tmachineName \u003d self.view.params.data.MachineCode\n\t\tline        \u003d self.view.params.data.LineID\n\t\tpreviousValue \u003d self.view.params.previousValue\n\t\tmodifiedValue \u003d self.view.params.currentValue\n\t\tmodifiedBy    \u003d self.session.props.auth.user.userName\n\t\treason        \u003d self.parent.parent.parent.getChild(\"FlexContainer_2\").getChild(\"TextArea\").props.text\n#\t\t[default]Sec 511/UDT_WOCL_1071_OEE/Machine Block/MachineBlockOveride\n\t\tTAG_PATH \u003d self.view.params.data.BasePath + \"/Machine Block/MachineBlockOveride\"\n\t\tsystem.tag.writeBlocking(TAG_PATH, modifiedValue)\n\t\tresult \u003d supervisor.shiftOverview.logInhibitChange(machineName, line, previousValue, modifiedValue, modifiedBy, reason)\n\t\tsystem.perspective.sendMessage(\"update\", scope\u003d\u0027page\u0027)\n\t\tsystem.perspective.sendMessage(\"refresh\", scope\u003d\u0027page\u0027)\n\t\tsystem.perspective.sendMessage(\"inhibit\", scope\u003d\u0027page\u0027)\n\t\tif result \u003d\u003d 1:\n\t\t\tsystem.perspective.closePopup(\"inhibit\")"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Button"
+                },
+                "position": {
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.enabled": {
+                    "binding": {
+                      "config": {
+                        "path": "..../FlexContainer_2/TextArea.props.text"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\treturn True if value is not None and value !\u003d \u0027\u0027 else False",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "text": "Confirm Inhibit"
+                },
+                "type": "ia.input.button"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer"
+            },
+            "position": {
+              "basis": "153px"
+            },
+            "props": {
+              "style": {
+                "marginBottom": "5px",
+                "marginRight": "20px",
+                "marginTop": "5px"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_3"
+        },
+        "position": {
+          "basis": "49px"
+        },
+        "props": {
+          "direction": "row-reverse",
+          "style": {
+            "backgroundColor": "--neutral-20",
+            "borderBottomLeftRadius": "10px",
+            "borderBottomRightRadius": "10px",
+            "borderTopLeftRadius": "10px",
+            "borderTopRightRadius": "10px",
+            "marginBottom": "5px",
+            "marginLeft": "10px",
+            "marginRight": "10px",
+            "marginTop": "0px"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "backgroundColor": "--neutral-10",
+        "borderBottomLeftRadius": "15px",
+        "borderBottomRightRadius": "15px",
+        "borderColor": "--neutral-40",
+        "borderStyle": "solid",
+        "borderTopLeftRadius": "15px",
+        "borderTopRightRadius": "15px",
+        "borderWidth": "1px",
+        "padding": "5px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

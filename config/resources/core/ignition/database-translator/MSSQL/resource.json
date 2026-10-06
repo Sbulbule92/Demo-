@@ -8,10 +8,11 @@
   ],
   "attributes": {
     "lastModification": {
-      "actor": "default",
-      "timestamp": "2025-12-19T13:07:28Z"
+      "actor": "8.3-migration",
+      "timestamp": "2025-10-21T14:11:36Z"
     },
-    "uuid": "95aba70d-e79c-42b9-8cef-13a3791dfb0f",
-    "lastModificationSignature": "25672a61442b917c586cf7890c2b6814d08224e559f7cc8bc52ac0d59bff880f"
+    "uuid": "1cbc7190-7d76-44e1-ac0a-07c7921c1e1c",
+    "lastModificationSignature": "93104d91ef3753d190dcd5c2ae33dca253e647d454eeec6b488ecf65c55f5a6a",
+    "enabled": true
   }
 }

@@ -1,0 +1,85 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "Query",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "9ae66d3dbda33bb1d46f9288b6595e3bd80ccbec2e1f0839bd8eb187d13cefab",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "prasantm",
+      "timestamp": "2026-03-26T09:32:59Z"
+    },
+    "parameters": [
+      {
+        "type": "Parameter",
+        "identifier": "ReasonID",
+        "sqlType": 2
+      },
+      {
+        "type": "Parameter",
+        "identifier": "DowntimeStatus",
+        "sqlType": 2
+      },
+      {
+        "type": "Parameter",
+        "identifier": "username",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "StartTime",
+        "sqlType": 8
+      },
+      {
+        "type": "Parameter",
+        "identifier": "ShiftID",
+        "sqlType": 2
+      },
+      {
+        "type": "Parameter",
+        "identifier": "DowntimeSource",
+        "sqlType": 2
+      },
+      {
+        "type": "Parameter",
+        "identifier": "Remarks",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "categoryID",
+        "sqlType": 2
+      },
+      {
+        "type": "Parameter",
+        "identifier": "LineID",
+        "sqlType": 2
+      },
+      {
+        "type": "Parameter",
+        "identifier": "MachineID",
+        "sqlType": 2
+      }
+    ]
+  }
+}

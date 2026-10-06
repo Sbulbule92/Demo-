@@ -1,0 +1,21 @@
+{
+  "scope": "A",
+  "description": "",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "HE.png"
+  ],
+  "attributes": {
+    "width": 664,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "Gannon",
+      "timestamp": "2026-05-29T13:14:31Z"
+    },
+    "size": 15355,
+    "lastModificationSignature": "c84302b0a1fdb789e3230eba4a322dc4f70f557eb858fd1b2fd30edd08bf15c9",
+    "height": 121
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "scope": "C",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "data.bin"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "Gannon",
+      "timestamp": "2026-03-18T15:15:39Z"
+    },
+    "lastModificationSignature": "5188c2182a3039c88c0033da73c90815462fc75a0c5bddc2bc152d1263fb05e0"
+  }
+}

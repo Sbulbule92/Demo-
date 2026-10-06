@@ -1,0 +1,7 @@
+{
+  "title": "",
+  "description": "This projects holds resource related to operator only",
+  "enabled": true,
+  "inheritable": false,
+  "parent": "Core"
+}

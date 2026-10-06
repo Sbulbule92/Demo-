@@ -1,7 +1,0 @@
-{
-  "title": "zpl-label-printing",
-  "description": "This exchange resource is intended to work with Zebra Designer 3 and provides a way to design, parameterize, store, preview, and print labels to network-connected printers using ZPL commands. ",
-  "enabled": true,
-  "inheritable": false,
-  "parent": ""
-}

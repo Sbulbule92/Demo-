@@ -1,0 +1,133 @@
+{
+  "custom": {},
+  "params": {
+    "Line": 1,
+    "Machine": 1,
+    "date": {
+      "$": [
+        "ts",
+        192,
+        1775630328137
+      ],
+      "$ts": 1775630328071
+    },
+    "shift": "B"
+  },
+  "propConfig": {
+    "params.Line": {
+      "binding": {
+        "config": {
+          "path": "/root/EmbeddedView_1.props.params.SelectedLine"
+        },
+        "type": "property"
+      },
+      "paramDirection": "output",
+      "persistent": true
+    },
+    "params.Machine": {
+      "binding": {
+        "config": {
+          "path": "/root/EmbeddedView_1.props.params.SelectedMachine"
+        },
+        "type": "property"
+      },
+      "paramDirection": "output",
+      "persistent": true
+    },
+    "params.date": {
+      "binding": {
+        "config": {
+          "path": "/root/EmbeddedView.props.params.SelectedDate"
+        },
+        "type": "property"
+      },
+      "paramDirection": "output",
+      "persistent": true
+    },
+    "params.shift": {
+      "binding": {
+        "config": {
+          "path": "/root/EmbeddedView_0.props.params.shift"
+        },
+        "type": "property"
+      },
+      "paramDirection": "output",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 56,
+      "width": 997
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "EmbeddedView"
+        },
+        "position": {
+          "basis": "424px"
+        },
+        "props": {
+          "params": {
+            "SelectedDate": {
+              "$": [
+                "ts",
+                192,
+                1775630328137
+              ],
+              "$ts": 1775630328071
+            }
+          },
+          "path": "Project/Dashboards/OEE/Components/Headers/components/Select Date"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "EmbeddedView_0"
+        },
+        "position": {
+          "basis": "483px"
+        },
+        "props": {
+          "params": {
+            "SelectedDate": {
+              "$": [
+                "ts",
+                192,
+                1768479638180
+              ],
+              "$ts": 1768479638169
+            },
+            "shift": "B"
+          },
+          "path": "Project/Dashboards/OEE/Components/Headers/components/Select Shift"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "EmbeddedView_1"
+        },
+        "position": {
+          "basis": "483px"
+        },
+        "props": {
+          "params": {
+            "SelectedLine": 1,
+            "SelectedMachine": 1
+          },
+          "path": "Project/Dashboards/OEE/Components/Headers/components/Select Line-Machine"
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.flex"
+  }
+}

@@ -1,0 +1,33 @@
+[
+  {
+    "name": "1phTankRobot1",
+    "typeId": "UDT_WeldRobot",
+    "tagType": "UdtInstance",
+    "tags": [
+      {
+        "name": "DataAutomation",
+        "tagType": "Folder",
+        "tags": [
+          {
+            "opcItemPath": "nsu\u003durn:OMRON:NxOpcUaServer:FactoryAutomation;s\u003dOPC_TankDataRequest",
+            "opcServer": "Section241_1PH_Tank_Weld_Robot1",
+            "name": "OPC_TankDataRequest",
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": "nsu\u003durn:OMRON:NxOpcUaServer:FactoryAutomation;s\u003dOPC_TankData",
+            "opcServer": "Section241_1PH_Tank_Weld_Robot1",
+            "name": "OPC_TankData",
+            "tagType": "AtomicTag"
+          },
+          {
+            "opcItemPath": "nsu\u003durn:OMRON:NxOpcUaServer:FactoryAutomation;s\u003dOPC_TankID",
+            "opcServer": "Section241_1PH_Tank_Weld_Robot1",
+            "name": "OPC_TankID",
+            "tagType": "AtomicTag"
+          }
+        ]
+      }
+    ]
+  }
+]

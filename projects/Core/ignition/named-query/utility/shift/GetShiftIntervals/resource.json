@@ -1,0 +1,45 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "Query",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "f84166f612ef290ed1e2e0f53015835e61213d2de028197e25e367bb4ae16a4e",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "prasantm",
+      "timestamp": "2026-03-24T07:04:01Z"
+    },
+    "parameters": [
+      {
+        "type": "Parameter",
+        "identifier": "myValueY",
+        "sqlType": 2
+      },
+      {
+        "type": "Parameter",
+        "identifier": "startDate",
+        "sqlType": 7
+      }
+    ]
+  }
+}

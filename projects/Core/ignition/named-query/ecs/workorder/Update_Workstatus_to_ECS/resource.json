@@ -1,0 +1,60 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "UpdateQuery",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "JeffCity2_ECS_viewer_Tuboly_HV",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "d3e816c4ac6e47c4cff52eb43e0049a35f3b071ff46f838e4cc839557f9a717c",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "prasantm",
+      "timestamp": "2026-03-21T09:38:43Z"
+    },
+    "parameters": [
+      {
+        "type": "Parameter",
+        "identifier": "PO_Number",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "Equipment",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "action",
+        "sqlType": 2
+      },
+      {
+        "type": "Parameter",
+        "identifier": "ECSUser",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "Serial_Number",
+        "sqlType": 7
+      }
+    ]
+  }
+}

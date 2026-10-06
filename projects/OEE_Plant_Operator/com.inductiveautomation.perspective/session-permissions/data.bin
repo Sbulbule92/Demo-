@@ -1,0 +1,27 @@
+{
+  "type": "AnyOf",
+  "securityLevels": [
+    {
+      "name": "Authenticated",
+      "children": [
+        {
+          "name": "Roles",
+          "children": [
+            {
+              "name": "Operator",
+              "children": []
+            },
+            {
+              "name": "Supervisor",
+              "children": []
+            },
+            {
+              "name": "View Only",
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

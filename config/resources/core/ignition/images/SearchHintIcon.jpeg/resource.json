@@ -1,0 +1,21 @@
+{
+  "scope": "A",
+  "description": "",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "SearchHintIcon.jpeg"
+  ],
+  "attributes": {
+    "width": 840,
+    "format": "JPEG",
+    "lastModification": {
+      "actor": "Gannon",
+      "timestamp": "2026-09-09T14:53:16Z"
+    },
+    "size": 99878,
+    "lastModificationSignature": "dd09eeb5b10280b324692e8de42404dfa82af9a37feb1ab5ede7a85d2c83f840",
+    "height": 678
+  }
+}

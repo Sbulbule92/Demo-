@@ -1,0 +1,239 @@
+[
+  {
+    "name": "Tuboly 1071 test",
+    "typeId": "UDT_Tuboly",
+    "tagType": "UdtInstance",
+    "tags": [
+      {
+        "name": "OEE",
+        "tagType": "Folder",
+        "tags": [
+          {
+            "name": "ProductionData",
+            "tagType": "Folder",
+            "tags": [
+              {
+                "opcItemPath": "nsu\u003durn:OMRON:NxOpcUaServer:FactoryAutomation;s\u003dNextStop",
+                "opcServer": "TestLab_FinAttachNxOpcUaServer@10.118.10.137",
+                "name": "NextStop",
+                "tagType": "AtomicTag"
+              },
+              {
+                "opcItemPath": "nsu\u003durn:OMRON:NxOpcUaServer:FactoryAutomation;s\u003dWireThickness",
+                "opcServer": "TestLab_FinAttachNxOpcUaServer@10.118.10.137",
+                "name": "WireThickness",
+                "tagType": "AtomicTag"
+              },
+              {
+                "opcItemPath": "nsu\u003durn:OMRON:NxOpcUaServer:FactoryAutomation;s\u003dWireFeederPosition",
+                "dataType": "Int8",
+                "opcServer": "TestLab_FinAttachNxOpcUaServer@10.118.10.137",
+                "name": "WireFeederPosition",
+                "tagType": "AtomicTag"
+              },
+              {
+                "opcItemPath": "nsu\u003durn:OMRON:NxOpcUaServer:FactoryAutomation;s\u003dTurnNumberWire",
+                "opcServer": "TestLab_FinAttachNxOpcUaServer@10.118.10.137",
+                "name": "TurnNumberWire",
+                "tagType": "AtomicTag"
+              },
+              {
+                "opcItemPath": "nsu\u003durn:OMRON:NxOpcUaServer:FactoryAutomation;s\u003dWindingProgramEnd",
+                "opcServer": "TestLab_FinAttachNxOpcUaServer@10.118.10.137",
+                "name": "WindingProgramEnd",
+                "tagType": "AtomicTag"
+              },
+              {
+                "opcItemPath": "nsu\u003durn:OMRON:NxOpcUaServer:FactoryAutomation;s\u003dTotalWinding",
+                "opcServer": "TestLab_FinAttachNxOpcUaServer@10.118.10.137",
+                "name": "TotalWinding",
+                "tagType": "AtomicTag"
+              },
+              {
+                "opcItemPath": "nsu\u003durn:OMRON:NxOpcUaServer:FactoryAutomation;s\u003dActualTurnNumber",
+                "opcServer": "TestLab_FinAttachNxOpcUaServer@10.118.10.137",
+                "name": "ActualTurnNumber",
+                "tagType": "AtomicTag"
+              },
+              {
+                "opcItemPath": "nsu\u003durn:OMRON:NxOpcUaServer:FactoryAutomation;s\u003dInsulationFeederPosition",
+                "dataType": "Int8",
+                "opcServer": "TestLab_FinAttachNxOpcUaServer@10.118.10.137",
+                "name": "InsulationFeederPosition",
+                "tagType": "AtomicTag"
+              },
+              {
+                "opcItemPath": "nsu\u003durn:OMRON:NxOpcUaServer:FactoryAutomation;s\u003dProductionID",
+                "opcServer": "TestLab_FinAttachNxOpcUaServer@10.118.10.137",
+                "name": "ProductionID",
+                "tagType": "AtomicTag"
+              },
+              {
+                "opcItemPath": "nsu\u003durn:OMRON:NxOpcUaServer:FactoryAutomation;s\u003dFoilDiameter",
+                "opcServer": "TestLab_FinAttachNxOpcUaServer@10.118.10.137",
+                "name": "FoilDiameter",
+                "tagType": "AtomicTag"
+              },
+              {
+                "opcItemPath": "nsu\u003durn:OMRON:NxOpcUaServer:FactoryAutomation;s\u003dWindingProgramStart",
+                "opcServer": "TestLab_FinAttachNxOpcUaServer@10.118.10.137",
+                "name": "WindingProgramStart",
+                "tagType": "AtomicTag"
+              },
+              {
+                "opcItemPath": "nsu\u003durn:OMRON:NxOpcUaServer:FactoryAutomation;s\u003dActualWinderSpeed",
+                "opcServer": "TestLab_FinAttachNxOpcUaServer@10.118.10.137",
+                "name": "ActualWinderSpeed",
+                "tagType": "AtomicTag"
+              },
+              {
+                "opcItemPath": "nsu\u003durn:OMRON:NxOpcUaServer:FactoryAutomation;s\u003dInsulationWidth",
+                "opcServer": "TestLab_FinAttachNxOpcUaServer@10.118.10.137",
+                "name": "InsulationWidth",
+                "tagType": "AtomicTag"
+              },
+              {
+                "opcItemPath": "nsu\u003durn:OMRON:NxOpcUaServer:FactoryAutomation;s\u003dInsulationThickness",
+                "opcServer": "TestLab_FinAttachNxOpcUaServer@10.118.10.137",
+                "name": "InsulationThickness",
+                "tagType": "AtomicTag"
+              },
+              {
+                "opcItemPath": "nsu\u003durn:OMRON:NxOpcUaServer:FactoryAutomation;s\u003dWireWidth",
+                "opcServer": "TestLab_FinAttachNxOpcUaServer@10.118.10.137",
+                "name": "WireWidth",
+                "tagType": "AtomicTag"
+              },
+              {
+                "opcItemPath": "nsu\u003durn:OMRON:NxOpcUaServer:FactoryAutomation;s\u003dTurnNumberInsulation",
+                "opcServer": "TestLab_FinAttachNxOpcUaServer@10.118.10.137",
+                "name": "TurnNumberInsulation",
+                "tagType": "AtomicTag"
+              },
+              {
+                "opcItemPath": "nsu\u003durn:OMRON:NxOpcUaServer:FactoryAutomation;s\u003dActualCircumference",
+                "opcServer": "TestLab_FinAttachNxOpcUaServer@10.118.10.137",
+                "name": "ActualCircumference",
+                "tagType": "AtomicTag"
+              },
+              {
+                "opcItemPath": "nsu\u003durn:OMRON:NxOpcUaServer:FactoryAutomation;s\u003dWireDiameter",
+                "opcServer": "TestLab_FinAttachNxOpcUaServer@10.118.10.137",
+                "name": "WireDiameter",
+                "tagType": "AtomicTag"
+              },
+              {
+                "opcItemPath": "nsu\u003durn:OMRON:NxOpcUaServer:FactoryAutomation;s\u003dTurnNumberInsulationAndWire",
+                "opcServer": "TestLab_FinAttachNxOpcUaServer@10.118.10.137",
+                "name": "TurnNumberInsulationAndWire",
+                "tagType": "AtomicTag"
+              },
+              {
+                "opcItemPath": "nsu\u003durn:OMRON:NxOpcUaServer:FactoryAutomation;s\u003dWireTension",
+                "opcServer": "TestLab_FinAttachNxOpcUaServer@10.118.10.137",
+                "name": "WireTension",
+                "tagType": "AtomicTag"
+              },
+              {
+                "opcItemPath": "nsu\u003durn:OMRON:NxOpcUaServer:FactoryAutomation;s\u003dInsulationDiameter",
+                "opcServer": "TestLab_FinAttachNxOpcUaServer@10.118.10.137",
+                "name": "InsulationDiameter",
+                "tagType": "AtomicTag"
+              },
+              {
+                "opcItemPath": "nsu\u003durn:OMRON:NxOpcUaServer:FactoryAutomation;s\u003dInsulaionTension",
+                "opcServer": "TestLab_FinAttachNxOpcUaServer@10.118.10.137",
+                "name": "InsulationTension",
+                "tagType": "AtomicTag"
+              },
+              {
+                "opcItemPath": "nsu\u003durn:OMRON:NxOpcUaServer:FactoryAutomation;s\u003dActualCoilDiameter",
+                "opcServer": "TestLab_FinAttachNxOpcUaServer@10.118.10.137",
+                "name": "ActualCoilDiameter",
+                "tagType": "AtomicTag"
+              }
+            ]
+          },
+          {
+            "name": "MachineData",
+            "tagType": "Folder",
+            "tags": [
+              {
+                "opcItemPath": "nsu\u003durn:OMRON:NxOpcUaServer:FactoryAutomation;s\u003dOperatingHour",
+                "opcServer": "TestLab_FinAttachNxOpcUaServer@10.118.10.137",
+                "name": "OperatingHour",
+                "tagType": "AtomicTag"
+              },
+              {
+                "opcItemPath": "nsu\u003durn:OMRON:NxOpcUaServer:FactoryAutomation;s\u003dFixCoolingChannel",
+                "opcServer": "TestLab_FinAttachNxOpcUaServer@10.118.10.137",
+                "name": "FixCoolingChannel",
+                "tagType": "AtomicTag"
+              },
+              {
+                "opcItemPath": "nsu\u003durn:OMRON:NxOpcUaServer:FactoryAutomation;s\u003dUnitOn",
+                "opcServer": "TestLab_FinAttachNxOpcUaServer@10.118.10.137",
+                "name": "UnitOn",
+                "tagType": "AtomicTag"
+              },
+              {
+                "opcItemPath": "nsu\u003durn:OMRON:NxOpcUaServer:FactoryAutomation;s\u003dCancelProduction",
+                "opcServer": "TestLab_FinAttachNxOpcUaServer@10.118.10.137",
+                "name": "CancelProduction",
+                "tagType": "AtomicTag"
+              },
+              {
+                "opcItemPath": "nsu\u003durn:OMRON:NxOpcUaServer:FactoryAutomation;s\u003dErrorActive",
+                "opcServer": "TestLab_FinAttachNxOpcUaServer@10.118.10.137",
+                "name": "ErrorActive",
+                "tagType": "AtomicTag"
+              },
+              {
+                "opcItemPath": "nsu\u003durn:OMRON:NxOpcUaServer:FactoryAutomation;s\u003dAutomaticMode",
+                "opcServer": "TestLab_FinAttachNxOpcUaServer@10.118.10.137",
+                "name": "AutomaticMode",
+                "tagType": "AtomicTag"
+              },
+              {
+                "opcItemPath": "nsu\u003durn:OMRON:NxOpcUaServer:FactoryAutomation;s\u003dSecurtyCageOpen",
+                "opcServer": "TestLab_FinAttachNxOpcUaServer@10.118.10.137",
+                "name": "SecurityCageOpen",
+                "tagType": "AtomicTag"
+              },
+              {
+                "opcItemPath": "nsu\u003durn:OMRON:NxOpcUaServer:FactoryAutomation;s\u003dManualMode",
+                "opcServer": "TestLab_FinAttachNxOpcUaServer@10.118.10.137",
+                "name": "ManualMode",
+                "tagType": "AtomicTag"
+              },
+              {
+                "opcItemPath": "nsu\u003durn:OMRON:NxOpcUaServer:FactoryAutomation;s\u003dCoilPresentSensor",
+                "opcServer": "TestLab_FinAttachNxOpcUaServer@10.118.10.137",
+                "name": "CoilPresentSensor",
+                "tagType": "AtomicTag"
+              },
+              {
+                "opcItemPath": "nsu\u003durn:OMRON:NxOpcUaServer:FactoryAutomation;s\u003dSingleClipImplementation",
+                "opcServer": "TestLab_FinAttachNxOpcUaServer@10.118.10.137",
+                "name": "SingleClipImplementation",
+                "tagType": "AtomicTag"
+              },
+              {
+                "opcItemPath": "nsu\u003durn:OMRON:NxOpcUaServer:FactoryAutomation;s\u003dErrorCode",
+                "opcServer": "TestLab_FinAttachNxOpcUaServer@10.118.10.137",
+                "name": "ErrorCode",
+                "tagType": "AtomicTag"
+              },
+              {
+                "opcItemPath": "nsu\u003durn:OMRON:NxOpcUaServer:FactoryAutomation;s\u003dProductionTime",
+                "opcServer": "TestLab_FinAttachNxOpcUaServer@10.118.10.137",
+                "name": "ProductionTime",
+                "tagType": "AtomicTag"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "scope": "C",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "window.bin",
+    "thumbnail.png"
+  ],
+  "attributes": {
+    "xml-format-version": 1,
+    "lastModificationSignature": "9d409e2c3db77b85260df06593b6938a732b02be3dff7af92389948b493feb5a",
+    "lastModification": {
+      "actor": "Gannon",
+      "timestamp": "2026-09-17T13:19:17Z"
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "UpdateQuery",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "232dd83be21c2d45f1db091be48c31b407969b783cfd1880d9c8ab89392f80b7",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "shivab",
+      "timestamp": "2026-04-06T15:23:26Z"
+    },
+    "parameters": [
+      {
+        "type": "Parameter",
+        "identifier": "lspec_id",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "lv_winding",
+        "sqlType": 4
+      },
+      {
+        "type": "Parameter",
+        "identifier": "hv_winding",
+        "sqlType": 4
+      },
+      {
+        "type": "Parameter",
+        "identifier": "total_coil",
+        "sqlType": 5
+      },
+      {
+        "type": "Parameter",
+        "identifier": "total_winding",
+        "sqlType": 4
+      },
+      {
+        "type": "Parameter",
+        "identifier": "source_val",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "hv1_bil",
+        "sqlType": 2
+      },
+      {
+        "type": "Parameter",
+        "identifier": "PRODCOMP",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "KVA",
+        "sqlType": 2
+      }
+    ]
+  }
+}

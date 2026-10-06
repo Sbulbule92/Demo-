@@ -1,14 +1,53 @@
 {
   "accessPermissions": {
-    "securityLevels": [],
-    "type": "AllOf"
+    "securityLevels": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [],
+                "name": "IGN Developer"
+              },
+              {
+                "children": [],
+                "name": "RO Administrator"
+              }
+            ],
+            "description": "Represents the roles that a user has.",
+            "name": "Roles"
+          }
+        ],
+        "description": "Represents a user who has been authenticated by the system.",
+        "name": "Authenticated"
+      }
+    ],
+    "type": "AnyOf"
   },
   "allowDesignerSSO": false,
   "allowUserAdmin": false,
   "createProjectPermissions": {
-    "securityLevels": [],
-    "type": "AllOf"
+    "securityLevels": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [],
+                "name": "IGN Developer"
+              }
+            ],
+            "description": "Represents the roles that a user has.",
+            "name": "Roles"
+          }
+        ],
+        "description": "Represents a user who has been authenticated by the system.",
+        "name": "Authenticated"
+      }
+    ],
+    "type": "AnyOf"
   },
+  "createProjectRoleName": "",
   "designerAuthStrategy": "CLASSIC",
   "designerAuthTokenInactivityTimeout": 10,
   "designerAuthTokenTimeToLive": 0,
@@ -31,11 +70,36 @@
     ],
     "type": "AnyOf"
   },
-  "designerRoleName": "Administrator",
+  "designerRoleName": "Administrator, IGN Developer",
   "forceIdpAuth": true,
-  "gatewayAuditProfile": "Audit_Profile_DB",
+  "gatewayAuditProfile": "OEE_Audit_trail",
   "readPermissions": {
-    "securityLevels": [],
+    "securityLevels": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [],
+                "name": "Administrator"
+              },
+              {
+                "children": [],
+                "name": "IGN Developer"
+              },
+              {
+                "children": [],
+                "name": "RO Administrator"
+              }
+            ],
+            "description": "Represents the roles that a user has.",
+            "name": "Roles"
+          }
+        ],
+        "description": "Represents a user who has been authenticated by the system.",
+        "name": "Authenticated"
+      }
+    ],
     "type": "AnyOf"
   },
   "systemAuthProfile": "default",
@@ -49,8 +113,11 @@
             "children": [
               {
                 "children": [],
-                "description": "System generated security level representing read and write privileges to Gateway configuration",
                 "name": "Administrator"
+              },
+              {
+                "children": [],
+                "name": "IGN Developer"
               }
             ],
             "description": "Represents the roles that a user has.",

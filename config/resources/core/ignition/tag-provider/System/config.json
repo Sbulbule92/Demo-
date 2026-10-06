@@ -1,7 +1,7 @@
 {
   "profile": {
     "allowBackfill": false,
-    "enableTagReferenceStore": true,
+    "enableTagReferenceStore": false,
     "type": "MANAGED"
   },
   "settings": {

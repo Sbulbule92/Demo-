@@ -1,0 +1,65 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "Query",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "JeffCity4LWCTPROD",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "056c51e2598a773ee06ff5fdfe397ff8966de2a98499afc99022fe9e8cc5b584",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "Gannon",
+      "timestamp": "2026-05-18T13:17:04Z"
+    },
+    "parameters": [
+      {
+        "type": "Parameter",
+        "identifier": "searchValue1",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "searchValue2",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "searchValue3",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "searchValue4",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "searchValue5",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "searchValue6",
+        "sqlType": 7
+      }
+    ]
+  }
+}

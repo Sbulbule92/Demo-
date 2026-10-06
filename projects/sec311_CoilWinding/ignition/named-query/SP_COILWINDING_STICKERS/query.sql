@@ -1,0 +1,1 @@
+EXEC [dbo].[SP_COILWINDING_STICKERS] :SerialNo

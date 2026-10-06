@@ -1,0 +1,356 @@
+{
+  "custom": {
+    "Title": "JOB BOARD",
+    "currentTheme": "light",
+    "sessionUser": "Gannon"
+  },
+  "params": {},
+  "propConfig": {
+    "custom.Title": {
+      "binding": {
+        "config": {
+          "path": "page.props.path"
+        },
+        "transforms": [
+          {
+            "code": "\tif value \u003d\u003d \"/opr_assist\":\n\t\treturn \"Assitance\".upper()\n\telif value \u003d\u003d \"/opr_downtime_entry\":\n\t\treturn \"Downtime Entry\".upper()\n\telif value \u003d\u003d \"/opr_job_board\":\n\t\treturn \"Job Board\".upper()\n\telif value \u003d\u003d \u0027/oee_dashboard\u0027:\n\t\treturn \"OEE DASHBOARD\".upper()\n\telif value \u003d\u003d \"/sup_downtime_monitor\":\n\t\treturn \"Downtime Logs\".upper()\n\telse:\n\t\treturn \"Job Board\".upper()",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.currentTheme": {
+      "binding": {
+        "config": {
+          "bidirectional": true,
+          "path": "session.props.theme"
+        },
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.sessionUser": {
+      "binding": {
+        "config": {
+          "path": "session.props.auth.user.userName"
+        },
+        "type": "property"
+      },
+      "onChange": {
+        "enabled": null,
+        "script": "\troles \u003d self.props.auth.user.roles\n\tif \u0027Operator\u0027 in roles :\n\t\tsystem.perspective.sendMessage(\"opertorURL\", scope\u003d\"session\")"
+      },
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 48,
+      "width": 998
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "id": "Menu",
+                    "type": "toggle"
+                  },
+                  "scope": "C",
+                  "type": "dock"
+                }
+              }
+            },
+            "meta": {
+              "name": "Menu Icon"
+            },
+            "position": {
+              "basis": "45px"
+            },
+            "props": {
+              "path": "material/menu",
+              "style": {
+                "cursor": "pointer",
+                "marginLeft": "5px",
+                "marginRight": "5px"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "meta": {
+              "name": "Home Icon"
+            },
+            "position": {
+              "basis": "45px"
+            },
+            "props": {
+              "path": "material/home",
+              "style": {
+                "cursor": "pointer",
+                "marginLeft": "5px",
+                "marginRight": "5px"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "props": {
+              "style": {
+                "classes": "Project/Bar_Logo"
+              },
+              "text": "HITACHI",
+              "textStyle": {
+                "fontFamily": "Verdana",
+                "fontSize": "20pt",
+                "marginBottom": "10px",
+                "marginLeft": "5px",
+                "marginRight": "5px",
+                "marginTop": "10px",
+                "paddingRight": "5px"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "Left Flex"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.Title"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "margin-right": "20px"
+              },
+              "textStyle": {
+                "fontSize": "30px",
+                "fontWeight": "bolder"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "Middle Flex"
+        },
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "justify": "center"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "{session.props.auth.user.firstName}+\" \"+{session.props.auth.user.lastName}"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "margin-right": "15px"
+              },
+              "textStyle": {
+                "fontSize": "18px",
+                "fontWeight": "bolder"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "custom": {
+              "currentTheme": "light"
+            },
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\n\tparams \u003d {\t\"action\": \"confirm\",\n\t\t\t\t\"primaryText\": \"Are you sure you want to log off ?\",\n\t\t\t\t\"secondaryText\":\" You will be logged out from the current session once you press confirm.\",\n\t\t\t\t\"label\":\u0027Logout\u0027}\n\tsystem.perspective.openPopup(\"PopUp\", view \u003d \"Project/Pop-Up/Lunch\", \n\t\t\t\t\t\t\t\t\t\tparams \u003d params, \n\t\t\t\t\t\t\t\t\t\tshowCloseIcon \u003d False,\n\t\t\t\t\t\t\t\t\t\tdraggable \u003d False, \n\t\t\t\t\t\t\t\t\t\tmodal \u003d True)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "user"
+            },
+            "position": {
+              "basis": "35px"
+            },
+            "props": {
+              "path": "material/person",
+              "style": {
+                "classes": "",
+                "cursor": "Pointer",
+                "marginRight": "15px"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "custom": {
+              "currentTheme": "light"
+            },
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\n\tparams \u003d {\t\"action\": \"confirm\",\n\t\t\t\t\"primaryText\": \"Are you sure you want to log off ?\",\n\t\t\t\t\"secondaryText\":\" You will be logged out from the current session once you press confirm.\",\n\t\t\t\t\"label\":\u0027Logout\u0027}\n\tsystem.perspective.openPopup(\"PopUp\", view \u003d \"Project/Pop-Up/Lunch\", \n\t\t\t\t\t\t\t\t\t\tparams \u003d params, \n\t\t\t\t\t\t\t\t\t\tshowCloseIcon \u003d False,\n\t\t\t\t\t\t\t\t\t\tdraggable \u003d False, \n\t\t\t\t\t\t\t\t\t\tmodal \u003d True)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "user_0",
+              "visible": false
+            },
+            "position": {
+              "basis": "35px",
+              "display": false
+            },
+            "props": {
+              "path": "material/login",
+              "style": {
+                "classes": "",
+                "cursor": "Pointer",
+                "marginRight": "15px"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tif self.custom.currentTheme in [\u0027light-cool\u0027, \u0027light\u0027, \u0027light-warm\u0027]:\n\t\tself.custom.currentTheme \u003d \u0027dark-cool\u0027\n\telse:\n\t\tself.custom.currentTheme \u003d \u0027light-cool\u0027\n\t\t\n##\tlist1 \u003d [\u0027light\u0027, \u0027light-cool\u0027, \u0027light-warm\u0027, \u0027dark\u0027, \u0027dark-cool\u0027, \u0027dark-warm\u0027]\n#\tsystem.perspective.print(\"started\")\n#\tlist1 \u003d [\u0027light-cool\u0027, \u0027dark-cool\u0027]\n#\tcurrent_Value \u003d list1.index(str(self.view.custom.currentTheme))\n#\tsystem.perspective.print(current_Value)\n#\tif current_Value \u003c (len(list1)-1):\n#\t\tcurrent_Value \u003d current_Value + 1\n#\telse:\n#\t\tcurrent_Value \u003d 0\n#\tself.view.custom.currentTheme \u003d list1[current_Value]\n#\tsystem.perspective.print(self.view.custom.currentTheme)\n##\tself.getSibling(\"Label\").props.text \u003d list1[current_Value]\n\tif self.custom.currentTheme in [\u0027light-cool\u0027, \u0027light\u0027, \u0027light-warm\u0027]:\n\t\tself.props.path \u003d \u0027material/bedtime\u0027\n\telse:\n\t\tself.props.path \u003d \u0027material/wb_sunny\u0027\n#\tcurrent_theme \u003d self.session.props.theme\n#\tif current_theme \u003d\u003d \u0027light-cool\u0027:\n#\t\tself.session.props.theme \u003d \u0027dark-cool\u0027\n#\t\tself.props.path \u003d \u0027material/wb_sunny\u0027\n#\telse:\n#\t\tself.session.props.theme \u003d \u0027light-cool\u0027\n#\t\tself.props.path \u003d \u0027material/bedtime\u0027"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Theme"
+            },
+            "position": {
+              "basis": "35px"
+            },
+            "propConfig": {
+              "custom.currentTheme": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "session.props.theme"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "path": "material/bedtime",
+              "style": {
+                "classes": "",
+                "cursor": "Pointer",
+                "marginRight": "10px"
+              }
+            },
+            "type": "ia.display.icon"
+          }
+        ],
+        "meta": {
+          "name": "Right Flex"
+        },
+        "props": {
+          "justify": "center"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "custom": {
+      "sessionuser": "value"
+    },
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "borderBottomColor": "#808080",
+        "borderBottomStyle": "solid",
+        "borderBottomWidth": "2px",
+        "borderTopColor": "#808080",
+        "borderTopStyle": "solid",
+        "borderTopWidth": "2px",
+        "classes": "Project/Bar_background"
+      }
+    },
+    "scripts": {
+      "customMethods": [],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "openGatewayPopup",
+          "pageScope": false,
+          "script": "\t# implement your handler here\n#\troles \u003dself.session.props.auth.user.roles[0]\n#\tif \"Operator\" in roles :\n\t\tsystem.perspective.openPopup(id\u003d\u002710UI\u0027,view\u003d\u0027Operator/downtime_entry_popup\u0027,showCloseIcon\u003dFalse,modal\u003dTrue)",
+          "sessionScope": true,
+          "viewScope": false
+        },
+        {
+          "messageType": "openLunchPopuP",
+          "pageScope": false,
+          "script": "\t# implement your handler here\n\tparams \u003d {\"label\":\"Lunch Break\"}\n\tsystem.perspective.openPopup(id\u003d\u0027PopUp\u0027,view\u003d\u0027Project/Pop-Up/Lunch\u0027,params \u003d params, showCloseIcon\u003dFalse,modal\u003dTrue)",
+          "sessionScope": true,
+          "viewScope": false
+        },
+        {
+          "messageType": "logoutOPR",
+          "pageScope": false,
+          "script": "\tuser\u003dself.session.props.auth.user.userName\n\ttagpath\u003d[\"WOCL_1/Downtime/Ideal_time/Start_time\",\"Current_Shift/shift_ID\"]\n\ttagvalue\u003dsystem.tag.readBlocking(tagpath)\n\treasondowntime\u003d37\n\tuser\u003dself.session.props.auth.user.userName\n\tinprogressdowntime\u003dFalse\n\tstarttime\u003dtagvalue[0].value\n\tshift\u003dtagvalue[1].value\n\tdescdowntime\u003d\u0027\u0027\n\tparameters \u003d { \"ReasonID\":reasondowntime, \"DowntimeStatus\":not inprogressdowntime,\"username\":user,\"StartTime\":starttime,\"ShiftID\":shift,\"DowntimeSource\":1,\"Remarks\":descdowntime}\n\tidreturn\u003dsystem.db.runNamedQuery(\"Hitachi_Energy_Transformer\",\"downtime/insert\", parameters)\n\tlogId\u003didreturn.getValueAt(0,\"LogID\")\n\tsystem.tag.writeBlocking(tagPaths\u003d[\"WOCL_1/Downtime/Ideal_time/logID\"], values\u003d[logId])\n\tsystem.perspective.logout()",
+          "sessionScope": true,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.flex"
+  }
+}

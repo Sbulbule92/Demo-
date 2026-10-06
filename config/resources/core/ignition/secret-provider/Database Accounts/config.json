@@ -1,0 +1,29 @@
+{
+  "profile": {
+    "type": "internal"
+  },
+  "settings": {
+    "secrets": {
+      "IGNITION-HISTORIAN": {
+        "ciphertext": {
+          "ciphertext": "4jukxr5LP0MwkAJgAjqNlhuXcA45Xw",
+          "encrypted_key": "8_VW8mSAwNDEWA-wrKSUMRCkTPgBH1r-jUoav1aSFFFsPSArrq3p_g",
+          "iv": "dgQF-Zfm_Zw-NsOM",
+          "protected": "eyJhbGciOiJBMjU2S1ciLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNzcyMjA0NTMyLCJ6aXAiOiJERUYifQ",
+          "tag": "t_k4GBLGR58T4lz0FFo1Kw"
+        },
+        "description": ""
+      },
+      "IGNITION-WOCL": {
+        "ciphertext": {
+          "ciphertext": "qEGB-QpTsKLoOFd3G4dHCEgwHmDGdqcx",
+          "encrypted_key": "3quH5VEvnYz95hsdrrIXjMUssPvwVeBpAVLdDjj8xY0c7os_vUwafg",
+          "iv": "o89rvYKEow_23loo",
+          "protected": "eyJhbGciOiJBMjU2S1ciLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNzc1NDkyNTMwLCJ6aXAiOiJERUYifQ",
+          "tag": "L6q_pPgvJxjHGmNnK2S5tw"
+        },
+        "description": ""
+      }
+    }
+  }
+}

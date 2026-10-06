@@ -1,0 +1,40 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "Query",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "jefcity4ISE_ABB",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "0b3725ee11a3f00bfaab298d126c7df8b69eb93c0e3cd8991cdbb7e90f533ce0",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "Gannon",
+      "timestamp": "2026-03-19T16:20:00Z"
+    },
+    "parameters": [
+      {
+        "type": "Parameter",
+        "identifier": "SerialNo",
+        "sqlType": 7
+      }
+    ]
+  }
+}

@@ -1,0 +1,1550 @@
+{
+  "custom": {
+    "allSectionStatus": {
+      "coil": "PENDING",
+      "coreVisual": "COMPLETED",
+      "insulation": "COMPLETED",
+      "wires": "PENDING"
+    },
+    "check_status": {
+      "$": [
+        "ts",
+        192,
+        1781702001970
+      ],
+      "$ts": 1781702001967
+    },
+    "qc": {
+      "comments": "",
+      "coreShifted": "yes",
+      "insThickness": true,
+      "insWidth": true,
+      "longWound": 23.56,
+      "shortWound": null
+    },
+    "wireRows": [
+      {
+        "coatingType": "Enamel",
+        "diameter": 2,
+        "index": 1,
+        "lotNumber": "Test12234",
+        "manufacturer": "Magnekon",
+        "tension": 5,
+        "thickness": 4,
+        "width": 3
+      },
+      {
+        "coatingType": "",
+        "diameter": null,
+        "index": 2,
+        "lotNumber": "",
+        "manufacturer": "Essex",
+        "tension": null,
+        "thickness": null,
+        "width": null
+      },
+      {
+        "coatingType": "",
+        "diameter": null,
+        "index": 3,
+        "lotNumber": "",
+        "manufacturer": "",
+        "tension": null,
+        "thickness": null,
+        "width": null
+      }
+    ]
+  },
+  "events": {
+    "system": {
+      "onStartup": {
+        "config": {
+          "script": "\tdata \u003d quality.loadQualityCheck(self.params.jobId)\n\tself.custom.qc        \u003d data[\u0027qc\u0027]\n\tself.custom.wireRows  \u003d data[\u0027wireRows\u0027]\n\tself.custom.jobStatus \u003d data[\u0027status\u0027]"
+        },
+        "scope": "G",
+        "type": "script"
+      }
+    }
+  },
+  "params": {
+    "jobId": "1LUJJC309790002_CoilWind_2"
+  },
+  "propConfig": {
+    "custom.allSectionStatus": {
+      "binding": {
+        "config": {
+          "expression": "now(500)"
+        },
+        "transforms": [
+          {
+            "code": "\timport quality as qa\n\treturn qa.allSectionStatuses(self.custom.qc, self.custom.wireRows)",
+            "type": "script"
+          }
+        ],
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.check_status": {
+      "binding": {
+        "config": {
+          "expression": "now(500)"
+        },
+        "enabled": false,
+        "transforms": [
+          {
+            "code": "\timport quality as qa\n\tdone \u003d qa.completeJob(\n\t\tself.view.params.jobId,\n\t\tdict(self.view.custom.qc),\n\t\t[dict(r) for r in self.view.custom.wireRows],\n\t\tqa.buildContext(self.session) \n\t)\n\tif done:\n\t\tself.view.custom.jobStatus \u003d \u0027COMPLETED\u0027\n\treturn value",
+            "type": "script"
+          }
+        ],
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.jobStatus": {
+      "binding": {
+        "config": {
+          "bidirectional": true,
+          "path": "session.custom.qualityChecks"
+        },
+        "type": "property"
+      }
+    },
+    "custom.qc": {
+      "persistent": true
+    },
+    "params.jobId": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": "auto",
+      "width": 1160
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Icon"
+                },
+                "position": {
+                  "basis": "45px"
+                },
+                "props": {
+                  "color": "--warning",
+                  "path": "material/high_quality"
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "meta": {
+                  "name": "title"
+                },
+                "props": {
+                  "style": {
+                    "marginLeft": "4px",
+                    "paddingBottom": "3px"
+                  },
+                  "text": "Quality Checks ",
+                  "textStyle": {
+                    "fontSize": "22px",
+                    "fontWeight": "bold"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "100px"
+                },
+                "propConfig": {
+                  "props.style.backgroundColor": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.jobStatus"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "rgba(201, 125, 10, 0.09)",
+                          "inputType": "scalar",
+                          "mappings": [
+                            {
+                              "input": "COMPLETED",
+                              "output": "rgba(26, 159, 104, 0.09)"
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.style.borderColor": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.jobStatus"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "--warning",
+                          "inputType": "scalar",
+                          "mappings": [
+                            {
+                              "input": "COMPLETED",
+                              "output": "--success"
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.jobStatus"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "props.textStyle.color": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.jobStatus"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "--warning",
+                          "inputType": "scalar",
+                          "mappings": [
+                            {
+                              "input": "COMPLETED",
+                              "output": "--success"
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "borderBottomLeftRadius": "10px",
+                    "borderBottomRightRadius": "10px",
+                    "borderStyle": "solid",
+                    "borderTopLeftRadius": "10px",
+                    "borderTopRightRadius": "10px",
+                    "borderWidth": "1px",
+                    "margin": "7px"
+                  },
+                  "textStyle": {
+                    "alignSelf": "center",
+                    "fontSize": "13px",
+                    "fontWeight": "600",
+                    "textTransform": "uppercase"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Label_0"
+                },
+                "position": {
+                  "basis": "50px",
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.jobId"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "textStyle": {
+                    "alignSelf": "center",
+                    "color": "--info",
+                    "fontSize": "15px",
+                    "fontWeight": "bold"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer"
+            },
+            "position": {
+              "grow": 1
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "lCompleted"
+                },
+                "props": {
+                  "text": "Completed",
+                  "textStyle": {
+                    "color": "#16a34a",
+                    "fontSize": "14px"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "lPending"
+                },
+                "props": {
+                  "text": "Pending",
+                  "textStyle": {
+                    "color": "#f59e0b",
+                    "fontSize": "14px"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "lNotStarted"
+                },
+                "props": {
+                  "text": "Not Started",
+                  "textStyle": {
+                    "color": "#9ca3af",
+                    "fontSize": "14px"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\timport quality as qa\n\tdone \u003d qa.completeJob(\n\t\tself.view.params.jobId,\n\t\tdict(self.view.custom.qc),\n\t\t[dict(r) for r in self.view.custom.wireRows],\n\t\tqa.buildContext(self.session) \n\t)\n\tif done:\n\t\tself.view.custom.jobStatus \u003d \u0027COMPLETED\u0027"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Icon"
+                },
+                "position": {
+                  "basis": "30px"
+                },
+                "props": {
+                  "path": "material/refresh",
+                  "style": {
+                    "cursor": "pointer"
+                  }
+                },
+                "type": "ia.display.icon"
+              }
+            ],
+            "meta": {
+              "name": "legend"
+            },
+            "props": {
+              "style": {
+                "gap": "18px"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "header"
+        },
+        "position": {
+          "basis": "55px"
+        },
+        "props": {
+          "justify": "space-between",
+          "style": {
+            "backgroundColor": "--neutral-10",
+            "borderBottomColor": "--info",
+            "borderBottomStyle": "solid",
+            "borderLeftColor": "--neutral-30",
+            "borderLeftStyle": "solid",
+            "borderLeftWidth": "2px",
+            "borderRightColor": "--neutral-30",
+            "borderRightStyle": "solid",
+            "borderRightWidth": "2px",
+            "borderTopColor": "--neutral-30",
+            "borderTopLeftRadius": "10px",
+            "borderTopRightRadius": "10px",
+            "borderTopStyle": "solid",
+            "borderTopWidth": "2px",
+            "marginTop": "5px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "tabHighVoltage"
+        },
+        "position": {
+          "basis": "40px",
+          "display": false
+        },
+        "props": {
+          "style": {
+            "borderBottom": "3px solid #2563eb",
+            "paddingBottom": "0px"
+          },
+          "text": "High Voltage",
+          "textStyle": {
+            "color": "--info",
+            "fontSize": "16px",
+            "fontWeight": "bold"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "30px"
+            },
+            "propConfig": {
+              "props.color": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.allSectionStatus.coreVisual"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tif value is None or value \u003d\u003d \"NOT_STARTED\":\n\t\treturn \"--neutral-40\" \n\telif value \u003d\u003d \"PENDING\":\n\t\treturn \"--warning\"\n\telse:\n\t\treturn \"--success\"",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.path": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.allSectionStatus.coreVisual"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tif value is None or value \u003d\u003d \"NOT_STARTED\":\n\t\treturn \"material/radio_button_unchecked\"\n\telif value \u003d\u003d \"PENDING\":\n\t\treturn \"material/error\"\n\telse: \n\t\treturn \"material/check_circle\"",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "coreTitle"
+                },
+                "props": {
+                  "text": "Core Visual Quality Check for Shifting",
+                  "textStyle": {
+                    "fontSize": "14px",
+                    "fontWeight": "bold"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "coreQuestion"
+                },
+                "props": {
+                  "text": "Is the core shifted after winding?",
+                  "textStyle": {
+                    "color": "--neutral-70",
+                    "fontSize": "13px",
+                    "fontWeight": "normal"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "coreText"
+            },
+            "position": {
+              "grow": 1
+            },
+            "props": {
+              "direction": "column"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "meta": {
+              "name": "coreShifted"
+            },
+            "position": {
+              "basis": "160px"
+            },
+            "propConfig": {
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "view.custom.qc.coreShifted"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "options": [
+                {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                {
+                  "label": "No",
+                  "value": "no"
+                }
+              ]
+            },
+            "type": "ia.input.dropdown"
+          }
+        ],
+        "meta": {
+          "name": "coreVisualCard"
+        },
+        "position": {
+          "basis": "80px"
+        },
+        "propConfig": {
+          "props.style.backgroundColor": {
+            "binding": {
+              "config": {
+                "path": "session.props.theme"
+              },
+              "enabled": false,
+              "transforms": [
+                {
+                  "code": "\treturn \"#FFFFFF\" if \u0027light\u0027 in value else \"#121619\"",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "--neutral-10",
+            "borderColor": "--neutral-30",
+            "borderRadius": "10px",
+            "borderStyle": "solid",
+            "borderWidth": "1px",
+            "gap": "10px",
+            "padding": "16px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Icon_0"
+                    },
+                    "position": {
+                      "basis": "30px"
+                    },
+                    "propConfig": {
+                      "props.color": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.allSectionStatus.wires"
+                          },
+                          "transforms": [
+                            {
+                              "code": "\tif value is None or value \u003d\u003d \"NOT_STARTED\":\n\t\treturn \"--neutral-40\" \n\telif value \u003d\u003d \"PENDING\":\n\t\treturn \"--warning\"\n\telse:\n\t\treturn \"--success\"",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      },
+                      "props.path": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.allSectionStatus.wires"
+                          },
+                          "transforms": [
+                            {
+                              "code": "\tif value is None or value \u003d\u003d \"NOT_STARTED\":\n\t\treturn \"material/radio_button_unchecked\"\n\telif value \u003d\u003d \"PENDING\":\n\t\treturn \"material/error\"\n\telse: \n\t\treturn \"material/check_circle\"",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "type": "ia.display.icon"
+                  },
+                  {
+                    "meta": {
+                      "name": "jobIdLabel"
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "expression": "\u0027JOB ID:   \u0027 + toStr({view.params.jobId})"
+                          },
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "textStyle": {
+                        "fontSize": "14px",
+                        "fontWeight": "bold",
+                        "marginLeft": "10px"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer"
+                },
+                "position": {
+                  "basis": "630px"
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "#\trows \u003d list(self.view.custom.wireRows)\n#\trows.append({\u0027index\u0027: len(rows)+1, \u0027manufacturer\u0027:\u0027\u0027, \u0027lotNumber\u0027:\u0027\u0027, \u0027coatingType\u0027:\u0027\u0027, \u0027diameter\u0027:None, \u0027width\u0027:None, \u0027thickness\u0027:None, \u0027tension\u0027:None})\n#\tself.view.custom.wireRows \u003d rows\n\tself.view.custom.wireRows \u003d quality.addWireRow(list(self.view.custom.wireRows))"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "btnAddWire"
+                },
+                "position": {
+                  "basis": "150px"
+                },
+                "propConfig": {
+                  "props.enabled": {
+                    "binding": {
+                      "config": {
+                        "expression": "{view.custom.jobStatus} !\u003d \u0027COMPLETED\u0027"
+                      },
+                      "enabled": false,
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "backgroundColor": "#ffffff",
+                    "borderColor": "#2563eb",
+                    "borderRadius": "8px",
+                    "borderStyle": "solid",
+                    "borderWidth": "1px",
+                    "color": "#2563eb",
+                    "fontWeight": "bold"
+                  },
+                  "text": "+ Add Wire"
+                },
+                "type": "ia.input.button"
+              }
+            ],
+            "meta": {
+              "name": "jobHeader"
+            },
+            "position": {
+              "basis": "40px"
+            },
+            "props": {
+              "alignItems": "center",
+              "justify": "space-between"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "h0"
+                },
+                "position": {
+                  "basis": "40px"
+                },
+                "props": {
+                  "text": "#",
+                  "textStyle": {
+                    "fontSize": "12px",
+                    "fontWeight": "bold"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "h1"
+                },
+                "position": {
+                  "basis": "180px",
+                  "grow": 1
+                },
+                "props": {
+                  "text": "Wire Manufacturer",
+                  "textStyle": {
+                    "fontSize": "12px",
+                    "fontWeight": "bold"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "h2"
+                },
+                "position": {
+                  "basis": "180px",
+                  "grow": 1
+                },
+                "props": {
+                  "text": "Lot Number",
+                  "textStyle": {
+                    "fontSize": "12px",
+                    "fontWeight": "bold"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "h3"
+                },
+                "position": {
+                  "basis": "200px",
+                  "grow": 1
+                },
+                "props": {
+                  "text": "Coating Type",
+                  "textStyle": {
+                    "fontSize": "12px",
+                    "fontWeight": "bold"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "h4"
+                },
+                "position": {
+                  "basis": "150px",
+                  "grow": 1
+                },
+                "props": {
+                  "text": "Round Wire Dia. (in)",
+                  "textStyle": {
+                    "fontSize": "12px",
+                    "fontWeight": "bold"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "h5"
+                },
+                "position": {
+                  "basis": "150px",
+                  "grow": 1
+                },
+                "props": {
+                  "text": "Width (in)",
+                  "textStyle": {
+                    "fontSize": "12px",
+                    "fontWeight": "bold"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "h6"
+                },
+                "position": {
+                  "basis": "150px",
+                  "grow": 1
+                },
+                "props": {
+                  "text": "Thickness (in)",
+                  "textStyle": {
+                    "fontSize": "12px",
+                    "fontWeight": "bold"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "h7"
+                },
+                "position": {
+                  "basis": "130px",
+                  "grow": 1
+                },
+                "props": {
+                  "text": "HV Tension (lbs)",
+                  "textStyle": {
+                    "fontSize": "12px",
+                    "fontWeight": "bold"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "h8"
+                },
+                "position": {
+                  "basis": "60px",
+                  "grow": 1
+                },
+                "props": {
+                  "textStyle": {
+                    "fontSize": "12px",
+                    "fontWeight": "bold"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "columnHeaders"
+            },
+            "position": {
+              "basis": "40px"
+            },
+            "props": {
+              "style": {
+                "borderBottomColor": "--neutral-20",
+                "borderBottomStyle": "solid",
+                "borderBottomWidth": "1px",
+                "gap": "10px",
+                "marginLeft": "12px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "meta": {
+              "name": "hvWireRepeater"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "props.instances": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "view.custom.wireRows"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "direction": "column",
+              "path": "Project/Operator/Quality Check/Wire Row",
+              "useDefaultViewWidth": false
+            },
+            "type": "ia.display.flex-repeater"
+          }
+        ],
+        "meta": {
+          "name": "jobCard"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "props.style.backgroundColor": {
+            "binding": {
+              "config": {
+                "path": "session.props.theme"
+              },
+              "enabled": false,
+              "transforms": [
+                {
+                  "code": "\treturn \"#FFFFFF\" if \u0027light\u0027 in value else \"#121619\"",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "backgroundColor": "--neutral-10",
+            "borderColor": "--neutral-30",
+            "borderRadius": "10px",
+            "borderStyle": "solid",
+            "borderWidth": "1px",
+            "gap": "10px",
+            "padding": "16px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Icon_0"
+            },
+            "position": {
+              "basis": "30px"
+            },
+            "propConfig": {
+              "props.color": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.allSectionStatus.insulation"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tif value is None or value \u003d\u003d \"NOT_STARTED\":\n\t\treturn \"--neutral-40\" \n\telif value \u003d\u003d \"PENDING\":\n\t\treturn \"--warning\"\n\telse:\n\t\treturn \"--success\"",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.path": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.allSectionStatus.insulation"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tif value is None or value \u003d\u003d \"NOT_STARTED\":\n\t\treturn \"material/radio_button_unchecked\"\n\telif value \u003d\u003d \"PENDING\":\n\t\treturn \"material/error\"\n\telse: \n\t\treturn \"material/check_circle\"",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "meta": {
+              "name": "insTitle"
+            },
+            "position": {
+              "basis": "200px"
+            },
+            "props": {
+              "text": "HV Insulation Thickness",
+              "textStyle": {
+                "fontSize": "14px",
+                "fontWeight": "bold"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "insThickLbl"
+            },
+            "props": {
+              "text": "Thickness (Q, U, W)",
+              "textStyle": {
+                "fontSize": "13px",
+                "fontWeight": "500"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "chkThickness"
+            },
+            "position": {
+              "basis": "60px"
+            },
+            "propConfig": {
+              "props.selected": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "view.custom.qc.insThickness"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "text": ""
+            },
+            "type": "ia.input.checkbox"
+          },
+          {
+            "meta": {
+              "name": "insWidthLbl"
+            },
+            "props": {
+              "text": "Width (Inches)",
+              "textStyle": {
+                "fontSize": "13px",
+                "fontWeight": "500"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "chkWidth"
+            },
+            "position": {
+              "basis": "60px"
+            },
+            "propConfig": {
+              "props.selected": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "view.custom.qc.insWidth"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "text": ""
+            },
+            "type": "ia.input.checkbox"
+          }
+        ],
+        "meta": {
+          "name": "insulationCard"
+        },
+        "position": {
+          "basis": "80px"
+        },
+        "propConfig": {
+          "props.style.backgroundColor": {
+            "binding": {
+              "config": {
+                "path": "session.props.theme"
+              },
+              "enabled": false,
+              "transforms": [
+                {
+                  "code": "\treturn \"#FFFFFF\" if \u0027light\u0027 in value else \"#121619\"",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "--neutral-10",
+            "borderColor": "--neutral-30",
+            "borderRadius": "10px",
+            "borderStyle": "solid",
+            "borderWidth": "1px",
+            "gap": "10px",
+            "padding": "16px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Icon_0"
+            },
+            "position": {
+              "basis": "30px"
+            },
+            "propConfig": {
+              "props.color": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.allSectionStatus.coil"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tif value is None or value \u003d\u003d \"NOT_STARTED\":\n\t\treturn \"--neutral-40\" \n\telif value \u003d\u003d \"PENDING\":\n\t\treturn \"--warning\"\n\telse:\n\t\treturn \"--success\"",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.path": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.allSectionStatus.coil"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tif value is None or value \u003d\u003d \"NOT_STARTED\":\n\t\treturn \"material/radio_button_unchecked\"\n\telif value \u003d\u003d \"PENDING\":\n\t\treturn \"material/error\"\n\telse: \n\t\treturn \"material/check_circle\"",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "meta": {
+              "name": "coilTitle"
+            },
+            "position": {
+              "basis": "180px"
+            },
+            "props": {
+              "text": "Coil Measurement",
+              "textStyle": {
+                "fontSize": "14px",
+                "fontWeight": "bold"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "longLbl"
+            },
+            "props": {
+              "text": "Long Wound (Inches):",
+              "textStyle": {
+                "fontSize": "13px",
+                "fontWeight": "500"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "longWound"
+            },
+            "position": {
+              "basis": "120px"
+            },
+            "propConfig": {
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "view.custom.qc.longWound"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "format": "0.00",
+              "style": {
+                "borderRadius": "6px"
+              }
+            },
+            "type": "ia.input.numeric-entry-field"
+          },
+          {
+            "meta": {
+              "name": "shortLbl"
+            },
+            "props": {
+              "style": {
+                "marginLeft": "20px"
+              },
+              "text": "Short Wound (Inches):",
+              "textStyle": {
+                "fontSize": "13px",
+                "fontWeight": "500"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "shortWound"
+            },
+            "position": {
+              "basis": "120px"
+            },
+            "propConfig": {
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "view.custom.qc.shortWound"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "format": "0.00",
+              "style": {
+                "borderRadius": "6px"
+              }
+            },
+            "type": "ia.input.numeric-entry-field"
+          }
+        ],
+        "meta": {
+          "name": "coilCard"
+        },
+        "position": {
+          "basis": "80px"
+        },
+        "propConfig": {
+          "props.style.backgroundColor": {
+            "binding": {
+              "config": {
+                "path": "session.props.theme"
+              },
+              "enabled": false,
+              "transforms": [
+                {
+                  "code": "\treturn \"#FFFFFF\" if \u0027light\u0027 in value else \"#121619\"",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "--neutral-10",
+            "borderColor": "--neutral-30",
+            "borderRadius": "10px",
+            "borderStyle": "solid",
+            "borderWidth": "1px",
+            "gap": "10px",
+            "padding": "16px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "commentsLbl"
+            },
+            "props": {
+              "text": "Comments (Optional)",
+              "textStyle": {
+                "fontSize": "13px",
+                "fontWeight": "bold"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "comments"
+            },
+            "position": {
+              "basis": "100px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "view.custom.qc.comments"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "placeholder": "Enter comments here...",
+              "style": {
+                "borderRadius": "6px"
+              }
+            },
+            "type": "ia.input.text-area"
+          }
+        ],
+        "meta": {
+          "name": "commentsCard"
+        },
+        "position": {
+          "basis": "100px"
+        },
+        "propConfig": {
+          "props.style.backgroundColor": {
+            "binding": {
+              "config": {
+                "path": "session.props.theme"
+              },
+              "enabled": false,
+              "transforms": [
+                {
+                  "code": "\treturn \"#FFFFFF\" if \u0027light\u0027 in value else \"#121619\"",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "backgroundColor": "--neutral-10",
+            "borderColor": "--neutral-30",
+            "borderRadius": "10px",
+            "borderStyle": "solid",
+            "borderWidth": "1px",
+            "gap": "10px",
+            "padding": "16px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "page": "/opr_wip"
+                  },
+                  "scope": "C",
+                  "type": "nav"
+                }
+              }
+            },
+            "meta": {
+              "name": "btnCancel"
+            },
+            "position": {
+              "basis": "120px"
+            },
+            "props": {
+              "style": {
+                "backgroundColor": "#ffffff",
+                "borderColor": "#d1d5db",
+                "borderRadius": "8px",
+                "borderStyle": "solid",
+                "borderWidth": "1px",
+                "color": "#111827"
+              },
+              "text": "Cancel"
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "children": [
+              {
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\tok \u003d quality.saveQualityCheck(\n\t\t\tself.view.params.jobId,\n\t\t\tdict(self.view.custom.qc),\n\t\t\t[dict(r) for r in self.view.custom.wireRows],\n\t\t\tquality.buildContext(self.session)\n\t)\n\t\n\tif ok:\n\t\tsystem.perspective.navigate(page\u003d\"/opr_wip\")   # your landing page\n\t\tdone \u003d quality.completeJob(\n\t\tself.view.params.jobId,\n\t\tdict(self.view.custom.qc),\n\t\t[dict(r) for r in self.view.custom.wireRows],\n\t\tquality.buildContext(self.session)\n\t\t)\n\t\tif done:\n\t\t\tself.view.custom.jobStatus \u003d \u0027COMPLETED\u0027"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "btnSave"
+                },
+                "position": {
+                  "basis": "120px"
+                },
+                "propConfig": {
+                  "props.enabled": {
+                    "binding": {
+                      "config": {
+                        "expression": "{view.custom.jobStatus} !\u003d \u0027COMPLETED\u0027"
+                      },
+                      "enabled": false,
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "backgroundColor": "#2563eb",
+                    "borderRadius": "8px",
+                    "color": "#ffffff",
+                    "fontWeight": "bold"
+                  },
+                  "text": "Save"
+                },
+                "type": "ia.input.button"
+              },
+              {
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\tok \u003d quality.saveQualityCheck(\n\t\tself.view.params.jobId,\n\t\tdict(self.view.custom.qc),\n\t\t[dict(r) for r in self.view.custom.wireRows],\n\t\tquality.buildContext(self.session),\n\t\tsilent\u003dTrue\n\t)\n\tif ok:\n\t\tsystem.perspective.navigate(page\u003d\"/opr_wip\")   # your landing page\n\t\tdone \u003d quality.completeJob(\n\t\tself.view.params.jobId,\n\t\tdict(self.view.custom.qc),\n\t\t[dict(r) for r in self.view.custom.wireRows],\n\t\tquality.buildContext(self.session)\n\t\t)\n\t\tif done:\n\t\t\tself.view.custom.jobStatus \u003d \u0027COMPLETED\u0027"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "btnSaveClose"
+                },
+                "position": {
+                  "basis": "150px"
+                },
+                "propConfig": {
+                  "props.enabled": {
+                    "binding": {
+                      "config": {
+                        "expression": "{view.custom.jobStatus} !\u003d \u0027COMPLETED\u0027"
+                      },
+                      "enabled": false,
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "backgroundColor": "#16a34a",
+                    "borderRadius": "8px",
+                    "color": "#ffffff",
+                    "fontWeight": "bold"
+                  },
+                  "text": "Save \u0026 Close"
+                },
+                "type": "ia.input.button"
+              }
+            ],
+            "meta": {
+              "name": "saveButtons"
+            },
+            "position": {
+              "basis": "320px"
+            },
+            "props": {
+              "justify": "flex-end",
+              "style": {
+                "gap": "12px"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "footer"
+        },
+        "position": {
+          "basis": "50px"
+        },
+        "props": {
+          "justify": "space-between"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "backgroundColor": "--neutral-20 ",
+        "borderBottomLeftRadius": "20px",
+        "borderBottomRightRadius": "20px",
+        "borderColor": "--neutral-40",
+        "borderStyle": "solid",
+        "borderTopLeftRadius": "20px",
+        "borderTopRightRadius": "20px",
+        "borderWidth": "1px",
+        "gap": "10px",
+        "marginBottom": "20px",
+        "marginLeft": "16px",
+        "marginRight": "16px",
+        "marginTop": "5px",
+        "padding": "20px",
+        "padding-top": "0px"
+      }
+    },
+    "scripts": {
+      "customMethods": [],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "deleteWireRow",
+          "pageScope": true,
+          "script": "#\tidx \u003d payload[\u0027index\u0027]\n#\trows \u003d [r for r in self.view.custom.wireRows if r[\u0027index\u0027] !\u003d idx]\n#\tfor i, r in enumerate(rows):\n#\t\tr[\u0027index\u0027] \u003d i + 1\n#\tself.view.custom.wireRows \u003d rows\n\tself.view.custom.wireRows \u003d quality.deleteWireRow(list(self.view.custom.wireRows), payload[\u0027index\u0027])",
+          "sessionScope": false,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.flex"
+  }
+}

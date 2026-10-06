@@ -1,147 +1,1940 @@
 {
   "users": [
     {
-      "uuid": "574e8500-e7a1-4d50-8bae-c8dd39208807",
-      "username": "shiva",
+      "uuid": "13ea8df4-6522-49c9-8220-5117d06b1431",
+      "username": "ColeH",
       "firstName": "",
       "lastName": "",
       "schedule": "Always",
       "description": "",
-      "password": "[B2311862]f490d500ca8d7ddaf3607b4cffeb0bac0943c8f6e5044bcbf796c5968065763c",
-      "passwordDate": "20260102.142857889+0530",
+      "password": "[FF62F920]ffe48e1e5177dc09ae9cb0cf842504694f7323dfb2cb4126f18bdd11c3b394aa",
+      "passwordDate": "20251218.100435823-0600",
       "passwordHistory": [],
       "badge": "",
-      "createdDate": "20260102.142857888+0530",
-      "lastModifiedDate": "20260102.142908436+0530",
+      "createdDate": "20251201.142203866-0600",
+      "lastModifiedDate": "20251218.100435823-0600",
       "roles": [
-        "d8d2324b-a9c7-4676-bc0b-40c3494a5990"
+        "79a6fda4-8dc6-40d8-afb7-62b5edae9ffb"
       ],
-      "extraProps": [
-        {
-          "propertyKey": "user.pin",
-          "propertyValue": ""
-        }
-      ],
+      "extraProps": [],
       "scheduleAdjustments": [],
-      "contactInfos": []
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "cole.holzer1@hitachienergy.com",
+          "order": 0
+        }
+      ]
     },
     {
-      "uuid": "db19e2fe-5805-478b-b49a-0f16bc36934b",
-      "username": "pmahalik",
+      "uuid": "771f4901-4e3b-4c30-8379-edec1656a3be",
+      "username": "Gannon",
+      "firstName": "Gannon",
+      "lastName": "Heidbrink",
       "schedule": "Always",
-      "password": "[AEBDC8C7]50fded57a30c476a9d2405ffd99e36b780ff4436559755396c7af0359b4288cc",
-      "passwordDate": "20260204.125206172+0530",
+      "language": "en_US",
+      "description": "",
+      "password": "[B4083238]a22b1399189aa5beff78f9883c30f39e713b27b6f10156bb5c54d7330e5f0696",
+      "passwordDate": "20251217.115941925-0600",
       "passwordHistory": [],
-      "createdDate": "20251219.183654483+0530",
-      "lastModifiedDate": "20260204.125206172+0530",
+      "badge": "",
+      "createdDate": "20251217.102026297-0600",
+      "lastModifiedDate": "20260205.094539957-0600",
       "roles": [
-        "d8d2324b-a9c7-4676-bc0b-40c3494a5990",
-        "a7b5c064-c8ee-46e6-b56d-18dfff0272d1"
+        "7a46e17d-84e9-4cb7-9090-5211aea6bc22",
+        "e6775ae8-823d-4977-a33d-1eff01ecc16e",
+        "be0bba05-16a3-4068-8c23-6cde7f8352b4",
+        "fa6e2034-6ece-401a-95a3-d6236fe434d9"
       ],
-      "extraProps": [
-        {
-          "propertyKey": "user.pin",
-          "propertyValue": ""
-        }
-      ],
+      "extraProps": [],
       "scheduleAdjustments": [],
       "contactInfos": []
     },
     {
-      "uuid": "087e7b55-db08-46e3-b390-4d269aa60055",
-      "username": "raj",
-      "firstName": "Raj",
-      "lastName": "P",
+      "uuid": "c48d7628-be45-4ebe-9448-285991e2b349",
+      "username": "nathant",
+      "firstName": "Nathan",
+      "lastName": "Timmerman",
       "schedule": "Always",
       "description": "",
-      "password": "[16AA1DAE]ce49fedde21dd7883c37d9fdd994bb646a0e57ff8e4959bc20a542475d63c0b2",
-      "passwordDate": "20260320.210650816+0530",
+      "password": "[100A39C9]d7ceb5b048c49bcd60376c3ce03e56ed5697d10ffaa3dc5f134c251c38a6f793",
+      "passwordDate": "20260406.110459222-0500",
       "passwordHistory": [],
       "badge": "",
-      "createdDate": "20260320.210650813+0530",
-      "lastModifiedDate": "20260320.210729001+0530",
+      "createdDate": "20260406.110459222-0500",
+      "lastModifiedDate": "20260406.110508130-0500",
       "roles": [
-        "52c1e990-31a5-4074-869c-8f6bf2cc881a",
-        "d8d2324b-a9c7-4676-bc0b-40c3494a5990"
+        "682fdf0d-c677-4462-a1f8-f7a1f69bf2b5"
       ],
-      "extraProps": [
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
         {
-          "propertyKey": "user.pin",
-          "propertyValue": ""
+          "contactType": "email",
+          "value": "nathan.timmerman@hitachienergy.com",
+          "order": 0
         }
+      ]
+    },
+    {
+      "uuid": "42581275-304a-49bf-9986-cac79af6224b",
+      "username": "Israel",
+      "firstName": "Israel",
+      "lastName": "",
+      "schedule": "Always",
+      "description": "",
+      "password": "[571EE77F]d7db301a900a0f02f02c1a3bc6983337a1fa975278dddf5b44bb516d8d76b9ef",
+      "passwordDate": "20260521.104009788-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260521.104009787-0500",
+      "lastModifiedDate": "20260521.104038380-0500",
+      "roles": [
+        "be0bba05-16a3-4068-8c23-6cde7f8352b4",
+        "7a46e17d-84e9-4cb7-9090-5211aea6bc22",
+        "e6775ae8-823d-4977-a33d-1eff01ecc16e",
+        "fa6e2034-6ece-401a-95a3-d6236fe434d9"
       ],
+      "extraProps": [],
       "scheduleAdjustments": [],
       "contactInfos": []
     },
     {
-      "uuid": "1357f408-ebf0-404c-bd55-b78c83cc3414",
-      "username": "kunal",
+      "uuid": "5d71e0a1-23fb-426e-a52c-a9937552e089",
+      "username": "lindseyf",
+      "firstName": "Lindsey",
+      "lastName": "Foster",
+      "schedule": "Always",
+      "description": "",
+      "password": "[095379AC]e6773f9da0c197331b6b9af420db8a4706bade8d47052d020c05804801577666",
+      "passwordDate": "20260603.134635235-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260512.154431418-0500",
+      "lastModifiedDate": "20260603.134635235-0500",
+      "roles": [
+        "682fdf0d-c677-4462-a1f8-f7a1f69bf2b5"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "lindsey.foster@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "77269edf-6dfa-4983-a74f-8d3d165cc2d7",
+      "username": "LisaT",
+      "firstName": "Lisa",
+      "lastName": "Toman",
+      "schedule": "Always",
+      "language": "en_US",
+      "description": "",
+      "password": "[C160969D]ffffe68605e39cf1702cee82dd81711a3ca1c080111fdfb2acc10d7ae4ab7576",
+      "passwordDate": "20260727.112011119-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260727.112011119-0500",
+      "lastModifiedDate": "20260727.112249518-0500",
+      "roles": [
+        "6d671151-b0a8-4488-a08f-33d9711fea52"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    },
+    {
+      "uuid": "2cf0afd6-ae01-492d-8c55-26af50968d9f",
+      "username": "AaronW",
+      "firstName": "Aaron Wood",
+      "lastName": "Wood",
+      "schedule": "Always",
+      "description": "Coil Winder Supervisor",
+      "password": "[39AC0B59]5f8658334d6fdf516c447dd21a92532de945dace874d47cb893ba317910bb426",
+      "passwordDate": "20260812.072046885-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260812.072046882-0500",
+      "lastModifiedDate": "20260910.100608707-0500",
+      "roles": [
+        "682fdf0d-c677-4462-a1f8-f7a1f69bf2b5"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    },
+    {
+      "uuid": "38911d71-ef4a-426d-98e5-a9ec1a7b3db1",
+      "username": "bb10",
+      "firstName": "Bryan",
+      "lastName": "Boss",
+      "schedule": "Always",
+      "description": "",
+      "password": "[8A583958]a7f17dac9a3248fabeab6f468b4ead95c3c52f3b2e5019569846261594557553",
+      "passwordDate": "20260406.103118174-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260406.103118174-0500",
+      "lastModifiedDate": "20260910.100610158-0500",
+      "roles": [
+        "682fdf0d-c677-4462-a1f8-f7a1f69bf2b5"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "Bryan.Boss@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "4f85e1ae-0554-44c8-b239-dea9b8d0acfb",
+      "username": "eduardoe",
+      "firstName": "Eduardo",
+      "lastName": "Ern",
+      "schedule": "Always",
+      "description": "",
+      "password": "[F02678E0]cc2c203a0f8751fdd7b2ddf9b1723daea402d37573c7e36ff3b7540acf97f83e",
+      "passwordDate": "20260618.132642300-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260529.084249081-0500",
+      "lastModifiedDate": "20260910.100612245-0500",
+      "roles": [
+        "682fdf0d-c677-4462-a1f8-f7a1f69bf2b5"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "eduardo.ern@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "e2f5e5ba-4173-4864-8a53-955feab73ad7",
+      "username": "HerrvossOperator",
+      "firstName": "",
+      "lastName": "",
+      "schedule": "Always",
+      "description": "This is a temporary login until we standardized the role",
+      "password": "[4E5D7946]624d0d2c0d7b155d01ab75fcdbd20140fc7bd2a2d715bbc2b4881906f45da1c2",
+      "passwordDate": "20251222.091556521-0600",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20251222.091556520-0600",
+      "lastModifiedDate": "20260910.100614758-0500",
+      "roles": [
+        "fa6e2034-6ece-401a-95a3-d6236fe434d9"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "noah.schultz@hitachienergy.com",
+          "order": 0
+        },
+        {
+          "contactType": "email",
+          "value": "gannon.h.heidbrink@hitachienergy.com",
+          "order": 1
+        },
+        {
+          "contactType": "email",
+          "value": "arleen-joy.renner@hitachienergy.com",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "uuid": "381d478a-a42f-4069-9752-bd993140059d",
+      "username": "jh35",
+      "firstName": "John",
+      "lastName": "Hicks",
+      "schedule": "Always",
+      "description": "",
+      "password": "[716F0FC7]510a32a05b8193f5310d5155e7c20806d5e6127ec8953b22e905739b4e0608cd",
+      "passwordDate": "20260406.121038099-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260406.121038099-0500",
+      "lastModifiedDate": "20260910.100615221-0500",
+      "roles": [
+        "682fdf0d-c677-4462-a1f8-f7a1f69bf2b5"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "John.Hicks@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "749e90d7-2f34-4420-9fa6-52b638d95848",
+      "username": "jons",
+      "firstName": "Jonathan",
+      "lastName": "P. Smith",
+      "schedule": "Always",
+      "description": "",
+      "password": "[BA186971]0ed4181a011b4097f4a849370fb8fd5a6a1a3824a67857013d76b6defff44fe1",
+      "passwordDate": "20260406.112052047-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260406.112052046-0500",
+      "lastModifiedDate": "20260910.100615453-0500",
+      "roles": [
+        "682fdf0d-c677-4462-a1f8-f7a1f69bf2b5"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "jonathan.p.smith1@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "56ec2e7f-567d-4a6a-a8f8-eceb87e89af6",
+      "username": "JonathanS",
+      "firstName": "Jonathan",
+      "lastName": "Shankle",
+      "schedule": "Always",
+      "description": "",
+      "password": "[D1727D1D]e790c3e2064a049f2d6893d5640fa554a85681fae39e7422135170c669c61f4c",
+      "passwordDate": "20260701.110058892-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260701.110058892-0500",
+      "lastModifiedDate": "20260910.100615692-0500",
+      "roles": [
+        "682fdf0d-c677-4462-a1f8-f7a1f69bf2b5"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    },
+    {
+      "uuid": "29ec0061-a0d7-4a71-8723-a6d12330838f",
+      "username": "josephb",
+      "firstName": "Joseph",
+      "lastName": "Bell",
+      "schedule": "Always",
+      "description": "",
+      "password": "[8A1ED8C8]ac3fe08b42eced0cd0dbaf3a1a44eecd094f91c575afb1af47cf91aa435a56d8",
+      "passwordDate": "20260603.161050157-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260513.103038389-0500",
+      "lastModifiedDate": "20260910.100616438-0500",
+      "roles": [
+        "682fdf0d-c677-4462-a1f8-f7a1f69bf2b5"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    },
+    {
+      "uuid": "5d2c76b0-f9bb-44d0-ae31-30ffce7ed8c5",
+      "username": "joshuaa",
+      "firstName": "Joshua",
+      "lastName": "Adkins",
+      "schedule": "Always",
+      "description": "",
+      "password": "[C3D7BA43]957a09c2b870e99d834b3b485eaa4fa398c7ea601d644d60de49b12574712aed",
+      "passwordDate": "20260701.155220340-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260603.134752315-0500",
+      "lastModifiedDate": "20260910.100616936-0500",
+      "roles": [
+        "682fdf0d-c677-4462-a1f8-f7a1f69bf2b5"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "joshua.adkins@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "28ba9bf6-d62c-428c-a819-97a2e6155b28",
+      "username": "Joy",
       "firstName": "",
       "lastName": "",
       "schedule": "Always",
       "description": "",
-      "password": "[DD504FC3]31326dede3a5218ba872ff48fe24f0c1545efda8c35941205e2bfc0835eb605b",
-      "passwordDate": "20260701.122333993+0530",
+      "password": "[94C41F67]b0ce7866a90b9d73efe1b7082bcf5b246fd779f2ca2bd9e44ec85092ac6d1e5f",
+      "passwordDate": "20260407.073024128-0500",
       "passwordHistory": [],
       "badge": "",
-      "createdDate": "20260701.122333989+0530",
-      "lastModifiedDate": "20260701.122349654+0530",
+      "createdDate": "20251201.141916146-0600",
+      "lastModifiedDate": "20260910.100617151-0500",
       "roles": [
-        "a7b5c064-c8ee-46e6-b56d-18dfff0272d1"
+        "be0bba05-16a3-4068-8c23-6cde7f8352b4",
+        "fa6e2034-6ece-401a-95a3-d6236fe434d9",
+        "682fdf0d-c677-4462-a1f8-f7a1f69bf2b5",
+        "7a46e17d-84e9-4cb7-9090-5211aea6bc22",
+        "5d4c502e-bcc0-47ec-a2cc-ec5fefad8747",
+        "6e69cd62-e139-4568-a927-58683ee4d7cf",
+        "e6775ae8-823d-4977-a33d-1eff01ecc16e",
+        "6d671151-b0a8-4488-a08f-33d9711fea52"
       ],
-      "extraProps": [
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
         {
-          "propertyKey": "user.pin",
-          "propertyValue": ""
+          "contactType": "email",
+          "value": "arleen-joy.renner@hitachienergy.com",
+          "order": 0
         }
+      ]
+    },
+    {
+      "uuid": "4a930fca-2328-421b-89b5-0c4422625f07",
+      "username": "michaeld",
+      "firstName": "Michael",
+      "lastName": "Dean",
+      "schedule": "Always",
+      "description": "",
+      "password": "[F193AFD1]ac258a42d6cd8b4d51d881e414fdbc6ec4a456ea9556b776e1ff5d27661d544d",
+      "passwordDate": "20260406.111941578-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260406.111941576-0500",
+      "lastModifiedDate": "20260910.100619177-0500",
+      "roles": [
+        "682fdf0d-c677-4462-a1f8-f7a1f69bf2b5"
       ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "michael.dean@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "0635e588-1dde-499c-9431-55b0bb3977c8",
+      "username": "rs23",
+      "firstName": "Richard",
+      "lastName": "Slusser",
+      "schedule": "Always",
+      "description": "",
+      "password": "[C946BD36]d0af0b1e03c77705268b80435cb67de9a1204f0f523e5095cd6bb7bdb6bb8253",
+      "passwordDate": "20260406.104248355-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260406.104248355-0500",
+      "lastModifiedDate": "20260910.100620184-0500",
+      "roles": [
+        "682fdf0d-c677-4462-a1f8-f7a1f69bf2b5"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "Richard.slusser@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "7b6e4b9d-d238-4ef0-8f77-27d21e0e0e05",
+      "username": "ricke",
+      "firstName": "Rick",
+      "lastName": "Elliott",
+      "schedule": "Always",
+      "description": "",
+      "password": "[5B077760]06ca8b59339d4316f90b68081a9ec73714680ad7873acf84ec55c8ce04957bc2",
+      "passwordDate": "20260605.105547948-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260605.105547948-0500",
+      "lastModifiedDate": "20260910.100620435-0500",
+      "roles": [
+        "682fdf0d-c677-4462-a1f8-f7a1f69bf2b5"
+      ],
+      "extraProps": [],
       "scheduleAdjustments": [],
       "contactInfos": []
     },
     {
-      "uuid": "45727545-9a6d-4c6e-91fd-fa1ec2462bdf",
-      "username": "jassi",
+      "uuid": "cfe5ccc9-0c95-442c-88f7-979bd99c2efa",
+      "username": "shivab",
+      "firstName": "Shivanand",
+      "lastName": "Bulbule",
+      "schedule": "Always",
+      "language": "en",
+      "description": "",
+      "password": "[84034C60]08f0808793d8b4c88a03acaf15ba7d18c2ba82ab0f822ecbc4b42727e278c2b5",
+      "passwordDate": "20260121.093602893-0600",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260121.093602893-0600",
+      "lastModifiedDate": "20260910.100621336-0500",
+      "roles": [
+        "be0bba05-16a3-4068-8c23-6cde7f8352b4",
+        "fa6e2034-6ece-401a-95a3-d6236fe434d9",
+        "682fdf0d-c677-4462-a1f8-f7a1f69bf2b5",
+        "7a46e17d-84e9-4cb7-9090-5211aea6bc22",
+        "5d4c502e-bcc0-47ec-a2cc-ec5fefad8747",
+        "6e69cd62-e139-4568-a927-58683ee4d7cf",
+        "6d671151-b0a8-4488-a08f-33d9711fea52"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    },
+    {
+      "uuid": "d62fd5e7-9cf4-41d3-8480-e86a0f0ce54f",
+      "username": "stacyb",
+      "firstName": "Stacy",
+      "lastName": "Bakers",
+      "schedule": "Always",
+      "description": "",
+      "password": "[75AB1ADF]acd9026e5d64a726f1c908d38ca1b95ccb4ed2aef6b154c666bdf1291e828f8b",
+      "passwordDate": "20260406.090502146-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260406.090502144-0500",
+      "lastModifiedDate": "20260910.100621823-0500",
+      "roles": [
+        "682fdf0d-c677-4462-a1f8-f7a1f69bf2b5"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "stacy.baker-valdes@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "13d966e0-b1c8-4f3c-8e28-669fb93d42ab",
+      "username": "NateAtHitachi",
+      "firstName": "Nathaniel",
+      "lastName": "Blount",
+      "schedule": "Always",
+      "description": "",
+      "password": "[C71FF2D2]42549b74e37499b3d97c2739ff50f13f6461cf48e92fb0ece1232ee707feff1b",
+      "passwordDate": "20260908.083605237-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260908.083605237-0500",
+      "lastModifiedDate": "20260910.100635302-0500",
+      "roles": [
+        "fa6e2034-6ece-401a-95a3-d6236fe434d9",
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3",
+        "682fdf0d-c677-4462-a1f8-f7a1f69bf2b5"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    },
+    {
+      "uuid": "4334f829-ae8f-49b8-a1de-242c5f82ec41",
+      "username": "EdwardC",
+      "firstName": "Edward",
+      "lastName": "Colburn",
+      "schedule": "Always",
+      "description": "",
+      "password": "[9A343DF6]c27be58de1ac70c814eabaec43369512a5da596082f95133f372ce9b61d37c61",
+      "passwordDate": "20260702.110849529-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260702.110849529-0500",
+      "lastModifiedDate": "20260910.100649040-0500",
+      "roles": [
+        "fa6e2034-6ece-401a-95a3-d6236fe434d9",
+        "682fdf0d-c677-4462-a1f8-f7a1f69bf2b5",
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    },
+    {
+      "uuid": "63af6c3d-3df3-49b9-8772-e32ef2a99898",
+      "username": "dr37",
+      "firstName": "Daniel",
+      "lastName": "Raps",
+      "schedule": "Always",
+      "description": "",
+      "password": "[E5225360]ab97b8bfb5f46c98a8f82ec3d200f0cf35df98fc107b80ded112f94590dd06b8",
+      "passwordDate": "20260406.121157298-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260406.121157298-0500",
+      "lastModifiedDate": "20260910.102741943-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "Daniel.Raps@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "4601831d-8c12-4258-9c3a-0435a8d84a77",
+      "username": "af50",
+      "firstName": "Adrian",
+      "lastName": "Farmer",
+      "schedule": "Always",
+      "description": "",
+      "password": "[AC5A0FA2]e8a59cb054ed2bf6e91c1682da8dd2e482b852880f4d9b9be6e1590b806a29e1",
+      "passwordDate": "20260901.110928433-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260901.110928433-0500",
+      "lastModifiedDate": "20260910.102902488-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    },
+    {
+      "uuid": "91e69810-6cd8-46d4-9daa-da1762c65205",
+      "username": "ag36",
+      "firstName": "Albert",
+      "lastName": "Gage",
+      "schedule": "Always",
+      "description": "",
+      "password": "[72902948]95d094c5e3b1393fef76eabb84104ea680015c1ec4f912157a66bbdf33fa5891",
+      "passwordDate": "20260406.121123248-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260406.121123248-0500",
+      "lastModifiedDate": "20260910.102955527-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "Albert.Gage@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "a5da51f8-9879-4972-820c-c163747cfb6b",
+      "username": "am30",
+      "firstName": "Anibal",
+      "lastName": "Murillo-Molina",
+      "schedule": "Always",
+      "description": "",
+      "password": "[C3E7EF47]51b2b1ccab8cfb698445239afb47cb076905656ecd15c97f7d0b97c605569d3c",
+      "passwordDate": "20260414.141218492-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260406.120715093-0500",
+      "lastModifiedDate": "20260910.103001568-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "Anibal.Murillo-Molina@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "02a391ef-00a9-404a-a654-c40e5d6fe17e",
+      "username": "ad40",
+      "firstName": "Antonio",
+      "lastName": "Douglas",
+      "schedule": "Always",
+      "description": "",
+      "password": "[D6564C53]28a425341fbba339b36523d01d15e5b0a5a2bb7f6b159573b94e5772a3789ef9",
+      "passwordDate": "20260406.121454747-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260406.121454747-0500",
+      "lastModifiedDate": "20260910.103008856-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "Antonio.Douglas@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "88cd56e7-72ed-4858-aa5d-3f93e80bcd3a",
+      "username": "ad33",
+      "firstName": "Austin",
+      "lastName": "Denny",
+      "schedule": "Always",
+      "description": "",
+      "password": "[5DF146BC]2d7bbd7b0173f0c5f30000ad4aab62483e32463281dc15673443bb88735f840a",
+      "passwordDate": "20260406.120903768-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260406.120903768-0500",
+      "lastModifiedDate": "20260910.103015011-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "Austin.Denny@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "bf12a264-f9e9-470d-8568-b851c6120c3e",
+      "username": "cm38",
+      "firstName": "Cesar",
+      "lastName": "Molina",
+      "schedule": "Always",
+      "description": "",
+      "password": "[2324857C]35e39f51eee5440634d4a0b9d143afdde24c86b728c86629063c3aa3d4bb7a18",
+      "passwordDate": "20260406.121236856-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260406.121236856-0500",
+      "lastModifiedDate": "20260910.103021619-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "Cesar.Molina@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "8cb93e5f-4d44-4f1a-b2e0-4e1c86f3c7f8",
+      "username": "ch45",
+      "firstName": "Connie",
+      "lastName": "Hilkemeyer",
+      "schedule": "Always",
+      "description": "",
+      "password": "[047B6CFC]26f64ec80a180ccbd9cb338dcb71a30fb535d9c80e08239fe46c9e8675b9e0b2",
+      "passwordDate": "20260406.121812428-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260406.121812428-0500",
+      "lastModifiedDate": "20260910.103031508-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "Connie.Hilkemeyer@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "8707300b-12a6-4982-913c-e34f40db6af3",
+      "username": "cl29",
+      "firstName": "Craig",
+      "lastName": "Lyles",
+      "schedule": "Always",
+      "description": "",
+      "password": "[5608B9FC]e67e90883fc516a433f6072ccfb3379aa5d9f09c1638bfe8e772d7d10a23a809",
+      "passwordDate": "20260406.120519209-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260406.120519209-0500",
+      "lastModifiedDate": "20260910.103037645-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "Craig.Lyles@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "df1f7ca6-8a22-4136-87cd-d42a0f8d69be",
+      "username": "dh44",
+      "firstName": "Daniel",
+      "lastName": "Haney",
+      "schedule": "Always",
+      "description": "",
+      "password": "[4C833625]785a788565efaffe41075450e9d817311e7572c1aba28494a2da46bf8be09738",
+      "passwordDate": "20260406.121719390-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260406.121719390-0500",
+      "lastModifiedDate": "20260910.103044038-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "Daniel.Haney@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "993726d7-b452-4103-a6b6-b4a076a1291a",
+      "username": "dt16",
+      "firstName": "Darren",
+      "lastName": "Troy",
+      "schedule": "Always",
+      "description": "",
+      "password": "[CC0B9E0F]0ee097895259d303a0dfb2179cac7a726595c120c9d1ff41269390e163b0f47d",
+      "passwordDate": "20260406.103714313-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260406.103714313-0500",
+      "lastModifiedDate": "20260910.103050129-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "Darren.Troy@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "580a6f4b-e803-48f2-9e26-a43c1b710837",
+      "username": "ds47",
+      "firstName": "David",
+      "lastName": "Spires",
+      "schedule": "Always",
+      "description": "",
+      "password": "[EC9BE35C]e36279c03a162cf83466e8e4975a4721229a1cd326636337dc319c50f0b38252",
+      "passwordDate": "20260422.200738926-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260422.200738926-0500",
+      "lastModifiedDate": "20260910.103056124-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "david.spires@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "32df1f24-cc23-4729-8fed-39d31e838f1a",
+      "username": "dm19",
+      "firstName": "Derek",
+      "lastName": "Mundy",
+      "schedule": "Always",
+      "description": "",
+      "password": "[79BF15F8]a88e41131ac79d3fad63786e136901c9801783798d2353097172386b134dd660",
+      "passwordDate": "20260406.103909431-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260406.103909431-0500",
+      "lastModifiedDate": "20260910.103103668-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "Derek.Mundy@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "7d8b00a8-3d43-489a-90aa-31ce852c5e54",
+      "username": "el21",
+      "firstName": "Erica",
+      "lastName": "Labodda",
+      "schedule": "Always",
+      "description": "",
+      "password": "[7086D8EA]8eddfed1998edeaf96559945782bee58663828b554c942cfaf295c72c931675e",
+      "passwordDate": "20260406.104119994-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260406.104119994-0500",
+      "lastModifiedDate": "20260910.103113156-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "Erica.Labodda@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "efcce9ea-83fd-48fb-8ad2-e2d3623798ff",
+      "username": "ei31",
+      "firstName": "Ethan",
+      "lastName": "Isenhart",
+      "schedule": "Always",
+      "description": "",
+      "password": "[136E1A20]5634361c8f614fdcdb0cb05a90fe7925d736f8f70a7b893e5ac323ed8c82da3a",
+      "passwordDate": "20260406.120758792-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260406.120758792-0500",
+      "lastModifiedDate": "20260910.103121798-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "Ethan.Isenhart@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "bcf2a0e2-1fa9-4ad4-9dce-236f4162444c",
+      "username": "rf50",
+      "firstName": "Fernando",
+      "lastName": "Reyes-Sotelo",
+      "schedule": "Always",
+      "description": "",
+      "password": "[BD47E6F8]7c383a63f2dbd1647157a6b4bd76dc19faae95f8e3fd54b4d72d6d61f3bcda6c",
+      "passwordDate": "20260422.201000369-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260422.201000369-0500",
+      "lastModifiedDate": "20260910.103127993-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "fernando.reyes-sotelo@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "211646a2-afa2-4c80-8d43-a2f546ffc06a",
+      "username": "fr28",
+      "firstName": "Francisco",
+      "lastName": "R. Reyes",
+      "schedule": "Always",
+      "description": "",
+      "password": "[1E436FF7]fe4684b5dcef74c9ed393b4fa84022f1a2d2d826c6d050cc0e8832a764395bed",
+      "passwordDate": "20260406.105944992-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260406.105944992-0500",
+      "lastModifiedDate": "20260910.103133545-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    },
+    {
+      "uuid": "d7284b32-0423-4718-9564-7b3e1df699ec",
+      "username": "hw14",
+      "firstName": "Harold",
+      "lastName": "Wadley",
+      "schedule": "Always",
+      "description": "",
+      "password": "[DFE695D2]a484c585d865924d04368b3998299160b080db7ab0012cff678e94b57eef4641",
+      "passwordDate": "20260406.103536309-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260406.103536309-0500",
+      "lastModifiedDate": "20260910.103142397-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "Harold.Wadley@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "2da04508-6dc4-4c15-a77a-4fc2ab10f1ae",
+      "username": "hw46",
+      "firstName": "Harold",
+      "lastName": "Wadley",
+      "schedule": "Always",
+      "description": "",
+      "password": "[ACD69944]6f5bc639efaeb0d2ddb25bc3d01d093d66423f2e9dcd81381abbff4174ba1af0",
+      "passwordDate": "20260406.120031894-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260406.120031894-0500",
+      "lastModifiedDate": "20260910.103149041-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "harold.wadley@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "1231911f-b7ca-4105-939e-f3021c6569a0",
+      "username": "hg46",
+      "firstName": "Hector",
+      "lastName": "Guillen",
+      "schedule": "Always",
+      "description": "",
+      "password": "[5895E655]a2276d15004ca04f6e372e3ad9d4f12a1f163c7b30d6891557cdf8b07d149d21",
+      "passwordDate": "20260901.110753482-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260901.110753482-0500",
+      "lastModifiedDate": "20260910.103156848-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    },
+    {
+      "uuid": "5c256915-f56a-40f6-8c89-30b3a3bf8122",
+      "username": "hl20",
+      "firstName": "Henry",
+      "lastName": "Leon",
+      "schedule": "Always",
+      "description": "",
+      "password": "[2FCBAAEF]124759008a50a42d9623b4cf4370434383f48eff7c60ed6f05d7e2ef0195d5bc",
+      "passwordDate": "20260406.103953447-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260406.103953447-0500",
+      "lastModifiedDate": "20260910.103203415-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "Henry.Leon@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "6f56fe6d-c0b0-4fb3-8d1c-4dcd8bad5746",
+      "username": "hm39",
+      "firstName": "Hernaldo",
+      "lastName": "Molina",
+      "schedule": "Always",
+      "description": "",
+      "password": "[205F8409]ead84b62e7298f24965ce6f8d0c3cdd4a0b4725117197bf6c451b2d3807225cd",
+      "passwordDate": "20260406.121328243-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260406.121328242-0500",
+      "lastModifiedDate": "20260910.103208838-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "Hernaldo.Molina@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "10781028-e4a5-4fe3-9950-31032e20f53e",
+      "username": "jb11",
+      "firstName": "John",
+      "lastName": "Baxter",
+      "schedule": "Always",
+      "description": "",
+      "password": "[60DBF80E]f9edb9ed803841d0bc0d71dc969ed757225e3e1c76b973ce3f3be431d805c772",
+      "passwordDate": "20260406.103218306-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260406.103218306-0500",
+      "lastModifiedDate": "20260910.103216076-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "John.Baxter@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "1711caaf-a785-4921-877c-2c0b938b7eef",
+      "username": "jg26",
+      "firstName": "Jose",
+      "lastName": "Guillen-Corona",
+      "schedule": "Always",
+      "description": "",
+      "password": "[110989F1]e0779ef416af6dbb8d3331b2a0e976462790902055eefc93fc61806545832ba9",
+      "passwordDate": "20260406.104954362-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260406.104954362-0500",
+      "lastModifiedDate": "20260910.103225159-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    },
+    {
+      "uuid": "28d261be-4b17-45d1-9a76-94f7b8cfff55",
+      "username": "jp47",
+      "firstName": "Jose",
+      "lastName": "Patino",
+      "schedule": "Always",
+      "description": "",
+      "password": "[3EF05270]fb26ac58bc741223221a82c4f2fea7472c0867c56b69cf312db7d671c25932fa",
+      "passwordDate": "20260901.110813112-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260901.110813112-0500",
+      "lastModifiedDate": "20260910.103231653-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    },
+    {
+      "uuid": "41ac0e0c-8694-4ba1-a76c-d46fbc1469c6",
+      "username": "js18",
+      "firstName": "Josh",
+      "lastName": "Slater",
+      "schedule": "Always",
+      "description": "",
+      "password": "[0B1E7DF5]ec3995333564dd1da1df3535eab7aeb98a6abafcb1fd31d6e6cafd9685f5dd08",
+      "passwordDate": "20260406.103830422-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260406.103830422-0500",
+      "lastModifiedDate": "20260910.103238070-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "Josh.Slater@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "158588a6-cbf4-4c15-a388-3ce6bf46866c",
+      "username": "jm42",
+      "firstName": "Juan",
+      "lastName": "Meza",
+      "schedule": "Always",
+      "description": "",
+      "password": "[30EED262]a9d06dff3f84b3b33f542d022f3352f820e2ec0a98b2b416cf89c6764cd3dc48",
+      "passwordDate": "20260406.121606295-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260406.121606295-0500",
+      "lastModifiedDate": "20260910.103243740-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "Juan.Meza@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "a4a48481-48b9-49bc-9cf9-fb1891e5e5eb",
+      "username": "km51",
+      "firstName": "Kyle",
+      "lastName": "Mundy",
+      "schedule": "Always",
+      "description": "",
+      "password": "[84061D43]f5180a433154a4bcc353332783bfc12c45e5f6d5e3303f01e3467e9cffbf798d",
+      "passwordDate": "20260729.141726546-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260729.141726546-0500",
+      "lastModifiedDate": "20260910.103249411-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    },
+    {
+      "uuid": "9104a80f-c0c6-47d6-9d89-f2a59d13ebde",
+      "username": "ls34",
+      "firstName": "Lauren",
+      "lastName": "Stubinger",
+      "schedule": "Always",
+      "description": "",
+      "password": "[032A9322]fe87fcdaea36840f6540c8ce8e5c431515da1b3fb1ee45fa0732061a38fbad42",
+      "passwordDate": "20260406.121002887-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260406.121002887-0500",
+      "lastModifiedDate": "20260910.103256207-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "Lauren.Stubinger@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "97bff6e8-b7ea-4500-b515-b1d6e9e48dfc",
+      "username": "ls49",
+      "firstName": "Lauren",
+      "lastName": "Stuninger",
+      "schedule": "Always",
+      "description": "",
+      "password": "[8DFF1D0C]152be449018c8127f113b44fc4c7b4baf0feee960f49d81f92ce2b551d898aeb",
+      "passwordDate": "20260901.110902893-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260901.110902893-0500",
+      "lastModifiedDate": "20260910.103302034-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    },
+    {
+      "uuid": "2717a8d6-8f1b-493d-a404-d7cac4745d3d",
+      "username": "lh15",
+      "firstName": "Lawrence",
+      "lastName": "Hoffman",
+      "schedule": "Always",
+      "description": "",
+      "password": "[99F05028]e1bb1f1e66dcbfe407a57d307a48b709c09db28b3fa5ec6e66d90ec21a311111",
+      "passwordDate": "20260406.103633273-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260406.103633273-0500",
+      "lastModifiedDate": "20260910.103307952-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "Lawrence.Hoffman@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "2fdf9ae0-0360-4fe8-810e-2505d464a776",
+      "username": "lp43",
+      "firstName": "Levi",
+      "lastName": "Polacek",
+      "schedule": "Always",
+      "description": "",
+      "password": "[AF1EA4A2]56fc4974dec02d5940dd763da34b5cfebd6dcc893fc225f96033464e781769e7",
+      "passwordDate": "20260406.121644737-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260406.121644737-0500",
+      "lastModifiedDate": "20260910.103313023-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "Levi.Polacek@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "0b7ec183-31ea-4882-a21c-0a17e4460e99",
+      "username": "ma24",
+      "firstName": "Manuel",
+      "lastName": "Andrade",
+      "schedule": "Always",
+      "description": "",
+      "password": "[93AA5A0B]ddf63e3de1d63294c78c8099c17ac383f188195ec2eb3699f4567f8e105c2a84",
+      "passwordDate": "20260406.104652825-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260406.104652825-0500",
+      "lastModifiedDate": "20260910.103320633-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "Manuel.Andrade@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "0d416d06-6691-4890-8190-b1b2e175bac8",
+      "username": "ob22",
+      "firstName": "Owen",
+      "lastName": "Busalacki",
+      "schedule": "Always",
+      "description": "",
+      "password": "[7530A3D0]ab0963873bdcbf5e9285633e8682c1753914d78b2ee20c08ed4d4c54334bdb71",
+      "passwordDate": "20260406.104206802-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260406.104206802-0500",
+      "lastModifiedDate": "20260910.103326789-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "Owen.Busalacki@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "2dfeb17c-1201-42a5-b906-32d8634e25dc",
+      "username": "me44",
+      "firstName": "Manuel",
+      "lastName": "Estrada",
+      "schedule": "Always",
+      "description": "",
+      "password": "[91D6F4DB]72cc7d9779a867fd985833f30385bc93046cf373cf4ea0b33c8bc56da5b5c6d8",
+      "passwordDate": "20260901.110640878-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260901.110640876-0500",
+      "lastModifiedDate": "20260910.103332806-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    },
+    {
+      "uuid": "e1c502b1-2a8c-4665-91b2-916d66bfeffe",
+      "username": "pw48",
+      "firstName": "Philip",
+      "lastName": "Wiseman",
+      "schedule": "Always",
+      "description": "",
+      "password": "[A199B7F8]4e8901ae3d182a543389020550b65ea6ab8e50f7e7dd1dbfd4095cc7d6fc0cce",
+      "passwordDate": "20260422.200824433-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260422.200824433-0500",
+      "lastModifiedDate": "20260910.103339377-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "philip.wiseman@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "9d9e883b-9ec3-4603-af1c-4da4ce4f6647",
+      "username": "rj27",
+      "firstName": "Rafael",
+      "lastName": "Jimenez",
+      "schedule": "Always",
+      "description": "",
+      "password": "[6AB9D5A2]5ce7f777b767afd89853808cfc52836f497066d974d37e15f5a4dcfa201d8606",
+      "passwordDate": "20260406.105056464-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260406.105056464-0500",
+      "lastModifiedDate": "20260910.103346901-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "Rafael.Jimenez@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "fecade7d-cbea-45e6-b86a-62248cb00d14",
+      "username": "rb25",
+      "firstName": "Rodney",
+      "lastName": "Barber",
+      "schedule": "Always",
+      "description": "",
+      "password": "[0371F0DC]4645dae40647476ce5e39a3d7d0e9f699d949ae1bad5312934d3420d5171c613",
+      "passwordDate": "20260406.104909545-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260406.104909545-0500",
+      "lastModifiedDate": "20260910.103352560-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "Rodney.Barber@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "3555b317-f171-47ac-9042-60441326ac5b",
+      "username": "sc41",
+      "firstName": "Sebastian",
+      "lastName": "Ceballos",
+      "schedule": "Always",
+      "description": "",
+      "password": "[12BF711A]41d5b05224e4d6d96481e8b67ac61fb728c0d28f352ed609c9c2f51e828d05bf",
+      "passwordDate": "20260406.121534152-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260406.121534151-0500",
+      "lastModifiedDate": "20260910.103359338-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "Sebastian.Ceballos@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "a6ee45dd-f348-4b74-a5a3-1d45efedab00",
+      "username": "sh45",
+      "firstName": "Sebastian",
+      "lastName": "Honey",
+      "schedule": "Always",
+      "description": "",
+      "password": "[ADE8E6EF]ad7fefedf5fe53a2e47c877586c8d65c50d5510306814052dec8091e55dacb65",
+      "passwordDate": "20260901.110717021-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260901.110717021-0500",
+      "lastModifiedDate": "20260910.103405173-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    },
+    {
+      "uuid": "6c60da7b-1d8e-4fe8-bc32-30fd03960447",
+      "username": "sh49",
+      "firstName": "Skyler",
+      "lastName": "Heet",
+      "schedule": "Always",
+      "description": "",
+      "password": "[59D266CA]6d4a7b05544abba77f47402953b532753c5bed8dc6b8a5c779f9373f74d87360",
+      "passwordDate": "20260422.200902303-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260422.200902302-0500",
+      "lastModifiedDate": "20260910.103413408-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "skyler.heet@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "af7f764c-a749-422b-8908-c0cd32ad6195",
+      "username": "sc17",
+      "firstName": "Stony",
+      "lastName": "Chambers",
+      "schedule": "Always",
+      "description": "",
+      "password": "[BCFACB4F]0dc2785bb0f1ee599b5cd0de917776848e3720d5e49fe0f6fc55d5fcaaec1bb1",
+      "passwordDate": "20260406.103750480-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260406.103750480-0500",
+      "lastModifiedDate": "20260910.103421459-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "Stony.Chambers@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "5bd71983-95fb-4661-9514-10cbea73482e",
+      "username": "th13",
+      "firstName": "Troy",
+      "lastName": "Hicks",
+      "schedule": "Always",
+      "description": "",
+      "password": "[E3511BAD]4e8fe51aae81875f75cb9d689a0fe03550d033ab732696d0296aae374a01bf8c",
+      "passwordDate": "20260406.103400271-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260406.103400271-0500",
+      "lastModifiedDate": "20260910.103428673-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "Troy.Hicks@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "71c1b031-a01d-401d-8534-1d8790e47b5e",
+      "username": "wr12",
+      "firstName": "William",
+      "lastName": "Rush",
+      "schedule": "Always",
+      "description": "",
+      "password": "[8A2EDB27]747df721f7e7f04e8a41c56c824c9194141d7813cea2621b3bc42291a97e414f",
+      "passwordDate": "20260406.103317500-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260406.103317500-0500",
+      "lastModifiedDate": "20260910.103434495-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "William.Rush@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "cf51f084-f960-4556-9423-5bfef5a16bcc",
+      "username": "xs48",
+      "firstName": "Xavier",
+      "lastName": "Stiffler",
+      "schedule": "Always",
+      "description": "",
+      "password": "[9FD6132B]fe9f347a72c52eec1e16df670882f939c4ed4617f5713997bce91a77e78a8f2b",
+      "passwordDate": "20260901.110839819-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260901.110839819-0500",
+      "lastModifiedDate": "20260910.103439736-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    },
+    {
+      "uuid": "64646a95-4d35-4549-aaaa-b10dd3a55cb1",
+      "username": "yf32",
+      "firstName": "Yader",
+      "lastName": "Flores",
+      "schedule": "Always",
+      "description": "",
+      "password": "[2F6C8B68]32bf6ef1541d6ae61b355946f3a5ddfe6f3a23450b8265e7a8859cd1c8128b31",
+      "passwordDate": "20260406.120830546-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260406.120830545-0500",
+      "lastModifiedDate": "20260910.103446639-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "email",
+          "value": "Yader.Flores@hitachienergy.com",
+          "order": 0
+        }
+      ]
+    },
+    {
+      "uuid": "5d4a665a-eab2-4953-80cf-8bd9eb51df80",
+      "username": "JacobD",
       "firstName": "",
       "lastName": "",
       "schedule": "Always",
       "description": "",
-      "password": "[0A8E5270]b15001d000b3118c19604b4510ae136c28b94f764fcc4364d282d6264cbd802e",
-      "passwordDate": "20260701.122436727+0530",
+      "password": "[51BDAFE3]5597c41c5111a13182826c509a2937586aeff96eaa4280d11c0b1535b3079bff",
+      "passwordDate": "20260910.140030318-0500",
       "passwordHistory": [],
       "badge": "",
-      "createdDate": "20260701.122436727+0530",
-      "lastModifiedDate": "20260701.122447212+0530",
+      "createdDate": "20260910.135647604-0500",
+      "lastModifiedDate": "20260910.140030318-0500",
       "roles": [
-        "d8d2324b-a9c7-4676-bc0b-40c3494a5990"
+        "79a6fda4-8dc6-40d8-afb7-62b5edae9ffb"
       ],
-      "extraProps": [
-        {
-          "propertyKey": "user.pin",
-          "propertyValue": ""
-        }
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    },
+    {
+      "uuid": "0616f9ad-4325-4b07-a848-f55a0e5c53ae",
+      "username": "JamesL",
+      "firstName": "",
+      "lastName": "",
+      "schedule": "Always",
+      "description": "",
+      "password": "[FB4576C5]09b7439140376e001924e52a04e184e28ece252dc40f051579c9b8aca2ffe17d",
+      "passwordDate": "20260304.114533986-0600",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260304.113513957-0600",
+      "lastModifiedDate": "20260911.171030448-0500",
+      "roles": [
+        "6d671151-b0a8-4488-a08f-33d9711fea52"
       ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    },
+    {
+      "uuid": "af33f302-e651-486c-a4bc-5019827164f4",
+      "username": "RyanR",
+      "firstName": "",
+      "lastName": "",
+      "schedule": "Always",
+      "description": "",
+      "password": "[06A25931]9eec7fb5f7530bcf6dbd6373192e082609567887af104ec014c92ef86c486dda",
+      "passwordDate": "20260421.162502208-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260304.113627384-0600",
+      "lastModifiedDate": "20260911.171050488-0500",
+      "roles": [
+        "6d671151-b0a8-4488-a08f-33d9711fea52"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    },
+    {
+      "uuid": "1",
+      "username": "admin",
+      "firstName": "",
+      "lastName": "",
+      "schedule": "Always",
+      "description": "",
+      "password": "[D9E41107]7c188045bfaf029d817009dd22436f39c1c7de6f0e0bdd449ef59768918b5e86",
+      "passwordDate": "20260914.082004028-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20251021.091147354-0500",
+      "lastModifiedDate": "20260914.082004028-0500",
+      "roles": [
+        "79a6fda4-8dc6-40d8-afb7-62b5edae9ffb"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    },
+    {
+      "uuid": "d4ddce1c-84d3-45ef-8bcb-7b76b3611c2f",
+      "username": "TimothyS",
+      "firstName": "",
+      "lastName": "",
+      "schedule": "Always",
+      "description": "",
+      "password": "[5A550007]0e1f18716c0609b2cb03e9bad4978c09f66a3166eed2c57d1f9945aa7c8d962a",
+      "passwordDate": "20260915.135130858-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260915.135130858-0500",
+      "lastModifiedDate": "20260915.135145881-0500",
+      "roles": [
+        "682fdf0d-c677-4462-a1f8-f7a1f69bf2b5",
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    },
+    {
+      "uuid": "48c8c3b6-e7e0-40ab-b8ce-d6e0b91d2a36",
+      "username": "ZachB",
+      "firstName": "Zach",
+      "lastName": "Brenneke",
+      "schedule": "Always",
+      "description": "",
+      "password": "[2C638A08]a17ffae5792c740f21b768ebcd7ade4d8c7c1c46c9ea9f8922b2ba5703e67e30",
+      "passwordDate": "20260916.091629043-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260916.091629043-0500",
+      "lastModifiedDate": "20260916.091640076-0500",
+      "roles": [
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3",
+        "682fdf0d-c677-4462-a1f8-f7a1f69bf2b5"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    },
+    {
+      "uuid": "ab87aaad-ee69-4296-89fd-5ebbe8327872",
+      "username": "Noah",
+      "firstName": "Noah",
+      "lastName": "Schultz",
+      "schedule": "Always",
+      "language": "en_US",
+      "description": "",
+      "password": "[D9C7CA13]4693c3d24b694ec7d81d1fc600ce5314e96681f93404ad7d116920d2810b7736",
+      "passwordDate": "20251217.102144547-0600",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20251217.102144547-0600",
+      "lastModifiedDate": "20260916.200802631-0500",
+      "roles": [
+        "fa6e2034-6ece-401a-95a3-d6236fe434d9",
+        "7a46e17d-84e9-4cb7-9090-5211aea6bc22",
+        "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3",
+        "682fdf0d-c677-4462-a1f8-f7a1f69bf2b5"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    },
+    {
+      "uuid": "36bb38d1-f414-4db0-b189-28706ee7899f",
+      "username": "ErickM",
+      "firstName": "",
+      "lastName": "",
+      "schedule": "Always",
+      "description": "",
+      "password": "[20BDBC44]3ce0f2393aba953b415e1b8b9a3045657f4d52576880af2af7316a9362b897c6",
+      "passwordDate": "20260304.114518440-0600",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260304.112009108-0600",
+      "lastModifiedDate": "20260928.081831995-0500",
+      "roles": [],
+      "extraProps": [],
       "scheduleAdjustments": [],
       "contactInfos": []
     }
   ],
   "roles": [
     {
-      "uuid": "d8d2324b-a9c7-4676-bc0b-40c3494a5990",
+      "uuid": "79a6fda4-8dc6-40d8-afb7-62b5edae9ffb",
       "rolename": "Administrator",
-      "createdDate": "20251219.183654483+0530",
-      "lastModifiedDate": "20260701.122447073+0530"
+      "createdDate": "20251021.091147354-0500",
+      "lastModifiedDate": "20260911.171050247-0500"
     },
     {
-      "uuid": "a7b5c064-c8ee-46e6-b56d-18dfff0272d1",
+      "uuid": "be0bba05-16a3-4068-8c23-6cde7f8352b4",
+      "rolename": "IGN Developer",
+      "createdDate": "20251201.141825009-0600",
+      "lastModifiedDate": "20260916.200718581-0500"
+    },
+    {
+      "uuid": "8ba9bf19-c9d8-4268-9ef5-a5873e37c5d3",
       "rolename": "Operator",
-      "createdDate": "20260204.125110001+0530",
-      "lastModifiedDate": "20260701.122349519+0530"
+      "createdDate": "20251202.133114878-0600",
+      "lastModifiedDate": "20260916.200733568-0500"
     },
     {
-      "uuid": "52c1e990-31a5-4074-869c-8f6bf2cc881a",
+      "uuid": "fa6e2034-6ece-401a-95a3-d6236fe434d9",
+      "rolename": "View Only",
+      "createdDate": "20251202.133304257-0600",
+      "lastModifiedDate": "20260908.083658778-0500"
+    },
+    {
+      "uuid": "682fdf0d-c677-4462-a1f8-f7a1f69bf2b5",
       "rolename": "Supervisor",
-      "createdDate": "20260320.210713613+0530",
-      "lastModifiedDate": "20260320.210728787+0530"
+      "createdDate": "20251202.133425038-0600",
+      "lastModifiedDate": "20260916.200802338-0500"
+    },
+    {
+      "uuid": "7a46e17d-84e9-4cb7-9090-5211aea6bc22",
+      "rolename": "Maintenance",
+      "createdDate": "20251202.133725235-0600",
+      "lastModifiedDate": "20260521.104037318-0500"
+    },
+    {
+      "uuid": "5d4c502e-bcc0-47ec-a2cc-ec5fefad8747",
+      "rolename": "Business Manager",
+      "createdDate": "20251202.133737217-0600",
+      "lastModifiedDate": "20260121.093756451-0600"
+    },
+    {
+      "uuid": "6e69cd62-e139-4568-a927-58683ee4d7cf",
+      "rolename": "Business User",
+      "createdDate": "20251202.133742674-0600",
+      "lastModifiedDate": "20260121.093756605-0600"
+    },
+    {
+      "uuid": "e6775ae8-823d-4977-a33d-1eff01ecc16e",
+      "rolename": "Controls Engineer",
+      "createdDate": "20251205.102158290-0600",
+      "lastModifiedDate": "20260916.200719848-0500"
+    },
+    {
+      "uuid": "6d671151-b0a8-4488-a08f-33d9711fea52",
+      "rolename": "RO Administrator",
+      "createdDate": "20251205.102411811-0600",
+      "lastModifiedDate": "20260928.081831752-0500"
     }
   ]
 }

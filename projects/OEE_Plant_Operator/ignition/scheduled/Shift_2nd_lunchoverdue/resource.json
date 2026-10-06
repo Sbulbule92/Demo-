@@ -1,0 +1,18 @@
+{
+  "scope": "G",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "handleScheduleEvent.py"
+  ],
+  "attributes": {
+    "cronExpression": "28 19 * * *",
+    "lastModificationSignature": "9ec09554577f04613b751fb4a0d77b9d0d3f31cc943db1dc06cd7742bfda8dbe",
+    "lastModification": {
+      "actor": "prasantm",
+      "timestamp": "2026-04-14T12:27:17Z"
+    },
+    "enabled": true
+  }
+}

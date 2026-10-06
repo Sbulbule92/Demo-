@@ -1,0 +1,80 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "UpdateQuery",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "bf4af6af35f61a475ecf9971127bb905c5b5d6272fa8c904208c2ff8f52ccf32",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "shivab",
+      "timestamp": "2026-06-17T12:22:14Z"
+    },
+    "parameters": [
+      {
+        "type": "Parameter",
+        "identifier": "jobId",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "wireSeq",
+        "sqlType": 2
+      },
+      {
+        "type": "Parameter",
+        "identifier": "mfr",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "lot",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "coating",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "dia",
+        "sqlType": 5
+      },
+      {
+        "type": "Parameter",
+        "identifier": "width",
+        "sqlType": 5
+      },
+      {
+        "type": "Parameter",
+        "identifier": "thick",
+        "sqlType": 5
+      },
+      {
+        "type": "Parameter",
+        "identifier": "tension",
+        "sqlType": 5
+      }
+    ]
+  }
+}

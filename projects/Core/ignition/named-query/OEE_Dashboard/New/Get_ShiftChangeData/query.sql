@@ -1,0 +1,1 @@
+  Select * from tbl_ShiftChangeData where SerialNumber = :SerialNumber ;

@@ -1,0 +1,26 @@
+{
+  "scope": "G",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "onTagChange.py"
+  ],
+  "attributes": {
+    "changeTypes": [
+      "ValueChange",
+      "QualityChange",
+      "TimestampChange"
+    ],
+    "lastModificationSignature": "646b259afe2c485c18f50faf69a469252f99803c7d0e3971d8e67d91c584248e",
+    "paths": [
+      "[default]Sec241/1phTankWeldRobot2/1phTankRobot2/DataAutomation/DebugTestBool",
+      "[default]Sec241/1phTankWeldRobot2/1phTankRobot2/DataAutomation/OPC_TankDataRequest"
+    ],
+    "lastModification": {
+      "actor": "admin",
+      "timestamp": "2025-12-22T20:55:23Z"
+    },
+    "enabled": true
+  }
+}

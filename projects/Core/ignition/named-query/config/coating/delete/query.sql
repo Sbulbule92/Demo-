@@ -1,0 +1,1 @@
+UPDATE tbl_CoatingType SET IsActive=0 WHERE CoatingTypeID=:CoatingTypeID;

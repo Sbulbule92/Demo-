@@ -1,0 +1,70 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "UpdateQuery",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "121c683ca7d315b27a4a744af8bebbe7ffe876a4aed060e9f4c271267ab582a0",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "shivab",
+      "timestamp": "2026-04-01T12:43:27Z"
+    },
+    "parameters": [
+      {
+        "type": "Parameter",
+        "identifier": "serial_number",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "event_type_id",
+        "sqlType": 3
+      },
+      {
+        "type": "Parameter",
+        "identifier": "wip",
+        "sqlType": 5
+      },
+      {
+        "type": "Parameter",
+        "identifier": "actual_num_turns",
+        "sqlType": 5
+      },
+      {
+        "type": "Parameter",
+        "identifier": "machine_id",
+        "sqlType": 3
+      },
+      {
+        "type": "Parameter",
+        "identifier": "userName",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "remarks",
+        "sqlType": 7
+      }
+    ]
+  }
+}

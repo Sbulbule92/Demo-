@@ -1,0 +1,2680 @@
+{
+  "custom": {
+    "day": "2026-04-14 22:54:37",
+    "operatordetails": [
+      {
+        "Availability": 84,
+        "BREAKS": "00:00:00",
+        "Coils Completed": 0,
+        "Coils Inprogress": 0,
+        "Coils Started": 2,
+        "LOGGED DOWNTIME": "00:59:37",
+        "Login Time": "00:15:02",
+        "Logout Time": "06:41:30",
+        "MACHINE": "WOCL_1071",
+        "No of Downtime Entries": 2,
+        "Operating Time": "05:26:51",
+        "Performance": 0,
+        "SHIFT WORKED": 3,
+        "UNPLANNED DOWNTIME": "00:59:37"
+      }
+    ],
+    "prodData": {
+      "completed": 1,
+      "inProgress": 2,
+      "started": 2
+    },
+    "times": {
+      "end": {
+        "$": [
+          "ts",
+          192,
+          1779366041165
+        ],
+        "$ts": 1776229199000
+      },
+      "start": {
+        "$": [
+          "ts",
+          192,
+          1779366041165
+        ],
+        "$ts": 1776142801000
+      }
+    }
+  },
+  "params": {
+    "day": "2026-04-14 22:54:37",
+    "id": 1,
+    "performance": 95,
+    "user": "Shivanand Bulbule",
+    "username": "hm39"
+  },
+  "propConfig": {
+    "custom.day": {
+      "binding": {
+        "config": {
+          "path": "view.params.day"
+        },
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.operatordetails": {
+      "binding": {
+        "config": {
+          "parameters": {
+            "EndTime": "{view.custom.times.end}",
+            "StartTime": "{view.custom.times.start}",
+            "UserName": "{view.params.username}"
+          },
+          "queryPath": "Operator Overview/getOperatorDowntimeDetails",
+          "returnFormat": "json"
+        },
+        "type": "query"
+      },
+      "persistent": true
+    },
+    "custom.prodData": {
+      "binding": {
+        "config": {
+          "parameters": {
+            "endTime": "{view.custom.times.end}",
+            "operator": "{view.params.username}",
+            "startTime": "{view.custom.times.start}"
+          },
+          "queryPath": "Operator Overview/getProductionByOperator",
+          "returnFormat": "json"
+        },
+        "transforms": [
+          {
+            "code": "\tstarted \u003d 0\n\tinProcess \u003d 0\n\tcompleted \u003d 0\n\tfor item in value:\n\t\tif item[\"event_type_id\"] \u003d\u003d 4:\n\t\t\tstarted +\u003d 1\n\t\tif item[\"event_type_id\"] \u003d\u003d 16:\n\t\t\tcompleted +\u003d 1\n\tinProcess \u003d len(value)-completed if len(value)\u003e0 else 0\n\treturn {\"started\": started, \"completed\": completed, \"inProgress\": inProcess}",
+            "type": "script"
+          }
+        ],
+        "type": "query"
+      },
+      "persistent": true
+    },
+    "custom.times": {
+      "binding": {
+        "config": {
+          "path": "view.custom.day"
+        },
+        "transforms": [
+          {
+            "code": "\tval \u003d system.date.parse(value, \"yyyy-MM-dd HH:mm:ss\")\n\tday \u003d system.date.format(val, \"yyyy-MM-dd\")\n\tstartDateTime \u003d str(day + \" \"  +\"00:00:01\")\n\tendDateTime \u003d str(day + \" \" + \"23:59:59\")\n\treturn {\"start\": system.date.parse(startDateTime, \"yyyy-MM-dd HH:mm:ss\"), \"end\": system.date.parse(endDateTime, \"yyyy-MM-dd HH:mm:ss\")} ",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "params.day": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.id": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.performance": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.user": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.username": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "width": 964
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "OperatorAvatar"
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.user"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\tinitials \u003d \"\".join(map(lambda w: w[0].upper(), value.split()))\n\treturn initials",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "backgroundColor": "rgba(245,166,35,0.12)",
+                    "borderColor": "#f5a623",
+                    "borderRadius": "50%",
+                    "borderStyle": "solid",
+                    "borderWidth": "2px",
+                    "color": "#f5a623",
+                    "fontSize": "22px",
+                    "fontWeight": "700",
+                    "height": "60px",
+                    "lineHeight": "60px",
+                    "minWidth": "60px",
+                    "textAlign": "center",
+                    "width": "60px"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "OperatorName"
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "path": "view.params.user"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "fontSize": "30px",
+                        "fontWeight": "700",
+                        "letterSpacing": "0px"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "OperatorSubtext"
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "expression": " {view.params.username} + \u0027|\u0027 + {view.custom.operatordetails[0].MACHINE} + \u0027|\u0027 + dateFormat({view.params.day}, \"MM/dd/yyyy\")"
+                          },
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "color": "#5a637a",
+                        "fontSize": "12px",
+                        "letterSpacing": "0px"
+                      },
+                      "textStyle": {
+                        "fontWeight": "700"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "layoutConstraints": {
+                    "grow": 1
+                  },
+                  "name": "OperatorInfo"
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "borderRightColor": "--neutral-70",
+                    "borderRightStyle": "none",
+                    "borderRightWidth": "1px",
+                    "gap": "4px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "meta": {
+                  "name": "Sep1"
+                },
+                "props": {
+                  "style": {
+                    "alignSelf": "stretch",
+                    "backgroundColor": "--neutral-20",
+                    "width": "1px"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "ShiftMetaLabel"
+                    },
+                    "props": {
+                      "style": {
+                        "fontSize": "18px",
+                        "fontWeight": "600",
+                        "letterSpacing": "0px"
+                      },
+                      "text": "SHIFT"
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "ShiftBadge"
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.operatordetails[0][\u0027SHIFT WORKED\u0027]"
+                          },
+                          "transforms": [
+                            {
+                              "fallback": "NA",
+                              "inputType": "scalar",
+                              "mappings": [
+                                {
+                                  "input": 1,
+                                  "output": "Shift A"
+                                },
+                                {
+                                  "input": 2,
+                                  "output": "Shift B"
+                                },
+                                {
+                                  "input": 3,
+                                  "output": "Shift C"
+                                }
+                              ],
+                              "outputType": "scalar",
+                              "type": "map"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "backgroundColor": "rgba(245,166,35,0.12)",
+                        "borderColor": "#f5a623",
+                        "borderRadius": "5px",
+                        "borderStyle": "solid",
+                        "borderWidth": "1px",
+                        "color": "#f5a623",
+                        "fontSize": "25px",
+                        "fontWeight": "700",
+                        "letterSpacing": "1px",
+                        "padding": "3px 10px"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "ShiftMetaGroup"
+                },
+                "props": {
+                  "alignItems": "center",
+                  "direction": "column",
+                  "style": {
+                    "gap": "0px",
+                    "padding": "0 8px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "meta": {
+                  "name": "Sep2"
+                },
+                "props": {
+                  "style": {
+                    "alignSelf": "stretch",
+                    "backgroundColor": "--neutral-20",
+                    "width": "1px"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "LoginMetaLabel"
+                    },
+                    "props": {
+                      "style": {
+                        "fontSize": "18px",
+                        "fontWeight": "600",
+                        "letterSpacing": "0px"
+                      },
+                      "text": "LOGIN"
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "LoginValue"
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.operatordetails[0][\u0027Login Time\u0027]"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "fontSize": "25px",
+                        "fontWeight": "600"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "LoginMetaGroup"
+                },
+                "props": {
+                  "alignItems": "center",
+                  "direction": "column",
+                  "style": {
+                    "gap": "4px",
+                    "padding": "0 8px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "meta": {
+                  "name": "Sep3"
+                },
+                "props": {
+                  "style": {
+                    "alignSelf": "stretch",
+                    "backgroundColor": "--neutral-20",
+                    "width": "1px"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "LogoutMetaLabel"
+                    },
+                    "props": {
+                      "style": {
+                        "fontSize": "18px",
+                        "fontWeight": "600",
+                        "letterSpacing": "0px"
+                      },
+                      "text": "LOGOUT"
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "LogoutValue"
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.operatordetails[0][\u0027Logout Time\u0027]"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "fontSize": "25px",
+                        "fontWeight": "600"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "LogoutMetaGroup"
+                },
+                "props": {
+                  "alignItems": "center",
+                  "direction": "column",
+                  "style": {
+                    "gap": "4px",
+                    "padding": "0 8px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "meta": {
+                  "name": "Sep4"
+                },
+                "props": {
+                  "style": {
+                    "alignSelf": "stretch",
+                    "backgroundColor": "--neutral-20",
+                    "width": "1px"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "MachineMetaLabel"
+                    },
+                    "props": {
+                      "style": {
+                        "fontSize": "18px",
+                        "fontWeight": "600",
+                        "letterSpacing": "0px"
+                      },
+                      "text": "MACHINE"
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "MachineValue"
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.operatordetails[0].MACHINE"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "color": "#29d9c2",
+                        "fontSize": "25px",
+                        "fontWeight": "600"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "MachineMetaGroup"
+                },
+                "props": {
+                  "alignItems": "center",
+                  "direction": "column",
+                  "style": {
+                    "gap": "4px",
+                    "padding": "0 8px"
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "OperatorHeaderCard"
+            },
+            "position": {
+              "grow": 1
+            },
+            "props": {
+              "alignItems": "center",
+              "style": {
+                "backgroundColor": "--neutral-10",
+                "borderBottomColor": "rgba(255,255,255,0.07)",
+                "borderBottomStyle": "solid",
+                "borderBottomWidth": "1px",
+                "borderLeftColor": "rgba(255,255,255,0.07)",
+                "borderLeftStyle": "solid",
+                "borderLeftWidth": "1px",
+                "borderRadius": "12px",
+                "borderRightColor": "rgba(255,255,255,0.27)",
+                "borderRightStyle": "solid",
+                "borderRightWidth": "1px",
+                "borderTopColor": "#f5a623",
+                "borderTopStyle": "solid",
+                "borderTopWidth": "3px",
+                "gap": "20px",
+                "margin": "15px",
+                "padding": "20px 24px"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "162px"
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "backgroundColor": "--neutral-30",
+            "borderBottomLeftRadius": "10px",
+            "borderBottomRightRadius": "10px",
+            "borderLeftColor": "--info",
+            "borderLeftStyle": "solid",
+            "borderLeftWidth": "5px",
+            "borderTopLeftRadius": "10px",
+            "borderTopRightRadius": "10px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "LoggedDTIconLabel"
+                        },
+                        "props": {
+                          "style": {
+                            "color": "#f05252",
+                            "fontSize": "18px",
+                            "textAlign": "center"
+                          },
+                          "text": "⏸"
+                        },
+                        "type": "ia.display.label"
+                      }
+                    ],
+                    "meta": {
+                      "name": "LoggedDTIconWrap"
+                    },
+                    "props": {
+                      "alignItems": "center",
+                      "direction": "column",
+                      "justify": "center",
+                      "style": {
+                        "backgroundColor": "rgba(240,82,82,0.12)",
+                        "borderRadius": "8px",
+                        "height": "38px",
+                        "minWidth": "38px",
+                        "width": "38px"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  },
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "LoggedDTLabel"
+                        },
+                        "props": {
+                          "style": {
+                            "fontSize": "18px",
+                            "fontWeight": "600",
+                            "letterSpacing": "0.5px"
+                          },
+                          "text": "LOGGED DOWNTIME"
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "meta": {
+                          "name": "LoggedDTValue"
+                        },
+                        "propConfig": {
+                          "props.text": {
+                            "binding": {
+                              "config": {
+                                "path": "view.custom.operatordetails[0][\u0027LOGGED DOWNTIME\u0027]"
+                              },
+                              "type": "property"
+                            }
+                          }
+                        },
+                        "props": {
+                          "style": {
+                            "color": "--error",
+                            "fontSize": "25px",
+                            "fontWeight": "700"
+                          }
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "meta": {
+                          "name": "LoggedDTSub"
+                        },
+                        "props": {
+                          "style": {
+                            "fontSize": "15px"
+                          },
+                          "text": "Total logged"
+                        },
+                        "type": "ia.display.label"
+                      }
+                    ],
+                    "meta": {
+                      "name": "LoggedDTText"
+                    },
+                    "position": {
+                      "basis": "201px"
+                    },
+                    "props": {
+                      "direction": "column",
+                      "style": {
+                        "gap": "2px"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  }
+                ],
+                "meta": {
+                  "layoutConstraints": {
+                    "grow": 1
+                  },
+                  "name": "LoggedDowntimeCard"
+                },
+                "position": {
+                  "basis": "200px",
+                  "grow": 1
+                },
+                "props": {
+                  "alignItems": "center",
+                  "style": {
+                    "backgroundColor": "--neutral-10",
+                    "borderBottomColor": "rgba(255,255,255,0.07)",
+                    "borderBottomStyle": "solid",
+                    "borderBottomWidth": "1px",
+                    "borderLeftColor": "rgba(255,255,255,0.07)",
+                    "borderLeftStyle": "solid",
+                    "borderLeftWidth": "1px",
+                    "borderRadius": "10px",
+                    "borderRightColor": "rgba(255,255,255,0.07)",
+                    "borderRightStyle": "solid",
+                    "borderRightWidth": "1px",
+                    "borderTopColor": "--error",
+                    "borderTopStyle": "solid",
+                    "borderTopWidth": "2px",
+                    "gap": "12px",
+                    "margin-top": "10px",
+                    "padding": "14px 16px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "BreaksIconLabel"
+                        },
+                        "props": {
+                          "style": {
+                            "fontSize": "18px",
+                            "textAlign": "center"
+                          },
+                          "text": "☕"
+                        },
+                        "type": "ia.display.label"
+                      }
+                    ],
+                    "meta": {
+                      "name": "BreaksIconWrap"
+                    },
+                    "props": {
+                      "alignItems": "center",
+                      "direction": "column",
+                      "justify": "center",
+                      "style": {
+                        "backgroundColor": "rgba(245,166,35,0.12)",
+                        "borderRadius": "8px",
+                        "height": "38px",
+                        "minWidth": "38px",
+                        "width": "38px"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  },
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "BreaksLabel"
+                        },
+                        "props": {
+                          "style": {
+                            "fontSize": "18px",
+                            "fontWeight": "600",
+                            "letterSpacing": "0.5px"
+                          },
+                          "text": "BREAKS"
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "meta": {
+                          "name": "BreaksValue"
+                        },
+                        "propConfig": {
+                          "props.text": {
+                            "binding": {
+                              "config": {
+                                "path": "view.custom.operatordetails[0].BREAKS"
+                              },
+                              "type": "property"
+                            }
+                          }
+                        },
+                        "props": {
+                          "style": {
+                            "color": "--warning",
+                            "fontSize": "25px",
+                            "fontWeight": "700"
+                          }
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "meta": {
+                          "name": "BreaksSub"
+                        },
+                        "props": {
+                          "style": {
+                            "fontSize": "15px"
+                          },
+                          "text": "Planned rest"
+                        },
+                        "type": "ia.display.label"
+                      }
+                    ],
+                    "meta": {
+                      "name": "BreaksText"
+                    },
+                    "props": {
+                      "direction": "column",
+                      "style": {
+                        "gap": "2px"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  }
+                ],
+                "meta": {
+                  "layoutConstraints": {
+                    "grow": 1
+                  },
+                  "name": "BreaksCard"
+                },
+                "position": {
+                  "basis": "200px",
+                  "grow": 1
+                },
+                "props": {
+                  "alignItems": "center",
+                  "style": {
+                    "backgroundColor": "--neutral-10",
+                    "borderBottomColor": "rgba(255,255,255,0.07)",
+                    "borderBottomStyle": "solid",
+                    "borderBottomWidth": "1px",
+                    "borderLeftColor": "rgba(255,255,255,0.07)",
+                    "borderLeftStyle": "solid",
+                    "borderLeftWidth": "1px",
+                    "borderRadius": "10px",
+                    "borderRightColor": "rgba(255,255,255,0.07)",
+                    "borderRightStyle": "solid",
+                    "borderRightWidth": "1px",
+                    "borderTopColor": "--warning",
+                    "borderTopStyle": "solid",
+                    "borderTopWidth": "2px",
+                    "gap": "12px",
+                    "margin-top": "10px",
+                    "padding": "14px 16px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "UnplannedIconLabel"
+                        },
+                        "props": {
+                          "style": {
+                            "color": "#f05252",
+                            "fontSize": "18px",
+                            "textAlign": "center"
+                          },
+                          "text": "⚠"
+                        },
+                        "type": "ia.display.label"
+                      }
+                    ],
+                    "meta": {
+                      "name": "UnplannedIconWrap"
+                    },
+                    "props": {
+                      "alignItems": "center",
+                      "direction": "column",
+                      "justify": "center",
+                      "style": {
+                        "backgroundColor": "rgba(240,82,82,0.12)",
+                        "borderRadius": "8px",
+                        "height": "38px",
+                        "minWidth": "38px",
+                        "width": "38px"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  },
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "UnplannedLabel"
+                        },
+                        "props": {
+                          "style": {
+                            "fontSize": "18px",
+                            "fontWeight": "600",
+                            "letterSpacing": "0.5px"
+                          },
+                          "text": "UNPLANNED DOWNTIME"
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "meta": {
+                          "name": "UnplannedValue"
+                        },
+                        "propConfig": {
+                          "props.text": {
+                            "binding": {
+                              "config": {
+                                "path": "view.custom.operatordetails[0][\u0027UNPLANNED DOWNTIME\u0027]"
+                              },
+                              "type": "property"
+                            }
+                          }
+                        },
+                        "props": {
+                          "style": {
+                            "color": "--error",
+                            "fontSize": "25px",
+                            "fontWeight": "700"
+                          }
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "meta": {
+                          "name": "UnplannedSub"
+                        },
+                        "props": {
+                          "style": {
+                            "color": "--error",
+                            "fontSize": "15px"
+                          },
+                          "text": "Needs attention"
+                        },
+                        "type": "ia.display.label"
+                      }
+                    ],
+                    "meta": {
+                      "name": "UnplannedText"
+                    },
+                    "props": {
+                      "direction": "column",
+                      "style": {
+                        "gap": "2px"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  }
+                ],
+                "meta": {
+                  "layoutConstraints": {
+                    "grow": 1
+                  },
+                  "name": "UnplannedDowntimeCard"
+                },
+                "position": {
+                  "basis": "200px",
+                  "grow": 1
+                },
+                "props": {
+                  "alignItems": "center",
+                  "style": {
+                    "backgroundColor": "--neutral-10",
+                    "borderBottomColor": "rgba(255,255,255,0.07)",
+                    "borderBottomStyle": "solid",
+                    "borderBottomWidth": "1px",
+                    "borderLeftColor": "rgba(255,255,255,0.07)",
+                    "borderLeftStyle": "solid",
+                    "borderLeftWidth": "1px",
+                    "borderRadius": "10px",
+                    "borderRightColor": "rgba(255,255,255,0.07)",
+                    "borderRightStyle": "solid",
+                    "borderRightWidth": "1px",
+                    "borderTopColor": "--error",
+                    "borderTopStyle": "solid",
+                    "borderTopWidth": "2px",
+                    "gap": "12px",
+                    "margin-top": "10px",
+                    "padding": "14px 16px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "OperatingIconLabel"
+                        },
+                        "props": {
+                          "style": {
+                            "color": "--div-12",
+                            "fontSize": "16px",
+                            "textAlign": "center"
+                          },
+                          "text": "▶"
+                        },
+                        "type": "ia.display.label"
+                      }
+                    ],
+                    "meta": {
+                      "name": "OperatingIconWrap"
+                    },
+                    "props": {
+                      "alignItems": "center",
+                      "direction": "column",
+                      "justify": "center",
+                      "style": {
+                        "backgroundColor": "rgba(41,217,194,0.1)",
+                        "borderRadius": "8px",
+                        "height": "38px",
+                        "minWidth": "38px",
+                        "width": "38px"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  },
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "UnplannedLabel"
+                        },
+                        "props": {
+                          "style": {
+                            "fontSize": "18px",
+                            "fontWeight": "600",
+                            "letterSpacing": "0.5px"
+                          },
+                          "text": "OPERATING TIME"
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "meta": {
+                          "name": "UnplannedValue"
+                        },
+                        "propConfig": {
+                          "props.text": {
+                            "binding": {
+                              "config": {
+                                "path": "view.custom.operatordetails[0][\u0027Operating Time\u0027]"
+                              },
+                              "type": "property"
+                            }
+                          }
+                        },
+                        "props": {
+                          "style": {
+                            "color": "--div-12",
+                            "fontSize": "25px",
+                            "fontWeight": "700"
+                          }
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "meta": {
+                          "name": "UnplannedSub"
+                        },
+                        "props": {
+                          "style": {
+                            "fontSize": "15px"
+                          },
+                          "text": "Total operated time"
+                        },
+                        "type": "ia.display.label"
+                      }
+                    ],
+                    "meta": {
+                      "name": "UnplannedText"
+                    },
+                    "props": {
+                      "direction": "column",
+                      "style": {
+                        "gap": "2px"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  }
+                ],
+                "meta": {
+                  "layoutConstraints": {
+                    "grow": 1
+                  },
+                  "name": "UnplannedDowntimeCard_0"
+                },
+                "position": {
+                  "basis": "200px",
+                  "grow": 1
+                },
+                "props": {
+                  "alignItems": "center",
+                  "style": {
+                    "backgroundColor": "--neutral-10",
+                    "borderBottomColor": "rgba(255,255,255,0.07)",
+                    "borderBottomStyle": "solid",
+                    "borderBottomWidth": "1px",
+                    "borderLeftColor": "rgba(255,255,255,0.07)",
+                    "borderLeftStyle": "solid",
+                    "borderLeftWidth": "1px",
+                    "borderRadius": "10px",
+                    "borderRightColor": "rgba(255,255,255,0.07)",
+                    "borderRightStyle": "solid",
+                    "borderRightWidth": "1px",
+                    "borderTopColor": "--div-12",
+                    "borderTopStyle": "solid",
+                    "borderTopWidth": "2px",
+                    "gap": "12px",
+                    "margin-top": "10px",
+                    "padding": "14px 16px"
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "TimeCardsRow"
+            },
+            "position": {
+              "basis": "153px"
+            },
+            "props": {
+              "justify": "space-between",
+              "style": {
+                "gap": "12px",
+                "margin-left": "15px",
+                "margin-right": "15px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "CoilsStartedLabel"
+                    },
+                    "props": {
+                      "style": {
+                        "fontSize": "18px",
+                        "fontWeight": "600",
+                        "letterSpacing": "0.5px"
+                      },
+                      "text": "COILS STARTED"
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "CoilsStartedValue"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.operatordetails[0][\u0027Coils Started\u0027]"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "color": "--callToAction",
+                        "fontSize": "35px",
+                        "fontWeight": "700",
+                        "lineHeight": "1"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "CoilsStartedSub"
+                    },
+                    "props": {
+                      "style": {
+                        "fontSize": "15px"
+                      },
+                      "text": "This shift"
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "layoutConstraints": {
+                    "basis": "22%",
+                    "grow": 1
+                  },
+                  "name": "CoilsStartedCard"
+                },
+                "position": {
+                  "basis": "200px",
+                  "grow": 1
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "backgroundColor": "--neutral-10",
+                    "borderBottomColor": "rgba(255,255,255,0.07)",
+                    "borderBottomStyle": "solid",
+                    "borderBottomWidth": "1px",
+                    "borderLeftColor": "rgba(255,255,255,0.07)",
+                    "borderLeftStyle": "solid",
+                    "borderLeftWidth": "1px",
+                    "borderRadius": "10px",
+                    "borderRightColor": "rgba(255,255,255,0.07)",
+                    "borderRightStyle": "solid",
+                    "borderRightWidth": "1px",
+                    "borderTopColor": "--callToAction",
+                    "borderTopStyle": "solid",
+                    "borderTopWidth": "2px",
+                    "gap": "4px",
+                    "margin": "0px",
+                    "padding": "14px 16px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "CoilsCompletedLabel"
+                    },
+                    "props": {
+                      "style": {
+                        "fontSize": "18px",
+                        "fontWeight": "600",
+                        "letterSpacing": "0.5px"
+                      },
+                      "text": "COILS COMPLETED"
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "CoilsCompletedValue"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.operatordetails[0][\u0027Coils Completed\u0027]"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "color": "--success",
+                        "fontSize": "35px",
+                        "fontWeight": "700",
+                        "lineHeight": "1"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "CoilsCompletedSub"
+                    },
+                    "props": {
+                      "style": {
+                        "fontSize": "15px"
+                      },
+                      "text": "100% completion"
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "layoutConstraints": {
+                    "basis": "22%",
+                    "grow": 1
+                  },
+                  "name": "CoilsCompletedCard"
+                },
+                "position": {
+                  "basis": "200px",
+                  "grow": 1
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "backgroundColor": "--neutral-10",
+                    "borderBottomColor": "rgba(255,255,255,0.07)",
+                    "borderBottomStyle": "solid",
+                    "borderBottomWidth": "1px",
+                    "borderLeftColor": "rgba(255,255,255,0.07)",
+                    "borderLeftStyle": "solid",
+                    "borderLeftWidth": "1px",
+                    "borderRadius": "10px",
+                    "borderRightColor": "rgba(255,255,255,0.07)",
+                    "borderRightStyle": "solid",
+                    "borderRightWidth": "1px",
+                    "borderTopColor": "--success",
+                    "borderTopStyle": "solid",
+                    "borderTopWidth": "2px",
+                    "gap": "4px",
+                    "margin": "0px",
+                    "padding": "14px 16px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "CoilsInProgressLabel"
+                    },
+                    "props": {
+                      "style": {
+                        "fontSize": "18px",
+                        "fontWeight": "600",
+                        "letterSpacing": "0.5px"
+                      },
+                      "text": "COILS IN PROGRESS"
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "CoilsInProgressValue"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.operatordetails[0][\u0027Coils Inprogress\u0027]"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "color": "--warning",
+                        "fontSize": "35px",
+                        "fontWeight": "700",
+                        "lineHeight": "1"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "CoilsInProgressSub"
+                    },
+                    "props": {
+                      "style": {
+                        "fontSize": "15px"
+                      },
+                      "text": "Active now"
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "layoutConstraints": {
+                    "basis": "22%",
+                    "grow": 1
+                  },
+                  "name": "CoilsInProgressCard"
+                },
+                "position": {
+                  "basis": "200px",
+                  "grow": 1
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "backgroundColor": "--neutral-10",
+                    "borderBottomColor": "rgba(255,255,255,0.07)",
+                    "borderBottomStyle": "solid",
+                    "borderBottomWidth": "1px",
+                    "borderLeftColor": "rgba(255,255,255,0.07)",
+                    "borderLeftStyle": "solid",
+                    "borderLeftWidth": "1px",
+                    "borderRadius": "10px",
+                    "borderRightColor": "rgba(255,255,255,0.07)",
+                    "borderRightStyle": "solid",
+                    "borderRightWidth": "1px",
+                    "borderTopColor": "--warning",
+                    "borderTopStyle": "solid",
+                    "borderTopWidth": "2px",
+                    "gap": "4px",
+                    "margin": "0px",
+                    "padding": "14px 16px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "DowntimeEntriesLabel"
+                    },
+                    "props": {
+                      "style": {
+                        "fontSize": "18px",
+                        "fontWeight": "600",
+                        "letterSpacing": "0.5px"
+                      },
+                      "text": "DOWNTIME ENTRIES"
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "DowntimeEntriesValue"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.operatordetails[0][\u0027No of Downtime Entries\u0027]"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "color": "--error",
+                        "fontSize": "35px",
+                        "fontWeight": "700",
+                        "lineHeight": "1"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "DowntimeEntriesSub"
+                    },
+                    "props": {
+                      "style": {
+                        "fontSize": "15px"
+                      },
+                      "text": "Logged events"
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "layoutConstraints": {
+                    "basis": "22%",
+                    "grow": 1
+                  },
+                  "name": "DowntimeEntriesCard"
+                },
+                "position": {
+                  "basis": "200px",
+                  "grow": 1
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "backgroundColor": "--neutral-10",
+                    "borderBottomColor": "rgba(255,255,255,0.07)",
+                    "borderBottomStyle": "solid",
+                    "borderBottomWidth": "1px",
+                    "borderLeftColor": "rgba(255,255,255,0.07)",
+                    "borderLeftStyle": "solid",
+                    "borderLeftWidth": "1px",
+                    "borderRadius": "10px",
+                    "borderRightColor": "rgba(255,255,255,0.07)",
+                    "borderRightStyle": "solid",
+                    "borderRightWidth": "1px",
+                    "borderTopColor": "--error",
+                    "borderTopStyle": "solid",
+                    "borderTopWidth": "2px",
+                    "gap": "4px",
+                    "margin": "0px",
+                    "padding": "14px 16px"
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "MetricsGrid"
+            },
+            "position": {
+              "basis": "153px"
+            },
+            "props": {
+              "justify": "space-between",
+              "style": {
+                "gap": "12px",
+                "margin": "15px"
+              },
+              "wrap": true
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "PerfSectionLabel"
+                        },
+                        "props": {
+                          "style": {
+                            "fontSize": "18px",
+                            "fontWeight": "700",
+                            "letterSpacing": "0px"
+                          },
+                          "text": "AVAILABILITY"
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "meta": {
+                          "name": "PerfValue"
+                        },
+                        "position": {
+                          "grow": 1
+                        },
+                        "propConfig": {
+                          "props.style.color": {
+                            "binding": {
+                              "config": {
+                                "path": "view.custom.operatordetails[0].Availability"
+                              },
+                              "transforms": [
+                                {
+                                  "fallback": "--error",
+                                  "inputType": "range",
+                                  "mappings": [
+                                    {
+                                      "input": {
+                                        "max": 35,
+                                        "min": 0
+                                      },
+                                      "output": "--error"
+                                    },
+                                    {
+                                      "input": {
+                                        "max": 74,
+                                        "min": 36
+                                      },
+                                      "output": "--warning"
+                                    },
+                                    {
+                                      "input": {
+                                        "max": 100,
+                                        "min": 75
+                                      },
+                                      "output": "--success"
+                                    }
+                                  ],
+                                  "outputType": "scalar",
+                                  "type": "map"
+                                }
+                              ],
+                              "type": "property"
+                            }
+                          },
+                          "props.text": {
+                            "binding": {
+                              "config": {
+                                "expression": "{view.custom.operatordetails[0].Availability} + \u0027%\u0027"
+                              },
+                              "type": "expr"
+                            }
+                          }
+                        },
+                        "props": {
+                          "style": {
+                            "fontSize": "40px",
+                            "fontWeight": "700",
+                            "lineHeight": "1"
+                          }
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "meta": {
+                          "name": "PerfSubLabel"
+                        },
+                        "position": {
+                          "grow": 1
+                        },
+                        "props": {
+                          "style": {
+                            "fontSize": "15px"
+                          },
+                          "text": "operator Avilability at Machine"
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "children": [
+                          {
+                            "meta": {
+                              "name": "PerfBarFill"
+                            },
+                            "propConfig": {
+                              "props.style.backgroundColor": {
+                                "binding": {
+                                  "config": {
+                                    "path": "view.custom.operatordetails[0].Availability"
+                                  },
+                                  "transforms": [
+                                    {
+                                      "fallback": "--error",
+                                      "inputType": "range",
+                                      "mappings": [
+                                        {
+                                          "input": {
+                                            "max": 35,
+                                            "min": 0
+                                          },
+                                          "output": "--error"
+                                        },
+                                        {
+                                          "input": {
+                                            "max": 74,
+                                            "min": 36
+                                          },
+                                          "output": "--warning"
+                                        },
+                                        {
+                                          "input": {
+                                            "max": 100,
+                                            "min": 75
+                                          },
+                                          "output": "--success"
+                                        }
+                                      ],
+                                      "outputType": "scalar",
+                                      "type": "map"
+                                    }
+                                  ],
+                                  "type": "property"
+                                }
+                              }
+                            },
+                            "props": {
+                              "style": {
+                                "borderRadius": "2px",
+                                "height": "4px",
+                                "width": "100%"
+                              }
+                            },
+                            "type": "ia.display.label"
+                          }
+                        ],
+                        "meta": {
+                          "name": "PerfBarTrack"
+                        },
+                        "position": {
+                          "grow": 1
+                        },
+                        "props": {
+                          "style": {
+                            "borderRadius": "2px",
+                            "height": "4px",
+                            "marginTop": "6px",
+                            "maxWidth": "200px",
+                            "overflow": "hidden"
+                          }
+                        },
+                        "type": "ia.container.flex"
+                      }
+                    ],
+                    "meta": {
+                      "layoutConstraints": {
+                        "grow": 1
+                      },
+                      "name": "PerfInfo"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "props": {
+                      "direction": "column",
+                      "style": {
+                        "gap": "4px",
+                        "padding": "16px 20px"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  },
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "SimpleGauge"
+                        },
+                        "position": {
+                          "grow": 1
+                        },
+                        "propConfig": {
+                          "props.value": {
+                            "binding": {
+                              "config": {
+                                "path": "view.custom.operatordetails[0].Availability"
+                              },
+                              "type": "property"
+                            }
+                          }
+                        },
+                        "props": {
+                          "arc": {
+                            "color": "#3485B1",
+                            "width": 15
+                          },
+                          "endAngle": 495,
+                          "label": {
+                            "color": "",
+                            "offsetX": -5,
+                            "offsetY": 16,
+                            "size": 35
+                          },
+                          "startAngle": 135,
+                          "style": {
+                            "overflow": "hidden"
+                          }
+                        },
+                        "type": "ia.chart.simple-gauge"
+                      }
+                    ],
+                    "meta": {
+                      "name": "PerfRingContainer"
+                    },
+                    "props": {
+                      "alignItems": "center",
+                      "direction": "column",
+                      "justify": "center",
+                      "style": {
+                        "borderRadius": "0%",
+                        "borderStyle": "none",
+                        "borderWidth": "10px",
+                        "gap": "2px"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  }
+                ],
+                "meta": {
+                  "layoutConstraints": {
+                    "grow": 1
+                  },
+                  "name": "PerformanceCard_1"
+                },
+                "position": {
+                  "basis": "400px",
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.style.borderTopColor": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.operatordetails[0].Availability"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "--error",
+                          "inputType": "range",
+                          "mappings": [
+                            {
+                              "input": {
+                                "max": 35,
+                                "min": 0
+                              },
+                              "output": "--error"
+                            },
+                            {
+                              "input": {
+                                "max": 74,
+                                "min": 36
+                              },
+                              "output": "--warning"
+                            },
+                            {
+                              "input": {
+                                "max": 100,
+                                "min": 75
+                              },
+                              "output": "--success"
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "backgroundColor": "--neutral-10",
+                    "borderBottomColor": "rgba(255,255,255,0.07)",
+                    "borderBottomStyle": "solid",
+                    "borderBottomWidth": "1px",
+                    "borderLeftColor": "rgba(255,255,255,0.07)",
+                    "borderLeftStyle": "solid",
+                    "borderLeftWidth": "1px",
+                    "borderRadius": "10px",
+                    "borderRightColor": "rgba(255,255,255,0.07)",
+                    "borderRightStyle": "solid",
+                    "borderRightWidth": "1px",
+                    "borderTopStyle": "none",
+                    "borderTopWidth": "2px",
+                    "gap": "16px",
+                    "margin-bottom": "10px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "PerfSectionLabel"
+                        },
+                        "props": {
+                          "style": {
+                            "fontSize": "18px",
+                            "fontWeight": "700",
+                            "letterSpacing": "0px"
+                          },
+                          "text": "PERFORMANCE"
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "meta": {
+                          "name": "PerfValue"
+                        },
+                        "position": {
+                          "grow": 1
+                        },
+                        "propConfig": {
+                          "props.style.color": {
+                            "binding": {
+                              "config": {
+                                "path": "view.params.performance"
+                              },
+                              "transforms": [
+                                {
+                                  "fallback": "--error",
+                                  "inputType": "range",
+                                  "mappings": [
+                                    {
+                                      "input": {
+                                        "max": 35,
+                                        "min": 0
+                                      },
+                                      "output": "--error"
+                                    },
+                                    {
+                                      "input": {
+                                        "max": 74,
+                                        "min": 36
+                                      },
+                                      "output": "--warning"
+                                    },
+                                    {
+                                      "input": {
+                                        "max": 100,
+                                        "min": 75
+                                      },
+                                      "output": "--success"
+                                    }
+                                  ],
+                                  "outputType": "scalar",
+                                  "type": "map"
+                                }
+                              ],
+                              "type": "property"
+                            }
+                          },
+                          "props.text": {
+                            "binding": {
+                              "config": {
+                                "expression": "{view.params.performance} + \u0027%\u0027"
+                              },
+                              "type": "expr"
+                            }
+                          }
+                        },
+                        "props": {
+                          "style": {
+                            "fontSize": "40px",
+                            "fontWeight": "700",
+                            "lineHeight": "1"
+                          }
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "meta": {
+                          "name": "PerfSubLabel"
+                        },
+                        "position": {
+                          "grow": 1
+                        },
+                        "props": {
+                          "style": {
+                            "fontSize": "15px"
+                          },
+                          "text": "Operator Performance based on Production"
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "children": [
+                          {
+                            "meta": {
+                              "name": "PerfBarFill"
+                            },
+                            "propConfig": {
+                              "props.style.backgroundColor": {
+                                "binding": {
+                                  "config": {
+                                    "path": "view.params.performance"
+                                  },
+                                  "transforms": [
+                                    {
+                                      "fallback": "--error",
+                                      "inputType": "range",
+                                      "mappings": [
+                                        {
+                                          "input": {
+                                            "max": 35,
+                                            "min": 0
+                                          },
+                                          "output": "--error"
+                                        },
+                                        {
+                                          "input": {
+                                            "max": 74,
+                                            "min": 36
+                                          },
+                                          "output": "--warning"
+                                        },
+                                        {
+                                          "input": {
+                                            "max": 100,
+                                            "min": 75
+                                          },
+                                          "output": "--success"
+                                        }
+                                      ],
+                                      "outputType": "scalar",
+                                      "type": "map"
+                                    }
+                                  ],
+                                  "type": "property"
+                                }
+                              }
+                            },
+                            "props": {
+                              "style": {
+                                "borderRadius": "2px",
+                                "height": "4px",
+                                "width": "100%"
+                              }
+                            },
+                            "type": "ia.display.label"
+                          }
+                        ],
+                        "meta": {
+                          "name": "PerfBarTrack"
+                        },
+                        "position": {
+                          "grow": 1
+                        },
+                        "props": {
+                          "style": {
+                            "borderRadius": "2px",
+                            "height": "4px",
+                            "marginTop": "6px",
+                            "maxWidth": "200px",
+                            "overflow": "hidden"
+                          }
+                        },
+                        "type": "ia.container.flex"
+                      }
+                    ],
+                    "meta": {
+                      "layoutConstraints": {
+                        "grow": 1
+                      },
+                      "name": "PerfInfo"
+                    },
+                    "position": {
+                      "basis": "200px",
+                      "grow": 1
+                    },
+                    "props": {
+                      "direction": "column",
+                      "style": {
+                        "gap": "4px",
+                        "padding": "16px 20px"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  },
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "SimpleGauge"
+                        },
+                        "position": {
+                          "grow": 1
+                        },
+                        "propConfig": {
+                          "props.value": {
+                            "binding": {
+                              "config": {
+                                "path": "view.params.performance"
+                              },
+                              "type": "property"
+                            }
+                          }
+                        },
+                        "props": {
+                          "arc": {
+                            "color": "#3485B1",
+                            "width": 15
+                          },
+                          "endAngle": 495,
+                          "label": {
+                            "color": "",
+                            "offsetX": -5,
+                            "offsetY": 16,
+                            "size": 35
+                          },
+                          "startAngle": 135,
+                          "style": {
+                            "overflow": "hidden"
+                          }
+                        },
+                        "type": "ia.chart.simple-gauge"
+                      }
+                    ],
+                    "meta": {
+                      "name": "PerfRingContainer"
+                    },
+                    "props": {
+                      "alignItems": "center",
+                      "direction": "column",
+                      "justify": "center",
+                      "style": {
+                        "borderRadius": "0%",
+                        "borderStyle": "none",
+                        "borderWidth": "10px",
+                        "gap": "2px"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  }
+                ],
+                "meta": {
+                  "layoutConstraints": {
+                    "grow": 1
+                  },
+                  "name": "PerformanceCard_2"
+                },
+                "position": {
+                  "basis": "400px",
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.style.borderTopColor": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.performance"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "--error",
+                          "inputType": "range",
+                          "mappings": [
+                            {
+                              "input": {
+                                "max": 35,
+                                "min": 0
+                              },
+                              "output": "--error"
+                            },
+                            {
+                              "input": {
+                                "max": 74,
+                                "min": 36
+                              },
+                              "output": "--warning"
+                            },
+                            {
+                              "input": {
+                                "max": 100,
+                                "min": 75
+                              },
+                              "output": "--success"
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "backgroundColor": "--neutral-10",
+                    "borderBottomColor": "rgba(255,255,255,0.07)",
+                    "borderBottomStyle": "solid",
+                    "borderBottomWidth": "1px",
+                    "borderLeftColor": "rgba(255,255,255,0.07)",
+                    "borderLeftStyle": "solid",
+                    "borderLeftWidth": "1px",
+                    "borderRadius": "10px",
+                    "borderRightColor": "rgba(255,255,255,0.07)",
+                    "borderRightStyle": "solid",
+                    "borderRightWidth": "1px",
+                    "borderTopStyle": "none",
+                    "borderTopWidth": "2px",
+                    "gap": "16px",
+                    "margin-bottom": "10px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "PerfSectionLabel"
+                        },
+                        "props": {
+                          "style": {
+                            "fontSize": "18px",
+                            "fontWeight": "700",
+                            "letterSpacing": "0px"
+                          },
+                          "text": "QUALITY"
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "meta": {
+                          "name": "PerfValue"
+                        },
+                        "position": {
+                          "grow": 1
+                        },
+                        "propConfig": {
+                          "props.style.color": {
+                            "binding": {
+                              "config": {
+                                "path": ".../PerfRingContainer/SimpleGauge.props.value"
+                              },
+                              "transforms": [
+                                {
+                                  "fallback": "--error",
+                                  "inputType": "range",
+                                  "mappings": [
+                                    {
+                                      "input": {
+                                        "max": 35,
+                                        "min": 0
+                                      },
+                                      "output": "--error"
+                                    },
+                                    {
+                                      "input": {
+                                        "max": 74,
+                                        "min": 36
+                                      },
+                                      "output": "--warning"
+                                    },
+                                    {
+                                      "input": {
+                                        "max": 100,
+                                        "min": 75
+                                      },
+                                      "output": "--success"
+                                    }
+                                  ],
+                                  "outputType": "scalar",
+                                  "type": "map"
+                                }
+                              ],
+                              "type": "property"
+                            }
+                          }
+                        },
+                        "props": {
+                          "style": {
+                            "fontSize": "40px",
+                            "fontWeight": "700",
+                            "lineHeight": "1"
+                          },
+                          "text": "100%"
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "meta": {
+                          "name": "PerfSubLabel"
+                        },
+                        "position": {
+                          "grow": 1
+                        },
+                        "props": {
+                          "style": {
+                            "fontSize": "13px"
+                          },
+                          "text": "Quality is always 100%"
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "children": [
+                          {
+                            "meta": {
+                              "name": "PerfBarFill"
+                            },
+                            "propConfig": {
+                              "props.style.backgroundColor": {
+                                "binding": {
+                                  "config": {
+                                    "path": "..../PerfRingContainer/SimpleGauge.props.value"
+                                  },
+                                  "transforms": [
+                                    {
+                                      "fallback": "--error",
+                                      "inputType": "range",
+                                      "mappings": [
+                                        {
+                                          "input": {
+                                            "max": 35,
+                                            "min": 0
+                                          },
+                                          "output": "--error"
+                                        },
+                                        {
+                                          "input": {
+                                            "max": 74,
+                                            "min": 36
+                                          },
+                                          "output": "--warning"
+                                        },
+                                        {
+                                          "input": {
+                                            "max": 100,
+                                            "min": 75
+                                          },
+                                          "output": "--success"
+                                        }
+                                      ],
+                                      "outputType": "scalar",
+                                      "type": "map"
+                                    }
+                                  ],
+                                  "type": "property"
+                                }
+                              }
+                            },
+                            "props": {
+                              "style": {
+                                "borderRadius": "2px",
+                                "height": "4px",
+                                "width": "100%"
+                              }
+                            },
+                            "type": "ia.display.label"
+                          }
+                        ],
+                        "meta": {
+                          "name": "PerfBarTrack"
+                        },
+                        "position": {
+                          "grow": 1
+                        },
+                        "props": {
+                          "style": {
+                            "borderRadius": "2px",
+                            "height": "4px",
+                            "marginTop": "6px",
+                            "maxWidth": "200px",
+                            "overflow": "hidden"
+                          }
+                        },
+                        "type": "ia.container.flex"
+                      }
+                    ],
+                    "meta": {
+                      "layoutConstraints": {
+                        "grow": 1
+                      },
+                      "name": "PerfInfo"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "props": {
+                      "direction": "column",
+                      "style": {
+                        "gap": "4px",
+                        "padding": "16px 20px"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  },
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "SimpleGauge"
+                        },
+                        "position": {
+                          "grow": 1
+                        },
+                        "propConfig": {
+                          "props.value": {
+                            "binding": {
+                              "config": {
+                                "expression": "100"
+                              },
+                              "type": "expr"
+                            }
+                          }
+                        },
+                        "props": {
+                          "arc": {
+                            "color": "#3485B1",
+                            "width": 15
+                          },
+                          "endAngle": 495,
+                          "label": {
+                            "color": "",
+                            "offsetX": -5,
+                            "offsetY": 16,
+                            "size": 35
+                          },
+                          "startAngle": 135,
+                          "style": {
+                            "overflow": "hidden"
+                          }
+                        },
+                        "type": "ia.chart.simple-gauge"
+                      }
+                    ],
+                    "meta": {
+                      "name": "PerfRingContainer"
+                    },
+                    "props": {
+                      "alignItems": "center",
+                      "direction": "column",
+                      "justify": "center",
+                      "style": {
+                        "borderRadius": "0%",
+                        "borderStyle": "none",
+                        "borderWidth": "10px",
+                        "gap": "2px"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  }
+                ],
+                "meta": {
+                  "layoutConstraints": {
+                    "grow": 1
+                  },
+                  "name": "PerformanceCard_3"
+                },
+                "position": {
+                  "basis": "400px",
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.style.borderTopColor": {
+                    "binding": {
+                      "config": {
+                        "path": "./PerfRingContainer/SimpleGauge.props.value"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "--error",
+                          "inputType": "range",
+                          "mappings": [
+                            {
+                              "input": {
+                                "max": 35,
+                                "min": 0
+                              },
+                              "output": "--error"
+                            },
+                            {
+                              "input": {
+                                "max": 74,
+                                "min": 36
+                              },
+                              "output": "--warning"
+                            },
+                            {
+                              "input": {
+                                "max": 100,
+                                "min": 75
+                              },
+                              "output": "--success"
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "backgroundColor": "--neutral-10",
+                    "borderBottomColor": "rgba(255,255,255,0.07)",
+                    "borderBottomStyle": "solid",
+                    "borderBottomWidth": "1px",
+                    "borderLeftColor": "rgba(255,255,255,0.07)",
+                    "borderLeftStyle": "solid",
+                    "borderLeftWidth": "1px",
+                    "borderRadius": "10px",
+                    "borderRightColor": "rgba(255,255,255,0.07)",
+                    "borderRightStyle": "solid",
+                    "borderRightWidth": "1px",
+                    "borderTopStyle": "none",
+                    "borderTopWidth": "2px",
+                    "gap": "16px",
+                    "margin-bottom": "10px"
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "PerformanceRingsRow"
+            },
+            "position": {
+              "basis": "129px",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "gap": "12px",
+                "margin-left": "15px",
+                "margin-right": "15px"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_0"
+        },
+        "position": {
+          "basis": "200px",
+          "grow": 1
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "backgroundColor": "--neutral-30",
+            "borderBottomLeftRadius": "10px",
+            "borderBottomRightRadius": "10px",
+            "borderLeftColor": "--warningSecondary",
+            "borderLeftStyle": "solid",
+            "borderLeftWidth": "5px",
+            "borderTopLeftRadius": "10px",
+            "borderTopRightRadius": "10px",
+            "marginBottom": "15px",
+            "marginTop": "15px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tuser \u003d self.view.params.username\n\tday \u003d self.view.custom.day\n\tsystem.perspective.navigate(view \u003d \u0027Project/Supervisor/Operator Overview/Operator overview Page\u0027)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "BackButton"
+            },
+            "props": {
+              "style": {
+                "backgroundColor": "--neutral-20",
+                "borderColor": "rgba(255,255,255,0.12)",
+                "borderRadius": "8px",
+                "borderStyle": "inset",
+                "borderWidth": "1px",
+                "color": "--neutral-90",
+                "cursor": "pointer",
+                "fontFamily": "\u0027Segoe UI\u0027, sans-serif",
+                "fontSize": "18px",
+                "fontWeight": "600",
+                "padding": "9px 20px"
+              },
+              "text": "← Back"
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "ExportReportButton"
+                },
+                "position": {
+                  "display": false
+                },
+                "props": {
+                  "style": {
+                    "backgroundColor": "transparent",
+                    "borderColor": "rgba(255,255,255,0.12)",
+                    "borderRadius": "8px",
+                    "borderStyle": "solid",
+                    "borderWidth": "1px",
+                    "color": "#9ba3b8",
+                    "cursor": "pointer",
+                    "fontFamily": "\u0027Segoe UI\u0027, sans-serif",
+                    "fontSize": "13px",
+                    "fontWeight": "600",
+                    "padding": "9px 20px"
+                  },
+                  "text": "↓ Export Report"
+                },
+                "type": "ia.input.button"
+              },
+              {
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\tuser \u003d self.view.params.username\n\tday \u003d self.view.custom.day\n\tsystem.perspective.print(\"day: \" + str(day))\n\tsystem.perspective.print(\"user: \" +self.view.params.user)\n\tsystem.perspective.print(\"userName: \" +self.view.params.username)\n\tsystem.perspective.navigate(view \u003d \u0027Project/Supervisor/Operator Overview/operator_reason_all\u0027, params \u003d {\"user\": user,\"userName\":self.view.params.user, \"day\": day})"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "ViewDowntimeReasonsButton"
+                },
+                "props": {
+                  "style": {
+                    "backgroundColor": "rgba(41,217,194,0.1)",
+                    "borderColor": "--div-16",
+                    "borderRadius": "8px",
+                    "borderStyle": "solid",
+                    "borderWidth": "1px",
+                    "color": "--success",
+                    "cursor": "pointer",
+                    "fontSize": "17px",
+                    "fontWeight": "600",
+                    "padding": "9px 20px"
+                  },
+                  "text": "View Downtime Reasons →"
+                },
+                "type": "ia.input.button"
+              }
+            ],
+            "meta": {
+              "name": "RightButtons"
+            },
+            "props": {
+              "style": {
+                "gap": "8px"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "BottomActionBar"
+        },
+        "props": {
+          "alignItems": "center",
+          "justify": "space-between",
+          "style": {
+            "backgroundColor": "--neutral-30",
+            "borderBottomLeftRadius": "10px",
+            "borderBottomRightRadius": "10px",
+            "borderTopColor": "rgba(255,255,255,0.07)",
+            "borderTopLeftRadius": "10px",
+            "borderTopRightRadius": "10px",
+            "borderTopStyle": "solid",
+            "borderTopWidth": "1px",
+            "flexShrink": "0",
+            "gap": "8px",
+            "padding": "14px 24px"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "margin-bottom": "20px",
+        "margin-left": "30px",
+        "margin-right": "30px",
+        "margin-top": "10px"
+      },
+      "wrap": "wrap"
+    },
+    "type": "ia.container.flex"
+  }
+}

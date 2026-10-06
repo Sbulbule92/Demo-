@@ -1,0 +1,74 @@
+{
+  "scope": "D",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [],
+  "attributes": {
+    "menuRoot": {
+      "children": [
+        {
+          "children": [
+            {
+              "script": "system.security.logout()",
+              "name": "Logout",
+              "description": "",
+              "iconPath": "Builtin/icons/16/id_card_delete.png",
+              "mnemonic": "L"
+            },
+            {
+              "script": "system.security.lockScreen()",
+              "name": "Lock Screen",
+              "description": "",
+              "iconPath": "Builtin/icons/16/monitor_lock.png",
+              "mnemonic": "S"
+            },
+            {
+              "script": "system.util.exit()",
+              "name": "Exit",
+              "description": "",
+              "iconPath": "Builtin/icons/16/exit.png",
+              "mnemonic": "E"
+            }
+          ],
+          "script": "",
+          "name": "Command",
+          "description": "",
+          "iconPath": "",
+          "mnemonic": "C"
+        },
+        {
+          "children": [
+            {
+              "script": "system.nav.swapTo(\"Herr Voss Scheduler\")",
+              "name": "Scheduler",
+              "description": "",
+              "iconPath": "",
+              "mnemonic": ""
+            },
+            {
+              "script": "system.nav.swapTo(\"Completed Jobs\")",
+              "name": "Completed Jobs",
+              "description": "",
+              "iconPath": "",
+              "mnemonic": ""
+            }
+          ],
+          "script": "",
+          "name": "Menu Item",
+          "iconPath": ""
+        }
+      ],
+      "script": "",
+      "name": "Menu Item",
+      "description": "",
+      "iconPath": "",
+      "mnemonic": ""
+    },
+    "lastModificationSignature": "5a75d351ec1fb5a55bda2602efc9b9e2151fa7ba9fbe4ca59db61af1e7adbcb5",
+    "lastModification": {
+      "actor": "Noah",
+      "timestamp": "2025-12-22T14:14:21Z"
+    }
+  }
+}

@@ -1,0 +1,1 @@
+UPDATE tbl_Shift SET IsActive=0 WHERE ShiftID=:ShiftID;

@@ -1,0 +1,19 @@
+{
+  "scope": "A",
+  "description": "//HPG0000004569.corp.hitachi-powergrids.com",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "config.json"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "admin",
+      "timestamp": "2025-10-21T15:51:48Z"
+    },
+    "uuid": "8029a624-c441-48dc-a89d-89c76638e77d",
+    "lastModificationSignature": "ca9abf792c272aba1b68fa03276f5677eb73eb301e394c125105698517c50c42",
+    "enabled": true
+  }
+}

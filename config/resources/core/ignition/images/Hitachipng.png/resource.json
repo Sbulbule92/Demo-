@@ -1,0 +1,21 @@
+{
+  "scope": "A",
+  "description": "",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Hitachipng.png"
+  ],
+  "attributes": {
+    "width": 115,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "Gannon",
+      "timestamp": "2026-05-29T13:14:32Z"
+    },
+    "size": 1631,
+    "lastModificationSignature": "3c8d4549547af2e19a7b289006bcce1b94429261e70190e830987be194a000e4",
+    "height": 27
+  }
+}

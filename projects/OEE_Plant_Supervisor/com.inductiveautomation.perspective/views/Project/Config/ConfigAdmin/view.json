@@ -1,0 +1,2689 @@
+{
+  "custom": {
+    "activeTab": 0,
+    "coatingData": [
+      {
+        "CoatingTypeID": 1,
+        "CoatingTypeName": "Enamel",
+        "IsActive": true,
+        "SortOrder": 1,
+        "_actions": {
+          "CoatingTypeID": 1,
+          "CoatingTypeName": "Enamel",
+          "IsActive": true,
+          "SortOrder": 1
+        }
+      },
+      {
+        "CoatingTypeID": 2,
+        "CoatingTypeName": "Polymer",
+        "IsActive": true,
+        "SortOrder": 2,
+        "_actions": {
+          "CoatingTypeID": 2,
+          "CoatingTypeName": "Polymer",
+          "IsActive": true,
+          "SortOrder": 2
+        }
+      }
+    ],
+    "downtimeData": [
+      {
+        "CategoryID": 1,
+        "Description": null,
+        "ReasonID": 1,
+        "ReasonName": "Full Change Over",
+        "_actions": {
+          "CategoryID": 1,
+          "Description": null,
+          "ReasonID": 1,
+          "ReasonName": "Full Change Over"
+        }
+      },
+      {
+        "CategoryID": 1,
+        "Description": null,
+        "ReasonID": 2,
+        "ReasonName": "Partial Change over",
+        "_actions": {
+          "CategoryID": 1,
+          "Description": null,
+          "ReasonID": 2,
+          "ReasonName": "Partial Change over"
+        }
+      },
+      {
+        "CategoryID": 1,
+        "Description": null,
+        "ReasonID": 3,
+        "ReasonName": "Computer",
+        "_actions": {
+          "CategoryID": 1,
+          "Description": null,
+          "ReasonID": 3,
+          "ReasonName": "Computer"
+        }
+      },
+      {
+        "CategoryID": 1,
+        "Description": null,
+        "ReasonID": 4,
+        "ReasonName": "Design Questions",
+        "_actions": {
+          "CategoryID": 1,
+          "Description": null,
+          "ReasonID": 4,
+          "ReasonName": "Design Questions"
+        }
+      },
+      {
+        "CategoryID": 1,
+        "Description": null,
+        "ReasonID": 5,
+        "ReasonName": "Program Function",
+        "_actions": {
+          "CategoryID": 1,
+          "Description": null,
+          "ReasonID": 5,
+          "ReasonName": "Program Function"
+        }
+      },
+      {
+        "CategoryID": 1,
+        "Description": null,
+        "ReasonID": 6,
+        "ReasonName": "Material Quality",
+        "_actions": {
+          "CategoryID": 1,
+          "Description": null,
+          "ReasonID": 6,
+          "ReasonName": "Material Quality"
+        }
+      },
+      {
+        "CategoryID": 1,
+        "Description": null,
+        "ReasonID": 7,
+        "ReasonName": "Waiting on Material",
+        "_actions": {
+          "CategoryID": 1,
+          "Description": null,
+          "ReasonID": 7,
+          "ReasonName": "Waiting on Material"
+        }
+      },
+      {
+        "CategoryID": 1,
+        "Description": null,
+        "ReasonID": 8,
+        "ReasonName": "Break",
+        "_actions": {
+          "CategoryID": 1,
+          "Description": null,
+          "ReasonID": 8,
+          "ReasonName": "Break"
+        }
+      },
+      {
+        "CategoryID": 1,
+        "Description": null,
+        "ReasonID": 9,
+        "ReasonName": "Lunch",
+        "_actions": {
+          "CategoryID": 1,
+          "Description": null,
+          "ReasonID": 9,
+          "ReasonName": "Lunch"
+        }
+      },
+      {
+        "CategoryID": 1,
+        "Description": null,
+        "ReasonID": 10,
+        "ReasonName": "Welder - Maintenance",
+        "_actions": {
+          "CategoryID": 1,
+          "Description": null,
+          "ReasonID": 10,
+          "ReasonName": "Welder - Maintenance"
+        }
+      },
+      {
+        "CategoryID": 1,
+        "Description": null,
+        "ReasonID": 11,
+        "ReasonName": "Sensor - Maintenance",
+        "_actions": {
+          "CategoryID": 1,
+          "Description": null,
+          "ReasonID": 11,
+          "ReasonName": "Sensor - Maintenance"
+        }
+      },
+      {
+        "CategoryID": 1,
+        "Description": null,
+        "ReasonID": 12,
+        "ReasonName": "Electrical - Maintenance",
+        "_actions": {
+          "CategoryID": 1,
+          "Description": null,
+          "ReasonID": 12,
+          "ReasonName": "Electrical - Maintenance"
+        }
+      },
+      {
+        "CategoryID": 1,
+        "Description": null,
+        "ReasonID": 13,
+        "ReasonName": "Mechanical - Maintenance",
+        "_actions": {
+          "CategoryID": 1,
+          "Description": null,
+          "ReasonID": 13,
+          "ReasonName": "Mechanical - Maintenance"
+        }
+      },
+      {
+        "CategoryID": 1,
+        "Description": null,
+        "ReasonID": 14,
+        "ReasonName": "Wire/Paper Tension",
+        "_actions": {
+          "CategoryID": 1,
+          "Description": null,
+          "ReasonID": 14,
+          "ReasonName": "Wire/Paper Tension"
+        }
+      },
+      {
+        "CategoryID": 1,
+        "Description": null,
+        "ReasonID": 15,
+        "ReasonName": "Other",
+        "_actions": {
+          "CategoryID": 1,
+          "Description": null,
+          "ReasonID": 15,
+          "ReasonName": "Other"
+        }
+      },
+      {
+        "CategoryID": 2,
+        "Description": null,
+        "ReasonID": 16,
+        "ReasonName": "System",
+        "_actions": {
+          "CategoryID": 2,
+          "Description": null,
+          "ReasonID": 16,
+          "ReasonName": "System"
+        }
+      },
+      {
+        "CategoryID": 2,
+        "Description": null,
+        "ReasonID": 17,
+        "ReasonName": "Extended Lunch break",
+        "_actions": {
+          "CategoryID": 2,
+          "Description": null,
+          "ReasonID": 17,
+          "ReasonName": "Extended Lunch break"
+        }
+      }
+    ],
+    "eventtypeData": [
+      {
+        "_actions": {
+          "event_name": "No",
+          "id": 1
+        },
+        "event_name": "No",
+        "id": 1
+      },
+      {
+        "_actions": {
+          "event_name": "Ready to Start",
+          "id": 2
+        },
+        "event_name": "Ready to Start",
+        "id": 2
+      },
+      {
+        "_actions": {
+          "event_name": "Running",
+          "id": 3
+        },
+        "event_name": "Running",
+        "id": 3
+      },
+      {
+        "_actions": {
+          "event_name": "Paused",
+          "id": 4
+        },
+        "event_name": "Paused",
+        "id": 4
+      },
+      {
+        "_actions": {
+          "event_name": "Completed",
+          "id": 5
+        },
+        "event_name": "Completed",
+        "id": 5
+      },
+      {
+        "_actions": {
+          "event_name": "Release",
+          "id": 6
+        },
+        "event_name": "Release",
+        "id": 6
+      },
+      {
+        "_actions": {
+          "event_name": "Cancelled",
+          "id": 7
+        },
+        "event_name": "Cancelled",
+        "id": 7
+      },
+      {
+        "_actions": {
+          "event_name": "Locked",
+          "id": 8
+        },
+        "event_name": "Locked",
+        "id": 8
+      },
+      {
+        "_actions": {
+          "event_name": "Sidelined",
+          "id": 9
+        },
+        "event_name": "Sidelined",
+        "id": 9
+      },
+      {
+        "_actions": {
+          "event_name": "Cancel Requested",
+          "id": 10
+        },
+        "event_name": "Cancel Requested",
+        "id": 10
+      }
+    ],
+    "holdreasonData": [
+      {
+        "_actions": {
+          "id": 1,
+          "reason_name": "Material"
+        },
+        "id": 1,
+        "reason_name": "Material"
+      },
+      {
+        "_actions": {
+          "id": 2,
+          "reason_name": "Program"
+        },
+        "id": 2,
+        "reason_name": "Program"
+      },
+      {
+        "_actions": {
+          "id": 3,
+          "reason_name": "Engineer"
+        },
+        "id": 3,
+        "reason_name": "Engineer"
+      },
+      {
+        "_actions": {
+          "id": 4,
+          "reason_name": "Test"
+        },
+        "id": 4,
+        "reason_name": "Test"
+      },
+      {
+        "_actions": {
+          "id": 5,
+          "reason_name": "Other"
+        },
+        "id": 5,
+        "reason_name": "Other"
+      }
+    ],
+    "lineData": [
+      {
+        "Description": "Main assembly line",
+        "IsActive": true,
+        "LineCode": "WOCL",
+        "LineID": 1,
+        "LineName": "Assembly Line 1",
+        "_actions": {
+          "Description": "Main assembly line",
+          "IsActive": true,
+          "LineCode": "WOCL",
+          "LineID": 1,
+          "LineName": "Assembly Line 1"
+        }
+      },
+      {
+        "Description": "Secondary assembly line",
+        "IsActive": false,
+        "LineCode": "L2",
+        "LineID": 2,
+        "LineName": "Assembly Line 2",
+        "_actions": {
+          "Description": "Secondary assembly line",
+          "IsActive": false,
+          "LineCode": "L2",
+          "LineID": 2,
+          "LineName": "Assembly Line 2"
+        }
+      },
+      {
+        "Description": "Final packaging line",
+        "IsActive": false,
+        "LineCode": "L3",
+        "LineID": 3,
+        "LineName": "Packaging Line",
+        "_actions": {
+          "Description": "Final packaging line",
+          "IsActive": false,
+          "LineCode": "L3",
+          "LineID": 3,
+          "LineName": "Packaging Line"
+        }
+      }
+    ],
+    "machineData": [
+      {
+        "Description": "WOCL Machine 1",
+        "EquipmentName": "EI_511_CoilWindingHV_1071",
+        "IPAddress": "10.117.3.49",
+        "IsActive": true,
+        "LineID": 1,
+        "MachineCode": "WOCL_1071",
+        "MachineID": 1,
+        "MachineName": "WOCL Machine 1",
+        "OPRID": "Coil_HV_SC_1071",
+        "Section": "Sec 511",
+        "SupplierName": "Tuboly",
+        "_actions": {
+          "Description": "WOCL Machine 1",
+          "EquipmentName": "EI_511_CoilWindingHV_1071",
+          "IPAddress": "10.117.3.49",
+          "IsActive": true,
+          "LineID": 1,
+          "MachineCode": "WOCL_1071",
+          "MachineID": 1,
+          "MachineName": "WOCL Machine 1",
+          "OPRID": "Coil_HV_SC_1071",
+          "Section": "Sec 511",
+          "SupplierName": "Tuboly"
+        }
+      },
+      {
+        "Description": "WOCL Machine 2",
+        "EquipmentName": "EI_511_CoilWindingHV_1072",
+        "IPAddress": "10.117.3.225",
+        "IsActive": true,
+        "LineID": 1,
+        "MachineCode": "WOCL_1072",
+        "MachineID": 2,
+        "MachineName": "WOCL Machine 2",
+        "OPRID": "Coil_HV_SC_1072",
+        "Section": "Sec 511",
+        "SupplierName": "Tuboly",
+        "_actions": {
+          "Description": "WOCL Machine 2",
+          "EquipmentName": "EI_511_CoilWindingHV_1072",
+          "IPAddress": "10.117.3.225",
+          "IsActive": true,
+          "LineID": 1,
+          "MachineCode": "WOCL_1072",
+          "MachineID": 2,
+          "MachineName": "WOCL Machine 2",
+          "OPRID": "Coil_HV_SC_1072",
+          "Section": "Sec 511",
+          "SupplierName": "Tuboly"
+        }
+      },
+      {
+        "Description": "Automatic packing unit",
+        "EquipmentName": null,
+        "IPAddress": null,
+        "IsActive": false,
+        "LineID": 3,
+        "MachineCode": "WOCL_3",
+        "MachineID": 3,
+        "MachineName": "WOCL Machine 3",
+        "OPRID": null,
+        "Section": null,
+        "SupplierName": null,
+        "_actions": {
+          "Description": "Automatic packing unit",
+          "EquipmentName": null,
+          "IPAddress": null,
+          "IsActive": false,
+          "LineID": 3,
+          "MachineCode": "WOCL_3",
+          "MachineID": 3,
+          "MachineName": "WOCL Machine 3",
+          "OPRID": null,
+          "Section": null,
+          "SupplierName": null
+        }
+      }
+    ],
+    "mfrData": [
+      {
+        "IsActive": true,
+        "ManufacturerID": 1,
+        "ManufacturerName": "Rea",
+        "SortOrder": 1,
+        "_actions": {
+          "IsActive": true,
+          "ManufacturerID": 1,
+          "ManufacturerName": "Rea",
+          "SortOrder": 1
+        }
+      },
+      {
+        "IsActive": true,
+        "ManufacturerID": 2,
+        "ManufacturerName": "Essex",
+        "SortOrder": 2,
+        "_actions": {
+          "IsActive": true,
+          "ManufacturerID": 2,
+          "ManufacturerName": "Essex",
+          "SortOrder": 2
+        }
+      },
+      {
+        "IsActive": true,
+        "ManufacturerID": 3,
+        "ManufacturerName": "Magnekon",
+        "SortOrder": 3,
+        "_actions": {
+          "IsActive": true,
+          "ManufacturerID": 3,
+          "ManufacturerName": "Magnekon",
+          "SortOrder": 3
+        }
+      },
+      {
+        "IsActive": true,
+        "ManufacturerID": 4,
+        "ManufacturerName": "Elsan",
+        "SortOrder": 4,
+        "_actions": {
+          "IsActive": true,
+          "ManufacturerID": 4,
+          "ManufacturerName": "Elsan",
+          "SortOrder": 4
+        }
+      },
+      {
+        "IsActive": true,
+        "ManufacturerID": 5,
+        "ManufacturerName": "El Sewedy",
+        "SortOrder": 5,
+        "_actions": {
+          "IsActive": true,
+          "ManufacturerID": 5,
+          "ManufacturerName": "El Sewedy",
+          "SortOrder": 5
+        }
+      }
+    ],
+    "shiftData": [
+      {
+        "Description": "First shift",
+        "EndTime": "15:30:00",
+        "IsActive": true,
+        "ShiftCode": "A",
+        "ShiftID": 1,
+        "ShiftName": "Morning Shift",
+        "StartTime": "07:30:00",
+        "_actions": {
+          "Description": "First shift",
+          "EndTime": "15:30:00",
+          "IsActive": true,
+          "ShiftCode": "A",
+          "ShiftID": 1,
+          "ShiftName": "Morning Shift",
+          "StartTime": "07:30:00"
+        }
+      },
+      {
+        "Description": "Second shift",
+        "EndTime": "23:30:00",
+        "IsActive": true,
+        "ShiftCode": "B",
+        "ShiftID": 2,
+        "ShiftName": "Evening Shift",
+        "StartTime": "15:30:00",
+        "_actions": {
+          "Description": "Second shift",
+          "EndTime": "23:30:00",
+          "IsActive": true,
+          "ShiftCode": "B",
+          "ShiftID": 2,
+          "ShiftName": "Evening Shift",
+          "StartTime": "15:30:00"
+        }
+      },
+      {
+        "Description": "Third shift",
+        "EndTime": "07:30:00",
+        "IsActive": true,
+        "ShiftCode": "C",
+        "ShiftID": 3,
+        "ShiftName": "Night Shift",
+        "StartTime": "23:30:00",
+        "_actions": {
+          "Description": "Third shift",
+          "EndTime": "07:30:00",
+          "IsActive": true,
+          "ShiftCode": "C",
+          "ShiftID": 3,
+          "ShiftName": "Night Shift",
+          "StartTime": "23:30:00"
+        }
+      }
+    ]
+  },
+  "events": {
+    "system": {
+      "onStartup": {
+        "config": {
+          "script": "\tif not config_admin.hasAccess(self.session):\n\t\tconfig_admin.toast(\u0027You do not have access to this screen\u0027)\n\t\treturn\n\tsystem.perspective.sendMessage(\u0027loadAll\u0027, payload\u003d{}, scope\u003d\u0027page\u0027)"
+        },
+        "scope": "G",
+        "type": "script"
+      }
+    }
+  },
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 760,
+      "width": 1280
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "title"
+        },
+        "position": {
+          "basis": "30px"
+        },
+        "props": {
+          "text": "System Configuration",
+          "textStyle": {
+            "fontSize": "22px",
+            "fontWeight": "bold"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "subtitle"
+        },
+        "position": {
+          "basis": "18px"
+        },
+        "props": {
+          "text": "Manage lines, machines, shifts, and reference lists.",
+          "textStyle": {
+            "color": "--neutral-80",
+            "fontSize": "12px"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\tself.view.custom.activeTab \u003d 0"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "tabBtn0"
+                },
+                "propConfig": {
+                  "props.style.borderBottom": {
+                    "binding": {
+                      "config": {
+                        "expression": "if({view.custom.activeTab}\u003d0,\u00273px solid #2563eb\u0027,\u00273px solid transparent\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.style.color": {
+                    "binding": {
+                      "config": {
+                        "expression": "if({view.custom.activeTab}\u003d0,\u0027#2563eb\u0027,\u0027#6b7280\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.style.fontWeight": {
+                    "binding": {
+                      "config": {
+                        "expression": "if({view.custom.activeTab}\u003d0,\u0027bold\u0027,\u0027normal\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "backgroundColor": "transparent",
+                    "borderRadius": "0px",
+                    "padding": "10px 14px",
+                    "whiteSpace": "nowrap"
+                  },
+                  "text": "Line Configuration"
+                },
+                "type": "ia.input.button"
+              },
+              {
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\tself.view.custom.activeTab \u003d 1"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "tabBtn1"
+                },
+                "propConfig": {
+                  "props.style.borderBottom": {
+                    "binding": {
+                      "config": {
+                        "expression": "if({view.custom.activeTab}\u003d1,\u00273px solid #2563eb\u0027,\u00273px solid transparent\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.style.color": {
+                    "binding": {
+                      "config": {
+                        "expression": "if({view.custom.activeTab}\u003d1,\u0027#2563eb\u0027,\u0027#6b7280\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.style.fontWeight": {
+                    "binding": {
+                      "config": {
+                        "expression": "if({view.custom.activeTab}\u003d1,\u0027bold\u0027,\u0027normal\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "backgroundColor": "transparent",
+                    "borderRadius": "0px",
+                    "padding": "10px 14px",
+                    "whiteSpace": "nowrap"
+                  },
+                  "text": "Machine Configuration"
+                },
+                "type": "ia.input.button"
+              },
+              {
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\tself.view.custom.activeTab \u003d 2"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "tabBtn2"
+                },
+                "propConfig": {
+                  "props.style.borderBottom": {
+                    "binding": {
+                      "config": {
+                        "expression": "if({view.custom.activeTab}\u003d2,\u00273px solid #2563eb\u0027,\u00273px solid transparent\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.style.color": {
+                    "binding": {
+                      "config": {
+                        "expression": "if({view.custom.activeTab}\u003d2,\u0027#2563eb\u0027,\u0027#6b7280\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.style.fontWeight": {
+                    "binding": {
+                      "config": {
+                        "expression": "if({view.custom.activeTab}\u003d2,\u0027bold\u0027,\u0027normal\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "backgroundColor": "transparent",
+                    "borderRadius": "0px",
+                    "padding": "10px 14px",
+                    "whiteSpace": "nowrap"
+                  },
+                  "text": "Shift Configuration"
+                },
+                "type": "ia.input.button"
+              },
+              {
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\tself.view.custom.activeTab \u003d 3"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "tabBtn3"
+                },
+                "propConfig": {
+                  "props.style.borderBottom": {
+                    "binding": {
+                      "config": {
+                        "expression": "if({view.custom.activeTab}\u003d3,\u00273px solid #2563eb\u0027,\u00273px solid transparent\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.style.color": {
+                    "binding": {
+                      "config": {
+                        "expression": "if({view.custom.activeTab}\u003d3,\u0027#2563eb\u0027,\u0027#6b7280\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.style.fontWeight": {
+                    "binding": {
+                      "config": {
+                        "expression": "if({view.custom.activeTab}\u003d3,\u0027bold\u0027,\u0027normal\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "backgroundColor": "transparent",
+                    "borderRadius": "0px",
+                    "padding": "10px 14px",
+                    "whiteSpace": "nowrap"
+                  },
+                  "text": "Coating Types"
+                },
+                "type": "ia.input.button"
+              },
+              {
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\tself.view.custom.activeTab \u003d 4"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "tabBtn4"
+                },
+                "propConfig": {
+                  "props.style.borderBottom": {
+                    "binding": {
+                      "config": {
+                        "expression": "if({view.custom.activeTab}\u003d4,\u00273px solid #2563eb\u0027,\u00273px solid transparent\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.style.color": {
+                    "binding": {
+                      "config": {
+                        "expression": "if({view.custom.activeTab}\u003d4,\u0027#2563eb\u0027,\u0027#6b7280\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.style.fontWeight": {
+                    "binding": {
+                      "config": {
+                        "expression": "if({view.custom.activeTab}\u003d4,\u0027bold\u0027,\u0027normal\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "backgroundColor": "transparent",
+                    "borderRadius": "0px",
+                    "padding": "10px 14px",
+                    "whiteSpace": "nowrap"
+                  },
+                  "text": "Wire Manufacturer Types"
+                },
+                "type": "ia.input.button"
+              },
+              {
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\tself.view.custom.activeTab \u003d 5"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "tabBtn5"
+                },
+                "propConfig": {
+                  "props.style.borderBottom": {
+                    "binding": {
+                      "config": {
+                        "expression": "if({view.custom.activeTab}\u003d5,\u00273px solid #2563eb\u0027,\u00273px solid transparent\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.style.color": {
+                    "binding": {
+                      "config": {
+                        "expression": "if({view.custom.activeTab}\u003d5,\u0027#2563eb\u0027,\u0027#6b7280\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.style.fontWeight": {
+                    "binding": {
+                      "config": {
+                        "expression": "if({view.custom.activeTab}\u003d5,\u0027bold\u0027,\u0027normal\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "backgroundColor": "transparent",
+                    "borderRadius": "0px",
+                    "padding": "10px 14px",
+                    "whiteSpace": "nowrap"
+                  },
+                  "text": "Job Event Types"
+                },
+                "type": "ia.input.button"
+              },
+              {
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\tself.view.custom.activeTab \u003d 6"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "tabBtn6"
+                },
+                "propConfig": {
+                  "props.style.borderBottom": {
+                    "binding": {
+                      "config": {
+                        "expression": "if({view.custom.activeTab}\u003d6,\u00273px solid #2563eb\u0027,\u00273px solid transparent\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.style.color": {
+                    "binding": {
+                      "config": {
+                        "expression": "if({view.custom.activeTab}\u003d6,\u0027#2563eb\u0027,\u0027#6b7280\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.style.fontWeight": {
+                    "binding": {
+                      "config": {
+                        "expression": "if({view.custom.activeTab}\u003d6,\u0027bold\u0027,\u0027normal\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "backgroundColor": "transparent",
+                    "borderRadius": "0px",
+                    "padding": "10px 14px",
+                    "whiteSpace": "nowrap"
+                  },
+                  "text": "Job Hold Reasons"
+                },
+                "type": "ia.input.button"
+              },
+              {
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\tself.view.custom.activeTab \u003d 7"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "tabBtn7"
+                },
+                "propConfig": {
+                  "props.style.borderBottom": {
+                    "binding": {
+                      "config": {
+                        "expression": "if({view.custom.activeTab}\u003d7,\u00273px solid #2563eb\u0027,\u00273px solid transparent\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.style.color": {
+                    "binding": {
+                      "config": {
+                        "expression": "if({view.custom.activeTab}\u003d7,\u0027#2563eb\u0027,\u0027#6b7280\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.style.fontWeight": {
+                    "binding": {
+                      "config": {
+                        "expression": "if({view.custom.activeTab}\u003d7,\u0027bold\u0027,\u0027normal\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "backgroundColor": "transparent",
+                    "borderRadius": "0px",
+                    "padding": "10px 14px",
+                    "whiteSpace": "nowrap"
+                  },
+                  "text": "Downtime Reasons"
+                },
+                "type": "ia.input.button"
+              }
+            ],
+            "meta": {
+              "name": "tabStrip"
+            },
+            "props": {
+              "style": {
+                "borderBottomColor": "--neutral-50",
+                "borderBottomStyle": "solid",
+                "borderBottomWidth": "1px",
+                "gap": "2px",
+                "paddingBottom": "10px"
+              },
+              "wrap": "wrap"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "tabTitle"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "props": {
+                      "text": "Line Configuration",
+                      "textStyle": {
+                        "fontSize": "16px",
+                        "fontWeight": "bold"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "events": {
+                      "component": {
+                        "onActionPerformed": {
+                          "config": {
+                            "script": "\tconfig_admin.openForm(\u0027line\u0027, None)"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "name": "btnAdd"
+                    },
+                    "position": {
+                      "basis": "110px"
+                    },
+                    "props": {
+                      "style": {
+                        "backgroundColor": "#2563eb",
+                        "borderRadius": "8px",
+                        "color": "#ffffff",
+                        "fontWeight": "bold"
+                      },
+                      "text": "+ Add"
+                    },
+                    "type": "ia.input.button"
+                  }
+                ],
+                "meta": {
+                  "name": "toolbar"
+                },
+                "position": {
+                  "basis": "44px"
+                },
+                "props": {
+                  "alignItems": "center",
+                  "justify": "space-between",
+                  "style": {
+                    "gap": "10px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "meta": {
+                  "name": "configTable"
+                },
+                "position": {
+                  "basis": "320px",
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.data": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.lineData"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "cells": {
+                    "style": {
+                      "paddingLeft": "10px"
+                    }
+                  },
+                  "columns": [
+                    {
+                      "editable": false,
+                      "field": "LineCode",
+                      "header": {
+                        "title": "Code"
+                      },
+                      "sortable": true,
+                      "strictWidth": false,
+                      "width": 120
+                    },
+                    {
+                      "editable": false,
+                      "field": "LineName",
+                      "header": {
+                        "title": "Name"
+                      },
+                      "sortable": true,
+                      "strictWidth": false,
+                      "width": 200
+                    },
+                    {
+                      "editable": false,
+                      "field": "Description",
+                      "header": {
+                        "title": "Description"
+                      },
+                      "sortable": true,
+                      "strictWidth": false,
+                      "width": 280
+                    },
+                    {
+                      "boolean": "checkbox",
+                      "editable": false,
+                      "field": "IsActive",
+                      "header": {
+                        "title": "Active"
+                      },
+                      "sortable": true,
+                      "strictWidth": false,
+                      "width": 90
+                    },
+                    {
+                      "editable": false,
+                      "field": "_actions",
+                      "header": {
+                        "title": "Actions"
+                      },
+                      "sortable": false,
+                      "strictWidth": true,
+                      "viewParams": {
+                        "tabKey": "line"
+                      },
+                      "viewPath": "Project/Config/ConfigRowActions",
+                      "width": 110
+                    }
+                  ],
+                  "editable": false,
+                  "emptyMessage": {
+                    "noData": {
+                      "text": "NO data Available"
+                    }
+                  },
+                  "headerStyle": {
+                    "backgroundColor": "--neutral-80",
+                    "color": "--neutral-10"
+                  },
+                  "rows": {
+                    "pageSize": 25,
+                    "style": {
+                      "color": "--neutral-80",
+                      "fontFamily": "Arial",
+                      "fontSize": "15px",
+                      "paddingLeft": "10px"
+                    }
+                  },
+                  "selection": {
+                    "enableRowSelection": false
+                  },
+                  "style": {
+                    "fontSize": "13px"
+                  }
+                },
+                "type": "ia.display.table"
+              }
+            ],
+            "meta": {
+              "name": "linePanel"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "{view.custom.activeTab}\u003d0"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "gap": "10px",
+                "padding": "12px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "tabTitle"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "props": {
+                      "text": "Machine Configuration",
+                      "textStyle": {
+                        "fontSize": "16px",
+                        "fontWeight": "bold"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "events": {
+                      "component": {
+                        "onActionPerformed": {
+                          "config": {
+                            "script": "\tconfig_admin.openForm(\u0027machine\u0027, None)"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "name": "btnAdd"
+                    },
+                    "position": {
+                      "basis": "110px"
+                    },
+                    "props": {
+                      "style": {
+                        "backgroundColor": "#2563eb",
+                        "borderRadius": "8px",
+                        "color": "#ffffff",
+                        "fontWeight": "bold"
+                      },
+                      "text": "+ Add"
+                    },
+                    "type": "ia.input.button"
+                  }
+                ],
+                "meta": {
+                  "name": "toolbar"
+                },
+                "position": {
+                  "basis": "44px"
+                },
+                "props": {
+                  "alignItems": "center",
+                  "justify": "space-between",
+                  "style": {
+                    "gap": "10px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "meta": {
+                  "name": "configTable"
+                },
+                "position": {
+                  "basis": "320px",
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.data": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.machineData"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "cells": {
+                    "style": {
+                      "paddingLeft": "10px"
+                    }
+                  },
+                  "columns": [
+                    {
+                      "editable": false,
+                      "field": "MachineCode",
+                      "header": {
+                        "title": "Code"
+                      },
+                      "sortable": true,
+                      "strictWidth": false,
+                      "width": 120
+                    },
+                    {
+                      "editable": false,
+                      "field": "MachineName",
+                      "header": {
+                        "title": "Name"
+                      },
+                      "sortable": true,
+                      "strictWidth": false,
+                      "width": 160
+                    },
+                    {
+                      "editable": false,
+                      "field": "LineID",
+                      "header": {
+                        "title": "Line ID"
+                      },
+                      "sortable": true,
+                      "strictWidth": false,
+                      "width": 90
+                    },
+                    {
+                      "editable": false,
+                      "field": "Section",
+                      "header": {
+                        "title": "Section"
+                      },
+                      "sortable": true,
+                      "strictWidth": false,
+                      "width": 100
+                    },
+                    {
+                      "editable": false,
+                      "field": "IPAddress",
+                      "header": {
+                        "title": "IP Address"
+                      },
+                      "sortable": true,
+                      "strictWidth": false,
+                      "width": 130
+                    },
+                    {
+                      "editable": false,
+                      "field": "SupplierName",
+                      "header": {
+                        "title": "Supplier"
+                      },
+                      "sortable": true,
+                      "strictWidth": false,
+                      "width": 120
+                    },
+                    {
+                      "editable": false,
+                      "field": "EquipmentName",
+                      "header": {
+                        "title": "Equipment"
+                      },
+                      "sortable": true,
+                      "strictWidth": false,
+                      "width": 160
+                    },
+                    {
+                      "editable": false,
+                      "field": "OPRID",
+                      "header": {
+                        "title": "OPR ID"
+                      },
+                      "sortable": true,
+                      "strictWidth": false,
+                      "width": 120
+                    },
+                    {
+                      "editable": false,
+                      "field": "Description",
+                      "header": {
+                        "title": "Description"
+                      },
+                      "sortable": true,
+                      "strictWidth": false,
+                      "width": 160
+                    },
+                    {
+                      "boolean": "checkbox",
+                      "editable": false,
+                      "field": "IsActive",
+                      "header": {
+                        "title": "Active"
+                      },
+                      "sortable": true,
+                      "strictWidth": false,
+                      "width": 90
+                    },
+                    {
+                      "editable": false,
+                      "field": "_actions",
+                      "header": {
+                        "title": "Actions"
+                      },
+                      "sortable": false,
+                      "strictWidth": true,
+                      "viewParams": {
+                        "tabKey": "machine"
+                      },
+                      "viewPath": "Project/Config/ConfigRowActions",
+                      "width": 110
+                    }
+                  ],
+                  "editable": false,
+                  "emptyMessage": {
+                    "noData": {
+                      "text": "NO data Available"
+                    }
+                  },
+                  "headerStyle": {
+                    "backgroundColor": "--neutral-80",
+                    "color": "--neutral-10"
+                  },
+                  "rows": {
+                    "pageSize": 25
+                  },
+                  "selection": {
+                    "enableRowSelection": false
+                  },
+                  "style": {
+                    "fontSize": "13px"
+                  }
+                },
+                "type": "ia.display.table"
+              }
+            ],
+            "meta": {
+              "name": "machinePanel"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "{view.custom.activeTab}\u003d1"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "gap": "10px",
+                "padding": "12px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "tabTitle"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "props": {
+                      "text": "Shift Configuration",
+                      "textStyle": {
+                        "fontSize": "16px",
+                        "fontWeight": "bold"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "events": {
+                      "component": {
+                        "onActionPerformed": {
+                          "config": {
+                            "script": "\tconfig_admin.openForm(\u0027shift\u0027, None)"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "name": "btnAdd"
+                    },
+                    "position": {
+                      "basis": "110px"
+                    },
+                    "props": {
+                      "style": {
+                        "backgroundColor": "#2563eb",
+                        "borderRadius": "8px",
+                        "color": "#ffffff",
+                        "fontWeight": "bold"
+                      },
+                      "text": "+ Add"
+                    },
+                    "type": "ia.input.button"
+                  }
+                ],
+                "meta": {
+                  "name": "toolbar"
+                },
+                "position": {
+                  "basis": "44px"
+                },
+                "props": {
+                  "alignItems": "center",
+                  "justify": "space-between",
+                  "style": {
+                    "gap": "10px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "meta": {
+                  "name": "configTable"
+                },
+                "position": {
+                  "basis": "320px",
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.data": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.shiftData"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "cells": {
+                    "style": {
+                      "paddingLeft": "10px"
+                    }
+                  },
+                  "columns": [
+                    {
+                      "editable": false,
+                      "field": "ShiftCode",
+                      "header": {
+                        "title": "Code"
+                      },
+                      "sortable": true,
+                      "strictWidth": false,
+                      "width": 90
+                    },
+                    {
+                      "editable": false,
+                      "field": "ShiftName",
+                      "header": {
+                        "title": "Name"
+                      },
+                      "sortable": true,
+                      "strictWidth": false,
+                      "width": 160
+                    },
+                    {
+                      "editable": false,
+                      "field": "StartTime",
+                      "header": {
+                        "title": "Start"
+                      },
+                      "sortable": true,
+                      "strictWidth": false,
+                      "width": 120
+                    },
+                    {
+                      "editable": false,
+                      "field": "EndTime",
+                      "header": {
+                        "title": "End"
+                      },
+                      "sortable": true,
+                      "strictWidth": false,
+                      "width": 120
+                    },
+                    {
+                      "editable": false,
+                      "field": "Description",
+                      "header": {
+                        "title": "Description"
+                      },
+                      "sortable": true,
+                      "strictWidth": false,
+                      "width": 220
+                    },
+                    {
+                      "boolean": "checkbox",
+                      "editable": false,
+                      "field": "IsActive",
+                      "header": {
+                        "title": "Active"
+                      },
+                      "sortable": true,
+                      "strictWidth": false,
+                      "width": 90
+                    },
+                    {
+                      "editable": false,
+                      "field": "_actions",
+                      "header": {
+                        "title": "Actions"
+                      },
+                      "sortable": false,
+                      "strictWidth": true,
+                      "viewParams": {
+                        "tabKey": "shift"
+                      },
+                      "viewPath": "Project/Config/ConfigRowActions",
+                      "width": 110
+                    }
+                  ],
+                  "editable": false,
+                  "emptyMessage": {
+                    "noData": {
+                      "text": "NO data Available"
+                    }
+                  },
+                  "headerStyle": {
+                    "backgroundColor": "--neutral-80",
+                    "color": "--neutral-10"
+                  },
+                  "rows": {
+                    "pageSize": 25
+                  },
+                  "selection": {
+                    "enableRowSelection": false
+                  },
+                  "style": {
+                    "fontSize": "13px"
+                  }
+                },
+                "type": "ia.display.table"
+              }
+            ],
+            "meta": {
+              "name": "shiftPanel"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "{view.custom.activeTab}\u003d2"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "gap": "10px",
+                "padding": "12px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "tabTitle"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "props": {
+                      "text": "Coating Types",
+                      "textStyle": {
+                        "fontSize": "16px",
+                        "fontWeight": "bold"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "events": {
+                      "component": {
+                        "onActionPerformed": {
+                          "config": {
+                            "script": "\tconfig_admin.openForm(\u0027coating\u0027, None)"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "name": "btnAdd"
+                    },
+                    "position": {
+                      "basis": "110px"
+                    },
+                    "props": {
+                      "style": {
+                        "backgroundColor": "#2563eb",
+                        "borderRadius": "8px",
+                        "color": "#ffffff",
+                        "fontWeight": "bold"
+                      },
+                      "text": "+ Add"
+                    },
+                    "type": "ia.input.button"
+                  }
+                ],
+                "meta": {
+                  "name": "toolbar"
+                },
+                "position": {
+                  "basis": "44px"
+                },
+                "props": {
+                  "alignItems": "center",
+                  "justify": "space-between",
+                  "style": {
+                    "gap": "10px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "meta": {
+                  "name": "configTable"
+                },
+                "position": {
+                  "basis": "320px",
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.data": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.coatingData"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "cells": {
+                    "style": {
+                      "paddingLeft": "10px"
+                    }
+                  },
+                  "columns": [
+                    {
+                      "editable": false,
+                      "field": "CoatingTypeName",
+                      "header": {
+                        "title": "Coating Type"
+                      },
+                      "sortable": true,
+                      "strictWidth": false,
+                      "width": 240
+                    },
+                    {
+                      "editable": false,
+                      "field": "SortOrder",
+                      "header": {
+                        "title": "Sort"
+                      },
+                      "sortable": true,
+                      "strictWidth": false,
+                      "width": 100
+                    },
+                    {
+                      "boolean": "checkbox",
+                      "editable": false,
+                      "field": "IsActive",
+                      "header": {
+                        "title": "Active"
+                      },
+                      "sortable": true,
+                      "strictWidth": false,
+                      "width": 90
+                    },
+                    {
+                      "editable": false,
+                      "field": "_actions",
+                      "header": {
+                        "title": "Actions"
+                      },
+                      "sortable": false,
+                      "strictWidth": true,
+                      "viewParams": {
+                        "tabKey": "coating"
+                      },
+                      "viewPath": "Project/Config/ConfigRowActions",
+                      "width": 110
+                    }
+                  ],
+                  "editable": false,
+                  "emptyMessage": {
+                    "noData": {
+                      "text": "NO data Available"
+                    }
+                  },
+                  "headerStyle": {
+                    "backgroundColor": "--neutral-80",
+                    "color": "--neutral-10"
+                  },
+                  "rows": {
+                    "pageSize": 25
+                  },
+                  "selection": {
+                    "enableRowSelection": false
+                  },
+                  "style": {
+                    "fontSize": "13px"
+                  }
+                },
+                "type": "ia.display.table"
+              }
+            ],
+            "meta": {
+              "name": "coatingPanel"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "{view.custom.activeTab}\u003d3"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "gap": "10px",
+                "padding": "12px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "tabTitle"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "props": {
+                      "text": "Wire Manufacturer Types",
+                      "textStyle": {
+                        "fontSize": "16px",
+                        "fontWeight": "bold"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "events": {
+                      "component": {
+                        "onActionPerformed": {
+                          "config": {
+                            "script": "\tconfig_admin.openForm(\u0027mfr\u0027, None)"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "name": "btnAdd"
+                    },
+                    "position": {
+                      "basis": "110px"
+                    },
+                    "props": {
+                      "style": {
+                        "backgroundColor": "#2563eb",
+                        "borderRadius": "8px",
+                        "color": "#ffffff",
+                        "fontWeight": "bold"
+                      },
+                      "text": "+ Add"
+                    },
+                    "type": "ia.input.button"
+                  }
+                ],
+                "meta": {
+                  "name": "toolbar"
+                },
+                "position": {
+                  "basis": "44px"
+                },
+                "props": {
+                  "alignItems": "center",
+                  "justify": "space-between",
+                  "style": {
+                    "gap": "10px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "meta": {
+                  "name": "configTable"
+                },
+                "position": {
+                  "basis": "320px",
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.data": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.mfrData"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "cells": {
+                    "style": {
+                      "paddingLeft": "10px"
+                    }
+                  },
+                  "columns": [
+                    {
+                      "editable": false,
+                      "field": "ManufacturerName",
+                      "header": {
+                        "title": "Manufacturer"
+                      },
+                      "sortable": true,
+                      "strictWidth": false,
+                      "width": 240
+                    },
+                    {
+                      "editable": false,
+                      "field": "SortOrder",
+                      "header": {
+                        "title": "Sort"
+                      },
+                      "sortable": true,
+                      "strictWidth": false,
+                      "width": 100
+                    },
+                    {
+                      "boolean": "checkbox",
+                      "editable": false,
+                      "field": "IsActive",
+                      "header": {
+                        "title": "Active"
+                      },
+                      "sortable": true,
+                      "strictWidth": false,
+                      "width": 90
+                    },
+                    {
+                      "editable": false,
+                      "field": "_actions",
+                      "header": {
+                        "title": "Actions"
+                      },
+                      "sortable": false,
+                      "strictWidth": true,
+                      "viewParams": {
+                        "tabKey": "mfr"
+                      },
+                      "viewPath": "Project/Config/ConfigRowActions",
+                      "width": 110
+                    }
+                  ],
+                  "editable": false,
+                  "emptyMessage": {
+                    "noData": {
+                      "text": "NO data Available"
+                    }
+                  },
+                  "headerStyle": {
+                    "backgroundColor": "--neutral-80",
+                    "color": "--neutral-10"
+                  },
+                  "rows": {
+                    "pageSize": 25
+                  },
+                  "selection": {
+                    "enableRowSelection": false
+                  },
+                  "style": {
+                    "fontSize": "13px"
+                  }
+                },
+                "type": "ia.display.table"
+              }
+            ],
+            "meta": {
+              "name": "mfrPanel"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "{view.custom.activeTab}\u003d4"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "gap": "10px",
+                "padding": "12px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "tabTitle"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "props": {
+                      "text": "Job Event Types",
+                      "textStyle": {
+                        "fontSize": "16px",
+                        "fontWeight": "bold"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "events": {
+                      "component": {
+                        "onActionPerformed": {
+                          "config": {
+                            "script": "\tconfig_admin.openForm(\u0027eventtype\u0027, None)"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "name": "btnAdd"
+                    },
+                    "position": {
+                      "basis": "110px"
+                    },
+                    "props": {
+                      "style": {
+                        "backgroundColor": "#2563eb",
+                        "borderRadius": "8px",
+                        "color": "#ffffff",
+                        "fontWeight": "bold"
+                      },
+                      "text": "+ Add"
+                    },
+                    "type": "ia.input.button"
+                  }
+                ],
+                "meta": {
+                  "name": "toolbar"
+                },
+                "position": {
+                  "basis": "44px"
+                },
+                "props": {
+                  "alignItems": "center",
+                  "justify": "space-between",
+                  "style": {
+                    "gap": "10px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "meta": {
+                  "name": "configTable"
+                },
+                "position": {
+                  "basis": "320px",
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.data": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.eventtypeData"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "cells": {
+                    "style": {
+                      "paddingLeft": "10px"
+                    }
+                  },
+                  "columns": [
+                    {
+                      "editable": false,
+                      "field": "event_name",
+                      "header": {
+                        "title": "Event Name"
+                      },
+                      "sortable": true,
+                      "strictWidth": false,
+                      "width": 300
+                    },
+                    {
+                      "editable": false,
+                      "field": "_actions",
+                      "header": {
+                        "title": "Actions"
+                      },
+                      "sortable": false,
+                      "strictWidth": true,
+                      "viewParams": {
+                        "tabKey": "eventtype"
+                      },
+                      "viewPath": "Project/Config/ConfigRowActions",
+                      "width": 110
+                    }
+                  ],
+                  "editable": false,
+                  "emptyMessage": {
+                    "noData": {
+                      "text": "NO data Available"
+                    }
+                  },
+                  "headerStyle": {
+                    "backgroundColor": "--neutral-80",
+                    "color": "--neutral-10"
+                  },
+                  "rows": {
+                    "pageSize": 25
+                  },
+                  "selection": {
+                    "enableRowSelection": false
+                  },
+                  "style": {
+                    "fontSize": "13px"
+                  }
+                },
+                "type": "ia.display.table"
+              }
+            ],
+            "meta": {
+              "name": "eventtypePanel"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "{view.custom.activeTab}\u003d5"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "gap": "10px",
+                "padding": "12px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "tabTitle"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "props": {
+                      "text": "Job Hold Reasons",
+                      "textStyle": {
+                        "fontSize": "16px",
+                        "fontWeight": "bold"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "events": {
+                      "component": {
+                        "onActionPerformed": {
+                          "config": {
+                            "script": "\tconfig_admin.openForm(\u0027holdreason\u0027, None)"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "name": "btnAdd"
+                    },
+                    "position": {
+                      "basis": "110px"
+                    },
+                    "props": {
+                      "style": {
+                        "backgroundColor": "#2563eb",
+                        "borderRadius": "8px",
+                        "color": "#ffffff",
+                        "fontWeight": "bold"
+                      },
+                      "text": "+ Add"
+                    },
+                    "type": "ia.input.button"
+                  }
+                ],
+                "meta": {
+                  "name": "toolbar"
+                },
+                "position": {
+                  "basis": "44px"
+                },
+                "props": {
+                  "alignItems": "center",
+                  "justify": "space-between",
+                  "style": {
+                    "gap": "10px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "meta": {
+                  "name": "configTable"
+                },
+                "position": {
+                  "basis": "320px",
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.data": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.holdreasonData"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "cells": {
+                    "style": {
+                      "paddingLeft": "10px"
+                    }
+                  },
+                  "columns": [
+                    {
+                      "editable": false,
+                      "field": "reason_name",
+                      "header": {
+                        "title": "Reason Name"
+                      },
+                      "sortable": true,
+                      "strictWidth": false,
+                      "width": 300
+                    },
+                    {
+                      "editable": false,
+                      "field": "_actions",
+                      "header": {
+                        "title": "Actions"
+                      },
+                      "sortable": false,
+                      "strictWidth": true,
+                      "viewParams": {
+                        "tabKey": "holdreason"
+                      },
+                      "viewPath": "Project/Config/ConfigRowActions",
+                      "width": 110
+                    }
+                  ],
+                  "editable": false,
+                  "emptyMessage": {
+                    "noData": {
+                      "text": "NO data Available"
+                    }
+                  },
+                  "headerStyle": {
+                    "backgroundColor": "--neutral-80",
+                    "color": "--neutral-10"
+                  },
+                  "rows": {
+                    "pageSize": 25
+                  },
+                  "selection": {
+                    "enableRowSelection": false
+                  },
+                  "style": {
+                    "fontSize": "13px"
+                  }
+                },
+                "type": "ia.display.table"
+              }
+            ],
+            "meta": {
+              "name": "holdreasonPanel"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "{view.custom.activeTab}\u003d6"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "gap": "10px",
+                "padding": "12px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "tabTitle"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "props": {
+                      "text": "Downtime Reasons",
+                      "textStyle": {
+                        "fontSize": "16px",
+                        "fontWeight": "bold"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "events": {
+                      "component": {
+                        "onActionPerformed": {
+                          "config": {
+                            "script": "\tconfig_admin.openForm(\u0027downtime\u0027, None)"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "name": "btnAdd"
+                    },
+                    "position": {
+                      "basis": "110px"
+                    },
+                    "props": {
+                      "style": {
+                        "backgroundColor": "#2563eb",
+                        "borderRadius": "8px",
+                        "color": "#ffffff",
+                        "fontWeight": "bold"
+                      },
+                      "text": "+ Add"
+                    },
+                    "type": "ia.input.button"
+                  }
+                ],
+                "meta": {
+                  "name": "toolbar"
+                },
+                "position": {
+                  "basis": "44px"
+                },
+                "props": {
+                  "alignItems": "center",
+                  "justify": "space-between",
+                  "style": {
+                    "gap": "10px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "meta": {
+                  "name": "configTable"
+                },
+                "position": {
+                  "basis": "320px",
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.data": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.downtimeData"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "cells": {
+                    "style": {
+                      "paddingLeft": "10px"
+                    }
+                  },
+                  "columns": [
+                    {
+                      "editable": false,
+                      "field": "CategoryID",
+                      "header": {
+                        "title": "Category ID"
+                      },
+                      "sortable": true,
+                      "strictWidth": false,
+                      "width": 120
+                    },
+                    {
+                      "editable": false,
+                      "field": "ReasonName",
+                      "header": {
+                        "title": "Reason Name"
+                      },
+                      "sortable": true,
+                      "strictWidth": false,
+                      "width": 260
+                    },
+                    {
+                      "editable": false,
+                      "field": "Description",
+                      "header": {
+                        "title": "Description"
+                      },
+                      "sortable": true,
+                      "strictWidth": false,
+                      "width": 260
+                    },
+                    {
+                      "editable": false,
+                      "field": "_actions",
+                      "header": {
+                        "title": "Actions"
+                      },
+                      "sortable": false,
+                      "strictWidth": true,
+                      "viewParams": {
+                        "tabKey": "downtime"
+                      },
+                      "viewPath": "Project/Config/ConfigRowActions",
+                      "width": 110
+                    }
+                  ],
+                  "editable": false,
+                  "emptyMessage": {
+                    "noData": {
+                      "text": "NO data Available"
+                    }
+                  },
+                  "headerStyle": {
+                    "backgroundColor": "--neutral-80",
+                    "color": "--neutral-10"
+                  },
+                  "rows": {
+                    "pageSize": 25
+                  },
+                  "selection": {
+                    "enableRowSelection": false
+                  },
+                  "style": {
+                    "fontSize": "13px"
+                  }
+                },
+                "type": "ia.display.table"
+              }
+            ],
+            "meta": {
+              "name": "downtimePanel"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "{view.custom.activeTab}\u003d7"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "gap": "10px",
+                "padding": "12px"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "configTabs"
+        },
+        "position": {
+          "basis": "600px",
+          "grow": 1
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "backgroundColor": "--neutral-10",
+            "border": "1px solid #e5e7eb",
+            "borderRadius": "10px",
+            "padding": "8px"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "backgroundColor": "--neutral-20",
+        "gap": "14px",
+        "padding": "16px"
+      }
+    },
+    "scripts": {
+      "customMethods": null,
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "reloadTab",
+          "pageScope": true,
+          "script": "\ttab \u003d payload[\u0027tab\u0027]\n\tself.view.custom[tab + \u0027Data\u0027] \u003d config_admin.loadTab(tab)",
+          "sessionScope": false,
+          "viewScope": false
+        },
+        {
+          "messageType": "loadAll",
+          "pageScope": true,
+          "script": "\tfor tab in [\u0027line\u0027, \u0027machine\u0027, \u0027shift\u0027, \u0027coating\u0027, \u0027mfr\u0027, \u0027eventtype\u0027, \u0027holdreason\u0027, \u0027downtime\u0027]:\n\t\tself.view.custom[tab + \u0027Data\u0027] \u003d config_admin.loadTab(tab)",
+          "sessionScope": false,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.flex"
+  }
+}

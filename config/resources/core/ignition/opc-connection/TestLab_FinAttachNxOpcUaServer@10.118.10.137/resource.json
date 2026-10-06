@@ -1,0 +1,19 @@
+{
+  "scope": "A",
+  "description": "Fin Attach Test Omron",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "config.json"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "ColeH",
+      "timestamp": "2026-02-12T22:50:12Z"
+    },
+    "uuid": "195583de-f800-4e40-8f1f-fe4f4566e167",
+    "lastModificationSignature": "03a67ff1b98cfa10aa66f77aa754ccb67a1bd993a85657ba1f4cc98eb0e7710f",
+    "enabled": false
+  }
+}

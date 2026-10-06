@@ -1,0 +1,45 @@
+{
+  "profile": {
+    "securityLevelRules": {
+      "nodes": []
+    },
+    "type": "saml",
+    "userAttributeMapper": {
+      "id": {
+        "config": {
+          "attributePath": "/saml2p:Response/saml2:Assertion/saml2:Subject/saml2:NameID/text()"
+        },
+        "type": "direct"
+      },
+      "userName": {
+        "config": {
+          "attributePath": "/saml2p:Response/saml2:Assertion/saml2:Subject/saml2:NameID/text()"
+        },
+        "type": "direct"
+      }
+    },
+    "userGrants": {
+      "id": {},
+      "username": {}
+    }
+  },
+  "settings": {
+    "acsBinding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST",
+    "assertionSignaturesRequired": false,
+    "forceAuthnEnabled": false,
+    "idpEntityId": "https://sts.windows.net/7831e6d9-dc6c-4cd1-9ec6-1dc2b4133195/",
+    "idpMetadataUrl": "https://login.microsoftonline.com/7831e6d9-dc6c-4cd1-9ec6-1dc2b4133195/federationmetadata/2007-06/federationmetadata.xml?appid\u003d838c45e0-11e0-4502-86cb-cbe849ff9f9f",
+    "idpMetadataUrlEnabled": true,
+    "nameIdFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+    "responseSignaturesRequired": true,
+    "signatureVerifyingCertificates": [
+      "MIIC8DCCAdigAwIBAgIQcszn4GIU6r9FqUcHErTd7TANBgkqhkiG9w0BAQsFADA0MTIwMAYDVQQDEylNaWNyb3NvZnQgQXp1cmUgRmVkZXJhdGVkIFNTTyBDZXJ0aWZpY2F0ZTAeFw0yNTEwMTUxNzQ1MDZaFw0yODEwMTUxNzQ1MDdaMDQxMjAwBgNVBAMTKU1pY3Jvc29mdCBBenVyZSBGZWRlcmF0ZWQgU1NPIENlcnRpZmljYXRlMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA8si41UgUccR0X1RExfi6u7zW1QliSIHp2h+GtopZjHvA27hfBFwlnsSFSjTZXBBd5efaCJg7nkrbmF6ejHKD3CYcLpHasgJNYTYl0wNss+BH0NiC46uS77KrAugHeLKXP5He72AAChpqezemG9Fyawr/2jqn8mUTLH0nkeI419w2/Sc9hWVqALZx0uaUtFF/g6AJIDw3Utvl81mozblwQX9tv6GcNFiBkWinhiJkXAPaC4tAKoiMf9MS2d23lNuSntjyV4chFyI+JubjDBSO3oUBEwO6L0VrnXfeHYBBsKzUeo2Hb0b7QRKdCosnvvDkWlnXk+9UAN0eYqdgqkfeFQIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQCRGt9oUGmmR49y2OFjLKhBe0LieKNIOfhZBBXgYPkrLFJGoc2sDKCzzr9Vh6vs96c8bQdf6ACfgSyZ+w6NKnt1ntuLMa0udvPC7Lr+13kbdltxnZBOANKU8lHRA1xDWNQdGdpoeJgP8d5WWDpoM0ag5Ph4XQ8jqCwzgUs0kOq2wVvWpf1kMA9TV8qSeDbOj08YjS0en422JJfGx5W0v8PntFTkbh+AYqc10CQenwjXdYbIjIouGyf4wL021CExbGnkcW0Tm1bjnbAzA1P0U7X8Sbtra53/WF5xf3ChUCjdqVGt824+8Ep9RBVP61dALD6+NazM+sG3CZePocUmOuMq"
+    ],
+    "signatureVerifyingKeys": [],
+    "spEntityIdEnabled": false,
+    "ssoServiceConfig": {
+      "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST",
+      "uri": "https://login.microsoftonline.com/7831e6d9-dc6c-4cd1-9ec6-1dc2b4133195/saml2"
+    }
+  }
+}

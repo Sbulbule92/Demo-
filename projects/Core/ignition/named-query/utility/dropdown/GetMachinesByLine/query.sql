@@ -1,0 +1,1 @@
+select MachineCode as label , MachineID as value  from tbl_Machine where IsActive =1 and LineID=:LineID

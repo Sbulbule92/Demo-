@@ -1,0 +1,50 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "UpdateQuery",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "fe8bfbea6a8f8dceebbbbf661fd001f485197a7d25d4162f37489f2bdbb4c4ca",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "shivab",
+      "timestamp": "2026-03-25T15:14:01Z"
+    },
+    "parameters": [
+      {
+        "type": "Parameter",
+        "identifier": "op_status",
+        "sqlType": 2
+      },
+      {
+        "type": "Parameter",
+        "identifier": "po_number",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "serial_number",
+        "sqlType": 7
+      }
+    ]
+  }
+}

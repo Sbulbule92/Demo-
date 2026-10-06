@@ -1,0 +1,25 @@
+{
+  "scope": "G",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "onTagChange.py"
+  ],
+  "attributes": {
+    "changeTypes": [
+      "ValueChange",
+      "QualityChange",
+      "TimestampChange"
+    ],
+    "lastModificationSignature": "e0dbb804558982a4a041f433da39a8434bea740db636331ce9eeed53409ac05e",
+    "paths": [
+      "[default]SecTestLab/FinAttach/TankIdToIgnition"
+    ],
+    "lastModification": {
+      "actor": "admin",
+      "timestamp": "2025-10-21T18:43:58Z"
+    },
+    "enabled": true
+  }
+}

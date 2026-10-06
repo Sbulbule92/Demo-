@@ -1,0 +1,36 @@
+{
+  "connectURL": "jdbc:sqlserver://us-v-jefcity2.corp.hitachi-powergrids.com:8484",
+  "connectionProps": "databaseName\u003dEngineering",
+  "connectionResetParams": "",
+  "defaultTransactionLevel": "DEFAULT",
+  "driver": "Microsoft SQLServer",
+  "evictionRate": -1,
+  "evictionTests": 3,
+  "evictionTime": 1800000,
+  "failoverMode": "STANDARD",
+  "failoverProfile": "",
+  "includeSchemaInTableName": false,
+  "password": {
+    "data": {
+      "ciphertext": "hZ8",
+      "encrypted_key": "4xm89Z8LmeDEYOvFq9a58X2WDz9H3hkJQMqnYRxTpUbcK00vnl9zpw",
+      "iv": "VopXeGSxQ24lgZJr",
+      "protected": "eyJhbGciOiJBMjU2S1ciLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNzY1OTkzMTIyLCJ6aXAiOiJERUYifQ",
+      "tag": "PkFzZwqlA-BU4vjBtyqBSg"
+    },
+    "type": "Embedded"
+  },
+  "poolInitSize": 0,
+  "poolMaxActive": 8,
+  "poolMaxIdle": 8,
+  "poolMaxWait": 5000,
+  "poolMinIdle": 0,
+  "slowQueryLogThreshold": 60000,
+  "testOnBorrow": true,
+  "testOnReturn": false,
+  "testWhileIdle": false,
+  "translator": "MSSQL",
+  "username": "viewer",
+  "validationQuery": "SELECT 1",
+  "validationSleepTime": 10000
+}

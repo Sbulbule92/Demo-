@@ -1,0 +1,349 @@
+{
+  "custom": {
+    "icons": [
+      "published_with_changes",
+      "star_half",
+      "computer",
+      "question_answer",
+      "functions",
+      "high_quality",
+      "pause_circle_outline",
+      "free_breakfast",
+      "set_meal",
+      "home_repair_service",
+      "home_repair_service",
+      "home_repair_service",
+      "home_repair_service",
+      "wallpaper",
+      "devices_other",
+      "settings_system_daydream"
+    ],
+    "pending_downtime": [],
+    "reasons": [
+      {
+        "LogID": null,
+        "ReasonID": 1,
+        "icon": "published_with_changes",
+        "label": "Full Change Over"
+      },
+      {
+        "LogID": null,
+        "ReasonID": 2,
+        "icon": "star_half",
+        "label": "Partial Change over"
+      },
+      {
+        "LogID": null,
+        "ReasonID": 3,
+        "icon": "computer",
+        "label": "Computer"
+      },
+      {
+        "LogID": null,
+        "ReasonID": 4,
+        "icon": "question_answer",
+        "label": "Design Questions"
+      },
+      {
+        "LogID": null,
+        "ReasonID": 5,
+        "icon": "functions",
+        "label": "Program Function"
+      },
+      {
+        "LogID": null,
+        "ReasonID": 6,
+        "icon": "high_quality",
+        "label": "Material Quality"
+      },
+      {
+        "LogID": null,
+        "ReasonID": 7,
+        "icon": "pause_circle_outline",
+        "label": "Waiting on Material"
+      },
+      {
+        "LogID": null,
+        "ReasonID": 8,
+        "icon": "free_breakfast",
+        "label": "Break"
+      },
+      {
+        "LogID": null,
+        "ReasonID": 9,
+        "icon": "set_meal",
+        "label": "Lunch"
+      },
+      {
+        "LogID": null,
+        "ReasonID": 10,
+        "icon": "home_repair_service",
+        "label": "Welder - Maintenance"
+      },
+      {
+        "LogID": null,
+        "ReasonID": 11,
+        "icon": "home_repair_service",
+        "label": "Sensor - Maintenance"
+      },
+      {
+        "LogID": null,
+        "ReasonID": 12,
+        "icon": "home_repair_service",
+        "label": "Electrical - Maintenance"
+      },
+      {
+        "LogID": null,
+        "ReasonID": 13,
+        "icon": "home_repair_service",
+        "label": "Mechanical - Maintenance"
+      },
+      {
+        "LogID": null,
+        "ReasonID": 14,
+        "icon": "wallpaper",
+        "label": "Wire/Paper Tension"
+      },
+      {
+        "LogID": null,
+        "ReasonID": 15,
+        "icon": "devices_other",
+        "label": "Other"
+      }
+    ]
+  },
+  "params": {},
+  "propConfig": {
+    "custom.icons": {
+      "persistent": true
+    },
+    "custom.pending_downtime": {
+      "binding": {
+        "config": {
+          "parameters": {
+            "MachineID": "{session.custom.machineInfo.ID}"
+          },
+          "queryPath": "downtime/pending_entry",
+          "returnFormat": "json"
+        },
+        "type": "query"
+      },
+      "persistent": true
+    },
+    "custom.reasons": {
+      "binding": {
+        "config": {
+          "struct": {
+            "pendindLogID": "{view.custom.pending_downtime[0].LogID}"
+          },
+          "waitOnAll": true
+        },
+        "transforms": [
+          {
+            "code": "\treasons\u003dsystem.db.runNamedQuery(\"utility/dropdown/GetDowntimeReasonCodes\")\n\ticons \u003d self.custom.icons\n\tdata \u003d []\n\tfor i in range(0, len(reasons)):\n\t\tval \u003d {\"label\": reasons[i][\u0027label\u0027], \"icon\":icons[i],\"ReasonID\":reasons[i][\u0027value\u0027],\"LogID\":value[\"pendindLogID\"]}\n\t\tdata.append(val)\n\treturn data\n\t#return value",
+            "type": "script"
+          }
+        ],
+        "type": "expr-struct"
+      },
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 700
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "50px"
+            },
+            "props": {
+              "text": "SELECT DOWNTIME REASONS",
+              "textStyle": {
+                "classes": "typography/page-title",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label_0"
+                },
+                "position": {
+                  "basis": "20%"
+                },
+                "props": {
+                  "text": "Start Time:",
+                  "textStyle": {
+                    "classes": "typography/page-title",
+                    "textAlign": "center"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Label_1"
+                },
+                "position": {
+                  "basis": "30%"
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.pending_downtime[0].StartTime"
+                      },
+                      "transforms": [
+                        {
+                          "formatType": "datetime",
+                          "formatValue": {
+                            "date": "medium",
+                            "time": "medium"
+                          },
+                          "type": "format"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "textStyle": {
+                    "classes": "typography/page-title",
+                    "fontSize": "16px",
+                    "textAlign": "left"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Label_2"
+                },
+                "position": {
+                  "basis": "20%"
+                },
+                "props": {
+                  "text": "End Time:",
+                  "textStyle": {
+                    "classes": "typography/page-title",
+                    "textAlign": "center"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Label_3"
+                },
+                "position": {
+                  "basis": "30%"
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.pending_downtime[0].EndTime"
+                      },
+                      "transforms": [
+                        {
+                          "formatType": "datetime",
+                          "formatValue": {
+                            "date": "medium",
+                            "time": "medium"
+                          },
+                          "type": "format"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "textStyle": {
+                    "classes": "typography/page-title",
+                    "fontSize": "16px",
+                    "textAlign": "left"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer"
+            },
+            "position": {
+              "basis": "70px"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "meta": {
+              "name": "FlexRepeater_0"
+            },
+            "position": {
+              "basis": "400px",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.instances": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.reasons"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "elementPosition": {
+                "basis": "auto"
+              },
+              "elementStyle": {
+                "margin": "5px"
+              },
+              "justify": "space-around",
+              "path": "Project/Operator/Downtime Entry/Downtime Select_popup",
+              "useDefaultViewHeight": false,
+              "wrap": "wrap"
+            },
+            "type": "ia.display.flex-repeater"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "200px",
+          "grow": 1
+        },
+        "props": {
+          "direction": "column"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "classes": "Page/mainpage"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

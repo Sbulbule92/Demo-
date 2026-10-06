@@ -1,0 +1,45 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "Query",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "JeffCity2_ECS_viewer_Tuboly_HV",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "cd70160669b37fcf4a42c0dfb4cb40fd9619189b79e8c4f5aed3a75ab89c773d",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "prasantm",
+      "timestamp": "2026-04-02T16:36:59Z"
+    },
+    "parameters": [
+      {
+        "type": "Parameter",
+        "identifier": "Serial_Num",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "action",
+        "sqlType": 2
+      }
+    ]
+  }
+}

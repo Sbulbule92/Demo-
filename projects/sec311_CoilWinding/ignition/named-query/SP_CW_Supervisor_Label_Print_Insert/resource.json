@@ -1,0 +1,45 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "UpdateQuery",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "5559IIShopUser",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "17d40920c0071dfa9ff5c9967476ac529f03798d095e340458c6c7a43183d258",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "Gannon",
+      "timestamp": "2026-07-08T20:15:45Z"
+    },
+    "parameters": [
+      {
+        "type": "Parameter",
+        "identifier": "Serial",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "UserName",
+        "sqlType": 7
+      }
+    ]
+  }
+}

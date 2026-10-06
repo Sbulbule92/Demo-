@@ -1,0 +1,153 @@
+{
+  "custom": {
+    "date": {
+      "$": [
+        "ts",
+        192,
+        1778588323235
+      ],
+      "$ts": 1778501923210
+    }
+  },
+  "events": {
+    "system": {
+      "onStartup": {
+        "config": {
+          "script": "#\tself.getChild(\"root\").getChild(\"Date Embedded\").props.params.SelectedDate \u003d self.custom.date\n#\tself.params.date \u003d self.getChild(\"root\").getChild(\"Date Embedded\").props.params.SelectedDate\n\tself.params.shift \u003d self.getChild(\"root\").getChild(\"Shift Embedded\").props.params.shift"
+        },
+        "scope": "G",
+        "type": "script"
+      }
+    }
+  },
+  "params": {
+    "date": {
+      "$": [
+        "ts",
+        192,
+        1778588323235
+      ],
+      "$ts": 1778501923210
+    },
+    "shift": "C"
+  },
+  "propConfig": {
+    "custom.date": {
+      "binding": {
+        "config": {
+          "path": "/root/Date Embedded.props.params.SelectedDate"
+        },
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "params.date": {
+      "binding": {
+        "config": {
+          "path": "/root/Date Embedded.props.params.SelectedDate"
+        },
+        "type": "property"
+      },
+      "paramDirection": "inout",
+      "persistent": true
+    },
+    "params.shift": {
+      "binding": {
+        "config": {
+          "path": "/root/Shift Embedded.props.params.shift"
+        },
+        "type": "property"
+      },
+      "paramDirection": "output",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 56,
+      "width": 1312
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Date Embedded"
+        },
+        "position": {
+          "basis": "200px",
+          "grow": 1
+        },
+        "props": {
+          "params": {
+            "SelectedDate": {
+              "$": [
+                "ts",
+                192,
+                1778588323235
+              ],
+              "$ts": 1778501923210
+            }
+          },
+          "path": "Project/Supervisor/Operator Overview/components/components/Select Date"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Shift Embedded"
+        },
+        "position": {
+          "basis": "200px",
+          "display": false,
+          "grow": 1
+        },
+        "props": {
+          "params": {
+            "SelectedDate": {
+              "$": [
+                "ts",
+                192,
+                1768479638180
+              ],
+              "$ts": 1768479638169
+            },
+            "shift": "C"
+          },
+          "path": "Project/Supervisor/Operator Overview/components/components/Select Shift"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Line Embedded"
+        },
+        "position": {
+          "basis": "200px",
+          "grow": 1
+        },
+        "props": {
+          "params": {
+            "SelectedDate": {
+              "$": [
+                "ts",
+                192,
+                1768479638180
+              ],
+              "$ts": 1768479638169
+            },
+            "SelectedLine": 1,
+            "SelectedMachine": 2,
+            "shift": "C"
+          },
+          "path": "Project/Supervisor/Operator Overview/components/components/Select Line-Machine"
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.flex"
+  }
+}

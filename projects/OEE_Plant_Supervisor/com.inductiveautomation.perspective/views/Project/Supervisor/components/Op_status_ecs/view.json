@@ -1,0 +1,287 @@
+{
+  "custom": {
+    "color": "#9CA3AF",
+    "display": true,
+    "event_id": 8,
+    "reason": "",
+    "status": "Released",
+    "visibility": false
+  },
+  "params": {
+    "rowData": "value",
+    "value": 18
+  },
+  "propConfig": {
+    "custom.color": {
+      "binding": {
+        "config": {
+          "path": "view.params.value"
+        },
+        "transforms": [
+          {
+            "fallback": "#9CA3AF",
+            "inputType": "scalar",
+            "mappings": [
+              {
+                "input": 2,
+                "output": "#9CA3AF"
+              },
+              {
+                "input": 4,
+                "output": "--success"
+              },
+              {
+                "input": 8,
+                "output": "#F59E0b"
+              },
+              {
+                "input": 32,
+                "output": "#F87171"
+              }
+            ],
+            "outputType": "scalar",
+            "type": "map"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.display": {
+      "binding": {
+        "config": {
+          "path": "/root/FlexContainer/FlexContainer_0/Button.props.text"
+        },
+        "transforms": [
+          {
+            "expression": "if ({value}\u003d\u0027Hold\u0027, True, False)",
+            "type": "expression"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.event_id": {
+      "binding": {
+        "config": {
+          "path": "/root/FlexContainer/FlexContainer_0/Button.props.text"
+        },
+        "transforms": [
+          {
+            "code": "\tif value \u003d\u003d \u0027Hold\u0027:\n\t\treturn 8\n\telif value \u003d\u003d \"Release\" or value \u003d\u003d \"Continue\":\n\t\treturn 18\n\telse:\n\t\treturn None\n\t\t",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.reason": {
+      "binding": {
+        "config": {
+          "path": "/root/FlexContainer_0/Button.props.enabled"
+        },
+        "transforms": [
+          {
+            "code": "\tval \u003dself.custom.display\n\tif val:\n\t\treturn self.getChild(\"root\").getChild(\"FlexContainer_0\").getChild(\"Dropdown\").props.options[self.getChild(\"root\").getChild(\"FlexContainer_0\").getChild(\"Dropdown\").props.value-1].label if self.getChild(\"root\").getChild(\"FlexContainer_0\").getChild(\"Dropdown\").props.value is not None else \u0027\u0027\n\telse:\n\t\treturn self.getChild(\"root\").getChild(\"FlexContainer_0\").getChild(\"TextField\").props.text",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.status": {
+      "binding": {
+        "config": {
+          "path": "view.params.value"
+        },
+        "transforms": [
+          {
+            "fallback": "Unknown",
+            "inputType": "scalar",
+            "mappings": [
+              {
+                "input": 2,
+                "output": "Not Started"
+              },
+              {
+                "input": 4,
+                "output": "Running"
+              },
+              {
+                "input": 8,
+                "output": "Hold"
+              },
+              {
+                "input": 32,
+                "output": "Cancelled"
+              },
+              {
+                "input": 18,
+                "output": "Released"
+              },
+              {
+                "input": 16,
+                "output": "Completed"
+              }
+            ],
+            "outputType": "scalar",
+            "type": "map"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.visibility": {
+      "persistent": true
+    },
+    "params.rowData": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.value": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 48,
+      "width": 163
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "5px"
+                },
+                "propConfig": {
+                  "props.style.backgroundColor": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.color"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "borderBottomLeftRadius": "50px",
+                    "borderBottomRightRadius": "50px",
+                    "borderColor": "#808080",
+                    "borderStyle": "solid",
+                    "borderTopLeftRadius": "50px",
+                    "borderTopRightRadius": "50px",
+                    "borderWidth": "1px",
+                    "marginBottom": "12px",
+                    "marginLeft": "15px",
+                    "marginRight": "10px",
+                    "marginTop": "12px",
+                    "padding": "2px 4px"
+                  },
+                  "textStyle": {
+                    "alignContent": "center",
+                    "alignSelf": "center",
+                    "padding": "0px"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Label_0"
+                },
+                "position": {
+                  "basis": "200px"
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.status"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "props.textStyle.color": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.color"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "textStyle": {
+                    "alignSelf": "flex-start",
+                    "fontWeight": "500",
+                    "padding": "0px"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer"
+            },
+            "position": {
+              "basis": "150px"
+            },
+            "propConfig": {
+              "props.style.borderColor": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.color"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "borderBottomLeftRadius": "10px",
+                "borderBottomRightRadius": "10px",
+                "borderStyle": "solid",
+                "borderTopLeftRadius": "10px",
+                "borderTopRightRadius": "10px",
+                "borderWidth": "2px",
+                "margin": "5px"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "47px"
+        },
+        "props": {
+          "justify": "center"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

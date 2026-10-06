@@ -1,0 +1,36 @@
+{
+  "connectURL": "jdbc:sqlserver://HPG0000004346.corp.hitachi-powergrids.com:8484",
+  "connectionProps": "databaseName\u003dMachineReady",
+  "connectionResetParams": "",
+  "defaultTransactionLevel": "DEFAULT",
+  "driver": "Microsoft SQLServer",
+  "evictionRate": -1,
+  "evictionTests": 3,
+  "evictionTime": 1800000,
+  "failoverMode": "STANDARD",
+  "failoverProfile": "",
+  "includeSchemaInTableName": false,
+  "password": {
+    "data": {
+      "ciphertext": "fUQ",
+      "encrypted_key": "1Cb9Pc40sL0YCrpsS_OpgxDdqABdPsSWHGTHD6h2RGCe2kHa1a8Zfw",
+      "iv": "qsWfuPb7nQC8xSy5",
+      "protected": "eyJhbGciOiJBMjU2S1ciLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNzYxOTM5MTEwLCJ6aXAiOiJERUYifQ",
+      "tag": "XQph_gbNcIkbGPaCG4jEbg"
+    },
+    "type": "Embedded"
+  },
+  "poolInitSize": 0,
+  "poolMaxActive": 8,
+  "poolMaxIdle": 8,
+  "poolMaxWait": 5000,
+  "poolMinIdle": 0,
+  "slowQueryLogThreshold": 60000,
+  "testOnBorrow": true,
+  "testOnReturn": false,
+  "testWhileIdle": false,
+  "translator": "MSSQL",
+  "username": "viewer",
+  "validationQuery": "SELECT 1",
+  "validationSleepTime": 10000
+}

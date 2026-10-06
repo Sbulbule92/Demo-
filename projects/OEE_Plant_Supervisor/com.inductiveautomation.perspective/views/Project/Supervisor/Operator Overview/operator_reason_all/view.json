@@ -1,0 +1,1914 @@
+{
+  "custom": {
+    "day": "Wed May 13 05:54:36 CDT 2026",
+    "downtimeReasonsAll": [
+      {
+        "DurationMinutes": 26,
+        "EndTime": 1778660682057,
+        "LogID": 912,
+        "ReasonName": "Full Change Over",
+        "Remarks": "TRAINIG OPERATOR",
+        "StartTime": 1778659102873
+      },
+      {
+        "DurationMinutes": 37,
+        "EndTime": 1778666026830,
+        "LogID": 916,
+        "ReasonName": "System",
+        "Remarks": "No Operator at Machine",
+        "StartTime": 1778663795987
+      },
+      {
+        "DurationMinutes": 24,
+        "EndTime": 1778669787153,
+        "LogID": 918,
+        "ReasonName": "Break",
+        "Remarks": "",
+        "StartTime": 1778668329343
+      }
+    ],
+    "others": {},
+    "system": {},
+    "times": {
+      "end": {
+        "$": [
+          "ts",
+          192,
+          1779200866177
+        ],
+        "$ts": 1778734799000
+      },
+      "start": {
+        "$": [
+          "ts",
+          192,
+          1779200866177
+        ],
+        "$ts": 1778648401000
+      }
+    },
+    "totalDT": 87,
+    "user": "rf50"
+  },
+  "events": {
+    "system": {
+      "onStartup": {
+        "config": {
+          "script": "\tsystem.perspective.print(\"user: \" + self.params.user)\n\tsystem.perspective.print(\"username: \" + self.params.userName)\n\tsystem.perspective.print(\"Customuser: \" + self.custom.user)\n\tsystem.perspective.print(\"day: \" + str(self.custom.day))\n\tsystem.perspective.print(\"startTime: \" + str())"
+        },
+        "scope": "G",
+        "type": "script"
+      }
+    }
+  },
+  "params": {
+    "day": "Wed May 13 05:54:36 CDT 2026",
+    "user": "rf50",
+    "userName": "hm39"
+  },
+  "propConfig": {
+    "custom.day": {
+      "binding": {
+        "config": {
+          "path": "view.params.day"
+        },
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.downtimeReasonsAll": {
+      "binding": {
+        "config": {
+          "parameters": {
+            "EndTime": "{view.custom.times.end}",
+            "StartTime": "{view.custom.times.start}",
+            "UserName": "{view.custom.user}"
+          },
+          "queryPath": "Operator Overview/getListOfDowntimeLogsByUser",
+          "returnFormat": "json"
+        },
+        "type": "query"
+      },
+      "persistent": true
+    },
+    "custom.others": {
+      "persistent": true
+    },
+    "custom.others.percent": {
+      "binding": {
+        "config": {
+          "expression": "if(({view.custom.others.time})\u003e0, toInt(({view.custom.others.time}/{view.custom.totalDT})*100), 0)"
+        },
+        "type": "expr"
+      }
+    },
+    "custom.others.time": {
+      "binding": {
+        "config": {
+          "path": "view.custom.downtimeReasonsAll"
+        },
+        "transforms": [
+          {
+            "code": "\tTotalDT \u003d 0\n\tif len(value)\u003e0:\n\t\tfor i in range(0, len(value)):\n\t\t\tif value[i][\"ReasonName\"]!\u003d\"System\":\n\t\t\t\tTotalDT \u003d TotalDT + int(value[i][\"DurationMinutes\"])\n\treturn TotalDT",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      }
+    },
+    "custom.system": {
+      "persistent": true
+    },
+    "custom.system.percent": {
+      "binding": {
+        "config": {
+          "expression": "if(({view.custom.system.systemTime})\u003e0, toInt(({view.custom.system.systemTime}/{view.custom.totalDT})*100), 0)"
+        },
+        "type": "expr"
+      }
+    },
+    "custom.system.systemTime": {
+      "binding": {
+        "config": {
+          "path": "view.custom.downtimeReasonsAll"
+        },
+        "transforms": [
+          {
+            "code": "\tTotalDT \u003d 0\n\tif len(value)\u003e0:\n\t\tfor i in range(0, len(value)):\n\t\t\tif value[i][\"ReasonName\"]\u003d\u003d\"System\":\n\t\t\t\tTotalDT \u003d TotalDT + int(value[i][\"DurationMinutes\"])\n\treturn TotalDT",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      }
+    },
+    "custom.times": {
+      "binding": {
+        "config": {
+          "path": "view.custom.day"
+        },
+        "transforms": [
+          {
+            "code": "#\tval \u003d system.date.parse(str(value), \"yyyy-MM-dd\")\n\tval \u003d system.date.parse(str(value), \"EEE MMM dd HH:mm:ss zzz yyyy\")\n\tday \u003d system.date.format(val, \"yyyy-MM-dd\")\n\tstartDateTime \u003d str(day + \" \"  +\"00:00:01\")\n\tendDateTime \u003d str(day + \" \" + \"23:59:59\")\n\treturn {\"start\": system.date.parse(startDateTime, \"yyyy-MM-dd HH:mm:ss\"), \"end\": system.date.parse(endDateTime, \"yyyy-MM-dd HH:mm:ss\")} ",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.totalDT": {
+      "binding": {
+        "config": {
+          "path": "view.custom.downtimeReasonsAll"
+        },
+        "transforms": [
+          {
+            "code": "\tTotalDT \u003d 0\n\tif len(value)\u003e0:\n\t\tfor i in range(0, len(value)):\n\t\t\tTotalDT \u003d TotalDT + int(value[i][\"DurationMinutes\"])\n\treturn TotalDT",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.user": {
+      "binding": {
+        "config": {
+          "path": "view.params.user"
+        },
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "params.day": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.user": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.userName": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 966,
+      "width": 1116
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "OperatorAvatar"
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.user"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\tuser \u003d system.user.getUser(\u0027default\u0027, value)\n\tif user is not None:\n\t\tuserName \u003d user.get(\"firstName\") + \u0027 \u0027 + user.get(\"lastname\")\n\tinitials \u003d \"\".join(map(lambda w: w[0].upper(), userName.split()))\n\treturn initials",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "backgroundColor": "rgba(245,166,35,0.12)",
+                    "borderColor": "#f5a623",
+                    "borderRadius": "50%",
+                    "borderStyle": "solid",
+                    "borderWidth": "2px",
+                    "color": "#f5a623",
+                    "fontSize": "22px",
+                    "fontWeight": "700",
+                    "height": "60px",
+                    "lineHeight": "60px",
+                    "minWidth": "60px",
+                    "textAlign": "center",
+                    "width": "60px"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "OperatorName"
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "path": "view.params.user"
+                          },
+                          "transforms": [
+                            {
+                              "code": "\tuser \u003d system.user.getUser(\u0027default\u0027, value)\n\tif user is not None:\n\t\tuserName \u003d user.get(\"firstName\") + \u0027 \u0027 + user.get(\"lastname\")\n\treturn userName",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "fontSize": "30px",
+                        "fontWeight": "700",
+                        "letterSpacing": "0px"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "OperatorSubtext"
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "expression": "\u0027OPERATOR ID: \u0027 + {view.params.user}\r\n// + \u0027|\u0027  + dateFormat({view.params.day}, \"MM/dd/yyyy\")"
+                          },
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "color": "#5a637a",
+                        "fontSize": "12px",
+                        "letterSpacing": "0px"
+                      },
+                      "textStyle": {
+                        "fontWeight": "700"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "layoutConstraints": {
+                    "grow": 1
+                  },
+                  "name": "OperatorInfo"
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "borderRightColor": "--neutral-70",
+                    "borderRightStyle": "none",
+                    "borderRightWidth": "1px",
+                    "gap": "4px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "meta": {
+                  "name": "Sep1"
+                },
+                "props": {
+                  "style": {
+                    "alignSelf": "stretch",
+                    "backgroundColor": "--neutral-20",
+                    "width": "1px"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "ShiftMetaLabel"
+                    },
+                    "props": {
+                      "style": {
+                        "fontSize": "18px",
+                        "fontWeight": "600",
+                        "letterSpacing": "0px",
+                        "margin-left": "5px"
+                      },
+                      "text": "DATE:"
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "ShiftBadge"
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "path": "view.params.day"
+                          },
+                          "transforms": [
+                            {
+                              "formatType": "datetime",
+                              "formatValue": {
+                                "date": "medium"
+                              },
+                              "type": "format"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "backgroundColor": "rgba(245,166,35,0.12)",
+                        "borderColor": "#f5a623",
+                        "borderRadius": "5px",
+                        "borderStyle": "solid",
+                        "borderWidth": "1px",
+                        "color": "#f5a623",
+                        "fontSize": "25px",
+                        "fontWeight": "700",
+                        "letterSpacing": "1px",
+                        "padding": "3px 10px"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "ShiftMetaGroup"
+                },
+                "props": {
+                  "alignItems": "flex-start",
+                  "direction": "column",
+                  "style": {
+                    "gap": "0px",
+                    "padding": "0 8px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "meta": {
+                  "name": "Sep4"
+                },
+                "props": {
+                  "style": {
+                    "alignSelf": "stretch",
+                    "backgroundColor": "--neutral-20",
+                    "width": "1px"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "MachineMetaLabel"
+                    },
+                    "props": {
+                      "style": {
+                        "fontSize": "18px",
+                        "fontWeight": "600",
+                        "letterSpacing": "0px"
+                      },
+                      "text": "MACHINE"
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "MachineValue"
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.operatordetails[0].MACHINE"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "color": "#29d9c2",
+                        "fontSize": "25px",
+                        "fontWeight": "600"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "MachineMetaGroup"
+                },
+                "position": {
+                  "display": false
+                },
+                "props": {
+                  "alignItems": "center",
+                  "direction": "column",
+                  "style": {
+                    "gap": "4px",
+                    "padding": "0 8px"
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "OperatorHeaderCard"
+            },
+            "position": {
+              "grow": 1
+            },
+            "props": {
+              "alignItems": "center",
+              "style": {
+                "backgroundColor": "--neutral-10",
+                "borderBottomColor": "rgba(255,255,255,0.07)",
+                "borderBottomStyle": "solid",
+                "borderBottomWidth": "1px",
+                "borderLeftColor": "rgba(255,255,255,0.07)",
+                "borderLeftStyle": "solid",
+                "borderLeftWidth": "1px",
+                "borderRadius": "12px",
+                "borderRightColor": "rgba(255,255,255,0.27)",
+                "borderRightStyle": "solid",
+                "borderRightWidth": "1px",
+                "borderTopColor": "#f5a623",
+                "borderTopStyle": "solid",
+                "borderTopWidth": "3px",
+                "gap": "20px",
+                "margin": "15px",
+                "padding": "20px 24px"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "162px"
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "backgroundColor": "--neutral-30",
+            "borderBottomLeftRadius": "10px",
+            "borderBottomRightRadius": "10px",
+            "borderLeftColor": "--info",
+            "borderLeftStyle": "solid",
+            "borderLeftWidth": "5px",
+            "borderTopLeftRadius": "10px",
+            "borderTopRightRadius": "10px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "CoilsStartedLabel"
+                    },
+                    "props": {
+                      "style": {
+                        "fontSize": "18px",
+                        "fontWeight": "600",
+                        "letterSpacing": "0.5px"
+                      },
+                      "text": "TOTAL DOWNTIME"
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "CoilsStartedValue"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.totalDT"
+                          },
+                          "transforms": [
+                            {
+                              "code": "\ttotalMin \u003d int(value)\n\thours   \u003d totalMin / 60\n\tminutes \u003d totalMin % 60\n\tseconds \u003d 0\n\treturn \"%02d:%02d:%02d\" % (hours, minutes, seconds) if value\u003e0 else \"00:00:00\"",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "color": "--callToAction",
+                        "fontSize": "35px",
+                        "fontWeight": "700",
+                        "lineHeight": "1"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "CoilsStartedSub"
+                    },
+                    "props": {
+                      "style": {
+                        "fontSize": "15px"
+                      },
+                      "text": "Total Downtime for the Day"
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "layoutConstraints": {
+                    "basis": "22%",
+                    "grow": 1
+                  },
+                  "name": "CoilsStartedCard"
+                },
+                "position": {
+                  "basis": "200px",
+                  "grow": 1
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "backgroundColor": "--neutral-10",
+                    "borderBottomColor": "rgba(255,255,255,0.07)",
+                    "borderBottomStyle": "solid",
+                    "borderBottomWidth": "1px",
+                    "borderLeftColor": "rgba(255,255,255,0.07)",
+                    "borderLeftStyle": "solid",
+                    "borderLeftWidth": "1px",
+                    "borderRadius": "10px",
+                    "borderRightColor": "rgba(255,255,255,0.07)",
+                    "borderRightStyle": "solid",
+                    "borderRightWidth": "1px",
+                    "borderTopColor": "--callToAction",
+                    "borderTopStyle": "solid",
+                    "borderTopWidth": "2px",
+                    "gap": "4px",
+                    "margin": "0px",
+                    "padding": "14px 16px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "CoilsCompletedLabel"
+                    },
+                    "props": {
+                      "style": {
+                        "fontSize": "18px",
+                        "fontWeight": "600",
+                        "letterSpacing": "0.5px"
+                      },
+                      "text": "OPERATOR DOWNTIME"
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "CoilsCompletedValue"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.others.time"
+                          },
+                          "transforms": [
+                            {
+                              "code": "\ttotalMin \u003d int(value)\n\thours   \u003d totalMin / 60\n\tminutes \u003d totalMin % 60\n\tseconds \u003d 0\n\treturn \"%02d:%02d:%02d\" % (hours, minutes, seconds) if value\u003e0 else \"00:00:00\"",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "color": "--success",
+                        "fontSize": "35px",
+                        "fontWeight": "700",
+                        "lineHeight": "1"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "CoilsCompletedSub"
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "expression": "{view.custom.others.percent} + \u0027% of total Downtime\u0027"
+                          },
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "fontSize": "15px"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "layoutConstraints": {
+                    "basis": "22%",
+                    "grow": 1
+                  },
+                  "name": "CoilsCompletedCard"
+                },
+                "position": {
+                  "basis": "200px",
+                  "grow": 1
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "backgroundColor": "--neutral-10",
+                    "borderBottomColor": "rgba(255,255,255,0.07)",
+                    "borderBottomStyle": "solid",
+                    "borderBottomWidth": "1px",
+                    "borderLeftColor": "rgba(255,255,255,0.07)",
+                    "borderLeftStyle": "solid",
+                    "borderLeftWidth": "1px",
+                    "borderRadius": "10px",
+                    "borderRightColor": "rgba(255,255,255,0.07)",
+                    "borderRightStyle": "solid",
+                    "borderRightWidth": "1px",
+                    "borderTopColor": "--success",
+                    "borderTopStyle": "solid",
+                    "borderTopWidth": "2px",
+                    "gap": "4px",
+                    "margin": "0px",
+                    "padding": "14px 16px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "CoilsInProgressLabel"
+                    },
+                    "props": {
+                      "style": {
+                        "fontSize": "18px",
+                        "fontWeight": "600",
+                        "letterSpacing": "0.5px"
+                      },
+                      "text": "SYSTEM DOWNTIME"
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "CoilsInProgressValue"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.system.systemTime"
+                          },
+                          "transforms": [
+                            {
+                              "code": "\ttotalMin \u003d int(value)\n\thours   \u003d totalMin / 60\n\tminutes \u003d totalMin % 60\n\tseconds \u003d 0\n\treturn \"%02d:%02d:%02d\" % (hours, minutes, seconds) if value\u003e0 else \"00:00:00\"",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "color": "--warning",
+                        "fontSize": "35px",
+                        "fontWeight": "700",
+                        "lineHeight": "1"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "CoilsInProgressSub"
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "expression": "{view.custom.system.percent} + \u0027% of total Downtime\u0027"
+                          },
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "fontSize": "15px"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "layoutConstraints": {
+                    "basis": "22%",
+                    "grow": 1
+                  },
+                  "name": "CoilsInProgressCard"
+                },
+                "position": {
+                  "basis": "200px",
+                  "grow": 1
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "backgroundColor": "--neutral-10",
+                    "borderBottomColor": "rgba(255,255,255,0.07)",
+                    "borderBottomStyle": "solid",
+                    "borderBottomWidth": "1px",
+                    "borderLeftColor": "rgba(255,255,255,0.07)",
+                    "borderLeftStyle": "solid",
+                    "borderLeftWidth": "1px",
+                    "borderRadius": "10px",
+                    "borderRightColor": "rgba(255,255,255,0.07)",
+                    "borderRightStyle": "solid",
+                    "borderRightWidth": "1px",
+                    "borderTopColor": "--warning",
+                    "borderTopStyle": "solid",
+                    "borderTopWidth": "2px",
+                    "gap": "4px",
+                    "margin": "0px",
+                    "padding": "14px 16px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "DowntimeEntriesLabel"
+                    },
+                    "props": {
+                      "style": {
+                        "fontSize": "18px",
+                        "fontWeight": "600",
+                        "letterSpacing": "0.5px"
+                      },
+                      "text": "DOWNTIME ENTRIES"
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "DowntimeEntriesValue"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "expression": "len({view.custom.downtimeReasonsAll})"
+                          },
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "color": "--error",
+                        "fontSize": "35px",
+                        "fontWeight": "700",
+                        "lineHeight": "1"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "DowntimeEntriesSub"
+                    },
+                    "props": {
+                      "style": {
+                        "fontSize": "15px"
+                      },
+                      "text": "Logged events"
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "layoutConstraints": {
+                    "basis": "22%",
+                    "grow": 1
+                  },
+                  "name": "DowntimeEntriesCard"
+                },
+                "position": {
+                  "basis": "200px",
+                  "grow": 1
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "backgroundColor": "--neutral-10",
+                    "borderBottomColor": "rgba(255,255,255,0.07)",
+                    "borderBottomStyle": "solid",
+                    "borderBottomWidth": "1px",
+                    "borderLeftColor": "rgba(255,255,255,0.07)",
+                    "borderLeftStyle": "solid",
+                    "borderLeftWidth": "1px",
+                    "borderRadius": "10px",
+                    "borderRightColor": "rgba(255,255,255,0.07)",
+                    "borderRightStyle": "solid",
+                    "borderRightWidth": "1px",
+                    "borderTopColor": "--error",
+                    "borderTopStyle": "solid",
+                    "borderTopWidth": "2px",
+                    "gap": "4px",
+                    "margin": "0px",
+                    "padding": "14px 16px"
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "MetricsGrid"
+            },
+            "position": {
+              "basis": "133px"
+            },
+            "props": {
+              "justify": "space-between",
+              "style": {
+                "gap": "12px",
+                "margin": "15px",
+                "margin-bottom": "5px"
+              },
+              "wrap": true
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "32px"
+                },
+                "props": {
+                  "style": {
+                    "marginLeft": "15px",
+                    "marginRight": "10px",
+                    "marginTop": "10px"
+                  },
+                  "text": "Downtime Details:",
+                  "textStyle": {
+                    "fontSize": "22px",
+                    "fontWeight": "bold"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Table"
+                },
+                "position": {
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.data": {
+                    "binding": {
+                      "config": {
+                        "parameters": {
+                          "EndTime": "{view.custom.times.end}",
+                          "StartTime": "{view.custom.times.start}",
+                          "UserName": "{view.custom.user}"
+                        },
+                        "queryPath": "Operator Overview/getListOfDowntimeLogsByUser",
+                        "returnFormat": "json"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\tdata \u003d []\t\n\tfor item in value:\n\t\titem[\"update\"] \u003d 1\n\t\titem[\"delete\"] \u003d 1\n\t\tdata.append(item)\n\treturn data",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "query"
+                    }
+                  }
+                },
+                "props": {
+                  "columns": [
+                    {
+                      "align": "center",
+                      "boolean": "checkbox",
+                      "dateFormat": "h:mm:ss a",
+                      "editable": false,
+                      "field": "LogID",
+                      "filter": {
+                        "boolean": {
+                          "condition": ""
+                        },
+                        "date": {
+                          "condition": "",
+                          "value": ""
+                        },
+                        "enabled": false,
+                        "number": {
+                          "condition": "",
+                          "value": ""
+                        },
+                        "string": {
+                          "condition": "",
+                          "value": ""
+                        },
+                        "visible": "on-hover"
+                      },
+                      "footer": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": ""
+                      },
+                      "header": {
+                        "align": "center",
+                        "justify": "center",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": "ID"
+                      },
+                      "justify": "center",
+                      "nullFormat": {
+                        "includeNullStrings": false,
+                        "nullFormatValue": "",
+                        "strict": false
+                      },
+                      "number": "value",
+                      "numberFormat": "0,0.##",
+                      "progressBar": {
+                        "bar": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "max": 100,
+                        "min": 0,
+                        "track": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "value": {
+                          "enabled": true,
+                          "format": "0,0.##",
+                          "justify": "center",
+                          "style": {
+                            "classes": ""
+                          }
+                        }
+                      },
+                      "render": "auto",
+                      "resizable": true,
+                      "sort": "none",
+                      "sortable": true,
+                      "strictWidth": false,
+                      "style": {
+                        "classes": ""
+                      },
+                      "toggleSwitch": {
+                        "color": {
+                          "selected": "",
+                          "unselected": ""
+                        }
+                      },
+                      "viewParams": {},
+                      "viewPath": "",
+                      "visible": true,
+                      "width": ""
+                    },
+                    {
+                      "align": "center",
+                      "boolean": "checkbox",
+                      "dateFormat": "h:mm:ss a",
+                      "editable": false,
+                      "field": "StartTime",
+                      "filter": {
+                        "boolean": {
+                          "condition": ""
+                        },
+                        "date": {
+                          "condition": "",
+                          "value": ""
+                        },
+                        "enabled": false,
+                        "number": {
+                          "condition": "",
+                          "value": ""
+                        },
+                        "string": {
+                          "condition": "",
+                          "value": ""
+                        },
+                        "visible": "on-hover"
+                      },
+                      "footer": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": ""
+                      },
+                      "header": {
+                        "align": "center",
+                        "justify": "center",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": "StartTime"
+                      },
+                      "justify": "center",
+                      "nullFormat": {
+                        "includeNullStrings": false,
+                        "nullFormatValue": "",
+                        "strict": false
+                      },
+                      "number": "value",
+                      "numberFormat": "0,0.##",
+                      "progressBar": {
+                        "bar": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "max": 100,
+                        "min": 0,
+                        "track": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "value": {
+                          "enabled": true,
+                          "format": "0,0.##",
+                          "justify": "center",
+                          "style": {
+                            "classes": ""
+                          }
+                        }
+                      },
+                      "render": "date",
+                      "resizable": true,
+                      "sort": "none",
+                      "sortable": true,
+                      "strictWidth": false,
+                      "style": {
+                        "classes": ""
+                      },
+                      "toggleSwitch": {
+                        "color": {
+                          "selected": "",
+                          "unselected": ""
+                        }
+                      },
+                      "viewParams": {},
+                      "viewPath": "",
+                      "visible": true,
+                      "width": ""
+                    },
+                    {
+                      "align": "center",
+                      "boolean": "checkbox",
+                      "dateFormat": "h:mm:ss a",
+                      "editable": false,
+                      "field": "EndTime",
+                      "filter": {
+                        "boolean": {
+                          "condition": ""
+                        },
+                        "date": {
+                          "condition": "",
+                          "value": ""
+                        },
+                        "enabled": false,
+                        "number": {
+                          "condition": "",
+                          "value": ""
+                        },
+                        "string": {
+                          "condition": "",
+                          "value": ""
+                        },
+                        "visible": "on-hover"
+                      },
+                      "footer": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": ""
+                      },
+                      "header": {
+                        "align": "center",
+                        "justify": "center",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": "EndTime"
+                      },
+                      "justify": "center",
+                      "nullFormat": {
+                        "includeNullStrings": false,
+                        "nullFormatValue": "",
+                        "strict": false
+                      },
+                      "number": "value",
+                      "numberFormat": "0,0.##",
+                      "progressBar": {
+                        "bar": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "max": 100,
+                        "min": 0,
+                        "track": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "value": {
+                          "enabled": true,
+                          "format": "0,0.##",
+                          "justify": "center",
+                          "style": {
+                            "classes": ""
+                          }
+                        }
+                      },
+                      "render": "date",
+                      "resizable": true,
+                      "sort": "none",
+                      "sortable": true,
+                      "strictWidth": false,
+                      "style": {
+                        "classes": ""
+                      },
+                      "toggleSwitch": {
+                        "color": {
+                          "selected": "",
+                          "unselected": ""
+                        }
+                      },
+                      "viewParams": {},
+                      "viewPath": "",
+                      "visible": true,
+                      "width": ""
+                    },
+                    {
+                      "align": "center",
+                      "boolean": "checkbox",
+                      "dateFormat": "h:mm:ss a",
+                      "editable": false,
+                      "field": "Remarks",
+                      "filter": {
+                        "boolean": {
+                          "condition": ""
+                        },
+                        "date": {
+                          "condition": "",
+                          "value": ""
+                        },
+                        "enabled": false,
+                        "number": {
+                          "condition": "",
+                          "value": ""
+                        },
+                        "string": {
+                          "condition": "",
+                          "value": ""
+                        },
+                        "visible": "on-hover"
+                      },
+                      "footer": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": ""
+                      },
+                      "header": {
+                        "align": "center",
+                        "justify": "center",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": "Remarks"
+                      },
+                      "justify": "center",
+                      "nullFormat": {
+                        "includeNullStrings": false,
+                        "nullFormatValue": "",
+                        "strict": false
+                      },
+                      "number": "value",
+                      "numberFormat": "0,0.##",
+                      "progressBar": {
+                        "bar": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "max": 100,
+                        "min": 0,
+                        "track": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "value": {
+                          "enabled": true,
+                          "format": "0,0.##",
+                          "justify": "center",
+                          "style": {
+                            "classes": ""
+                          }
+                        }
+                      },
+                      "render": "auto",
+                      "resizable": true,
+                      "sort": "none",
+                      "sortable": true,
+                      "strictWidth": false,
+                      "style": {
+                        "classes": ""
+                      },
+                      "toggleSwitch": {
+                        "color": {
+                          "selected": "",
+                          "unselected": ""
+                        }
+                      },
+                      "viewParams": {},
+                      "viewPath": "",
+                      "visible": true,
+                      "width": ""
+                    },
+                    {
+                      "align": "center",
+                      "boolean": "checkbox",
+                      "dateFormat": "h:mm:ss a",
+                      "editable": false,
+                      "field": "DurationMinutes",
+                      "filter": {
+                        "boolean": {
+                          "condition": ""
+                        },
+                        "date": {
+                          "condition": "",
+                          "value": ""
+                        },
+                        "enabled": false,
+                        "number": {
+                          "condition": "",
+                          "value": ""
+                        },
+                        "string": {
+                          "condition": "",
+                          "value": ""
+                        },
+                        "visible": "on-hover"
+                      },
+                      "footer": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": ""
+                      },
+                      "header": {
+                        "align": "center",
+                        "justify": "center",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": "Duration"
+                      },
+                      "justify": "center",
+                      "nullFormat": {
+                        "includeNullStrings": false,
+                        "nullFormatValue": "",
+                        "strict": false
+                      },
+                      "number": "value",
+                      "numberFormat": "0,0.##",
+                      "progressBar": {
+                        "bar": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "max": 100,
+                        "min": 0,
+                        "track": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "value": {
+                          "enabled": true,
+                          "format": "0,0.##",
+                          "justify": "center",
+                          "style": {
+                            "classes": ""
+                          }
+                        }
+                      },
+                      "render": "auto",
+                      "resizable": true,
+                      "sort": "none",
+                      "sortable": true,
+                      "strictWidth": false,
+                      "style": {
+                        "classes": ""
+                      },
+                      "toggleSwitch": {
+                        "color": {
+                          "selected": "",
+                          "unselected": ""
+                        }
+                      },
+                      "viewParams": {},
+                      "viewPath": "",
+                      "visible": true,
+                      "width": ""
+                    },
+                    {
+                      "align": "center",
+                      "boolean": "checkbox",
+                      "dateFormat": "MM/DD/YYYY",
+                      "editable": false,
+                      "field": "ReasonName",
+                      "filter": {
+                        "boolean": {
+                          "condition": ""
+                        },
+                        "date": {
+                          "condition": "",
+                          "value": ""
+                        },
+                        "enabled": false,
+                        "number": {
+                          "condition": "",
+                          "value": ""
+                        },
+                        "string": {
+                          "condition": "",
+                          "value": ""
+                        },
+                        "visible": "on-hover"
+                      },
+                      "footer": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": ""
+                      },
+                      "header": {
+                        "align": "center",
+                        "justify": "center",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": "ReasonName"
+                      },
+                      "justify": "center",
+                      "nullFormat": {
+                        "includeNullStrings": false,
+                        "nullFormatValue": "",
+                        "strict": false
+                      },
+                      "number": "progress",
+                      "numberFormat": "0,0.##",
+                      "progressBar": {
+                        "bar": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "max": 100,
+                        "min": 0,
+                        "track": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "value": {
+                          "enabled": true,
+                          "format": "0,0.##",
+                          "justify": "center",
+                          "style": {
+                            "classes": ""
+                          }
+                        }
+                      },
+                      "render": "auto",
+                      "resizable": true,
+                      "sort": "none",
+                      "sortable": true,
+                      "strictWidth": false,
+                      "style": {
+                        "classes": ""
+                      },
+                      "toggleSwitch": {
+                        "color": {
+                          "selected": "",
+                          "unselected": ""
+                        }
+                      },
+                      "viewParams": {},
+                      "viewPath": "Project/Supervisor/Operator Overview/components/Downtime Type",
+                      "visible": true,
+                      "width": ""
+                    },
+                    {
+                      "align": "center",
+                      "boolean": "checkbox",
+                      "dateFormat": "MM/DD/YYYY",
+                      "editable": false,
+                      "field": "update",
+                      "filter": {
+                        "boolean": {
+                          "condition": ""
+                        },
+                        "date": {
+                          "condition": "",
+                          "value": ""
+                        },
+                        "enabled": false,
+                        "number": {
+                          "condition": "",
+                          "value": ""
+                        },
+                        "string": {
+                          "condition": "",
+                          "value": ""
+                        },
+                        "visible": "on-hover"
+                      },
+                      "footer": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": ""
+                      },
+                      "header": {
+                        "align": "center",
+                        "justify": "center",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": "Update"
+                      },
+                      "justify": "center",
+                      "nullFormat": {
+                        "includeNullStrings": false,
+                        "nullFormatValue": "",
+                        "strict": false
+                      },
+                      "number": "value",
+                      "numberFormat": "0,0.##",
+                      "progressBar": {
+                        "bar": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "max": 100,
+                        "min": 0,
+                        "track": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "value": {
+                          "enabled": true,
+                          "format": "0,0.##",
+                          "justify": "center",
+                          "style": {
+                            "classes": ""
+                          }
+                        }
+                      },
+                      "render": "auto",
+                      "resizable": true,
+                      "sort": "none",
+                      "sortable": true,
+                      "strictWidth": false,
+                      "style": {
+                        "classes": ""
+                      },
+                      "toggleSwitch": {
+                        "color": {
+                          "selected": "",
+                          "unselected": ""
+                        }
+                      },
+                      "viewParams": {},
+                      "viewPath": "Project/Supervisor/Operator Overview/components/Downtime Update",
+                      "visible": true,
+                      "width": ""
+                    },
+                    {
+                      "align": "center",
+                      "boolean": "checkbox",
+                      "dateFormat": "MM/DD/YYYY",
+                      "editable": false,
+                      "field": "delete",
+                      "filter": {
+                        "boolean": {
+                          "condition": ""
+                        },
+                        "date": {
+                          "condition": "",
+                          "value": ""
+                        },
+                        "enabled": false,
+                        "number": {
+                          "condition": "",
+                          "value": ""
+                        },
+                        "string": {
+                          "condition": "",
+                          "value": ""
+                        },
+                        "visible": "on-hover"
+                      },
+                      "footer": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": ""
+                      },
+                      "header": {
+                        "align": "center",
+                        "justify": "center",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": "Delete"
+                      },
+                      "justify": "center",
+                      "nullFormat": {
+                        "includeNullStrings": false,
+                        "nullFormatValue": "",
+                        "strict": false
+                      },
+                      "number": "value",
+                      "numberFormat": "0,0.##",
+                      "progressBar": {
+                        "bar": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "max": 100,
+                        "min": 0,
+                        "track": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "value": {
+                          "enabled": true,
+                          "format": "0,0.##",
+                          "justify": "center",
+                          "style": {
+                            "classes": ""
+                          }
+                        }
+                      },
+                      "render": "auto",
+                      "resizable": true,
+                      "sort": "none",
+                      "sortable": true,
+                      "strictWidth": false,
+                      "style": {
+                        "classes": ""
+                      },
+                      "toggleSwitch": {
+                        "color": {
+                          "selected": "",
+                          "unselected": ""
+                        }
+                      },
+                      "viewParams": {},
+                      "viewPath": "Project/Supervisor/Operator Overview/components/Downtime Delete",
+                      "visible": true,
+                      "width": ""
+                    }
+                  ],
+                  "headerStyle": {
+                    "classes": "Project/Table/Header",
+                    "fontFamily": "verdana",
+                    "fontSize": "20px"
+                  },
+                  "pager": {
+                    "bottom": false
+                  },
+                  "rows": {
+                    "height": "20px",
+                    "striped": {
+                      "color": {
+                        "even": "#D5D5D50B",
+                        "odd": "var(--neutral-10)"
+                      }
+                    },
+                    "style": {
+                      "borderBottomStyle": "solid",
+                      "borderBottomWidth": "1px",
+                      "classes": "Project/Table/Row",
+                      "fontFamily": "verdana",
+                      "fontSize": "17px"
+                    }
+                  },
+                  "style": {
+                    "borderBottomLeftRadius": "15px",
+                    "borderBottomRightRadius": "15px",
+                    "borderLeftColor": "--div-13",
+                    "borderLeftStyle": "none",
+                    "borderLeftWidth": "5px",
+                    "borderTopLeftRadius": "15px",
+                    "borderTopRightRadius": "15px",
+                    "classes": "Project/Table/Table",
+                    "fontFamily": "verdana",
+                    "margin": "0px",
+                    "marginBottom": "10px",
+                    "marginLeft": "10px",
+                    "marginRight": "10px"
+                  }
+                },
+                "scripts": {
+                  "customMethods": [],
+                  "extensionFunctions": null,
+                  "messageHandlers": [
+                    {
+                      "messageType": "refreshBinding",
+                      "pageScope": true,
+                      "script": "\t# implement your handler here\n\tself.refreshBinding(\"props.data\")",
+                      "sessionScope": false,
+                      "viewScope": false
+                    }
+                  ]
+                },
+                "type": "ia.display.table"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_1"
+            },
+            "position": {
+              "grow": 1
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "marginTop": "0px"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_0"
+        },
+        "position": {
+          "basis": "608px",
+          "grow": 1
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "backgroundColor": "--neutral-30",
+            "borderBottomLeftRadius": "10px",
+            "borderBottomRightRadius": "10px",
+            "borderLeftColor": "--div-4",
+            "borderLeftStyle": "solid",
+            "borderLeftWidth": "5px",
+            "borderTopLeftRadius": "10px",
+            "borderTopRightRadius": "10px",
+            "marginBottom": "15px",
+            "marginTop": "15px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "#\tuser \u003d self.view.params.username\n#\tday \u003d self.view.custom.day\n\tsystem.perspective.navigate(view \u003d \u0027Project/Supervisor/Operator Overview/Operator overview Page\u0027)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "BackButton"
+            },
+            "position": {
+              "basis": "115px"
+            },
+            "props": {
+              "style": {
+                "backgroundColor": "--neutral-20",
+                "borderColor": "rgba(255,255,255,0.12)",
+                "borderRadius": "8px",
+                "borderStyle": "inset",
+                "borderWidth": "1px",
+                "color": "--neutral-90",
+                "cursor": "pointer",
+                "fontFamily": "\u0027Segoe UI\u0027, sans-serif",
+                "fontSize": "18px",
+                "fontWeight": "600",
+                "marginBottom": "5px",
+                "marginLeft": "10px",
+                "marginTop": "5px"
+              },
+              "text": "← Back"
+            },
+            "type": "ia.input.button"
+          }
+        ],
+        "meta": {
+          "name": "BottomActionBar"
+        },
+        "position": {
+          "basis": "50px"
+        },
+        "props": {
+          "justify": "space-between",
+          "style": {
+            "backgroundColor": "--neutral-30",
+            "borderBottomLeftRadius": "10px",
+            "borderBottomRightRadius": "10px",
+            "borderTopColor": "rgba(255,255,255,0.07)",
+            "borderTopLeftRadius": "10px",
+            "borderTopRightRadius": "10px",
+            "borderTopStyle": "solid",
+            "borderTopWidth": "1px",
+            "flexShrink": "0",
+            "gap": "8px"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "marginBottom": "10px",
+        "marginLeft": "20px",
+        "marginRight": "20px",
+        "marginTop": "10px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}
